@@ -80,6 +80,9 @@ extern GenericMessage_V1DefaultTypeInternal _GenericMessage_V1_default_instance_
 class IntSpan;
 struct IntSpanDefaultTypeInternal;
 extern IntSpanDefaultTypeInternal _IntSpan_default_instance_;
+class MessageData;
+struct MessageDataDefaultTypeInternal;
+extern MessageDataDefaultTypeInternal _MessageData_default_instance_;
 class Ping;
 struct PingDefaultTypeInternal;
 extern PingDefaultTypeInternal _Ping_default_instance_;
@@ -99,6 +102,7 @@ template<> ::Common::Float4Array* Arena::CreateMaybeMessage<::Common::Float4Arra
 template<> ::Common::GenericMessage* Arena::CreateMaybeMessage<::Common::GenericMessage>(Arena*);
 template<> ::Common::GenericMessage_V1* Arena::CreateMaybeMessage<::Common::GenericMessage_V1>(Arena*);
 template<> ::Common::IntSpan* Arena::CreateMaybeMessage<::Common::IntSpan>(Arena*);
+template<> ::Common::MessageData* Arena::CreateMaybeMessage<::Common::MessageData>(Arena*);
 template<> ::Common::Ping* Arena::CreateMaybeMessage<::Common::Ping>(Arena*);
 template<> ::Common::Ping_V1* Arena::CreateMaybeMessage<::Common::Ping_V1>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -1653,6 +1657,175 @@ class IntSpan final :
 };
 // -------------------------------------------------------------------
 
+class MessageData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Common.MessageData) */ {
+ public:
+  inline MessageData() : MessageData(nullptr) {}
+  ~MessageData() override;
+  explicit PROTOBUF_CONSTEXPR MessageData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  MessageData(const MessageData& from);
+  MessageData(MessageData&& from) noexcept
+    : MessageData() {
+    *this = ::std::move(from);
+  }
+
+  inline MessageData& operator=(const MessageData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MessageData& operator=(MessageData&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MessageData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const MessageData* internal_default_instance() {
+    return reinterpret_cast<const MessageData*>(
+               &_MessageData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(MessageData& a, MessageData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MessageData* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MessageData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MessageData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<MessageData>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const MessageData& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const MessageData& from) {
+    MessageData::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MessageData* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Common.MessageData";
+  }
+  protected:
+  explicit MessageData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeyFieldNumber = 1,
+    kValFieldNumber = 2,
+  };
+  // string key = 1;
+  void clear_key();
+  const std::string& key() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_key(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_key();
+  PROTOBUF_NODISCARD std::string* release_key();
+  void set_allocated_key(std::string* key);
+  private:
+  const std::string& _internal_key() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
+  std::string* _internal_mutable_key();
+  public:
+
+  // string val = 2;
+  void clear_val();
+  const std::string& val() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_val(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_val();
+  PROTOBUF_NODISCARD std::string* release_val();
+  void set_allocated_val(std::string* val);
+  private:
+  const std::string& _internal_val() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_val(const std::string& value);
+  std::string* _internal_mutable_val();
+  public:
+
+  // @@protoc_insertion_point(class_scope:Common.MessageData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr val_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GenericMessage_V1 final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Common.GenericMessage.V1) */ {
  public:
@@ -1701,7 +1874,7 @@ class GenericMessage_V1 final :
                &_GenericMessage_V1_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(GenericMessage_V1& a, GenericMessage_V1& b) {
     a.Swap(&b);
@@ -1808,9 +1981,29 @@ class GenericMessage_V1 final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kDataFieldNumber = 10,
     kMessageFieldNumber = 2,
+    kCodeFieldNumber = 3,
     kCategoryFieldNumber = 1,
   };
+  // repeated .Common.MessageData data = 10;
+  int data_size() const;
+  private:
+  int _internal_data_size() const;
+  public:
+  void clear_data();
+  ::Common::MessageData* mutable_data(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Common::MessageData >*
+      mutable_data();
+  private:
+  const ::Common::MessageData& _internal_data(int index) const;
+  ::Common::MessageData* _internal_add_data();
+  public:
+  const ::Common::MessageData& data(int index) const;
+  ::Common::MessageData* add_data();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Common::MessageData >&
+      data() const;
+
   // string message = 2;
   void clear_message();
   const std::string& message() const;
@@ -1823,6 +2016,24 @@ class GenericMessage_V1 final :
   const std::string& _internal_message() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_message(const std::string& value);
   std::string* _internal_mutable_message();
+  public:
+
+  // optional string code = 3;
+  bool has_code() const;
+  private:
+  bool _internal_has_code() const;
+  public:
+  void clear_code();
+  const std::string& code() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_code(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_code();
+  PROTOBUF_NODISCARD std::string* release_code();
+  void set_allocated_code(std::string* code);
+  private:
+  const std::string& _internal_code() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_code(const std::string& value);
+  std::string* _internal_mutable_code();
   public:
 
   // .Common.GenericMessage.V1.Category category = 1;
@@ -1842,9 +2053,12 @@ class GenericMessage_V1 final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
-    int category_;
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Common::MessageData > data_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr code_;
+    int category_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_common_2eproto;
@@ -1904,7 +2118,7 @@ class GenericMessage final :
                &_GenericMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(GenericMessage& a, GenericMessage& b) {
     a.Swap(&b);
@@ -2075,7 +2289,7 @@ class Ping_V1 final :
                &_Ping_V1_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(Ping_V1& a, Ping_V1& b) {
     a.Swap(&b);
@@ -2237,7 +2451,7 @@ class Ping final :
                &_Ping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(Ping& a, Ping& b) {
     a.Swap(&b);
@@ -3041,6 +3255,110 @@ inline void IntSpan::set_to(int32_t value) {
 
 // -------------------------------------------------------------------
 
+// MessageData
+
+// string key = 1;
+inline void MessageData::clear_key() {
+  _impl_.key_.ClearToEmpty();
+}
+inline const std::string& MessageData::key() const {
+  // @@protoc_insertion_point(field_get:Common.MessageData.key)
+  return _internal_key();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void MessageData::set_key(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.key_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Common.MessageData.key)
+}
+inline std::string* MessageData::mutable_key() {
+  std::string* _s = _internal_mutable_key();
+  // @@protoc_insertion_point(field_mutable:Common.MessageData.key)
+  return _s;
+}
+inline const std::string& MessageData::_internal_key() const {
+  return _impl_.key_.Get();
+}
+inline void MessageData::_internal_set_key(const std::string& value) {
+  
+  _impl_.key_.Set(value, GetArenaForAllocation());
+}
+inline std::string* MessageData::_internal_mutable_key() {
+  
+  return _impl_.key_.Mutable(GetArenaForAllocation());
+}
+inline std::string* MessageData::release_key() {
+  // @@protoc_insertion_point(field_release:Common.MessageData.key)
+  return _impl_.key_.Release();
+}
+inline void MessageData::set_allocated_key(std::string* key) {
+  if (key != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.key_.SetAllocated(key, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.key_.IsDefault()) {
+    _impl_.key_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Common.MessageData.key)
+}
+
+// string val = 2;
+inline void MessageData::clear_val() {
+  _impl_.val_.ClearToEmpty();
+}
+inline const std::string& MessageData::val() const {
+  // @@protoc_insertion_point(field_get:Common.MessageData.val)
+  return _internal_val();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void MessageData::set_val(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.val_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Common.MessageData.val)
+}
+inline std::string* MessageData::mutable_val() {
+  std::string* _s = _internal_mutable_val();
+  // @@protoc_insertion_point(field_mutable:Common.MessageData.val)
+  return _s;
+}
+inline const std::string& MessageData::_internal_val() const {
+  return _impl_.val_.Get();
+}
+inline void MessageData::_internal_set_val(const std::string& value) {
+  
+  _impl_.val_.Set(value, GetArenaForAllocation());
+}
+inline std::string* MessageData::_internal_mutable_val() {
+  
+  return _impl_.val_.Mutable(GetArenaForAllocation());
+}
+inline std::string* MessageData::release_val() {
+  // @@protoc_insertion_point(field_release:Common.MessageData.val)
+  return _impl_.val_.Release();
+}
+inline void MessageData::set_allocated_val(std::string* val) {
+  if (val != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.val_.SetAllocated(val, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.val_.IsDefault()) {
+    _impl_.val_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Common.MessageData.val)
+}
+
+// -------------------------------------------------------------------
+
 // GenericMessage_V1
 
 // .Common.GenericMessage.V1.Category category = 1;
@@ -3111,6 +3429,114 @@ inline void GenericMessage_V1::set_allocated_message(std::string* message) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:Common.GenericMessage.V1.message)
+}
+
+// optional string code = 3;
+inline bool GenericMessage_V1::_internal_has_code() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool GenericMessage_V1::has_code() const {
+  return _internal_has_code();
+}
+inline void GenericMessage_V1::clear_code() {
+  _impl_.code_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& GenericMessage_V1::code() const {
+  // @@protoc_insertion_point(field_get:Common.GenericMessage.V1.code)
+  return _internal_code();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GenericMessage_V1::set_code(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.code_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Common.GenericMessage.V1.code)
+}
+inline std::string* GenericMessage_V1::mutable_code() {
+  std::string* _s = _internal_mutable_code();
+  // @@protoc_insertion_point(field_mutable:Common.GenericMessage.V1.code)
+  return _s;
+}
+inline const std::string& GenericMessage_V1::_internal_code() const {
+  return _impl_.code_.Get();
+}
+inline void GenericMessage_V1::_internal_set_code(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.code_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GenericMessage_V1::_internal_mutable_code() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.code_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GenericMessage_V1::release_code() {
+  // @@protoc_insertion_point(field_release:Common.GenericMessage.V1.code)
+  if (!_internal_has_code()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.code_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.code_.IsDefault()) {
+    _impl_.code_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GenericMessage_V1::set_allocated_code(std::string* code) {
+  if (code != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.code_.SetAllocated(code, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.code_.IsDefault()) {
+    _impl_.code_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Common.GenericMessage.V1.code)
+}
+
+// repeated .Common.MessageData data = 10;
+inline int GenericMessage_V1::_internal_data_size() const {
+  return _impl_.data_.size();
+}
+inline int GenericMessage_V1::data_size() const {
+  return _internal_data_size();
+}
+inline void GenericMessage_V1::clear_data() {
+  _impl_.data_.Clear();
+}
+inline ::Common::MessageData* GenericMessage_V1::mutable_data(int index) {
+  // @@protoc_insertion_point(field_mutable:Common.GenericMessage.V1.data)
+  return _impl_.data_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Common::MessageData >*
+GenericMessage_V1::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_list:Common.GenericMessage.V1.data)
+  return &_impl_.data_;
+}
+inline const ::Common::MessageData& GenericMessage_V1::_internal_data(int index) const {
+  return _impl_.data_.Get(index);
+}
+inline const ::Common::MessageData& GenericMessage_V1::data(int index) const {
+  // @@protoc_insertion_point(field_get:Common.GenericMessage.V1.data)
+  return _internal_data(index);
+}
+inline ::Common::MessageData* GenericMessage_V1::_internal_add_data() {
+  return _impl_.data_.Add();
+}
+inline ::Common::MessageData* GenericMessage_V1::add_data() {
+  ::Common::MessageData* _add = _internal_add_data();
+  // @@protoc_insertion_point(field_add:Common.GenericMessage.V1.data)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Common::MessageData >&
+GenericMessage_V1::data() const {
+  // @@protoc_insertion_point(field_list:Common.GenericMessage.V1.data)
+  return _impl_.data_;
 }
 
 // -------------------------------------------------------------------
@@ -3379,6 +3805,8 @@ inline Ping::VCase Ping::V_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

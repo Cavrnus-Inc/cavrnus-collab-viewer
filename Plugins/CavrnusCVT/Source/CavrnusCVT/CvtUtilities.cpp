@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "CvtUtilities.h"
+#include <Serialization/JsonReader.h>
+#include <Serialization/JsonSerializer.h>
 
 TArray<FTransform> UCvtUtilities::JsonStringToFTransformArray(const FString& JsonStr, const FString& FieldName,
                                                               bool& Success)

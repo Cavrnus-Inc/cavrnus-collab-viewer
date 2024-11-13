@@ -3,13 +3,13 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class cavrnus_cvt_53Target : TargetRules
+public class CavrnusCollabViewerTarget : TargetRules
 {
-	public cavrnus_cvt_53Target(TargetInfo Target) : base(Target)
+	public CavrnusCollabViewerTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V4;
 
-		ExtraModuleNames.AddRange( new string[] { "cavrnus_cvt_53" } );
+		ExtraModuleNames.AddRange( new string[] { "CavrnusCollabViewer" } );
 	}
 }

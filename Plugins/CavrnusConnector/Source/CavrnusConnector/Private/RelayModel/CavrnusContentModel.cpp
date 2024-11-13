@@ -1,10 +1,10 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #include "RelayModel/CavrnusContentModel.h"
 #include <Misc/FileHelper.h>
 
 namespace Cavrnus
 {
-
 	CavrnusContentModel::CavrnusContentModel()
 	{
 	}
@@ -91,4 +91,4 @@ namespace Cavrnus
 
 		return res;
 	}
-}
+} // namespace Cavrnus

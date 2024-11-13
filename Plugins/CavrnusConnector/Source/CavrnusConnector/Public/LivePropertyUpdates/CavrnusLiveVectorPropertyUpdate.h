@@ -11,9 +11,6 @@
 #include "LivePropertyUpdates/CavrnusLivePropertyUpdate.h"
 
 #include "CavrnusLiveVectorPropertyUpdate.generated.h"		// Always last
-/**
- *
- */
 
 /**
  * @brief UCavrnusLiveVectorPropertyUpdate class for handling live vector property updates in Cavrnus.

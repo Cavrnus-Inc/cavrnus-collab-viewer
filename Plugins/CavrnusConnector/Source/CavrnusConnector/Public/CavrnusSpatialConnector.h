@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -7,6 +8,8 @@
 #include "UI/CavrnusLoginWidget.h"
 #include "UI/CavrnusGuestLoginWidget.h"
 #include "UI/CavrnusSpaceListWidget.h"
+#include "UI/CavrnusServerSelectionWidget.h"
+
 #include "Types/CavrnusCallbackTypes.h"
 #include "Types/CavrnusSpawnedObject.h"
 
@@ -16,7 +19,7 @@
 UENUM()
 enum class ECavrnusAuthMethod
 {
-	None,
+	Custom,
 	JoinAsMember,
 	JoinAsGuest
 };
@@ -24,7 +27,7 @@ enum class ECavrnusAuthMethod
 UENUM()
 enum class ECavrnusMemberLoginMethod
 {
-	None,
+	Custom,
 	EnterMemberLoginCredentials,
 	PromptMemberToLogin
 };
@@ -32,7 +35,7 @@ enum class ECavrnusMemberLoginMethod
 UENUM()
 enum class ECavrnusGuestLoginMethod
 {
-	None,
+	Custom,
 	EnterNameBelow,
 	PromptToEnterName
 };
@@ -40,11 +43,10 @@ enum class ECavrnusGuestLoginMethod
 UENUM()
 enum class ECavrnusSpaceJoinMethod
 {
-	None,
+	Custom,
 	EnterSpaceId,
 	SpacesList
 };
-
 
 UCLASS()
 class CAVRNUSCONNECTOR_API ACavrnusSpatialConnector : public AActor
@@ -73,6 +75,8 @@ public:
 	/** Server address */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	FString MyServer;
+	// Pointer to server selection menu for the case where the developer does not set a default domain
+	TSubclassOf<UCavrnusServerSelectionWidget> ServerSelectionMenu;
 
 	// ------------------------------------------------------------ Authentication --------------------------------------------------------------------
 	/** Property for selecting the authentication widget class. */
@@ -126,6 +130,7 @@ public:
 	TSubclassOf<AActor> RemoteAvatarClass;
 
 	// ------------------------------------------- In Space UI ----------------------------------------------------------------------------------
+
 	/** Property for selecting the authentication widget class. */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	TSubclassOf<UUserWidget> AuthenticationWidgetClass;
@@ -141,4 +146,11 @@ public:
 	/** Map property for specifying spawnable identifiers and their corresponding actor classes. */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	TMap<FString, TSubclassOf<AActor>> SpawnableIdentifiers;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
+	FString SpaceId;
+
+private:
+	// Really should be in a utility/helper class
+	UClass* GetDefaultBlueprint(const FString& Path, UClass* BaseClass) const;
 };

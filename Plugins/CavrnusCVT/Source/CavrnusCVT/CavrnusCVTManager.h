@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include <GameFramework/Actor.h>
 #include "CavrnusCVTManager.generated.h"
 
 UCLASS(Abstract, Blueprintable)

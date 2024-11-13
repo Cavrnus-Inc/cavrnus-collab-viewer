@@ -30,6 +30,16 @@
 // Authentication Functions
 // ============================================
 
+void UCavrnusFunctionLibrary::SetForceKeepAlive()
+{
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildSetForceKeepAlive());
+}
+
+void UCavrnusFunctionLibrary::EndForceKeepAlive()
+{
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildEndForceKeepAlive());
+}
+
 UCavrnusSpatialConnectorSubSystemProxy* UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy()
 {
 	TArray<UObject*> Results;
@@ -196,13 +206,18 @@ void UCavrnusFunctionLibrary::CreateSpace(FString SpaceName, FCavrnusSpaceCreate
 		OnFailure.ExecuteIfBound(val);
 	};
 
-	CreateSpace(SpaceName, callback, errorCallback);
+	CreateSpace(SpaceName, TArray<FString>(), callback, errorCallback);
 }
 
 void UCavrnusFunctionLibrary::CreateSpace(FString SpaceName, CavrnusSpaceCreated OnCreation, CavrnusError OnFailure)
 {
+	CreateSpace(SpaceName, TArray<FString>(), OnCreation, OnFailure);
+}
+
+void UCavrnusFunctionLibrary::CreateSpace(FString SpaceName, TArray<FString> Keywords, CavrnusSpaceCreated OnCreation, CavrnusError OnFailure)
+{
 	int RequestId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetCallbackModel()->RegisterCreateSpaceCallback(OnCreation, OnFailure);
-	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildCreateSpaceMsg(RequestId, SpaceName));
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildCreateSpaceMsg(RequestId, SpaceName, Keywords));
 }
 
 void UCavrnusFunctionLibrary::AwaitAnySpaceBeginLoading(FCavrnusSpaceBeginLoading OnBeginLoading)
@@ -301,9 +316,7 @@ UCavrnusLivePropertyUpdate* UCavrnusFunctionLibrary::BeginTransientGenericProper
 void UCavrnusFunctionLibrary::PostGenericPropertyUpdate(FCavrnusSpaceConnection SpaceConnection, const FPropertiesContainer& ContainerName, const FString& PropertyName, Cavrnus::FPropertyValue PropertyValue, const FPropertyPostOptions& options)
 {
 	CheckErrors(SpaceConnection);
-	int localChangeId = -1;
-	if(!options.Smoothed)
-		localChangeId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetSpacePropertyModel(SpaceConnection)->SetLocalPropVal(FAbsolutePropertyId(ContainerName, PropertyName), PropertyValue);
+	int localChangeId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetSpacePropertyModel(SpaceConnection)->SetLocalPropVal(FAbsolutePropertyId(ContainerName, PropertyName), PropertyValue);
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildUpdatePropMsg(SpaceConnection, FAbsolutePropertyId(ContainerName, PropertyName), PropertyValue, localChangeId, options));
 }
 
@@ -827,7 +840,6 @@ void UCavrnusFunctionLibrary::DestroyObject(const FCavrnusSpawnedObject& Spawned
 
 #pragma endregion
 
-
 #pragma region Space Users
 
 // ============================================
@@ -1040,6 +1052,22 @@ void UCavrnusFunctionLibrary::UpdateVideoInput(FCavrnusVideoInputDevice Device)
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildSetVideoInput(Device));
 }
 
+void UCavrnusFunctionLibrary::FetchFileInfoById(FString ContentId, FCavrnusRemoteContentInfoFunction OnRecvContentInfo)
+{
+	CavrnusRemoteContentInfoFunction completeCallback = [OnRecvContentInfo](const FCavrnusRemoteContent& content)
+		{
+			OnRecvContentInfo.ExecuteIfBound(content);
+		};
+
+	FetchFileInfoById(ContentId, completeCallback);
+}
+
+void UCavrnusFunctionLibrary::FetchFileInfoById(FString ContentId, const CavrnusRemoteContentInfoFunction& OnRecvContentInfo)
+{
+	int RequestId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetCallbackModel()->RegisterFetchRemoteContentInfo(OnRecvContentInfo);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildRequestFileInfoById(RequestId, ContentId));
+}
+
 void UCavrnusFunctionLibrary::FetchFileById(FString ContentId, FCavrnusContentProgressFunction OnProgress, FCavrnusContentFunction OnContentLoaded)
 {
 	CavrnusContentProgressFunction progressCallback = [OnProgress](const float prog, const FString& step)
@@ -1131,6 +1159,22 @@ void UCavrnusFunctionLibrary::UploadContentWithTags(FString FilePath, TMap<FStri
 {
 	int RequestId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetCallbackModel()->RegisterUploadContent(OnUploadComplete);
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildUploadContent(RequestId, FilePath, Tags));
+}
+
+void UCavrnusFunctionLibrary::RequestContentDestinationFolder(FString FolderName, FCavrnusFolderCallback OnRecvFullFolderPath)
+{
+	TFunction<void(FString)> callback = [OnRecvFullFolderPath](const FString& fullFolderPath)
+		{
+			OnRecvFullFolderPath.ExecuteIfBound(fullFolderPath);
+		};
+
+	RequestContentDestinationFolder(FolderName, callback);
+}
+
+void UCavrnusFunctionLibrary::RequestContentDestinationFolder(FString FolderName, const TFunction<void(FString)>& OnRecvFullFolderPath)
+{
+	int RequestId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetCallbackModel()->RegisterFolderReq(OnRecvFullFolderPath);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFolderReq(RequestId, FolderName));
 }
 
 UPARAM(DisplayName = "Disposable")UCavrnusBinding* UCavrnusFunctionLibrary::BindChatMessages(const FCavrnusSpaceConnection& spaceConn, const FCavrnusChatFunction& ChatAdded, const FCavrnusChatFunction& ChatUpdated, const FCavrnusChatRemovedFunction& ChatRemoved)

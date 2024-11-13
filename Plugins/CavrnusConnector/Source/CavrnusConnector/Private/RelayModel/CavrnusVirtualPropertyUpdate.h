@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include <MathUtil.h>
@@ -38,4 +39,4 @@ namespace Cavrnus
 
 		FPropertyPostOptions Options;
 	};
-}
+} // namespace Cavrnus

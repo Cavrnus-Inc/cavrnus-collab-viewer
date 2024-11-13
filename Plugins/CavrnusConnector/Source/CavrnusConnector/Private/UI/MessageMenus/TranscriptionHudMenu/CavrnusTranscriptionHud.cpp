@@ -1,4 +1,4 @@
-// // Copyright (c), Cavrnus. All rights reserved.
+// Copyright (c), Cavrnus. All rights reserved.
 
 #include "UI/MessageMenus/TranscriptionHudMenu/CavrnusTranscriptionHud.h"
 #include "CavrnusFunctionLibrary.h"
@@ -51,7 +51,7 @@ void UCavrnusTranscriptionHud::HandleChatAdded(FChatEntry ChatAdded)
 		CW->Setup(ChatAdded, DurationVisible);
 		CW->SetVisibility(ESlateVisibility::Visible);
 
-		//This could blow up...
+		// TODO: Perf analysis
 		CW->OnKilled.BindLambda([this](UCavrnusTranscriptionHudEntry* UserWidget)
 		{
 			// UE_LOG(LogCavrnusConnector, Log, TEXT("OnKilled"));

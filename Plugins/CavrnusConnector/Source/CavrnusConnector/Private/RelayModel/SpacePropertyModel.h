@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include <Containers/Map.h>
@@ -114,5 +115,4 @@ namespace Cavrnus
 			return split.Last();
 		}
 	};
-
-} // namespace CavrnusRelay
+} // namespace Cavrnus

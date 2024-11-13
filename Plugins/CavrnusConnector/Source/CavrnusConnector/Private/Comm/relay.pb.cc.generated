@@ -99,6 +99,28 @@ struct UpdateTimeDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UpdateTimeDefaultTypeInternal _UpdateTime_default_instance_;
+PROTOBUF_CONSTEXPR SetForceKeepAlive::SetForceKeepAlive(
+    ::_pbi::ConstantInitialized) {}
+struct SetForceKeepAliveDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SetForceKeepAliveDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SetForceKeepAliveDefaultTypeInternal() {}
+  union {
+    SetForceKeepAlive _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SetForceKeepAliveDefaultTypeInternal _SetForceKeepAlive_default_instance_;
+PROTOBUF_CONSTEXPR EndForceKeepAlive::EndForceKeepAlive(
+    ::_pbi::ConstantInitialized) {}
+struct EndForceKeepAliveDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR EndForceKeepAliveDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~EndForceKeepAliveDefaultTypeInternal() {}
+  union {
+    EndForceKeepAlive _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EndForceKeepAliveDefaultTypeInternal _EndForceKeepAlive_default_instance_;
 PROTOBUF_CONSTEXPR StatusMessage::StatusMessage(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.Message_)*/{}
@@ -293,7 +315,8 @@ struct ShutdownSpaceConnectionRespDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ShutdownSpaceConnectionRespDefaultTypeInternal _ShutdownSpaceConnectionResp_default_instance_;
 PROTOBUF_CONSTEXPR CreateSpaceReq::CreateSpaceReq(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.newspacename_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.keywords_)*/{}
+  , /*decltype(_impl_.newspacename_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.reqid_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CreateSpaceReqDefaultTypeInternal {
@@ -691,6 +714,63 @@ struct UploadLocalFileReqDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UploadLocalFileReqDefaultTypeInternal _UploadLocalFileReq_default_instance_;
+PROTOBUF_CONSTEXPR ContentDestinationFolderReq::ContentDestinationFolderReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.foldername_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.reqid_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ContentDestinationFolderReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ContentDestinationFolderReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ContentDestinationFolderReqDefaultTypeInternal() {}
+  union {
+    ContentDestinationFolderReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ContentDestinationFolderReqDefaultTypeInternal _ContentDestinationFolderReq_default_instance_;
+PROTOBUF_CONSTEXPR ContentDestinationFolderResp::ContentDestinationFolderResp(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.reqid_)*/0
+  , /*decltype(_impl_.Resp_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct ContentDestinationFolderRespDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ContentDestinationFolderRespDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ContentDestinationFolderRespDefaultTypeInternal() {}
+  union {
+    ContentDestinationFolderResp _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ContentDestinationFolderRespDefaultTypeInternal _ContentDestinationFolderResp_default_instance_;
+PROTOBUF_CONSTEXPR FetchRemoteContentInfoReq::FetchRemoteContentInfoReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.contentid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.reqid_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct FetchRemoteContentInfoReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR FetchRemoteContentInfoReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~FetchRemoteContentInfoReqDefaultTypeInternal() {}
+  union {
+    FetchRemoteContentInfoReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FetchRemoteContentInfoReqDefaultTypeInternal _FetchRemoteContentInfoReq_default_instance_;
+PROTOBUF_CONSTEXPR FetchRemoteContentInfoResp::FetchRemoteContentInfoResp(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.uploadedcontent_)*/nullptr
+  , /*decltype(_impl_.reqid_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct FetchRemoteContentInfoRespDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR FetchRemoteContentInfoRespDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~FetchRemoteContentInfoRespDefaultTypeInternal() {}
+  union {
+    FetchRemoteContentInfoResp _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FetchRemoteContentInfoRespDefaultTypeInternal _FetchRemoteContentInfoResp_default_instance_;
 PROTOBUF_CONSTEXPR FetchAllUploadedContentResp::FetchAllUploadedContentResp(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.availablecontent_)*/{}
@@ -798,7 +878,8 @@ struct UserVideoFrameDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UserVideoFrameDefaultTypeInternal _UserVideoFrame_default_instance_;
 PROTOBUF_CONSTEXPR SpaceInfo::SpaceInfo(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.spaceid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.keywords_)*/{}
+  , /*decltype(_impl_.spaceid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.spacename_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.spacethumbnailurl_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.lastaccess_)*/nullptr
@@ -1022,7 +1103,7 @@ struct ChatBaseDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ChatBaseDefaultTypeInternal _ChatBase_default_instance_;
 }  // namespace ServerData
-static ::_pb::Metadata file_level_metadata_relay_2eproto[68];
+static ::_pb::Metadata file_level_metadata_relay_2eproto[74];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_relay_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_relay_2eproto = nullptr;
 
@@ -1040,6 +1121,10 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::RelayClientMessage, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
@@ -1115,6 +1200,8 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ServerData::RelayRemoteMessage, _impl_.Msg_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::KeepAlive, _internal_metadata_),
@@ -1129,6 +1216,18 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::ServerData::UpdateTime, _impl_.time_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::SetForceKeepAlive, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::EndForceKeepAlive, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::StatusMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1258,6 +1357,7 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::ServerData::CreateSpaceReq, _impl_.reqid_),
   PROTOBUF_FIELD_OFFSET(::ServerData::CreateSpaceReq, _impl_.newspacename_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::CreateSpaceReq, _impl_.keywords_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::CreateSpaceResp, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1499,6 +1599,40 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::UploadLocalFileReq, _impl_.tagkeys_),
   PROTOBUF_FIELD_OFFSET(::ServerData::UploadLocalFileReq, _impl_.tagvalues_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ContentDestinationFolderReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ContentDestinationFolderReq, _impl_.reqid_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::ContentDestinationFolderReq, _impl_.foldername_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ContentDestinationFolderResp, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ContentDestinationFolderResp, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::ContentDestinationFolderResp, _impl_.reqid_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::ServerData::ContentDestinationFolderResp, _impl_.Resp_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::FetchRemoteContentInfoReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::FetchRemoteContentInfoReq, _impl_.reqid_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::FetchRemoteContentInfoReq, _impl_.contentid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ServerData::FetchRemoteContentInfoResp, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ServerData::FetchRemoteContentInfoResp, _impl_.reqid_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::FetchRemoteContentInfoResp, _impl_.uploadedcontent_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::FetchAllUploadedContentResp, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -1572,6 +1706,7 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::ServerData::SpaceInfo, _impl_.spacethumbnailurl_),
   PROTOBUF_FIELD_OFFSET(::ServerData::SpaceInfo, _impl_.archived_),
   PROTOBUF_FIELD_OFFSET(::ServerData::SpaceInfo, _impl_.lastaccess_),
+  PROTOBUF_FIELD_OFFSET(::ServerData::SpaceInfo, _impl_.keywords_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ServerData::ObjectAdded, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1703,72 +1838,78 @@ const uint32_t TableStruct_relay_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::ServerData::RelayClientMessageBatch)},
   { 7, -1, -1, sizeof(::ServerData::RelayClientMessage)},
-  { 45, -1, -1, sizeof(::ServerData::RelayRemoteMessageBatch)},
-  { 52, -1, -1, sizeof(::ServerData::RelayRemoteMessage)},
-  { 89, -1, -1, sizeof(::ServerData::KeepAlive)},
-  { 95, -1, -1, sizeof(::ServerData::UpdateTime)},
-  { 102, -1, -1, sizeof(::ServerData::StatusMessage)},
-  { 112, -1, -1, sizeof(::ServerData::AuthenticateReq)},
-  { 122, -1, -1, sizeof(::ServerData::AuthenticateGuestReq)},
-  { 131, -1, -1, sizeof(::ServerData::AuthenticateResp)},
-  { 141, -1, -1, sizeof(::ServerData::AuthenticateGuestResp)},
-  { 151, -1, -1, sizeof(::ServerData::AuthenticateWithLinkReq)},
-  { 159, -1, -1, sizeof(::ServerData::AuthenticateWithLinkResp)},
-  { 169, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutReq)},
-  { 176, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutResp)},
-  { 187, -1, -1, sizeof(::ServerData::JoinSpaceFromIdReq)},
-  { 195, -1, -1, sizeof(::ServerData::JoinSpaceFromIdResp)},
-  { 205, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionReq)},
-  { 213, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionResp)},
-  { 223, -1, -1, sizeof(::ServerData::CreateSpaceReq)},
-  { 231, -1, -1, sizeof(::ServerData::CreateSpaceResp)},
-  { 241, -1, -1, sizeof(::ServerData::PropertyValue)},
-  { 255, -1, -1, sizeof(::ServerData::DefinePropertyDefaultValue)},
-  { 265, -1, -1, sizeof(::ServerData::PostPropertyUpdate)},
-  { 276, -1, -1, sizeof(::ServerData::BeginTransientPropertyUpdate)},
-  { 288, -1, -1, sizeof(::ServerData::ContinueTransientPropertyUpdate)},
-  { 300, -1, -1, sizeof(::ServerData::FinalizeTransientPropertyUpdate)},
-  { 312, -1, -1, sizeof(::ServerData::CancelTransientPropertyUpdate)},
-  { 320, -1, -1, sizeof(::ServerData::TransformPropertyValue)},
-  { 329, -1, -1, sizeof(::ServerData::GetAudioInputDevicesReq)},
-  { 336, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesReq)},
-  { 343, -1, -1, sizeof(::ServerData::GetVideoInputDevicesReq)},
-  { 350, -1, -1, sizeof(::ServerData::GetAudioInputDevicesResp)},
-  { 360, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesResp)},
-  { 370, -1, -1, sizeof(::ServerData::GetVideoInputDevicesResp)},
-  { 380, -1, -1, sizeof(::ServerData::SetAudioInputDeviceReq)},
-  { 388, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceReq)},
-  { 396, -1, -1, sizeof(::ServerData::SetVideoInputDeviceReq)},
-  { 404, -1, -1, sizeof(::ServerData::PostCreateObject)},
-  { 413, -1, -1, sizeof(::ServerData::PostRemoveObject)},
-  { 421, -1, -1, sizeof(::ServerData::FetchFileByIdReq)},
-  { 428, -1, -1, sizeof(::ServerData::FetchFileByIdProgressResp)},
-  { 437, -1, -1, sizeof(::ServerData::FetchFileByIdCompletedResp)},
-  { 446, -1, -1, sizeof(::ServerData::FetchAllUploadedContentReq)},
-  { 453, -1, -1, sizeof(::ServerData::UploadLocalFileResp)},
-  { 461, -1, -1, sizeof(::ServerData::UploadLocalFileReq)},
-  { 471, -1, -1, sizeof(::ServerData::FetchAllUploadedContentResp)},
-  { 479, -1, -1, sizeof(::ServerData::PropMetadataStatus)},
-  { 488, -1, -1, sizeof(::ServerData::PropertyValueStatus)},
-  { 498, -1, -1, sizeof(::ServerData::LocalPropertyHandledResp)},
-  { 507, -1, -1, sizeof(::ServerData::UserAdded)},
-  { 515, -1, -1, sizeof(::ServerData::UserRemoved)},
-  { 523, -1, -1, sizeof(::ServerData::UserVideoFrame)},
-  { 534, -1, -1, sizeof(::ServerData::SpaceInfo)},
-  { 545, -1, -1, sizeof(::ServerData::ObjectAdded)},
-  { 555, -1, -1, sizeof(::ServerData::ObjectRemoved)},
-  { 563, -1, -1, sizeof(::ServerData::UpdateLocalUserMuted)},
-  { 571, -1, -1, sizeof(::ServerData::UpdateLocalUserCoPresence)},
-  { 579, -1, -1, sizeof(::ServerData::UpdateLocalUserStreamState)},
-  { 587, 595, -1, sizeof(::ServerData::PermissionStatusReq)},
-  { 597, 606, -1, sizeof(::ServerData::PermissionStatus)},
-  { 609, -1, -1, sizeof(::ServerData::AllJoinableSpacesReq)},
-  { 616, -1, -1, sizeof(::ServerData::AllJoinableSpacesResp)},
-  { 624, -1, -1, sizeof(::ServerData::ChatAdded)},
-  { 633, -1, -1, sizeof(::ServerData::ChatUpdated)},
-  { 642, -1, -1, sizeof(::ServerData::ChatRemoved)},
-  { 650, -1, -1, sizeof(::ServerData::PostChat)},
-  { 658, -1, -1, sizeof(::ServerData::ChatBase)},
+  { 49, -1, -1, sizeof(::ServerData::RelayRemoteMessageBatch)},
+  { 56, -1, -1, sizeof(::ServerData::RelayRemoteMessage)},
+  { 95, -1, -1, sizeof(::ServerData::KeepAlive)},
+  { 101, -1, -1, sizeof(::ServerData::UpdateTime)},
+  { 108, -1, -1, sizeof(::ServerData::SetForceKeepAlive)},
+  { 114, -1, -1, sizeof(::ServerData::EndForceKeepAlive)},
+  { 120, -1, -1, sizeof(::ServerData::StatusMessage)},
+  { 130, -1, -1, sizeof(::ServerData::AuthenticateReq)},
+  { 140, -1, -1, sizeof(::ServerData::AuthenticateGuestReq)},
+  { 149, -1, -1, sizeof(::ServerData::AuthenticateResp)},
+  { 159, -1, -1, sizeof(::ServerData::AuthenticateGuestResp)},
+  { 169, -1, -1, sizeof(::ServerData::AuthenticateWithLinkReq)},
+  { 177, -1, -1, sizeof(::ServerData::AuthenticateWithLinkResp)},
+  { 187, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutReq)},
+  { 194, -1, -1, sizeof(::ServerData::ExitAllSpacesAndLogoutResp)},
+  { 205, -1, -1, sizeof(::ServerData::JoinSpaceFromIdReq)},
+  { 213, -1, -1, sizeof(::ServerData::JoinSpaceFromIdResp)},
+  { 223, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionReq)},
+  { 231, -1, -1, sizeof(::ServerData::ShutdownSpaceConnectionResp)},
+  { 241, -1, -1, sizeof(::ServerData::CreateSpaceReq)},
+  { 250, -1, -1, sizeof(::ServerData::CreateSpaceResp)},
+  { 260, -1, -1, sizeof(::ServerData::PropertyValue)},
+  { 274, -1, -1, sizeof(::ServerData::DefinePropertyDefaultValue)},
+  { 284, -1, -1, sizeof(::ServerData::PostPropertyUpdate)},
+  { 295, -1, -1, sizeof(::ServerData::BeginTransientPropertyUpdate)},
+  { 307, -1, -1, sizeof(::ServerData::ContinueTransientPropertyUpdate)},
+  { 319, -1, -1, sizeof(::ServerData::FinalizeTransientPropertyUpdate)},
+  { 331, -1, -1, sizeof(::ServerData::CancelTransientPropertyUpdate)},
+  { 339, -1, -1, sizeof(::ServerData::TransformPropertyValue)},
+  { 348, -1, -1, sizeof(::ServerData::GetAudioInputDevicesReq)},
+  { 355, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesReq)},
+  { 362, -1, -1, sizeof(::ServerData::GetVideoInputDevicesReq)},
+  { 369, -1, -1, sizeof(::ServerData::GetAudioInputDevicesResp)},
+  { 379, -1, -1, sizeof(::ServerData::GetAudioOutputDevicesResp)},
+  { 389, -1, -1, sizeof(::ServerData::GetVideoInputDevicesResp)},
+  { 399, -1, -1, sizeof(::ServerData::SetAudioInputDeviceReq)},
+  { 407, -1, -1, sizeof(::ServerData::SetAudioOutputDeviceReq)},
+  { 415, -1, -1, sizeof(::ServerData::SetVideoInputDeviceReq)},
+  { 423, -1, -1, sizeof(::ServerData::PostCreateObject)},
+  { 432, -1, -1, sizeof(::ServerData::PostRemoveObject)},
+  { 440, -1, -1, sizeof(::ServerData::FetchFileByIdReq)},
+  { 447, -1, -1, sizeof(::ServerData::FetchFileByIdProgressResp)},
+  { 456, -1, -1, sizeof(::ServerData::FetchFileByIdCompletedResp)},
+  { 465, -1, -1, sizeof(::ServerData::FetchAllUploadedContentReq)},
+  { 472, -1, -1, sizeof(::ServerData::UploadLocalFileResp)},
+  { 480, -1, -1, sizeof(::ServerData::UploadLocalFileReq)},
+  { 490, -1, -1, sizeof(::ServerData::ContentDestinationFolderReq)},
+  { 498, -1, -1, sizeof(::ServerData::ContentDestinationFolderResp)},
+  { 508, -1, -1, sizeof(::ServerData::FetchRemoteContentInfoReq)},
+  { 516, -1, -1, sizeof(::ServerData::FetchRemoteContentInfoResp)},
+  { 524, -1, -1, sizeof(::ServerData::FetchAllUploadedContentResp)},
+  { 532, -1, -1, sizeof(::ServerData::PropMetadataStatus)},
+  { 541, -1, -1, sizeof(::ServerData::PropertyValueStatus)},
+  { 551, -1, -1, sizeof(::ServerData::LocalPropertyHandledResp)},
+  { 560, -1, -1, sizeof(::ServerData::UserAdded)},
+  { 568, -1, -1, sizeof(::ServerData::UserRemoved)},
+  { 576, -1, -1, sizeof(::ServerData::UserVideoFrame)},
+  { 587, -1, -1, sizeof(::ServerData::SpaceInfo)},
+  { 599, -1, -1, sizeof(::ServerData::ObjectAdded)},
+  { 609, -1, -1, sizeof(::ServerData::ObjectRemoved)},
+  { 617, -1, -1, sizeof(::ServerData::UpdateLocalUserMuted)},
+  { 625, -1, -1, sizeof(::ServerData::UpdateLocalUserCoPresence)},
+  { 633, -1, -1, sizeof(::ServerData::UpdateLocalUserStreamState)},
+  { 641, 649, -1, sizeof(::ServerData::PermissionStatusReq)},
+  { 651, 660, -1, sizeof(::ServerData::PermissionStatus)},
+  { 663, -1, -1, sizeof(::ServerData::AllJoinableSpacesReq)},
+  { 670, -1, -1, sizeof(::ServerData::AllJoinableSpacesResp)},
+  { 678, -1, -1, sizeof(::ServerData::ChatAdded)},
+  { 687, -1, -1, sizeof(::ServerData::ChatUpdated)},
+  { 696, -1, -1, sizeof(::ServerData::ChatRemoved)},
+  { 704, -1, -1, sizeof(::ServerData::PostChat)},
+  { 712, -1, -1, sizeof(::ServerData::ChatBase)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1778,6 +1919,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::ServerData::_RelayRemoteMessage_default_instance_._instance,
   &::ServerData::_KeepAlive_default_instance_._instance,
   &::ServerData::_UpdateTime_default_instance_._instance,
+  &::ServerData::_SetForceKeepAlive_default_instance_._instance,
+  &::ServerData::_EndForceKeepAlive_default_instance_._instance,
   &::ServerData::_StatusMessage_default_instance_._instance,
   &::ServerData::_AuthenticateReq_default_instance_._instance,
   &::ServerData::_AuthenticateGuestReq_default_instance_._instance,
@@ -1818,6 +1961,10 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::ServerData::_FetchAllUploadedContentReq_default_instance_._instance,
   &::ServerData::_UploadLocalFileResp_default_instance_._instance,
   &::ServerData::_UploadLocalFileReq_default_instance_._instance,
+  &::ServerData::_ContentDestinationFolderReq_default_instance_._instance,
+  &::ServerData::_ContentDestinationFolderResp_default_instance_._instance,
+  &::ServerData::_FetchRemoteContentInfoReq_default_instance_._instance,
+  &::ServerData::_FetchRemoteContentInfoResp_default_instance_._instance,
   &::ServerData::_FetchAllUploadedContentResp_default_instance_._instance,
   &::ServerData::_PropMetadataStatus_default_instance_._instance,
   &::ServerData::_PropertyValueStatus_default_instance_._instance,
@@ -1847,10 +1994,13 @@ const char descriptor_table_protodef_relay_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "roto\032\020properties.proto\032\014common.proto\032\037go"
   "ogle/protobuf/timestamp.proto\"K\n\027RelayCl"
   "ientMessageBatch\0220\n\010Messages\030\001 \003(\0132\036.Ser"
-  "verData.RelayClientMessage\"\317\020\n\022RelayClie"
+  "verData.RelayClientMessage\"\343\022\n\022RelayClie"
   "ntMessage\022*\n\tKeepAlive\030\001 \001(\0132\025.ServerDat"
   "a.KeepAliveH\000\022,\n\nUpdateTime\030\002 \001(\0132\026.Serv"
-  "erData.UpdateTimeH\000\0226\n\017AuthenticateReq\030\n"
+  "erData.UpdateTimeH\000\022:\n\021SetForceKeepAlive"
+  "\030\003 \001(\0132\035.ServerData.SetForceKeepAliveH\000\022"
+  ":\n\021EndForceKeepAlive\030\004 \001(\0132\035.ServerData."
+  "EndForceKeepAliveH\000\0226\n\017AuthenticateReq\030\n"
   " \001(\0132\033.ServerData.AuthenticateReqH\000\022@\n\024A"
   "uthenticateGuestReq\030\013 \001(\0132 .ServerData.A"
   "uthenticateGuestReqH\000\022J\n\031ExitAllSpacesAn"
@@ -1899,238 +2049,256 @@ const char descriptor_table_protodef_relay_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "IdReqH\000\022L\n\032FetchAllUploadedContentReq\030o "
   "\001(\0132&.ServerData.FetchAllUploadedContent"
   "ReqH\000\022<\n\022UploadLocalFileReq\030p \001(\0132\036.Serv"
-  "erData.UploadLocalFileReqH\000\022(\n\010PostChat\030"
-  "x \001(\0132\024.ServerData.PostChatH\000B\005\n\003Msg\"K\n\027"
-  "RelayRemoteMessageBatch\0220\n\010Messages\030\001 \003("
-  "\0132\036.ServerData.RelayRemoteMessage\"\272\016\n\022Re"
-  "layRemoteMessage\022,\n\007Message\030\001 \001(\0132\031.Serv"
-  "erData.StatusMessageH\000\0228\n\020AuthenticateRe"
-  "sp\030\002 \001(\0132\034.ServerData.AuthenticateRespH\000"
-  "\022B\n\025AuthenticateGuestResp\030\003 \001(\0132!.Server"
-  "Data.AuthenticateGuestRespH\000\022L\n\032ExitAllS"
-  "pacesAndLogoutResp\030\004 \001(\0132&.ServerData.Ex"
-  "itAllSpacesAndLogoutRespH\000\022>\n\023JoinSpaceF"
-  "romIdResp\030\n \001(\0132\037.ServerData.JoinSpaceFr"
-  "omIdRespH\000\022N\n\033ShutdownSpaceConnectionRes"
-  "p\030\013 \001(\0132\'.ServerData.ShutdownSpaceConnec"
-  "tionRespH\000\0226\n\017CreateSpaceResp\030\014 \001(\0132\033.Se"
-  "rverData.CreateSpaceRespH\000\022H\n\030GetAudioIn"
-  "putDevicesResp\030\024 \001(\0132$.ServerData.GetAud"
-  "ioInputDevicesRespH\000\022J\n\031GetAudioOutputDe"
-  "vicesResp\030\025 \001(\0132%.ServerData.GetAudioOut"
-  "putDevicesRespH\000\022H\n\030GetVideoInputDevices"
-  "Resp\030\026 \001(\0132$.ServerData.GetVideoInputDev"
-  "icesRespH\000\022>\n\023PropertyValueStatus\0302 \001(\0132"
-  "\037.ServerData.PropertyValueStatusH\000\022H\n\030Lo"
-  "calPropertyHandledResp\0303 \001(\0132$.ServerDat"
-  "a.LocalPropertyHandledRespH\000\022<\n\022PropMeta"
-  "dataStatus\0304 \001(\0132\036.ServerData.PropMetada"
-  "taStatusH\000\022*\n\tUserAdded\030< \001(\0132\025.ServerDa"
-  "ta.UserAddedH\000\022.\n\013UserRemoved\030= \001(\0132\027.Se"
-  "rverData.UserRemovedH\000\0224\n\016UserVideoFrame"
-  "\030A \001(\0132\032.ServerData.UserVideoFrameH\000\022+\n\n"
-  "SpaceAdded\030F \001(\0132\025.ServerData.SpaceInfoH"
-  "\000\022-\n\014SpaceUpdated\030G \001(\0132\025.ServerData.Spa"
-  "ceInfoH\000\022-\n\014SpaceRemoved\030H \001(\0132\025.ServerD"
-  "ata.SpaceInfoH\000\022.\n\013ObjectAdded\030P \001(\0132\027.S"
-  "erverData.ObjectAddedH\000\0222\n\rObjectRemoved"
-  "\030Q \001(\0132\031.ServerData.ObjectRemovedH\000\0228\n\020P"
-  "ermissionStatus\030Z \001(\0132\034.ServerData.Permi"
-  "ssionStatusH\000\022B\n\025AllJoinableSpacesResp\030d"
-  " \001(\0132!.ServerData.AllJoinableSpacesRespH"
-  "\000\022J\n\031FetchFileByIdProgressResp\030n \001(\0132%.S"
-  "erverData.FetchFileByIdProgressRespH\000\022L\n"
-  "\032FetchFileByIdCompletedResp\030o \001(\0132&.Serv"
-  "erData.FetchFileByIdCompletedRespH\000\022N\n\033F"
-  "etchAllUploadedContentResp\030p \001(\0132\'.Serve"
-  "rData.FetchAllUploadedContentRespH\000\022>\n\023U"
-  "ploadLocalFileResp\030q \001(\0132\037.ServerData.Up"
-  "loadLocalFileRespH\000\022*\n\tChatAdded\030x \001(\0132\025"
-  ".ServerData.ChatAddedH\000\022.\n\013ChatUpdated\030y"
-  " \001(\0132\027.ServerData.ChatUpdatedH\000\022.\n\013ChatR"
-  "emoved\030z \001(\0132\027.ServerData.ChatRemovedH\000B"
-  "\005\n\003Msg\"\013\n\tKeepAlive\"\032\n\nUpdateTime\022\014\n\004tim"
-  "e\030\001 \001(\001\"M\n\rStatusMessage\022\017\n\005error\030\001 \001(\tH"
-  "\000\022\021\n\007warning\030\002 \001(\tH\000\022\r\n\003log\030\003 \001(\tH\000B\t\n\007M"
-  "essage\"Q\n\017AuthenticateReq\022\r\n\005reqId\030\001 \001(\005"
-  "\022\016\n\006server\030\n \001(\t\022\r\n\005email\030\013 \001(\t\022\020\n\010passw"
-  "ord\030\014 \001(\t\"I\n\024AuthenticateGuestReq\022\r\n\005req"
-  "Id\030\001 \001(\005\022\016\n\006server\030\n \001(\t\022\022\n\nscreenName\030\013"
-  " \001(\t\"c\n\020AuthenticateResp\022\r\n\005reqId\030\001 \001(\005\022"
-  "\'\n\004auth\030\n \001(\0132\027.ServerData.CavrnusAuthH\000"
-  "\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"h\n\025Authenticat"
-  "eGuestResp\022\r\n\005reqId\030\001 \001(\005\022\'\n\004auth\030\n \001(\0132"
-  "\027.ServerData.CavrnusAuthH\000\022\017\n\005error\030\013 \001("
-  "\tH\000B\006\n\004Resp\"6\n\027AuthenticateWithLinkReq\022\r"
-  "\n\005reqId\030\001 \001(\005\022\014\n\004link\030\n \001(\t\"{\n\030Authentic"
-  "ateWithLinkResp\022\r\n\005reqId\030\001 \001(\005\0227\n\010linkAu"
-  "th\030\n \001(\0132#.ServerData.CavrnusAuthLinkRes"
-  "ponseH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"*\n\031Exit"
-  "AllSpacesAndLogoutReq\022\r\n\005reqId\030\001 \001(\005\"s\n\032"
-  "ExitAllSpacesAndLogoutResp\022\r\n\005reqId\030\001 \001("
-  "\005\022\027\n\rlogoutSuccess\030\n \001(\010H\000\022\017\n\005error\030\013 \001("
-  "\tH\000\022\024\n\014spacesExited\030\024 \003(\005B\006\n\004Resp\"4\n\022Joi"
-  "nSpaceFromIdReq\022\r\n\005reqId\030\001 \001(\005\022\017\n\007spaceI"
-  "d\030\n \001(\t\"v\n\023JoinSpaceFromIdResp\022\r\n\005reqId\030"
-  "\001 \001(\005\0227\n\tspaceConn\030\n \001(\0132\".ServerData.Ca"
-  "vrnusSpaceConnectionH\000\022\017\n\005error\030\013 \001(\tH\000B"
-  "\006\n\004Resp\"h\n\032ShutdownSpaceConnectionReq\022\r\n"
-  "\005reqId\030\001 \001(\005\022;\n\017SpaceConnection\030\n \001(\0132\"."
-  "ServerData.CavrnusSpaceConnection\"~\n\033Shu"
-  "tdownSpaceConnectionResp\022\r\n\005reqId\030\001 \001(\005\022"
-  "7\n\tspaceConn\030\n \001(\0132\".ServerData.CavrnusS"
-  "paceConnectionH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Res"
-  "p\"5\n\016CreateSpaceReq\022\r\n\005reqId\030\001 \001(\005\022\024\n\014ne"
-  "wSpaceName\030\n \001(\t\"h\n\017CreateSpaceResp\022\r\n\005r"
-  "eqId\030\001 \001(\005\022-\n\014newSpaceInfo\030\n \001(\0132\025.Serve"
-  "rData.SpaceInfoH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Re"
-  "sp\"\213\002\n\rPropertyValue\022\021\n\007boolVal\030\n \001(\010H\000\022"
-  "\023\n\tstringVal\030\013 \001(\tH\000\022\023\n\tscalarVal\030\014 \001(\002H"
-  "\000\022#\n\tvectorVal\030\r \001(\0132\016.Common.Float4H\000\022\""
-  "\n\010colorVal\030\016 \001(\0132\016.Common.Color4H\000\022:\n\014tr"
-  "ansformVal\030\021 \001(\0132\".ServerData.TransformP"
-  "ropertyValueH\000\022/\n\007linkVal\030\017 \001(\0132\034.Proper"
-  "ty.PropertyIdentifierH\000B\007\n\005Value\"\260\001\n\032Def"
-  "inePropertyDefaultValue\0225\n\tSpaceConn\030\001 \001"
-  "(\0132\".ServerData.CavrnusSpaceConnection\022\022"
-  "\n\nPropertyId\030\002 \001(\t\022\025\n\rlocalChangeId\030\003 \001("
-  "\005\0220\n\rPropertyValue\030\n \001(\0132\031.ServerData.Pr"
-  "opertyValue\"\270\001\n\022PostPropertyUpdate\0225\n\tSp"
-  "aceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceC"
-  "onnection\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalCh"
-  "angeId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.Se"
-  "rverData.PropertyValue\022\016\n\006smooth\030\024 \001(\010\"\331"
-  "\001\n\034BeginTransientPropertyUpdate\0225\n\tSpace"
-  "Conn\030\001 \001(\0132\".ServerData.CavrnusSpaceConn"
-  "ection\022\025\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nPropert"
-  "yId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rProp"
-  "ertyValue\030\n \001(\0132\031.ServerData.PropertyVal"
-  "ue\022\016\n\006smooth\030\024 \001(\010\"\334\001\n\037ContinueTransient"
-  "PropertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".Serv"
-  "erData.CavrnusSpaceConnection\022\025\n\rLiveUpd"
-  "aterId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rloca"
-  "lChangeId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031"
-  ".ServerData.PropertyValue\022\016\n\006smooth\030\024 \001("
-  "\010\"\334\001\n\037FinalizeTransientPropertyUpdate\0225\n"
-  "\tSpaceConn\030\001 \001(\0132\".ServerData.CavrnusSpa"
-  "ceConnection\022\025\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nP"
-  "ropertyId\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220"
-  "\n\rPropertyValue\030\n \001(\0132\031.ServerData.Prope"
-  "rtyValue\022\016\n\006smooth\030\024 \001(\010\"m\n\035CancelTransi"
-  "entPropertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".S"
-  "erverData.CavrnusSpaceConnection\022\025\n\rLive"
-  "UpdaterId\030\002 \001(\t\"o\n\026TransformPropertyValu"
-  "e\022\033\n\003pos\030\001 \001(\0132\016.Common.Float3\022\033\n\003rot\030\002 "
-  "\001(\0132\016.Common.Float3\022\033\n\003scl\030\003 \001(\0132\016.Commo"
-  "n.Float3\"(\n\027GetAudioInputDevicesReq\022\r\n\005r"
-  "eqId\030\001 \001(\005\")\n\030GetAudioOutputDevicesReq\022\r"
-  "\n\005reqId\030\001 \001(\005\"(\n\027GetVideoInputDevicesReq"
-  "\022\r\n\005reqId\030\001 \001(\005\"z\n\030GetAudioInputDevicesR"
-  "esp\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devices\030\n \001(\0132#.Se"
-  "rverData.RtcAudioInputDeviceListH\000\022\017\n\005er"
-  "ror\030\013 \001(\tH\000B\006\n\004Resp\"|\n\031GetAudioOutputDev"
-  "icesResp\022\r\n\005reqId\030\001 \001(\005\0227\n\007Devices\030\n \001(\013"
-  "2$.ServerData.RtcAudioOutputDeviceListH\000"
-  "\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"z\n\030GetVideoInp"
-  "utDevicesResp\022\r\n\005reqId\030\001 \001(\005\0226\n\007Devices\030"
-  "\n \001(\0132#.ServerData.RtcVideoInputDeviceLi"
-  "stH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"X\n\026SetAudi"
-  "oInputDeviceReq\022\r\n\005reqId\030\001 \001(\005\022/\n\006Device"
-  "\030\002 \001(\0132\037.ServerData.RtcAudioInputDevice\""
-  "Z\n\027SetAudioOutputDeviceReq\022\r\n\005reqId\030\001 \001("
-  "\005\0220\n\006Device\030\002 \001(\0132 .ServerData.RtcAudioO"
-  "utputDevice\"X\n\026SetVideoInputDeviceReq\022\r\n"
-  "\005reqId\030\001 \001(\005\022/\n\006Device\030\002 \001(\0132\037.ServerDat"
-  "a.RtcVideoInputDevice\"{\n\020PostCreateObjec"
-  "t\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavrnu"
-  "sSpaceConnection\022\025\n\rnewInstanceId\030\002 \001(\t\022"
-  "\031\n\021uniqueObjectIdent\030\n \001(\t\"^\n\020PostRemove"
-  "Object\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.C"
-  "avrnusSpaceConnection\022\023\n\013containerId\030\002 \001"
-  "(\t\"%\n\020FetchFileByIdReq\022\021\n\tcontentId\030\001 \001("
-  "\t\"V\n\031FetchFileByIdProgressResp\022\021\n\tconten"
-  "tId\030\001 \001(\t\022\020\n\010progress\030\n \001(\002\022\024\n\014progressS"
-  "tep\030\013 \001(\t\"e\n\032FetchFileByIdCompletedResp\022"
-  "\021\n\tcontentId\030\001 \001(\t\022\020\n\010filePath\030\n \001(\t\022\"\n\032"
-  "finalFileNameWithExtension\030\013 \001(\t\"+\n\032Fetc"
-  "hAllUploadedContentReq\022\r\n\005reqId\030\001 \001(\005\"_\n"
-  "\023UploadLocalFileResp\022\r\n\005reqId\030\001 \001(\005\0229\n\017u"
-  "ploadedContent\030\n \001(\0132 .ServerData.Cavrnu"
-  "sRemoteContent\"Y\n\022UploadLocalFileReq\022\r\n\005"
-  "reqId\030\001 \001(\005\022\020\n\010filePath\030\n \001(\t\022\017\n\007tagKeys"
-  "\030\013 \003(\t\022\021\n\ttagValues\030\014 \003(\t\"h\n\033FetchAllUpl"
-  "oadedContentResp\022\r\n\005reqId\030\001 \001(\005\022:\n\020avail"
-  "ableContent\030\n \003(\0132 .ServerData.CavrnusRe"
-  "moteContent\"\223\001\n\022PropMetadataStatus\0225\n\tsp"
-  "aceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceC"
-  "onnection\0222\n\014propertyPath\030\002 \001(\0132\034.Proper"
-  "ty.PropertyIdentifier\022\022\n\nisReadonly\030\n \001("
-  "\010\"\304\001\n\023PropertyValueStatus\0225\n\tspaceConn\030\001"
-  " \001(\0132\".ServerData.CavrnusSpaceConnection"
-  "\0222\n\014propertyPath\030\002 \001(\0132\034.Property.Proper"
-  "tyIdentifier\0220\n\rPropertyValue\030\n \001(\0132\031.Se"
-  "rverData.PropertyValue\022\020\n\010priority\030\013 \001(\005"
-  "\"\240\001\n\030LocalPropertyHandledResp\0225\n\tspaceCo"
-  "nn\030\001 \001(\0132\".ServerData.CavrnusSpaceConnec"
-  "tion\0222\n\014propertyPath\030\002 \001(\0132\034.Property.Pr"
-  "opertyIdentifier\022\031\n\021localPropChangeId\030\n "
-  "\001(\005\"i\n\tUserAdded\0225\n\tspaceConn\030\001 \001(\0132\".Se"
-  "rverData.CavrnusSpaceConnection\022%\n\004user\030"
-  "\002 \001(\0132\027.ServerData.CavrnusUser\"T\n\013UserRe"
-  "moved\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Ca"
-  "vrnusSpaceConnection\022\016\n\006userId\030\002 \001(\t\"\203\001\n"
-  "\016UserVideoFrame\0225\n\tspaceConn\030\001 \001(\0132\".Ser"
-  "verData.CavrnusSpaceConnection\022\016\n\006userId"
-  "\030\002 \001(\t\022\014\n\004resX\030\n \001(\005\022\014\n\004resY\030\013 \001(\005\022\016\n\006st"
-  "ream\030\024 \001(\014\"\214\001\n\tSpaceInfo\022\017\n\007spaceId\030\001 \001("
-  "\t\022\021\n\tspaceName\030\002 \001(\t\022\031\n\021spaceThumbnailUr"
-  "l\030\003 \001(\t\022\020\n\010archived\030\004 \001(\010\022.\n\nlastAccess\030"
-  "\005 \001(\0132\032.google.protobuf.Timestamp\"\251\001\n\013Ob"
-  "jectAdded\0225\n\tspaceConn\030\001 \001(\0132\".ServerDat"
-  "a.CavrnusSpaceConnection\022\033\n\023propertiesCo"
-  "ntainer\030\003 \001(\t\022\025\n\robjectCreated\030\004 \001(\t\022/\n\013"
-  "createdTime\030\005 \001(\0132\032.google.protobuf.Time"
-  "stamp\"c\n\rObjectRemoved\0225\n\tspaceConn\030\001 \001("
-  "\0132\".ServerData.CavrnusSpaceConnection\022\033\n"
-  "\023propertiesContainer\030\003 \001(\t\"\\\n\024UpdateLoca"
-  "lUserMuted\0225\n\tspaceConn\030\001 \001(\0132\".ServerDa"
-  "ta.CavrnusSpaceConnection\022\r\n\005muted\030\002 \001(\010"
-  "\"\226\001\n\031UpdateLocalUserCoPresence\0225\n\tspaceC"
+  "erData.UploadLocalFileReqH\000\022N\n\033ContentDe"
+  "stinationFolderReq\030q \001(\0132\'.ServerData.Co"
+  "ntentDestinationFolderReqH\000\022J\n\031FetchRemo"
+  "teContentInfoReq\030r \001(\0132%.ServerData.Fetc"
+  "hRemoteContentInfoReqH\000\022(\n\010PostChat\030x \001("
+  "\0132\024.ServerData.PostChatH\000B\005\n\003Msg\"K\n\027Rela"
+  "yRemoteMessageBatch\0220\n\010Messages\030\001 \003(\0132\036."
+  "ServerData.RelayRemoteMessage\"\332\017\n\022RelayR"
+  "emoteMessage\022,\n\007Message\030\001 \001(\0132\031.ServerDa"
+  "ta.StatusMessageH\000\0228\n\020AuthenticateResp\030\002"
+  " \001(\0132\034.ServerData.AuthenticateRespH\000\022B\n\025"
+  "AuthenticateGuestResp\030\003 \001(\0132!.ServerData"
+  ".AuthenticateGuestRespH\000\022L\n\032ExitAllSpace"
+  "sAndLogoutResp\030\004 \001(\0132&.ServerData.ExitAl"
+  "lSpacesAndLogoutRespH\000\022>\n\023JoinSpaceFromI"
+  "dResp\030\n \001(\0132\037.ServerData.JoinSpaceFromId"
+  "RespH\000\022N\n\033ShutdownSpaceConnectionResp\030\013 "
+  "\001(\0132\'.ServerData.ShutdownSpaceConnection"
+  "RespH\000\0226\n\017CreateSpaceResp\030\014 \001(\0132\033.Server"
+  "Data.CreateSpaceRespH\000\022H\n\030GetAudioInputD"
+  "evicesResp\030\024 \001(\0132$.ServerData.GetAudioIn"
+  "putDevicesRespH\000\022J\n\031GetAudioOutputDevice"
+  "sResp\030\025 \001(\0132%.ServerData.GetAudioOutputD"
+  "evicesRespH\000\022H\n\030GetVideoInputDevicesResp"
+  "\030\026 \001(\0132$.ServerData.GetVideoInputDevices"
+  "RespH\000\022>\n\023PropertyValueStatus\0302 \001(\0132\037.Se"
+  "rverData.PropertyValueStatusH\000\022H\n\030LocalP"
+  "ropertyHandledResp\0303 \001(\0132$.ServerData.Lo"
+  "calPropertyHandledRespH\000\022<\n\022PropMetadata"
+  "Status\0304 \001(\0132\036.ServerData.PropMetadataSt"
+  "atusH\000\022*\n\tUserAdded\030< \001(\0132\025.ServerData.U"
+  "serAddedH\000\022.\n\013UserRemoved\030= \001(\0132\027.Server"
+  "Data.UserRemovedH\000\0224\n\016UserVideoFrame\030A \001"
+  "(\0132\032.ServerData.UserVideoFrameH\000\022+\n\nSpac"
+  "eAdded\030F \001(\0132\025.ServerData.SpaceInfoH\000\022-\n"
+  "\014SpaceUpdated\030G \001(\0132\025.ServerData.SpaceIn"
+  "foH\000\022-\n\014SpaceRemoved\030H \001(\0132\025.ServerData."
+  "SpaceInfoH\000\022.\n\013ObjectAdded\030P \001(\0132\027.Serve"
+  "rData.ObjectAddedH\000\0222\n\rObjectRemoved\030Q \001"
+  "(\0132\031.ServerData.ObjectRemovedH\000\0228\n\020Permi"
+  "ssionStatus\030Z \001(\0132\034.ServerData.Permissio"
+  "nStatusH\000\022B\n\025AllJoinableSpacesResp\030d \001(\013"
+  "2!.ServerData.AllJoinableSpacesRespH\000\022J\n"
+  "\031FetchFileByIdProgressResp\030n \001(\0132%.Serve"
+  "rData.FetchFileByIdProgressRespH\000\022L\n\032Fet"
+  "chFileByIdCompletedResp\030o \001(\0132&.ServerDa"
+  "ta.FetchFileByIdCompletedRespH\000\022N\n\033Fetch"
+  "AllUploadedContentResp\030p \001(\0132\'.ServerDat"
+  "a.FetchAllUploadedContentRespH\000\022>\n\023Uploa"
+  "dLocalFileResp\030q \001(\0132\037.ServerData.Upload"
+  "LocalFileRespH\000\022P\n\034ContentDestinationFol"
+  "derResp\030r \001(\0132(.ServerData.ContentDestin"
+  "ationFolderRespH\000\022L\n\032FetchRemoteContentI"
+  "nfoResp\030s \001(\0132&.ServerData.FetchRemoteCo"
+  "ntentInfoRespH\000\022*\n\tChatAdded\030x \001(\0132\025.Ser"
+  "verData.ChatAddedH\000\022.\n\013ChatUpdated\030y \001(\013"
+  "2\027.ServerData.ChatUpdatedH\000\022.\n\013ChatRemov"
+  "ed\030z \001(\0132\027.ServerData.ChatRemovedH\000B\005\n\003M"
+  "sg\"\013\n\tKeepAlive\"\032\n\nUpdateTime\022\014\n\004time\030\001 "
+  "\001(\001\"\023\n\021SetForceKeepAlive\"\023\n\021EndForceKeep"
+  "Alive\"M\n\rStatusMessage\022\017\n\005error\030\001 \001(\tH\000\022"
+  "\021\n\007warning\030\002 \001(\tH\000\022\r\n\003log\030\003 \001(\tH\000B\t\n\007Mes"
+  "sage\"Q\n\017AuthenticateReq\022\r\n\005reqId\030\001 \001(\005\022\016"
+  "\n\006server\030\n \001(\t\022\r\n\005email\030\013 \001(\t\022\020\n\010passwor"
+  "d\030\014 \001(\t\"I\n\024AuthenticateGuestReq\022\r\n\005reqId"
+  "\030\001 \001(\005\022\016\n\006server\030\n \001(\t\022\022\n\nscreenName\030\013 \001"
+  "(\t\"c\n\020AuthenticateResp\022\r\n\005reqId\030\001 \001(\005\022\'\n"
+  "\004auth\030\n \001(\0132\027.ServerData.CavrnusAuthH\000\022\017"
+  "\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"h\n\025AuthenticateG"
+  "uestResp\022\r\n\005reqId\030\001 \001(\005\022\'\n\004auth\030\n \001(\0132\027."
+  "ServerData.CavrnusAuthH\000\022\017\n\005error\030\013 \001(\tH"
+  "\000B\006\n\004Resp\"6\n\027AuthenticateWithLinkReq\022\r\n\005"
+  "reqId\030\001 \001(\005\022\014\n\004link\030\n \001(\t\"{\n\030Authenticat"
+  "eWithLinkResp\022\r\n\005reqId\030\001 \001(\005\0227\n\010linkAuth"
+  "\030\n \001(\0132#.ServerData.CavrnusAuthLinkRespo"
+  "nseH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"*\n\031ExitAl"
+  "lSpacesAndLogoutReq\022\r\n\005reqId\030\001 \001(\005\"s\n\032Ex"
+  "itAllSpacesAndLogoutResp\022\r\n\005reqId\030\001 \001(\005\022"
+  "\027\n\rlogoutSuccess\030\n \001(\010H\000\022\017\n\005error\030\013 \001(\tH"
+  "\000\022\024\n\014spacesExited\030\024 \003(\005B\006\n\004Resp\"4\n\022JoinS"
+  "paceFromIdReq\022\r\n\005reqId\030\001 \001(\005\022\017\n\007spaceId\030"
+  "\n \001(\t\"v\n\023JoinSpaceFromIdResp\022\r\n\005reqId\030\001 "
+  "\001(\005\0227\n\tspaceConn\030\n \001(\0132\".ServerData.Cavr"
+  "nusSpaceConnectionH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n"
+  "\004Resp\"h\n\032ShutdownSpaceConnectionReq\022\r\n\005r"
+  "eqId\030\001 \001(\005\022;\n\017SpaceConnection\030\n \001(\0132\".Se"
+  "rverData.CavrnusSpaceConnection\"~\n\033Shutd"
+  "ownSpaceConnectionResp\022\r\n\005reqId\030\001 \001(\005\0227\n"
+  "\tspaceConn\030\n \001(\0132\".ServerData.CavrnusSpa"
+  "ceConnectionH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\""
+  "G\n\016CreateSpaceReq\022\r\n\005reqId\030\001 \001(\005\022\024\n\014newS"
+  "paceName\030\n \001(\t\022\020\n\010keywords\030\013 \003(\t\"h\n\017Crea"
+  "teSpaceResp\022\r\n\005reqId\030\001 \001(\005\022-\n\014newSpaceIn"
+  "fo\030\n \001(\0132\025.ServerData.SpaceInfoH\000\022\017\n\005err"
+  "or\030\013 \001(\tH\000B\006\n\004Resp\"\213\002\n\rPropertyValue\022\021\n\007"
+  "boolVal\030\n \001(\010H\000\022\023\n\tstringVal\030\013 \001(\tH\000\022\023\n\t"
+  "scalarVal\030\014 \001(\002H\000\022#\n\tvectorVal\030\r \001(\0132\016.C"
+  "ommon.Float4H\000\022\"\n\010colorVal\030\016 \001(\0132\016.Commo"
+  "n.Color4H\000\022:\n\014transformVal\030\021 \001(\0132\".Serve"
+  "rData.TransformPropertyValueH\000\022/\n\007linkVa"
+  "l\030\017 \001(\0132\034.Property.PropertyIdentifierH\000B"
+  "\007\n\005Value\"\260\001\n\032DefinePropertyDefaultValue\022"
+  "5\n\tSpaceConn\030\001 \001(\0132\".ServerData.CavrnusS"
+  "paceConnection\022\022\n\nPropertyId\030\002 \001(\t\022\025\n\rlo"
+  "calChangeId\030\003 \001(\005\0220\n\rPropertyValue\030\n \001(\013"
+  "2\031.ServerData.PropertyValue\"\270\001\n\022PostProp"
+  "ertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".ServerDa"
+  "ta.CavrnusSpaceConnection\022\022\n\nPropertyId\030"
+  "\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rProperty"
+  "Value\030\n \001(\0132\031.ServerData.PropertyValue\022\016"
+  "\n\006smooth\030\024 \001(\010\"\331\001\n\034BeginTransientPropert"
+  "yUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".ServerData."
+  "CavrnusSpaceConnection\022\025\n\rLiveUpdaterId\030"
+  "\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocalChange"
+  "Id\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031.Server"
+  "Data.PropertyValue\022\016\n\006smooth\030\024 \001(\010\"\334\001\n\037C"
+  "ontinueTransientPropertyUpdate\0225\n\tSpaceC"
   "onn\030\001 \001(\0132\".ServerData.CavrnusSpaceConne"
-  "ction\022B\n\026localUserRootTransform\030\n \001(\0132\"."
-  "ServerData.TransformPropertyValue\"f\n\032Upd"
-  "ateLocalUserStreamState\0225\n\tspaceConn\030\001 \001"
-  "(\0132\".ServerData.CavrnusSpaceConnection\022\021"
-  "\n\tstreaming\030\002 \001(\010\"s\n\023PermissionStatusReq"
-  "\022:\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavrnus"
-  "SpaceConnectionH\000\210\001\001\022\022\n\npermission\030\002 \001(\t"
-  "B\014\n\n_spaceConn\"\177\n\020PermissionStatus\022:\n\tsp"
-  "aceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceC"
-  "onnectionH\000\210\001\001\022\022\n\npermission\030\002 \001(\t\022\r\n\005va"
-  "lue\030\003 \001(\010B\014\n\n_spaceConn\"%\n\024AllJoinableSp"
-  "acesReq\022\r\n\005reqId\030\001 \001(\005\"V\n\025AllJoinableSpa"
-  "cesResp\022\r\n\005reqId\030\001 \001(\005\022.\n\017availableSpace"
-  "s\030\n \003(\0132\025.ServerData.SpaceInfo\"\202\001\n\tChatA"
-  "dded\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cav"
-  "rnusSpaceConnection\022\026\n\016ChatPropertyId\030\002 "
-  "\001(\t\022&\n\010ChatData\030\n \001(\0132\024.ServerData.ChatB"
-  "ase\"\204\001\n\013ChatUpdated\0225\n\tspaceConn\030\001 \001(\0132\""
-  ".ServerData.CavrnusSpaceConnection\022\026\n\016Ch"
-  "atPropertyId\030\002 \001(\t\022&\n\010ChatData\030\n \001(\0132\024.S"
-  "erverData.ChatBase\"\\\n\013ChatRemoved\0225\n\tspa"
+  "ction\022\025\n\rLiveUpdaterId\030\002 \001(\t\022\022\n\nProperty"
+  "Id\030\003 \001(\t\022\025\n\rlocalChangeId\030\004 \001(\005\0220\n\rPrope"
+  "rtyValue\030\n \001(\0132\031.ServerData.PropertyValu"
+  "e\022\016\n\006smooth\030\024 \001(\010\"\334\001\n\037FinalizeTransientP"
+  "ropertyUpdate\0225\n\tSpaceConn\030\001 \001(\0132\".Serve"
+  "rData.CavrnusSpaceConnection\022\025\n\rLiveUpda"
+  "terId\030\002 \001(\t\022\022\n\nPropertyId\030\003 \001(\t\022\025\n\rlocal"
+  "ChangeId\030\004 \001(\005\0220\n\rPropertyValue\030\n \001(\0132\031."
+  "ServerData.PropertyValue\022\016\n\006smooth\030\024 \001(\010"
+  "\"m\n\035CancelTransientPropertyUpdate\0225\n\tSpa"
   "ceConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCo"
-  "nnection\022\026\n\016ChatPropertyId\030\002 \001(\t\"S\n\010Post"
-  "Chat\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cav"
-  "rnusSpaceConnection\022\020\n\010ChatText\030\n \001(\t\"\262\002"
-  "\n\010ChatBase\022@\n\010ChatType\030\001 \001(\0162..ServerDat"
-  "a.ChatBase.ChatMessageSourceTypeEnum\022\014\n\004"
-  "Text\030\002 \001(\t\022/\n\013CreatedTime\030\003 \001(\0132\032.google"
-  ".protobuf.Timestamp\022\020\n\010Complete\030\004 \001(\010\022\025\n"
-  "\rWasTranslated\030\005 \001(\010\022\026\n\016CreatorIsLocal\030\n"
-  " \001(\010\022\023\n\013CreatorName\030\013 \001(\t\022\025\n\rCreatorPicU"
-  "rl\030\014 \001(\t\"8\n\031ChatMessageSourceTypeEnum\022\010\n"
-  "\004Chat\020\000\022\021\n\rTranscription\020\001B\024\252\002\021CavrnusRe"
-  "layTypesb\006proto3"
+  "nnection\022\025\n\rLiveUpdaterId\030\002 \001(\t\"o\n\026Trans"
+  "formPropertyValue\022\033\n\003pos\030\001 \001(\0132\016.Common."
+  "Float3\022\033\n\003rot\030\002 \001(\0132\016.Common.Float3\022\033\n\003s"
+  "cl\030\003 \001(\0132\016.Common.Float3\"(\n\027GetAudioInpu"
+  "tDevicesReq\022\r\n\005reqId\030\001 \001(\005\")\n\030GetAudioOu"
+  "tputDevicesReq\022\r\n\005reqId\030\001 \001(\005\"(\n\027GetVide"
+  "oInputDevicesReq\022\r\n\005reqId\030\001 \001(\005\"z\n\030GetAu"
+  "dioInputDevicesResp\022\r\n\005reqId\030\001 \001(\005\0226\n\007De"
+  "vices\030\n \001(\0132#.ServerData.RtcAudioInputDe"
+  "viceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Resp\"|\n\031G"
+  "etAudioOutputDevicesResp\022\r\n\005reqId\030\001 \001(\005\022"
+  "7\n\007Devices\030\n \001(\0132$.ServerData.RtcAudioOu"
+  "tputDeviceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n\004Res"
+  "p\"z\n\030GetVideoInputDevicesResp\022\r\n\005reqId\030\001"
+  " \001(\005\0226\n\007Devices\030\n \001(\0132#.ServerData.RtcVi"
+  "deoInputDeviceListH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n"
+  "\004Resp\"X\n\026SetAudioInputDeviceReq\022\r\n\005reqId"
+  "\030\001 \001(\005\022/\n\006Device\030\002 \001(\0132\037.ServerData.RtcA"
+  "udioInputDevice\"Z\n\027SetAudioOutputDeviceR"
+  "eq\022\r\n\005reqId\030\001 \001(\005\0220\n\006Device\030\002 \001(\0132 .Serv"
+  "erData.RtcAudioOutputDevice\"X\n\026SetVideoI"
+  "nputDeviceReq\022\r\n\005reqId\030\001 \001(\005\022/\n\006Device\030\002"
+  " \001(\0132\037.ServerData.RtcVideoInputDevice\"{\n"
+  "\020PostCreateObject\0225\n\tspaceConn\030\001 \001(\0132\".S"
+  "erverData.CavrnusSpaceConnection\022\025\n\rnewI"
+  "nstanceId\030\002 \001(\t\022\031\n\021uniqueObjectIdent\030\n \001"
+  "(\t\"^\n\020PostRemoveObject\0225\n\tspaceConn\030\001 \001("
+  "\0132\".ServerData.CavrnusSpaceConnection\022\023\n"
+  "\013containerId\030\002 \001(\t\"%\n\020FetchFileByIdReq\022\021"
+  "\n\tcontentId\030\001 \001(\t\"V\n\031FetchFileByIdProgre"
+  "ssResp\022\021\n\tcontentId\030\001 \001(\t\022\020\n\010progress\030\n "
+  "\001(\002\022\024\n\014progressStep\030\013 \001(\t\"e\n\032FetchFileBy"
+  "IdCompletedResp\022\021\n\tcontentId\030\001 \001(\t\022\020\n\010fi"
+  "lePath\030\n \001(\t\022\"\n\032finalFileNameWithExtensi"
+  "on\030\013 \001(\t\"+\n\032FetchAllUploadedContentReq\022\r"
+  "\n\005reqId\030\001 \001(\005\"_\n\023UploadLocalFileResp\022\r\n\005"
+  "reqId\030\001 \001(\005\0229\n\017uploadedContent\030\n \001(\0132 .S"
+  "erverData.CavrnusRemoteContent\"Y\n\022Upload"
+  "LocalFileReq\022\r\n\005reqId\030\001 \001(\005\022\020\n\010filePath\030"
+  "\n \001(\t\022\017\n\007tagKeys\030\013 \003(\t\022\021\n\ttagValues\030\014 \003("
+  "\t\"@\n\033ContentDestinationFolderReq\022\r\n\005reqI"
+  "d\030\001 \001(\005\022\022\n\nfolderName\030\n \001(\t\"`\n\034ContentDe"
+  "stinationFolderResp\022\r\n\005reqId\030\001 \001(\005\022\030\n\016fu"
+  "llFolderName\030\n \001(\tH\000\022\017\n\005error\030\013 \001(\tH\000B\006\n"
+  "\004Resp\"=\n\031FetchRemoteContentInfoReq\022\r\n\005re"
+  "qId\030\001 \001(\005\022\021\n\tcontentId\030\n \001(\t\"f\n\032FetchRem"
+  "oteContentInfoResp\022\r\n\005reqId\030\001 \001(\005\0229\n\017upl"
+  "oadedContent\030\n \001(\0132 .ServerData.CavrnusR"
+  "emoteContent\"h\n\033FetchAllUploadedContentR"
+  "esp\022\r\n\005reqId\030\001 \001(\005\022:\n\020availableContent\030\n"
+  " \003(\0132 .ServerData.CavrnusRemoteContent\"\223"
+  "\001\n\022PropMetadataStatus\0225\n\tspaceConn\030\001 \001(\013"
+  "2\".ServerData.CavrnusSpaceConnection\0222\n\014"
+  "propertyPath\030\002 \001(\0132\034.Property.PropertyId"
+  "entifier\022\022\n\nisReadonly\030\n \001(\010\"\304\001\n\023Propert"
+  "yValueStatus\0225\n\tspaceConn\030\001 \001(\0132\".Server"
+  "Data.CavrnusSpaceConnection\0222\n\014propertyP"
+  "ath\030\002 \001(\0132\034.Property.PropertyIdentifier\022"
+  "0\n\rPropertyValue\030\n \001(\0132\031.ServerData.Prop"
+  "ertyValue\022\020\n\010priority\030\013 \001(\005\"\240\001\n\030LocalPro"
+  "pertyHandledResp\0225\n\tspaceConn\030\001 \001(\0132\".Se"
+  "rverData.CavrnusSpaceConnection\0222\n\014prope"
+  "rtyPath\030\002 \001(\0132\034.Property.PropertyIdentif"
+  "ier\022\031\n\021localPropChangeId\030\n \001(\005\"i\n\tUserAd"
+  "ded\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavr"
+  "nusSpaceConnection\022%\n\004user\030\002 \001(\0132\027.Serve"
+  "rData.CavrnusUser\"T\n\013UserRemoved\0225\n\tspac"
+  "eConn\030\001 \001(\0132\".ServerData.CavrnusSpaceCon"
+  "nection\022\016\n\006userId\030\002 \001(\t\"\203\001\n\016UserVideoFra"
+  "me\0225\n\tspaceConn\030\001 \001(\0132\".ServerData.Cavrn"
+  "usSpaceConnection\022\016\n\006userId\030\002 \001(\t\022\014\n\004res"
+  "X\030\n \001(\005\022\014\n\004resY\030\013 \001(\005\022\016\n\006stream\030\024 \001(\014\"\236\001"
+  "\n\tSpaceInfo\022\017\n\007spaceId\030\001 \001(\t\022\021\n\tspaceNam"
+  "e\030\002 \001(\t\022\031\n\021spaceThumbnailUrl\030\003 \001(\t\022\020\n\010ar"
+  "chived\030\004 \001(\010\022.\n\nlastAccess\030\005 \001(\0132\032.googl"
+  "e.protobuf.Timestamp\022\020\n\010keywords\030\006 \003(\t\"\251"
+  "\001\n\013ObjectAdded\0225\n\tspaceConn\030\001 \001(\0132\".Serv"
+  "erData.CavrnusSpaceConnection\022\033\n\023propert"
+  "iesContainer\030\003 \001(\t\022\025\n\robjectCreated\030\004 \001("
+  "\t\022/\n\013createdTime\030\005 \001(\0132\032.google.protobuf"
+  ".Timestamp\"c\n\rObjectRemoved\0225\n\tspaceConn"
+  "\030\001 \001(\0132\".ServerData.CavrnusSpaceConnecti"
+  "on\022\033\n\023propertiesContainer\030\003 \001(\t\"\\\n\024Updat"
+  "eLocalUserMuted\0225\n\tspaceConn\030\001 \001(\0132\".Ser"
+  "verData.CavrnusSpaceConnection\022\r\n\005muted\030"
+  "\002 \001(\010\"\226\001\n\031UpdateLocalUserCoPresence\0225\n\ts"
+  "paceConn\030\001 \001(\0132\".ServerData.CavrnusSpace"
+  "Connection\022B\n\026localUserRootTransform\030\n \001"
+  "(\0132\".ServerData.TransformPropertyValue\"f"
+  "\n\032UpdateLocalUserStreamState\0225\n\tspaceCon"
+  "n\030\001 \001(\0132\".ServerData.CavrnusSpaceConnect"
+  "ion\022\021\n\tstreaming\030\002 \001(\010\"s\n\023PermissionStat"
+  "usReq\022:\n\tspaceConn\030\001 \001(\0132\".ServerData.Ca"
+  "vrnusSpaceConnectionH\000\210\001\001\022\022\n\npermission\030"
+  "\002 \001(\tB\014\n\n_spaceConn\"\177\n\020PermissionStatus\022"
+  ":\n\tspaceConn\030\001 \001(\0132\".ServerData.CavrnusS"
+  "paceConnectionH\000\210\001\001\022\022\n\npermission\030\002 \001(\t\022"
+  "\r\n\005value\030\003 \001(\010B\014\n\n_spaceConn\"%\n\024AllJoina"
+  "bleSpacesReq\022\r\n\005reqId\030\001 \001(\005\"V\n\025AllJoinab"
+  "leSpacesResp\022\r\n\005reqId\030\001 \001(\005\022.\n\017available"
+  "Spaces\030\n \003(\0132\025.ServerData.SpaceInfo\"\202\001\n\t"
+  "ChatAdded\0225\n\tspaceConn\030\001 \001(\0132\".ServerDat"
+  "a.CavrnusSpaceConnection\022\026\n\016ChatProperty"
+  "Id\030\002 \001(\t\022&\n\010ChatData\030\n \001(\0132\024.ServerData."
+  "ChatBase\"\204\001\n\013ChatUpdated\0225\n\tspaceConn\030\001 "
+  "\001(\0132\".ServerData.CavrnusSpaceConnection\022"
+  "\026\n\016ChatPropertyId\030\002 \001(\t\022&\n\010ChatData\030\n \001("
+  "\0132\024.ServerData.ChatBase\"\\\n\013ChatRemoved\0225"
+  "\n\tspaceConn\030\001 \001(\0132\".ServerData.CavrnusSp"
+  "aceConnection\022\026\n\016ChatPropertyId\030\002 \001(\t\"S\n"
+  "\010PostChat\0225\n\tspaceConn\030\001 \001(\0132\".ServerDat"
+  "a.CavrnusSpaceConnection\022\020\n\010ChatText\030\n \001"
+  "(\t\"\262\002\n\010ChatBase\022@\n\010ChatType\030\001 \001(\0162..Serv"
+  "erData.ChatBase.ChatMessageSourceTypeEnu"
+  "m\022\014\n\004Text\030\002 \001(\t\022/\n\013CreatedTime\030\003 \001(\0132\032.g"
+  "oogle.protobuf.Timestamp\022\020\n\010Complete\030\004 \001"
+  "(\010\022\025\n\rWasTranslated\030\005 \001(\010\022\026\n\016CreatorIsLo"
+  "cal\030\n \001(\010\022\023\n\013CreatorName\030\013 \001(\t\022\025\n\rCreato"
+  "rPicUrl\030\014 \001(\t\"8\n\031ChatMessageSourceTypeEn"
+  "um\022\010\n\004Chat\020\000\022\021\n\rTranscription\020\001B\024\252\002\021Cavr"
+  "nusRelayTypesb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_relay_2eproto_deps[4] = {
   &::descriptor_table_common_2eproto,
@@ -2140,9 +2308,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_relay_2eproto_deps[
 };
 static ::_pbi::once_flag descriptor_table_relay_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_relay_2eproto = {
-    false, false, 11496, descriptor_table_protodef_relay_2eproto,
+    false, false, 12341, descriptor_table_protodef_relay_2eproto,
     "relay.proto",
-    &descriptor_table_relay_2eproto_once, descriptor_table_relay_2eproto_deps, 4, 68,
+    &descriptor_table_relay_2eproto_once, descriptor_table_relay_2eproto_deps, 4, 74,
     schemas, file_default_instances, TableStruct_relay_2eproto::offsets,
     file_level_metadata_relay_2eproto, file_level_enum_descriptors_relay_2eproto,
     file_level_service_descriptors_relay_2eproto,
@@ -2367,6 +2535,8 @@ class RelayClientMessage::_Internal {
  public:
   static const ::ServerData::KeepAlive& keepalive(const RelayClientMessage* msg);
   static const ::ServerData::UpdateTime& updatetime(const RelayClientMessage* msg);
+  static const ::ServerData::SetForceKeepAlive& setforcekeepalive(const RelayClientMessage* msg);
+  static const ::ServerData::EndForceKeepAlive& endforcekeepalive(const RelayClientMessage* msg);
   static const ::ServerData::AuthenticateReq& authenticatereq(const RelayClientMessage* msg);
   static const ::ServerData::AuthenticateGuestReq& authenticateguestreq(const RelayClientMessage* msg);
   static const ::ServerData::ExitAllSpacesAndLogoutReq& exitallspacesandlogoutreq(const RelayClientMessage* msg);
@@ -2395,6 +2565,8 @@ class RelayClientMessage::_Internal {
   static const ::ServerData::FetchFileByIdReq& fetchfilebyidreq(const RelayClientMessage* msg);
   static const ::ServerData::FetchAllUploadedContentReq& fetchalluploadedcontentreq(const RelayClientMessage* msg);
   static const ::ServerData::UploadLocalFileReq& uploadlocalfilereq(const RelayClientMessage* msg);
+  static const ::ServerData::ContentDestinationFolderReq& contentdestinationfolderreq(const RelayClientMessage* msg);
+  static const ::ServerData::FetchRemoteContentInfoReq& fetchremotecontentinforeq(const RelayClientMessage* msg);
   static const ::ServerData::PostChat& postchat(const RelayClientMessage* msg);
 };
 
@@ -2405,6 +2577,14 @@ RelayClientMessage::_Internal::keepalive(const RelayClientMessage* msg) {
 const ::ServerData::UpdateTime&
 RelayClientMessage::_Internal::updatetime(const RelayClientMessage* msg) {
   return *msg->_impl_.Msg_.updatetime_;
+}
+const ::ServerData::SetForceKeepAlive&
+RelayClientMessage::_Internal::setforcekeepalive(const RelayClientMessage* msg) {
+  return *msg->_impl_.Msg_.setforcekeepalive_;
+}
+const ::ServerData::EndForceKeepAlive&
+RelayClientMessage::_Internal::endforcekeepalive(const RelayClientMessage* msg) {
+  return *msg->_impl_.Msg_.endforcekeepalive_;
 }
 const ::ServerData::AuthenticateReq&
 RelayClientMessage::_Internal::authenticatereq(const RelayClientMessage* msg) {
@@ -2518,6 +2698,14 @@ const ::ServerData::UploadLocalFileReq&
 RelayClientMessage::_Internal::uploadlocalfilereq(const RelayClientMessage* msg) {
   return *msg->_impl_.Msg_.uploadlocalfilereq_;
 }
+const ::ServerData::ContentDestinationFolderReq&
+RelayClientMessage::_Internal::contentdestinationfolderreq(const RelayClientMessage* msg) {
+  return *msg->_impl_.Msg_.contentdestinationfolderreq_;
+}
+const ::ServerData::FetchRemoteContentInfoReq&
+RelayClientMessage::_Internal::fetchremotecontentinforeq(const RelayClientMessage* msg) {
+  return *msg->_impl_.Msg_.fetchremotecontentinforeq_;
+}
 const ::ServerData::PostChat&
 RelayClientMessage::_Internal::postchat(const RelayClientMessage* msg) {
   return *msg->_impl_.Msg_.postchat_;
@@ -2551,6 +2739,36 @@ void RelayClientMessage::set_allocated_updatetime(::ServerData::UpdateTime* upda
     _impl_.Msg_.updatetime_ = updatetime;
   }
   // @@protoc_insertion_point(field_set_allocated:ServerData.RelayClientMessage.UpdateTime)
+}
+void RelayClientMessage::set_allocated_setforcekeepalive(::ServerData::SetForceKeepAlive* setforcekeepalive) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (setforcekeepalive) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(setforcekeepalive);
+    if (message_arena != submessage_arena) {
+      setforcekeepalive = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, setforcekeepalive, submessage_arena);
+    }
+    set_has_setforcekeepalive();
+    _impl_.Msg_.setforcekeepalive_ = setforcekeepalive;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayClientMessage.SetForceKeepAlive)
+}
+void RelayClientMessage::set_allocated_endforcekeepalive(::ServerData::EndForceKeepAlive* endforcekeepalive) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (endforcekeepalive) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(endforcekeepalive);
+    if (message_arena != submessage_arena) {
+      endforcekeepalive = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, endforcekeepalive, submessage_arena);
+    }
+    set_has_endforcekeepalive();
+    _impl_.Msg_.endforcekeepalive_ = endforcekeepalive;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayClientMessage.EndForceKeepAlive)
 }
 void RelayClientMessage::set_allocated_authenticatereq(::ServerData::AuthenticateReq* authenticatereq) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -2972,6 +3190,36 @@ void RelayClientMessage::set_allocated_uploadlocalfilereq(::ServerData::UploadLo
   }
   // @@protoc_insertion_point(field_set_allocated:ServerData.RelayClientMessage.UploadLocalFileReq)
 }
+void RelayClientMessage::set_allocated_contentdestinationfolderreq(::ServerData::ContentDestinationFolderReq* contentdestinationfolderreq) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (contentdestinationfolderreq) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(contentdestinationfolderreq);
+    if (message_arena != submessage_arena) {
+      contentdestinationfolderreq = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, contentdestinationfolderreq, submessage_arena);
+    }
+    set_has_contentdestinationfolderreq();
+    _impl_.Msg_.contentdestinationfolderreq_ = contentdestinationfolderreq;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayClientMessage.ContentDestinationFolderReq)
+}
+void RelayClientMessage::set_allocated_fetchremotecontentinforeq(::ServerData::FetchRemoteContentInfoReq* fetchremotecontentinforeq) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (fetchremotecontentinforeq) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(fetchremotecontentinforeq);
+    if (message_arena != submessage_arena) {
+      fetchremotecontentinforeq = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, fetchremotecontentinforeq, submessage_arena);
+    }
+    set_has_fetchremotecontentinforeq();
+    _impl_.Msg_.fetchremotecontentinforeq_ = fetchremotecontentinforeq;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayClientMessage.FetchRemoteContentInfoReq)
+}
 void RelayClientMessage::set_allocated_postchat(::ServerData::PostChat* postchat) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_Msg();
@@ -3012,6 +3260,16 @@ RelayClientMessage::RelayClientMessage(const RelayClientMessage& from)
     case kUpdateTime: {
       _this->_internal_mutable_updatetime()->::ServerData::UpdateTime::MergeFrom(
           from._internal_updatetime());
+      break;
+    }
+    case kSetForceKeepAlive: {
+      _this->_internal_mutable_setforcekeepalive()->::ServerData::SetForceKeepAlive::MergeFrom(
+          from._internal_setforcekeepalive());
+      break;
+    }
+    case kEndForceKeepAlive: {
+      _this->_internal_mutable_endforcekeepalive()->::ServerData::EndForceKeepAlive::MergeFrom(
+          from._internal_endforcekeepalive());
       break;
     }
     case kAuthenticateReq: {
@@ -3154,6 +3412,16 @@ RelayClientMessage::RelayClientMessage(const RelayClientMessage& from)
           from._internal_uploadlocalfilereq());
       break;
     }
+    case kContentDestinationFolderReq: {
+      _this->_internal_mutable_contentdestinationfolderreq()->::ServerData::ContentDestinationFolderReq::MergeFrom(
+          from._internal_contentdestinationfolderreq());
+      break;
+    }
+    case kFetchRemoteContentInfoReq: {
+      _this->_internal_mutable_fetchremotecontentinforeq()->::ServerData::FetchRemoteContentInfoReq::MergeFrom(
+          from._internal_fetchremotecontentinforeq());
+      break;
+    }
     case kPostChat: {
       _this->_internal_mutable_postchat()->::ServerData::PostChat::MergeFrom(
           from._internal_postchat());
@@ -3210,6 +3478,18 @@ void RelayClientMessage::clear_Msg() {
     case kUpdateTime: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.Msg_.updatetime_;
+      }
+      break;
+    }
+    case kSetForceKeepAlive: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.setforcekeepalive_;
+      }
+      break;
+    }
+    case kEndForceKeepAlive: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.endforcekeepalive_;
       }
       break;
     }
@@ -3381,6 +3661,18 @@ void RelayClientMessage::clear_Msg() {
       }
       break;
     }
+    case kContentDestinationFolderReq: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.contentdestinationfolderreq_;
+      }
+      break;
+    }
+    case kFetchRemoteContentInfoReq: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.fetchremotecontentinforeq_;
+      }
+      break;
+    }
     case kPostChat: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.Msg_.postchat_;
@@ -3423,6 +3715,22 @@ const char* RelayClientMessage::_InternalParse(const char* ptr, ::_pbi::ParseCon
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_updatetime(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.SetForceKeepAlive SetForceKeepAlive = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_setforcekeepalive(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.EndForceKeepAlive EndForceKeepAlive = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_endforcekeepalive(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3651,6 +3959,22 @@ const char* RelayClientMessage::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
+      // .ServerData.ContentDestinationFolderReq ContentDestinationFolderReq = 113;
+      case 113:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 138)) {
+          ptr = ctx->ParseMessage(_internal_mutable_contentdestinationfolderreq(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.FetchRemoteContentInfoReq FetchRemoteContentInfoReq = 114;
+      case 114:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 146)) {
+          ptr = ctx->ParseMessage(_internal_mutable_fetchremotecontentinforeq(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       // .ServerData.PostChat PostChat = 120;
       case 120:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 194)) {
@@ -3700,6 +4024,20 @@ uint8_t* RelayClientMessage::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(2, _Internal::updatetime(this),
         _Internal::updatetime(this).GetCachedSize(), target, stream);
+  }
+
+  // .ServerData.SetForceKeepAlive SetForceKeepAlive = 3;
+  if (_internal_has_setforcekeepalive()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::setforcekeepalive(this),
+        _Internal::setforcekeepalive(this).GetCachedSize(), target, stream);
+  }
+
+  // .ServerData.EndForceKeepAlive EndForceKeepAlive = 4;
+  if (_internal_has_endforcekeepalive()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::endforcekeepalive(this),
+        _Internal::endforcekeepalive(this).GetCachedSize(), target, stream);
   }
 
   // .ServerData.AuthenticateReq AuthenticateReq = 10;
@@ -3898,6 +4236,20 @@ uint8_t* RelayClientMessage::_InternalSerialize(
         _Internal::uploadlocalfilereq(this).GetCachedSize(), target, stream);
   }
 
+  // .ServerData.ContentDestinationFolderReq ContentDestinationFolderReq = 113;
+  if (_internal_has_contentdestinationfolderreq()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(113, _Internal::contentdestinationfolderreq(this),
+        _Internal::contentdestinationfolderreq(this).GetCachedSize(), target, stream);
+  }
+
+  // .ServerData.FetchRemoteContentInfoReq FetchRemoteContentInfoReq = 114;
+  if (_internal_has_fetchremotecontentinforeq()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(114, _Internal::fetchremotecontentinforeq(this),
+        _Internal::fetchremotecontentinforeq(this).GetCachedSize(), target, stream);
+  }
+
   // .ServerData.PostChat PostChat = 120;
   if (_internal_has_postchat()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3934,6 +4286,20 @@ size_t RelayClientMessage::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.Msg_.updatetime_);
+      break;
+    }
+    // .ServerData.SetForceKeepAlive SetForceKeepAlive = 3;
+    case kSetForceKeepAlive: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.setforcekeepalive_);
+      break;
+    }
+    // .ServerData.EndForceKeepAlive EndForceKeepAlive = 4;
+    case kEndForceKeepAlive: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.endforcekeepalive_);
       break;
     }
     // .ServerData.AuthenticateReq AuthenticateReq = 10;
@@ -4132,6 +4498,20 @@ size_t RelayClientMessage::ByteSizeLong() const {
           *_impl_.Msg_.uploadlocalfilereq_);
       break;
     }
+    // .ServerData.ContentDestinationFolderReq ContentDestinationFolderReq = 113;
+    case kContentDestinationFolderReq: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.contentdestinationfolderreq_);
+      break;
+    }
+    // .ServerData.FetchRemoteContentInfoReq FetchRemoteContentInfoReq = 114;
+    case kFetchRemoteContentInfoReq: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.fetchremotecontentinforeq_);
+      break;
+    }
     // .ServerData.PostChat PostChat = 120;
     case kPostChat: {
       total_size += 2 +
@@ -4170,6 +4550,16 @@ void RelayClientMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
     case kUpdateTime: {
       _this->_internal_mutable_updatetime()->::ServerData::UpdateTime::MergeFrom(
           from._internal_updatetime());
+      break;
+    }
+    case kSetForceKeepAlive: {
+      _this->_internal_mutable_setforcekeepalive()->::ServerData::SetForceKeepAlive::MergeFrom(
+          from._internal_setforcekeepalive());
+      break;
+    }
+    case kEndForceKeepAlive: {
+      _this->_internal_mutable_endforcekeepalive()->::ServerData::EndForceKeepAlive::MergeFrom(
+          from._internal_endforcekeepalive());
       break;
     }
     case kAuthenticateReq: {
@@ -4310,6 +4700,16 @@ void RelayClientMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
     case kUploadLocalFileReq: {
       _this->_internal_mutable_uploadlocalfilereq()->::ServerData::UploadLocalFileReq::MergeFrom(
           from._internal_uploadlocalfilereq());
+      break;
+    }
+    case kContentDestinationFolderReq: {
+      _this->_internal_mutable_contentdestinationfolderreq()->::ServerData::ContentDestinationFolderReq::MergeFrom(
+          from._internal_contentdestinationfolderreq());
+      break;
+    }
+    case kFetchRemoteContentInfoReq: {
+      _this->_internal_mutable_fetchremotecontentinforeq()->::ServerData::FetchRemoteContentInfoReq::MergeFrom(
+          from._internal_fetchremotecontentinforeq());
       break;
     }
     case kPostChat: {
@@ -4564,6 +4964,8 @@ class RelayRemoteMessage::_Internal {
   static const ::ServerData::FetchFileByIdCompletedResp& fetchfilebyidcompletedresp(const RelayRemoteMessage* msg);
   static const ::ServerData::FetchAllUploadedContentResp& fetchalluploadedcontentresp(const RelayRemoteMessage* msg);
   static const ::ServerData::UploadLocalFileResp& uploadlocalfileresp(const RelayRemoteMessage* msg);
+  static const ::ServerData::ContentDestinationFolderResp& contentdestinationfolderresp(const RelayRemoteMessage* msg);
+  static const ::ServerData::FetchRemoteContentInfoResp& fetchremotecontentinforesp(const RelayRemoteMessage* msg);
   static const ::ServerData::ChatAdded& chatadded(const RelayRemoteMessage* msg);
   static const ::ServerData::ChatUpdated& chatupdated(const RelayRemoteMessage* msg);
   static const ::ServerData::ChatRemoved& chatremoved(const RelayRemoteMessage* msg);
@@ -4676,6 +5078,14 @@ RelayRemoteMessage::_Internal::fetchalluploadedcontentresp(const RelayRemoteMess
 const ::ServerData::UploadLocalFileResp&
 RelayRemoteMessage::_Internal::uploadlocalfileresp(const RelayRemoteMessage* msg) {
   return *msg->_impl_.Msg_.uploadlocalfileresp_;
+}
+const ::ServerData::ContentDestinationFolderResp&
+RelayRemoteMessage::_Internal::contentdestinationfolderresp(const RelayRemoteMessage* msg) {
+  return *msg->_impl_.Msg_.contentdestinationfolderresp_;
+}
+const ::ServerData::FetchRemoteContentInfoResp&
+RelayRemoteMessage::_Internal::fetchremotecontentinforesp(const RelayRemoteMessage* msg) {
+  return *msg->_impl_.Msg_.fetchremotecontentinforesp_;
 }
 const ::ServerData::ChatAdded&
 RelayRemoteMessage::_Internal::chatadded(const RelayRemoteMessage* msg) {
@@ -5094,6 +5504,36 @@ void RelayRemoteMessage::set_allocated_uploadlocalfileresp(::ServerData::UploadL
   }
   // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.UploadLocalFileResp)
 }
+void RelayRemoteMessage::set_allocated_contentdestinationfolderresp(::ServerData::ContentDestinationFolderResp* contentdestinationfolderresp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (contentdestinationfolderresp) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(contentdestinationfolderresp);
+    if (message_arena != submessage_arena) {
+      contentdestinationfolderresp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, contentdestinationfolderresp, submessage_arena);
+    }
+    set_has_contentdestinationfolderresp();
+    _impl_.Msg_.contentdestinationfolderresp_ = contentdestinationfolderresp;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.ContentDestinationFolderResp)
+}
+void RelayRemoteMessage::set_allocated_fetchremotecontentinforesp(::ServerData::FetchRemoteContentInfoResp* fetchremotecontentinforesp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_Msg();
+  if (fetchremotecontentinforesp) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(fetchremotecontentinforesp);
+    if (message_arena != submessage_arena) {
+      fetchremotecontentinforesp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, fetchremotecontentinforesp, submessage_arena);
+    }
+    set_has_fetchremotecontentinforesp();
+    _impl_.Msg_.fetchremotecontentinforesp_ = fetchremotecontentinforesp;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerData.RelayRemoteMessage.FetchRemoteContentInfoResp)
+}
 void RelayRemoteMessage::set_allocated_chatadded(::ServerData::ChatAdded* chatadded) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_Msg();
@@ -5289,6 +5729,16 @@ RelayRemoteMessage::RelayRemoteMessage(const RelayRemoteMessage& from)
     case kUploadLocalFileResp: {
       _this->_internal_mutable_uploadlocalfileresp()->::ServerData::UploadLocalFileResp::MergeFrom(
           from._internal_uploadlocalfileresp());
+      break;
+    }
+    case kContentDestinationFolderResp: {
+      _this->_internal_mutable_contentdestinationfolderresp()->::ServerData::ContentDestinationFolderResp::MergeFrom(
+          from._internal_contentdestinationfolderresp());
+      break;
+    }
+    case kFetchRemoteContentInfoResp: {
+      _this->_internal_mutable_fetchremotecontentinforesp()->::ServerData::FetchRemoteContentInfoResp::MergeFrom(
+          from._internal_fetchremotecontentinforesp());
       break;
     }
     case kChatAdded: {
@@ -5507,6 +5957,18 @@ void RelayRemoteMessage::clear_Msg() {
     case kUploadLocalFileResp: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.Msg_.uploadlocalfileresp_;
+      }
+      break;
+    }
+    case kContentDestinationFolderResp: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.contentdestinationfolderresp_;
+      }
+      break;
+    }
+    case kFetchRemoteContentInfoResp: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.Msg_.fetchremotecontentinforesp_;
       }
       break;
     }
@@ -5768,6 +6230,22 @@ const char* RelayRemoteMessage::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
+      // .ServerData.ContentDestinationFolderResp ContentDestinationFolderResp = 114;
+      case 114:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 146)) {
+          ptr = ctx->ParseMessage(_internal_mutable_contentdestinationfolderresp(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.FetchRemoteContentInfoResp FetchRemoteContentInfoResp = 115;
+      case 115:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 154)) {
+          ptr = ctx->ParseMessage(_internal_mutable_fetchremotecontentinforesp(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       // .ServerData.ChatAdded ChatAdded = 120;
       case 120:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 194)) {
@@ -6010,6 +6488,20 @@ uint8_t* RelayRemoteMessage::_InternalSerialize(
         _Internal::uploadlocalfileresp(this).GetCachedSize(), target, stream);
   }
 
+  // .ServerData.ContentDestinationFolderResp ContentDestinationFolderResp = 114;
+  if (_internal_has_contentdestinationfolderresp()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(114, _Internal::contentdestinationfolderresp(this),
+        _Internal::contentdestinationfolderresp(this).GetCachedSize(), target, stream);
+  }
+
+  // .ServerData.FetchRemoteContentInfoResp FetchRemoteContentInfoResp = 115;
+  if (_internal_has_fetchremotecontentinforesp()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(115, _Internal::fetchremotecontentinforesp(this),
+        _Internal::fetchremotecontentinforesp(this).GetCachedSize(), target, stream);
+  }
+
   // .ServerData.ChatAdded ChatAdded = 120;
   if (_internal_has_chatadded()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6237,6 +6729,20 @@ size_t RelayRemoteMessage::ByteSizeLong() const {
           *_impl_.Msg_.uploadlocalfileresp_);
       break;
     }
+    // .ServerData.ContentDestinationFolderResp ContentDestinationFolderResp = 114;
+    case kContentDestinationFolderResp: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.contentdestinationfolderresp_);
+      break;
+    }
+    // .ServerData.FetchRemoteContentInfoResp FetchRemoteContentInfoResp = 115;
+    case kFetchRemoteContentInfoResp: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.Msg_.fetchremotecontentinforesp_);
+      break;
+    }
     // .ServerData.ChatAdded ChatAdded = 120;
     case kChatAdded: {
       total_size += 2 +
@@ -6414,6 +6920,16 @@ void RelayRemoteMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
     case kUploadLocalFileResp: {
       _this->_internal_mutable_uploadlocalfileresp()->::ServerData::UploadLocalFileResp::MergeFrom(
           from._internal_uploadlocalfileresp());
+      break;
+    }
+    case kContentDestinationFolderResp: {
+      _this->_internal_mutable_contentdestinationfolderresp()->::ServerData::ContentDestinationFolderResp::MergeFrom(
+          from._internal_contentdestinationfolderresp());
+      break;
+    }
+    case kFetchRemoteContentInfoResp: {
+      _this->_internal_mutable_fetchremotecontentinforesp()->::ServerData::FetchRemoteContentInfoResp::MergeFrom(
+          from._internal_fetchremotecontentinforesp());
       break;
     }
     case kChatAdded: {
@@ -6690,6 +7206,86 @@ void UpdateTime::InternalSwap(UpdateTime* other) {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
       file_level_metadata_relay_2eproto[5]);
+}
+
+// ===================================================================
+
+class SetForceKeepAlive::_Internal {
+ public:
+};
+
+SetForceKeepAlive::SetForceKeepAlive(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:ServerData.SetForceKeepAlive)
+}
+SetForceKeepAlive::SetForceKeepAlive(const SetForceKeepAlive& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  SetForceKeepAlive* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ServerData.SetForceKeepAlive)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SetForceKeepAlive::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SetForceKeepAlive::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata SetForceKeepAlive::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[6]);
+}
+
+// ===================================================================
+
+class EndForceKeepAlive::_Internal {
+ public:
+};
+
+EndForceKeepAlive::EndForceKeepAlive(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:ServerData.EndForceKeepAlive)
+}
+EndForceKeepAlive::EndForceKeepAlive(const EndForceKeepAlive& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  EndForceKeepAlive* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ServerData.EndForceKeepAlive)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData EndForceKeepAlive::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*EndForceKeepAlive::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata EndForceKeepAlive::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[7]);
 }
 
 // ===================================================================
@@ -6995,7 +7591,7 @@ void StatusMessage::InternalSwap(StatusMessage* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata StatusMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[6]);
+      file_level_metadata_relay_2eproto[8]);
 }
 
 // ===================================================================
@@ -7325,7 +7921,7 @@ void AuthenticateReq::InternalSwap(AuthenticateReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AuthenticateReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[7]);
+      file_level_metadata_relay_2eproto[9]);
 }
 
 // ===================================================================
@@ -7605,7 +8201,7 @@ void AuthenticateGuestReq::InternalSwap(AuthenticateGuestReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AuthenticateGuestReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[8]);
+      file_level_metadata_relay_2eproto[10]);
 }
 
 // ===================================================================
@@ -7927,7 +8523,7 @@ void AuthenticateResp::InternalSwap(AuthenticateResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AuthenticateResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[9]);
+      file_level_metadata_relay_2eproto[11]);
 }
 
 // ===================================================================
@@ -8249,7 +8845,7 @@ void AuthenticateGuestResp::InternalSwap(AuthenticateGuestResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AuthenticateGuestResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[10]);
+      file_level_metadata_relay_2eproto[12]);
 }
 
 // ===================================================================
@@ -8479,7 +9075,7 @@ void AuthenticateWithLinkReq::InternalSwap(AuthenticateWithLinkReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AuthenticateWithLinkReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[11]);
+      file_level_metadata_relay_2eproto[13]);
 }
 
 // ===================================================================
@@ -8801,7 +9397,7 @@ void AuthenticateWithLinkResp::InternalSwap(AuthenticateWithLinkResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AuthenticateWithLinkResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[12]);
+      file_level_metadata_relay_2eproto[14]);
 }
 
 // ===================================================================
@@ -8979,7 +9575,7 @@ void ExitAllSpacesAndLogoutReq::InternalSwap(ExitAllSpacesAndLogoutReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ExitAllSpacesAndLogoutReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[13]);
+      file_level_metadata_relay_2eproto[15]);
 }
 
 // ===================================================================
@@ -9307,7 +9903,7 @@ void ExitAllSpacesAndLogoutResp::InternalSwap(ExitAllSpacesAndLogoutResp* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata ExitAllSpacesAndLogoutResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[14]);
+      file_level_metadata_relay_2eproto[16]);
 }
 
 // ===================================================================
@@ -9537,7 +10133,7 @@ void JoinSpaceFromIdReq::InternalSwap(JoinSpaceFromIdReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata JoinSpaceFromIdReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[15]);
+      file_level_metadata_relay_2eproto[17]);
 }
 
 // ===================================================================
@@ -9859,7 +10455,7 @@ void JoinSpaceFromIdResp::InternalSwap(JoinSpaceFromIdResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata JoinSpaceFromIdResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[16]);
+      file_level_metadata_relay_2eproto[18]);
 }
 
 // ===================================================================
@@ -10089,7 +10685,7 @@ void ShutdownSpaceConnectionReq::InternalSwap(ShutdownSpaceConnectionReq* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata ShutdownSpaceConnectionReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[17]);
+      file_level_metadata_relay_2eproto[19]);
 }
 
 // ===================================================================
@@ -10411,7 +11007,7 @@ void ShutdownSpaceConnectionResp::InternalSwap(ShutdownSpaceConnectionResp* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata ShutdownSpaceConnectionResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[18]);
+      file_level_metadata_relay_2eproto[20]);
 }
 
 // ===================================================================
@@ -10430,7 +11026,8 @@ CreateSpaceReq::CreateSpaceReq(const CreateSpaceReq& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   CreateSpaceReq* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.newspacename_){}
+      decltype(_impl_.keywords_){from._impl_.keywords_}
+    , decltype(_impl_.newspacename_){}
     , decltype(_impl_.reqid_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -10452,7 +11049,8 @@ inline void CreateSpaceReq::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.newspacename_){}
+      decltype(_impl_.keywords_){arena}
+    , decltype(_impl_.newspacename_){}
     , decltype(_impl_.reqid_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -10473,6 +11071,7 @@ CreateSpaceReq::~CreateSpaceReq() {
 
 inline void CreateSpaceReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.keywords_.~RepeatedPtrField();
   _impl_.newspacename_.Destroy();
 }
 
@@ -10486,6 +11085,7 @@ void CreateSpaceReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.keywords_.Clear();
   _impl_.newspacename_.ClearToEmpty();
   _impl_.reqid_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -10512,6 +11112,21 @@ const char* CreateSpaceReq::_InternalParse(const char* ptr, ::_pbi::ParseContext
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "ServerData.CreateSpaceReq.newSpaceName"));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string keywords = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_keywords();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "ServerData.CreateSpaceReq.keywords"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<90>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -10560,6 +11175,16 @@ uint8_t* CreateSpaceReq::_InternalSerialize(
         10, this->_internal_newspacename(), target);
   }
 
+  // repeated string keywords = 11;
+  for (int i = 0, n = this->_internal_keywords_size(); i < n; i++) {
+    const auto& s = this->_internal_keywords(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.CreateSpaceReq.keywords");
+    target = stream->WriteString(11, s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10575,6 +11200,14 @@ size_t CreateSpaceReq::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated string keywords = 11;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.keywords_.size());
+  for (int i = 0, n = _impl_.keywords_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.keywords_.Get(i));
+  }
 
   // string newSpaceName = 10;
   if (!this->_internal_newspacename().empty()) {
@@ -10606,6 +11239,7 @@ void CreateSpaceReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.keywords_.MergeFrom(from._impl_.keywords_);
   if (!from._internal_newspacename().empty()) {
     _this->_internal_set_newspacename(from._internal_newspacename());
   }
@@ -10631,6 +11265,7 @@ void CreateSpaceReq::InternalSwap(CreateSpaceReq* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.keywords_.InternalSwap(&other->_impl_.keywords_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.newspacename_, lhs_arena,
       &other->_impl_.newspacename_, rhs_arena
@@ -10641,7 +11276,7 @@ void CreateSpaceReq::InternalSwap(CreateSpaceReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CreateSpaceReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[19]);
+      file_level_metadata_relay_2eproto[21]);
 }
 
 // ===================================================================
@@ -10954,7 +11589,7 @@ void CreateSpaceResp::InternalSwap(CreateSpaceResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CreateSpaceResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[20]);
+      file_level_metadata_relay_2eproto[22]);
 }
 
 // ===================================================================
@@ -11503,7 +12138,7 @@ void PropertyValue::InternalSwap(PropertyValue* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PropertyValue::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[21]);
+      file_level_metadata_relay_2eproto[23]);
 }
 
 // ===================================================================
@@ -11826,7 +12461,7 @@ void DefinePropertyDefaultValue::InternalSwap(DefinePropertyDefaultValue* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata DefinePropertyDefaultValue::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[22]);
+      file_level_metadata_relay_2eproto[24]);
 }
 
 // ===================================================================
@@ -12177,7 +12812,7 @@ void PostPropertyUpdate::InternalSwap(PostPropertyUpdate* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PostPropertyUpdate::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[23]);
+      file_level_metadata_relay_2eproto[25]);
 }
 
 // ===================================================================
@@ -12578,7 +13213,7 @@ void BeginTransientPropertyUpdate::InternalSwap(BeginTransientPropertyUpdate* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata BeginTransientPropertyUpdate::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[24]);
+      file_level_metadata_relay_2eproto[26]);
 }
 
 // ===================================================================
@@ -12979,7 +13614,7 @@ void ContinueTransientPropertyUpdate::InternalSwap(ContinueTransientPropertyUpda
 ::PROTOBUF_NAMESPACE_ID::Metadata ContinueTransientPropertyUpdate::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[25]);
+      file_level_metadata_relay_2eproto[27]);
 }
 
 // ===================================================================
@@ -13380,7 +14015,7 @@ void FinalizeTransientPropertyUpdate::InternalSwap(FinalizeTransientPropertyUpda
 ::PROTOBUF_NAMESPACE_ID::Metadata FinalizeTransientPropertyUpdate::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[26]);
+      file_level_metadata_relay_2eproto[28]);
 }
 
 // ===================================================================
@@ -13631,7 +14266,7 @@ void CancelTransientPropertyUpdate::InternalSwap(CancelTransientPropertyUpdate* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CancelTransientPropertyUpdate::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[27]);
+      file_level_metadata_relay_2eproto[29]);
 }
 
 // ===================================================================
@@ -13929,7 +14564,7 @@ void TransformPropertyValue::InternalSwap(TransformPropertyValue* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata TransformPropertyValue::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[28]);
+      file_level_metadata_relay_2eproto[30]);
 }
 
 // ===================================================================
@@ -14107,7 +14742,7 @@ void GetAudioInputDevicesReq::InternalSwap(GetAudioInputDevicesReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetAudioInputDevicesReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[29]);
+      file_level_metadata_relay_2eproto[31]);
 }
 
 // ===================================================================
@@ -14285,7 +14920,7 @@ void GetAudioOutputDevicesReq::InternalSwap(GetAudioOutputDevicesReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetAudioOutputDevicesReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[30]);
+      file_level_metadata_relay_2eproto[32]);
 }
 
 // ===================================================================
@@ -14463,7 +15098,7 @@ void GetVideoInputDevicesReq::InternalSwap(GetVideoInputDevicesReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetVideoInputDevicesReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[31]);
+      file_level_metadata_relay_2eproto[33]);
 }
 
 // ===================================================================
@@ -14785,7 +15420,7 @@ void GetAudioInputDevicesResp::InternalSwap(GetAudioInputDevicesResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetAudioInputDevicesResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[32]);
+      file_level_metadata_relay_2eproto[34]);
 }
 
 // ===================================================================
@@ -15107,7 +15742,7 @@ void GetAudioOutputDevicesResp::InternalSwap(GetAudioOutputDevicesResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetAudioOutputDevicesResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[33]);
+      file_level_metadata_relay_2eproto[35]);
 }
 
 // ===================================================================
@@ -15429,7 +16064,7 @@ void GetVideoInputDevicesResp::InternalSwap(GetVideoInputDevicesResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetVideoInputDevicesResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[34]);
+      file_level_metadata_relay_2eproto[36]);
 }
 
 // ===================================================================
@@ -15659,7 +16294,7 @@ void SetAudioInputDeviceReq::InternalSwap(SetAudioInputDeviceReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SetAudioInputDeviceReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[35]);
+      file_level_metadata_relay_2eproto[37]);
 }
 
 // ===================================================================
@@ -15889,7 +16524,7 @@ void SetAudioOutputDeviceReq::InternalSwap(SetAudioOutputDeviceReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SetAudioOutputDeviceReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[36]);
+      file_level_metadata_relay_2eproto[38]);
 }
 
 // ===================================================================
@@ -16119,7 +16754,7 @@ void SetVideoInputDeviceReq::InternalSwap(SetVideoInputDeviceReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SetVideoInputDeviceReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[37]);
+      file_level_metadata_relay_2eproto[39]);
 }
 
 // ===================================================================
@@ -16420,7 +17055,7 @@ void PostCreateObject::InternalSwap(PostCreateObject* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PostCreateObject::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[38]);
+      file_level_metadata_relay_2eproto[40]);
 }
 
 // ===================================================================
@@ -16671,7 +17306,7 @@ void PostRemoveObject::InternalSwap(PostRemoveObject* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PostRemoveObject::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[39]);
+      file_level_metadata_relay_2eproto[41]);
 }
 
 // ===================================================================
@@ -16874,7 +17509,7 @@ void FetchFileByIdReq::InternalSwap(FetchFileByIdReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchFileByIdReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[40]);
+      file_level_metadata_relay_2eproto[42]);
 }
 
 // ===================================================================
@@ -17166,7 +17801,7 @@ void FetchFileByIdProgressResp::InternalSwap(FetchFileByIdProgressResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchFileByIdProgressResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[41]);
+      file_level_metadata_relay_2eproto[43]);
 }
 
 // ===================================================================
@@ -17469,7 +18104,7 @@ void FetchFileByIdCompletedResp::InternalSwap(FetchFileByIdCompletedResp* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchFileByIdCompletedResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[42]);
+      file_level_metadata_relay_2eproto[44]);
 }
 
 // ===================================================================
@@ -17647,7 +18282,7 @@ void FetchAllUploadedContentReq::InternalSwap(FetchAllUploadedContentReq* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchAllUploadedContentReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[43]);
+      file_level_metadata_relay_2eproto[45]);
 }
 
 // ===================================================================
@@ -17877,7 +18512,7 @@ void UploadLocalFileResp::InternalSwap(UploadLocalFileResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UploadLocalFileResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[44]);
+      file_level_metadata_relay_2eproto[46]);
 }
 
 // ===================================================================
@@ -18185,7 +18820,991 @@ void UploadLocalFileReq::InternalSwap(UploadLocalFileReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UploadLocalFileReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[45]);
+      file_level_metadata_relay_2eproto[47]);
+}
+
+// ===================================================================
+
+class ContentDestinationFolderReq::_Internal {
+ public:
+};
+
+ContentDestinationFolderReq::ContentDestinationFolderReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.ContentDestinationFolderReq)
+}
+ContentDestinationFolderReq::ContentDestinationFolderReq(const ContentDestinationFolderReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ContentDestinationFolderReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.foldername_){}
+    , decltype(_impl_.reqid_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.foldername_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.foldername_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_foldername().empty()) {
+    _this->_impl_.foldername_.Set(from._internal_foldername(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.reqid_ = from._impl_.reqid_;
+  // @@protoc_insertion_point(copy_constructor:ServerData.ContentDestinationFolderReq)
+}
+
+inline void ContentDestinationFolderReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.foldername_){}
+    , decltype(_impl_.reqid_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.foldername_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.foldername_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ContentDestinationFolderReq::~ContentDestinationFolderReq() {
+  // @@protoc_insertion_point(destructor:ServerData.ContentDestinationFolderReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ContentDestinationFolderReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.foldername_.Destroy();
+}
+
+void ContentDestinationFolderReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ContentDestinationFolderReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.ContentDestinationFolderReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.foldername_.ClearToEmpty();
+  _impl_.reqid_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ContentDestinationFolderReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 reqId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.reqid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string folderName = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          auto str = _internal_mutable_foldername();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ContentDestinationFolderReq.folderName"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ContentDestinationFolderReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.ContentDestinationFolderReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 reqId = 1;
+  if (this->_internal_reqid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_reqid(), target);
+  }
+
+  // string folderName = 10;
+  if (!this->_internal_foldername().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_foldername().data(), static_cast<int>(this->_internal_foldername().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ContentDestinationFolderReq.folderName");
+    target = stream->WriteStringMaybeAliased(
+        10, this->_internal_foldername(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.ContentDestinationFolderReq)
+  return target;
+}
+
+size_t ContentDestinationFolderReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.ContentDestinationFolderReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string folderName = 10;
+  if (!this->_internal_foldername().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_foldername());
+  }
+
+  // int32 reqId = 1;
+  if (this->_internal_reqid() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_reqid());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ContentDestinationFolderReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ContentDestinationFolderReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ContentDestinationFolderReq::GetClassData() const { return &_class_data_; }
+
+
+void ContentDestinationFolderReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ContentDestinationFolderReq*>(&to_msg);
+  auto& from = static_cast<const ContentDestinationFolderReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.ContentDestinationFolderReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_foldername().empty()) {
+    _this->_internal_set_foldername(from._internal_foldername());
+  }
+  if (from._internal_reqid() != 0) {
+    _this->_internal_set_reqid(from._internal_reqid());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ContentDestinationFolderReq::CopyFrom(const ContentDestinationFolderReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.ContentDestinationFolderReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ContentDestinationFolderReq::IsInitialized() const {
+  return true;
+}
+
+void ContentDestinationFolderReq::InternalSwap(ContentDestinationFolderReq* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.foldername_, lhs_arena,
+      &other->_impl_.foldername_, rhs_arena
+  );
+  swap(_impl_.reqid_, other->_impl_.reqid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ContentDestinationFolderReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[48]);
+}
+
+// ===================================================================
+
+class ContentDestinationFolderResp::_Internal {
+ public:
+};
+
+ContentDestinationFolderResp::ContentDestinationFolderResp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.ContentDestinationFolderResp)
+}
+ContentDestinationFolderResp::ContentDestinationFolderResp(const ContentDestinationFolderResp& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ContentDestinationFolderResp* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.reqid_){}
+    , decltype(_impl_.Resp_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.reqid_ = from._impl_.reqid_;
+  clear_has_Resp();
+  switch (from.Resp_case()) {
+    case kFullFolderName: {
+      _this->_internal_set_fullfoldername(from._internal_fullfoldername());
+      break;
+    }
+    case kError: {
+      _this->_internal_set_error(from._internal_error());
+      break;
+    }
+    case RESP_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:ServerData.ContentDestinationFolderResp)
+}
+
+inline void ContentDestinationFolderResp::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.reqid_){0}
+    , decltype(_impl_.Resp_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  clear_has_Resp();
+}
+
+ContentDestinationFolderResp::~ContentDestinationFolderResp() {
+  // @@protoc_insertion_point(destructor:ServerData.ContentDestinationFolderResp)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ContentDestinationFolderResp::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (has_Resp()) {
+    clear_Resp();
+  }
+}
+
+void ContentDestinationFolderResp::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ContentDestinationFolderResp::clear_Resp() {
+// @@protoc_insertion_point(one_of_clear_start:ServerData.ContentDestinationFolderResp)
+  switch (Resp_case()) {
+    case kFullFolderName: {
+      _impl_.Resp_.fullfoldername_.Destroy();
+      break;
+    }
+    case kError: {
+      _impl_.Resp_.error_.Destroy();
+      break;
+    }
+    case RESP_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = RESP_NOT_SET;
+}
+
+
+void ContentDestinationFolderResp::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.ContentDestinationFolderResp)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.reqid_ = 0;
+  clear_Resp();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ContentDestinationFolderResp::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 reqId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.reqid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string fullFolderName = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          auto str = _internal_mutable_fullfoldername();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ContentDestinationFolderResp.fullFolderName"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string error = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          auto str = _internal_mutable_error();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.ContentDestinationFolderResp.error"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ContentDestinationFolderResp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.ContentDestinationFolderResp)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 reqId = 1;
+  if (this->_internal_reqid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_reqid(), target);
+  }
+
+  // string fullFolderName = 10;
+  if (_internal_has_fullfoldername()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_fullfoldername().data(), static_cast<int>(this->_internal_fullfoldername().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ContentDestinationFolderResp.fullFolderName");
+    target = stream->WriteStringMaybeAliased(
+        10, this->_internal_fullfoldername(), target);
+  }
+
+  // string error = 11;
+  if (_internal_has_error()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.ContentDestinationFolderResp.error");
+    target = stream->WriteStringMaybeAliased(
+        11, this->_internal_error(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.ContentDestinationFolderResp)
+  return target;
+}
+
+size_t ContentDestinationFolderResp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.ContentDestinationFolderResp)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 reqId = 1;
+  if (this->_internal_reqid() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_reqid());
+  }
+
+  switch (Resp_case()) {
+    // string fullFolderName = 10;
+    case kFullFolderName: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_fullfoldername());
+      break;
+    }
+    // string error = 11;
+    case kError: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_error());
+      break;
+    }
+    case RESP_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ContentDestinationFolderResp::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ContentDestinationFolderResp::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ContentDestinationFolderResp::GetClassData() const { return &_class_data_; }
+
+
+void ContentDestinationFolderResp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ContentDestinationFolderResp*>(&to_msg);
+  auto& from = static_cast<const ContentDestinationFolderResp&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.ContentDestinationFolderResp)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_reqid() != 0) {
+    _this->_internal_set_reqid(from._internal_reqid());
+  }
+  switch (from.Resp_case()) {
+    case kFullFolderName: {
+      _this->_internal_set_fullfoldername(from._internal_fullfoldername());
+      break;
+    }
+    case kError: {
+      _this->_internal_set_error(from._internal_error());
+      break;
+    }
+    case RESP_NOT_SET: {
+      break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ContentDestinationFolderResp::CopyFrom(const ContentDestinationFolderResp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.ContentDestinationFolderResp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ContentDestinationFolderResp::IsInitialized() const {
+  return true;
+}
+
+void ContentDestinationFolderResp::InternalSwap(ContentDestinationFolderResp* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.reqid_, other->_impl_.reqid_);
+  swap(_impl_.Resp_, other->_impl_.Resp_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ContentDestinationFolderResp::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[49]);
+}
+
+// ===================================================================
+
+class FetchRemoteContentInfoReq::_Internal {
+ public:
+};
+
+FetchRemoteContentInfoReq::FetchRemoteContentInfoReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.FetchRemoteContentInfoReq)
+}
+FetchRemoteContentInfoReq::FetchRemoteContentInfoReq(const FetchRemoteContentInfoReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  FetchRemoteContentInfoReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.contentid_){}
+    , decltype(_impl_.reqid_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.contentid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.contentid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_contentid().empty()) {
+    _this->_impl_.contentid_.Set(from._internal_contentid(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.reqid_ = from._impl_.reqid_;
+  // @@protoc_insertion_point(copy_constructor:ServerData.FetchRemoteContentInfoReq)
+}
+
+inline void FetchRemoteContentInfoReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.contentid_){}
+    , decltype(_impl_.reqid_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.contentid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.contentid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+FetchRemoteContentInfoReq::~FetchRemoteContentInfoReq() {
+  // @@protoc_insertion_point(destructor:ServerData.FetchRemoteContentInfoReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void FetchRemoteContentInfoReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.contentid_.Destroy();
+}
+
+void FetchRemoteContentInfoReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void FetchRemoteContentInfoReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.FetchRemoteContentInfoReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.contentid_.ClearToEmpty();
+  _impl_.reqid_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* FetchRemoteContentInfoReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 reqId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.reqid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string contentId = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          auto str = _internal_mutable_contentid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ServerData.FetchRemoteContentInfoReq.contentId"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* FetchRemoteContentInfoReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.FetchRemoteContentInfoReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 reqId = 1;
+  if (this->_internal_reqid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_reqid(), target);
+  }
+
+  // string contentId = 10;
+  if (!this->_internal_contentid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_contentid().data(), static_cast<int>(this->_internal_contentid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.FetchRemoteContentInfoReq.contentId");
+    target = stream->WriteStringMaybeAliased(
+        10, this->_internal_contentid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.FetchRemoteContentInfoReq)
+  return target;
+}
+
+size_t FetchRemoteContentInfoReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.FetchRemoteContentInfoReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string contentId = 10;
+  if (!this->_internal_contentid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_contentid());
+  }
+
+  // int32 reqId = 1;
+  if (this->_internal_reqid() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_reqid());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData FetchRemoteContentInfoReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    FetchRemoteContentInfoReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*FetchRemoteContentInfoReq::GetClassData() const { return &_class_data_; }
+
+
+void FetchRemoteContentInfoReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<FetchRemoteContentInfoReq*>(&to_msg);
+  auto& from = static_cast<const FetchRemoteContentInfoReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.FetchRemoteContentInfoReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_contentid().empty()) {
+    _this->_internal_set_contentid(from._internal_contentid());
+  }
+  if (from._internal_reqid() != 0) {
+    _this->_internal_set_reqid(from._internal_reqid());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void FetchRemoteContentInfoReq::CopyFrom(const FetchRemoteContentInfoReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.FetchRemoteContentInfoReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FetchRemoteContentInfoReq::IsInitialized() const {
+  return true;
+}
+
+void FetchRemoteContentInfoReq::InternalSwap(FetchRemoteContentInfoReq* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.contentid_, lhs_arena,
+      &other->_impl_.contentid_, rhs_arena
+  );
+  swap(_impl_.reqid_, other->_impl_.reqid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FetchRemoteContentInfoReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[50]);
+}
+
+// ===================================================================
+
+class FetchRemoteContentInfoResp::_Internal {
+ public:
+  static const ::ServerData::CavrnusRemoteContent& uploadedcontent(const FetchRemoteContentInfoResp* msg);
+};
+
+const ::ServerData::CavrnusRemoteContent&
+FetchRemoteContentInfoResp::_Internal::uploadedcontent(const FetchRemoteContentInfoResp* msg) {
+  return *msg->_impl_.uploadedcontent_;
+}
+void FetchRemoteContentInfoResp::clear_uploadedcontent() {
+  if (GetArenaForAllocation() == nullptr && _impl_.uploadedcontent_ != nullptr) {
+    delete _impl_.uploadedcontent_;
+  }
+  _impl_.uploadedcontent_ = nullptr;
+}
+FetchRemoteContentInfoResp::FetchRemoteContentInfoResp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ServerData.FetchRemoteContentInfoResp)
+}
+FetchRemoteContentInfoResp::FetchRemoteContentInfoResp(const FetchRemoteContentInfoResp& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  FetchRemoteContentInfoResp* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.uploadedcontent_){nullptr}
+    , decltype(_impl_.reqid_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_uploadedcontent()) {
+    _this->_impl_.uploadedcontent_ = new ::ServerData::CavrnusRemoteContent(*from._impl_.uploadedcontent_);
+  }
+  _this->_impl_.reqid_ = from._impl_.reqid_;
+  // @@protoc_insertion_point(copy_constructor:ServerData.FetchRemoteContentInfoResp)
+}
+
+inline void FetchRemoteContentInfoResp::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.uploadedcontent_){nullptr}
+    , decltype(_impl_.reqid_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+FetchRemoteContentInfoResp::~FetchRemoteContentInfoResp() {
+  // @@protoc_insertion_point(destructor:ServerData.FetchRemoteContentInfoResp)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void FetchRemoteContentInfoResp::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.uploadedcontent_;
+}
+
+void FetchRemoteContentInfoResp::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void FetchRemoteContentInfoResp::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerData.FetchRemoteContentInfoResp)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.uploadedcontent_ != nullptr) {
+    delete _impl_.uploadedcontent_;
+  }
+  _impl_.uploadedcontent_ = nullptr;
+  _impl_.reqid_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* FetchRemoteContentInfoResp::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 reqId = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.reqid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ServerData.CavrnusRemoteContent uploadedContent = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_uploadedcontent(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* FetchRemoteContentInfoResp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ServerData.FetchRemoteContentInfoResp)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 reqId = 1;
+  if (this->_internal_reqid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_reqid(), target);
+  }
+
+  // .ServerData.CavrnusRemoteContent uploadedContent = 10;
+  if (this->_internal_has_uploadedcontent()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(10, _Internal::uploadedcontent(this),
+        _Internal::uploadedcontent(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerData.FetchRemoteContentInfoResp)
+  return target;
+}
+
+size_t FetchRemoteContentInfoResp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ServerData.FetchRemoteContentInfoResp)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .ServerData.CavrnusRemoteContent uploadedContent = 10;
+  if (this->_internal_has_uploadedcontent()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.uploadedcontent_);
+  }
+
+  // int32 reqId = 1;
+  if (this->_internal_reqid() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_reqid());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData FetchRemoteContentInfoResp::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    FetchRemoteContentInfoResp::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*FetchRemoteContentInfoResp::GetClassData() const { return &_class_data_; }
+
+
+void FetchRemoteContentInfoResp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<FetchRemoteContentInfoResp*>(&to_msg);
+  auto& from = static_cast<const FetchRemoteContentInfoResp&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerData.FetchRemoteContentInfoResp)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_uploadedcontent()) {
+    _this->_internal_mutable_uploadedcontent()->::ServerData::CavrnusRemoteContent::MergeFrom(
+        from._internal_uploadedcontent());
+  }
+  if (from._internal_reqid() != 0) {
+    _this->_internal_set_reqid(from._internal_reqid());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void FetchRemoteContentInfoResp::CopyFrom(const FetchRemoteContentInfoResp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ServerData.FetchRemoteContentInfoResp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FetchRemoteContentInfoResp::IsInitialized() const {
+  return true;
+}
+
+void FetchRemoteContentInfoResp::InternalSwap(FetchRemoteContentInfoResp* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(FetchRemoteContentInfoResp, _impl_.reqid_)
+      + sizeof(FetchRemoteContentInfoResp::_impl_.reqid_)
+      - PROTOBUF_FIELD_OFFSET(FetchRemoteContentInfoResp, _impl_.uploadedcontent_)>(
+          reinterpret_cast<char*>(&_impl_.uploadedcontent_),
+          reinterpret_cast<char*>(&other->_impl_.uploadedcontent_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FetchRemoteContentInfoResp::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
+      file_level_metadata_relay_2eproto[51]);
 }
 
 // ===================================================================
@@ -18400,7 +20019,7 @@ void FetchAllUploadedContentResp::InternalSwap(FetchAllUploadedContentResp* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata FetchAllUploadedContentResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[46]);
+      file_level_metadata_relay_2eproto[52]);
 }
 
 // ===================================================================
@@ -18677,7 +20296,7 @@ void PropMetadataStatus::InternalSwap(PropMetadataStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PropMetadataStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[47]);
+      file_level_metadata_relay_2eproto[53]);
 }
 
 // ===================================================================
@@ -18995,7 +20614,7 @@ void PropertyValueStatus::InternalSwap(PropertyValueStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PropertyValueStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[48]);
+      file_level_metadata_relay_2eproto[54]);
 }
 
 // ===================================================================
@@ -19272,7 +20891,7 @@ void LocalPropertyHandledResp::InternalSwap(LocalPropertyHandledResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LocalPropertyHandledResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[49]);
+      file_level_metadata_relay_2eproto[55]);
 }
 
 // ===================================================================
@@ -19523,7 +21142,7 @@ void UserAdded::InternalSwap(UserAdded* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UserAdded::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[50]);
+      file_level_metadata_relay_2eproto[56]);
 }
 
 // ===================================================================
@@ -19774,7 +21393,7 @@ void UserRemoved::InternalSwap(UserRemoved* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UserRemoved::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[51]);
+      file_level_metadata_relay_2eproto[57]);
 }
 
 // ===================================================================
@@ -20129,7 +21748,7 @@ void UserVideoFrame::InternalSwap(UserVideoFrame* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UserVideoFrame::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[52]);
+      file_level_metadata_relay_2eproto[58]);
 }
 
 // ===================================================================
@@ -20159,7 +21778,8 @@ SpaceInfo::SpaceInfo(const SpaceInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   SpaceInfo* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.spaceid_){}
+      decltype(_impl_.keywords_){from._impl_.keywords_}
+    , decltype(_impl_.spaceid_){}
     , decltype(_impl_.spacename_){}
     , decltype(_impl_.spacethumbnailurl_){}
     , decltype(_impl_.lastaccess_){nullptr}
@@ -20203,7 +21823,8 @@ inline void SpaceInfo::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.spaceid_){}
+      decltype(_impl_.keywords_){arena}
+    , decltype(_impl_.spaceid_){}
     , decltype(_impl_.spacename_){}
     , decltype(_impl_.spacethumbnailurl_){}
     , decltype(_impl_.lastaccess_){nullptr}
@@ -20235,6 +21856,7 @@ SpaceInfo::~SpaceInfo() {
 
 inline void SpaceInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.keywords_.~RepeatedPtrField();
   _impl_.spaceid_.Destroy();
   _impl_.spacename_.Destroy();
   _impl_.spacethumbnailurl_.Destroy();
@@ -20251,6 +21873,7 @@ void SpaceInfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.keywords_.Clear();
   _impl_.spaceid_.ClearToEmpty();
   _impl_.spacename_.ClearToEmpty();
   _impl_.spacethumbnailurl_.ClearToEmpty();
@@ -20311,6 +21934,21 @@ const char* SpaceInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_lastaccess(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string keywords = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_keywords();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "ServerData.SpaceInfo.keywords"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -20386,6 +22024,16 @@ uint8_t* SpaceInfo::_InternalSerialize(
         _Internal::lastaccess(this).GetCachedSize(), target, stream);
   }
 
+  // repeated string keywords = 6;
+  for (int i = 0, n = this->_internal_keywords_size(); i < n; i++) {
+    const auto& s = this->_internal_keywords(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ServerData.SpaceInfo.keywords");
+    target = stream->WriteString(6, s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -20401,6 +22049,14 @@ size_t SpaceInfo::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated string keywords = 6;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.keywords_.size());
+  for (int i = 0, n = _impl_.keywords_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.keywords_.Get(i));
+  }
 
   // string spaceId = 1;
   if (!this->_internal_spaceid().empty()) {
@@ -20453,6 +22109,7 @@ void SpaceInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.keywords_.MergeFrom(from._impl_.keywords_);
   if (!from._internal_spaceid().empty()) {
     _this->_internal_set_spaceid(from._internal_spaceid());
   }
@@ -20488,6 +22145,7 @@ void SpaceInfo::InternalSwap(SpaceInfo* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.keywords_.InternalSwap(&other->_impl_.keywords_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.spaceid_, lhs_arena,
       &other->_impl_.spaceid_, rhs_arena
@@ -20511,7 +22169,7 @@ void SpaceInfo::InternalSwap(SpaceInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SpaceInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[53]);
+      file_level_metadata_relay_2eproto[59]);
 }
 
 // ===================================================================
@@ -20864,7 +22522,7 @@ void ObjectAdded::InternalSwap(ObjectAdded* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectAdded::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[54]);
+      file_level_metadata_relay_2eproto[60]);
 }
 
 // ===================================================================
@@ -21115,7 +22773,7 @@ void ObjectRemoved::InternalSwap(ObjectRemoved* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectRemoved::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[55]);
+      file_level_metadata_relay_2eproto[61]);
 }
 
 // ===================================================================
@@ -21345,7 +23003,7 @@ void UpdateLocalUserMuted::InternalSwap(UpdateLocalUserMuted* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateLocalUserMuted::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[56]);
+      file_level_metadata_relay_2eproto[62]);
 }
 
 // ===================================================================
@@ -21590,7 +23248,7 @@ void UpdateLocalUserCoPresence::InternalSwap(UpdateLocalUserCoPresence* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateLocalUserCoPresence::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[57]);
+      file_level_metadata_relay_2eproto[63]);
 }
 
 // ===================================================================
@@ -21820,7 +23478,7 @@ void UpdateLocalUserStreamState::InternalSwap(UpdateLocalUserStreamState* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateLocalUserStreamState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[58]);
+      file_level_metadata_relay_2eproto[64]);
 }
 
 // ===================================================================
@@ -22081,7 +23739,7 @@ void PermissionStatusReq::InternalSwap(PermissionStatusReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PermissionStatusReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[59]);
+      file_level_metadata_relay_2eproto[65]);
 }
 
 // ===================================================================
@@ -22373,7 +24031,7 @@ void PermissionStatus::InternalSwap(PermissionStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PermissionStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[60]);
+      file_level_metadata_relay_2eproto[66]);
 }
 
 // ===================================================================
@@ -22551,7 +24209,7 @@ void AllJoinableSpacesReq::InternalSwap(AllJoinableSpacesReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AllJoinableSpacesReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[61]);
+      file_level_metadata_relay_2eproto[67]);
 }
 
 // ===================================================================
@@ -22763,7 +24421,7 @@ void AllJoinableSpacesResp::InternalSwap(AllJoinableSpacesResp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AllJoinableSpacesResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[62]);
+      file_level_metadata_relay_2eproto[68]);
 }
 
 // ===================================================================
@@ -23060,7 +24718,7 @@ void ChatAdded::InternalSwap(ChatAdded* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ChatAdded::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[63]);
+      file_level_metadata_relay_2eproto[69]);
 }
 
 // ===================================================================
@@ -23357,7 +25015,7 @@ void ChatUpdated::InternalSwap(ChatUpdated* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ChatUpdated::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[64]);
+      file_level_metadata_relay_2eproto[70]);
 }
 
 // ===================================================================
@@ -23608,7 +25266,7 @@ void ChatRemoved::InternalSwap(ChatRemoved* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ChatRemoved::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[65]);
+      file_level_metadata_relay_2eproto[71]);
 }
 
 // ===================================================================
@@ -23859,7 +25517,7 @@ void PostChat::InternalSwap(PostChat* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PostChat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[66]);
+      file_level_metadata_relay_2eproto[72]);
 }
 
 // ===================================================================
@@ -24320,7 +25978,7 @@ void ChatBase::InternalSwap(ChatBase* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ChatBase::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_relay_2eproto_getter, &descriptor_table_relay_2eproto_once,
-      file_level_metadata_relay_2eproto[67]);
+      file_level_metadata_relay_2eproto[73]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -24349,6 +26007,14 @@ Arena::CreateMaybeMessage< ::ServerData::KeepAlive >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::ServerData::UpdateTime*
 Arena::CreateMaybeMessage< ::ServerData::UpdateTime >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ServerData::UpdateTime >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::SetForceKeepAlive*
+Arena::CreateMaybeMessage< ::ServerData::SetForceKeepAlive >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::SetForceKeepAlive >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::EndForceKeepAlive*
+Arena::CreateMaybeMessage< ::ServerData::EndForceKeepAlive >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::EndForceKeepAlive >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ServerData::StatusMessage*
 Arena::CreateMaybeMessage< ::ServerData::StatusMessage >(Arena* arena) {
@@ -24509,6 +26175,22 @@ Arena::CreateMaybeMessage< ::ServerData::UploadLocalFileResp >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::ServerData::UploadLocalFileReq*
 Arena::CreateMaybeMessage< ::ServerData::UploadLocalFileReq >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ServerData::UploadLocalFileReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::ContentDestinationFolderReq*
+Arena::CreateMaybeMessage< ::ServerData::ContentDestinationFolderReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::ContentDestinationFolderReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::ContentDestinationFolderResp*
+Arena::CreateMaybeMessage< ::ServerData::ContentDestinationFolderResp >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::ContentDestinationFolderResp >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::FetchRemoteContentInfoReq*
+Arena::CreateMaybeMessage< ::ServerData::FetchRemoteContentInfoReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::FetchRemoteContentInfoReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ServerData::FetchRemoteContentInfoResp*
+Arena::CreateMaybeMessage< ::ServerData::FetchRemoteContentInfoResp >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ServerData::FetchRemoteContentInfoResp >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ServerData::FetchAllUploadedContentResp*
 Arena::CreateMaybeMessage< ::ServerData::FetchAllUploadedContentResp >(Arena* arena) {

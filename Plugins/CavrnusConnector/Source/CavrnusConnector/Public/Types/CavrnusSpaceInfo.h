@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 /**
  * @file CavrnusSpaceInfo.h
  * @brief This file defines the FCavrnusSpaceInfo structure used for storing live information about a given space.
@@ -8,6 +9,7 @@
  * space's name, unique ID, and thumbnail link. These fields are primarily used for building space selection UIs.
  * To get a list of available CavrnusSpaceInfos, you can call FetchJoinableSpaces or BindJoinableSpaces.
  */
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -40,8 +42,11 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceInfo
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Spaces")
 	FDateTime LastAccess = FDateTime::MinValue();
 
-	FCavrnusSpaceInfo(const FString& SpaceId, const FString& SpaceName, const FString& SpaceThumbnail, const FDateTime& LastAccess)
-		: SpaceId(SpaceId), SpaceName(SpaceName), SpaceThumbnail(SpaceThumbnail), LastAccess(LastAccess)
+	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Spaces")
+	TArray<FString> Keywords;
+
+	FCavrnusSpaceInfo(const FString& SpaceId, const FString& SpaceName, const FString& SpaceThumbnail, const FDateTime& LastAccess, const TArray<FString>& keywords)
+		: SpaceId(SpaceId), SpaceName(SpaceName), SpaceThumbnail(SpaceThumbnail), LastAccess(LastAccess), Keywords(keywords)
 	{
 	}
 

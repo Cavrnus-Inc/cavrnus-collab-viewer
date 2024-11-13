@@ -1,11 +1,12 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
+
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
 #include "Types/CavrnusBinding.h"
 #include "Types/CavrnusPropertyValue.h"
 #include "IPropertySyncInterface.generated.h"
-
 
 /**
  * @brief Interface for synchronizing property values between Unreal Engine and the Cavrnus platform.
@@ -35,6 +36,7 @@ public:
 	 * @return The current property value as a Cavrnus::FPropertyValue.
 	 */
 	virtual Cavrnus::FPropertyValue GetPropertyValue() = 0;
+
 	/**
 	 * @brief Sets a new property value.
 	 * This function must be implemented by any class inheriting this interface.

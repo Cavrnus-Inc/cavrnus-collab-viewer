@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include <CoreMinimal.h>
@@ -146,5 +147,4 @@ namespace Cavrnus
 				return val;
 			}
 	};
-
-}
+} // namespace Cavrnus

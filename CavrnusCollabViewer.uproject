@@ -5,7 +5,7 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "cavrnus_cvt_53",
+			"Name": "CavrnusCollabViewer",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}

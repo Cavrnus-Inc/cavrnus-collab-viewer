@@ -1,9 +1,11 @@
+// Copyright(c) Cavrnus. All rights reserved.
+
 #include "CavrnusLocalCharacter.h"
 #include <GameFramework/InputSettings.h>
 
 ACavrnusLocalCharacter::ACavrnusLocalCharacter()
 {
-	// Only want to add mappings if this is a real instance, and we haven't added them already.
+	// Only want to add mappings if this is a real instance
 	if (!HasAnyFlags(RF_ClassDefaultObject))
 	{
 		SetupInputs();

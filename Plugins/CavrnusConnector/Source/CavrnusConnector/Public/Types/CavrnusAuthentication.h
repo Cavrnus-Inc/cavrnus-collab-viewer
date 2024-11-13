@@ -9,6 +9,7 @@
  * component already handles this functionality, so direct interaction with FCavrnusAuthentication is generally
  * unnecessary unless custom functionality is required.
  */
+
 #pragma once
 
 #include "CoreMinimal.h"

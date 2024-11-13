@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #ifdef _MSC_VER

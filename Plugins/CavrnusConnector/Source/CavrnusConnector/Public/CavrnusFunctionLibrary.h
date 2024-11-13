@@ -10,8 +10,9 @@
  * allowing developers to easily integrate Cavrnus functionalities into their Unreal Engine projects.
  */
 
-// Includes
 #pragma once
+
+// Includes
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include <Containers/Map.h>
@@ -40,11 +41,16 @@
 UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API UCavrnusFunctionLibrary : public UBlueprintFunctionLibrary
 {
-
 	GENERATED_BODY()
 
 	// Functions
 public:
+
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus")
+	static void SetForceKeepAlive();
+
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus")
+	static void EndForceKeepAlive();
 
 #pragma region Authentication
 
@@ -175,6 +181,8 @@ public:
 	static void CreateSpace(FString SpaceName, FCavrnusSpaceCreated OnCreation, FCavrnusError OnFailure);
 
 	static void CreateSpace(FString SpaceName, CavrnusSpaceCreated OnCreation, CavrnusError OnFailure);
+
+	static void CreateSpace(FString SpaceName, TArray<FString> Keywords, CavrnusSpaceCreated OnCreation, CavrnusError OnFailure);
 
 	/**
 	 * @brief Delegate triggered when the process of joining a Space begins.
@@ -357,6 +365,7 @@ public:
 #pragma endregion
 
 #pragma region Bool Prop Functions
+
 	/**
 	 * @brief Defines a default value for a boolean property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -437,6 +446,7 @@ public:
 #pragma endregion
 
 #pragma region Float Prop Functions
+
 	/**
 	 * @brief Defines a default value for a float property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -516,6 +526,7 @@ public:
 #pragma endregion
 
 #pragma region String Prop Functions
+
 	/**
 	 * @brief Defines a default value for a string property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -595,6 +606,7 @@ public:
 #pragma endregion
 
 #pragma region Vector Prop Functions
+
 	/**
 	 * @brief Defines a default value for a vector property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -673,6 +685,7 @@ public:
 #pragma endregion
 
 #pragma region Transform Prop Functions
+
 	/**
 	 * @brief Defines a default value for a transform property within a specified container.
 	 * @param SpaceConnection The space connection containing the property.
@@ -752,6 +765,7 @@ public:
 #pragma endregion
 
 #pragma region Permissions
+
 	// ============================================
 	// Permissions
 	// ============================================
@@ -787,9 +801,11 @@ public:
 	static UPARAM(DisplayName = "Disposable") UCavrnusBinding* BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, FCavrnusPolicyUpdated OnPolicyUpdated);
 
 	static UCavrnusBinding* BindSpacePolicy(FCavrnusSpaceConnection SpaceConnection, const FString& Policy, CavrnusPolicyUpdated OnPolicyUpdated);
+
 #pragma endregion
 
 #pragma region Spawned Objects
+
 	// ============================================
 	// Spawned Objects
 	// ============================================
@@ -818,7 +834,6 @@ public:
 	static void DestroyObject(const FCavrnusSpawnedObject& SpawnedObject);
 
 #pragma endregion
-
 
 #pragma region Space Users
 
@@ -913,9 +928,11 @@ public:
 	 * @return A disposable binding to manage the event.
 	 */
 	static UCavrnusBinding* BindUserVideoFrames(FCavrnusSpaceConnection SpaceConnection, const FCavrnusUser& User, const VideoFrameUpdateFunction& UpdateFrameCallback);
+
 #pragma endregion
 
 #pragma region Voice and Video
+
 	// ============================================
 	// Voice and Video
 	// ============================================
@@ -1081,10 +1098,18 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Voice and Video",
 		meta = (ToolTip = "Sets which camera/stream source to use", ShortToolTip = "Sets which camera/stream source to use"))
 	static void UpdateVideoInput(FCavrnusVideoInputDevice Device);
+
 #pragma endregion
 
-
 #pragma region Remote Content
+
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusRemoteContentInfoFunction, const FCavrnusRemoteContent&, uploadedContent);
+
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
+		meta = (ToolTip = "Downloads the given content on your device and returns an array of its bytes", ShortToolTip = "Downloads the given content"))
+	static void FetchFileInfoById(FString ContentId, FCavrnusRemoteContentInfoFunction OnRecvContentInfo);
+
+	static void FetchFileInfoById(FString ContentId, const CavrnusRemoteContentInfoFunction& OnRecvContentInfo);
 
 	/**
 	 * @brief Delegate for handling content download progress.
@@ -1218,6 +1243,25 @@ public:
 	 */
 	static void UploadContentWithTags(FString FilePath, TMap<FString, FString> Tags, const CavrnusUploadCompleteFunction& OnUploadComplete);
 
+	/**
+	 * @brief Delegate for handling the request for a folder to be fetched/created
+	 *
+	 * @param fullFolderPath The full path to the folder
+	 */
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusFolderCallback, const FString&, fullFolderPath);
+
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Content",
+		meta = (ToolTip = "Gets or Creates a folder at a valid path with read/write permissions", ShortToolTip = "Gets a valid folder path"))
+	static void RequestContentDestinationFolder(FString FolderName, FCavrnusFolderCallback OnRecvFullFolderPath);
+
+	/**
+	 * @brief Creates a new folder if doesn't exist, that has valid read/write permissions.  Useful for getting a folder to download content to that is valid on multiple platforms.
+	 *
+	 * @param FolderName The name of the specific folder.  This will be placed in the hidden Cavrnus Content Folder.
+	 * @param OnRecvFolder Gives back the full folder path.
+	 */
+	static void RequestContentDestinationFolder(FString FolderName, const TFunction<void(FString)>& OnRecvFullFolderPath);
+
 #pragma endregion
 
 #pragma region Chat
@@ -1257,7 +1301,6 @@ public:
 	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Chat",
 		meta = (ToolTip = "Send a new chat message", ShortToolTip = "Send a new chat message"))
 	static void PostChatMessage(const FCavrnusSpaceConnection& spaceConn, const FString& Chat);
-
 
 #pragma endregion
 

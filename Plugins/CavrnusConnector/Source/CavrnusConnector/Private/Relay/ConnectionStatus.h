@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 namespace Cavrnus
@@ -7,5 +8,4 @@ namespace Cavrnus
 		eSTATUS_INIT = 0, eSTATUS_STARTUP, eSTATUS_SHUTDOWN,
 		eSTATUS_CONNECTED, eSTATUS_NOT_CONNECTED
 	};
-
 } // namespace Cavrnus

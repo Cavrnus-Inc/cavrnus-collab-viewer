@@ -1,7 +1,11 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #include "UI/CavrnusLoginWidget.h"
-#include <Components/EditableTextBox.h>
 #include <Components/Button.h>
+
+#include "CavrnusFunctionLibrary.h"
+#include "CavrnusSpatialConnector.h"
+#include "CavrnusSpatialConnectorSubSystem.h"
 
 void UCavrnusLoginWidget::Setup()
 {
@@ -17,6 +21,15 @@ void UCavrnusLoginWidget::NativeDestruct()
 
 void UCavrnusLoginWidget::OnLoginClicked()
 {
-	OnLogin.Broadcast(EmailInput->GetText().ToString(), PasswordInput->GetText().ToString());
+	const FString Server = UCavrnusFunctionLibrary::GetCavrnusSpatialConnector()->MyServer;
+	UCavrnusFunctionLibrary::AuthenticateWithPassword(Server, EmailInput->GetText().ToString(),
+	                                                  PasswordInput->GetText().ToString(),
+	                                                  [this](const FCavrnusAuthentication&)
+	                                                  {
+	                                                  }, [](const FString& String)
+	                                                  {
+	                                                  });
+
+	UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy()->ShowAuthWidget(true);
 	RemoveFromParent();
 }

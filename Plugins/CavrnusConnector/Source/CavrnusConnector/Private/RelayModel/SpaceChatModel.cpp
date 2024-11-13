@@ -1,10 +1,10 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #include "RelayModel/SpaceChatModel.h"
 #include "CavrnusConnectorModule.h"
 
 namespace Cavrnus
 {
-
 	SpaceChatModel::SpaceChatModel()
 	{
 	}
@@ -76,4 +76,4 @@ namespace Cavrnus
 
 		return binding;
 	}
-}
+} // namespace Cavrnus

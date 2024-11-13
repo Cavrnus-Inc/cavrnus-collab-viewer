@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 /**
  * @file CavrnusOutputDevice.h
  * @brief This file defines the FCavrnusOutputDevice structure used for representing audio output devices in Cavrnus.
@@ -7,6 +8,7 @@
  * This structure includes information such as the device name and device ID, which can be used to display available speakers in a user interface and select a specific device for audio output.
  * Note: This selection only affects the Cavrnus voice chat and does not impact the application's other sounds.
  */
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -28,7 +30,7 @@ struct CAVRNUSCONNECTOR_API FCavrnusOutputDevice
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Input")
 	FString DeviceName = "";
 
-	/** The name of the audio output device. Useful for displaying the device in a UI selector. */
+	/** The unique identifier for the audio output device. */
 	UPROPERTY(BlueprintReadWrite, Category = "Cavrnus|Input")
 	FString DeviceId = "";
 

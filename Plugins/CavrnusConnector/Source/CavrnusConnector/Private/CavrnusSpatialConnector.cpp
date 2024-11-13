@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #include "CavrnusSpatialConnector.h"
 
 #include "CavrnusAvatarManager.h"
@@ -29,6 +30,7 @@ void ACavrnusSpatialConnector::PostInitializeComponents()
 	{
 		SubProxy->RegisterCavrnusSpatialConnector(this);
 	}
+	ServerSelectionMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/ServerMenu/WBP_ServerSelection.WBP_ServerSelection_C"), UCavrnusServerSelectionWidget::StaticClass());
 }
 
 // Called when the game starts or when spawned
@@ -49,7 +51,7 @@ void ACavrnusSpatialConnector::CavrnusBeginPlay()
 
 	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
 	{
-		SubProxy->AuthenticateAndJoin();
+		SubProxy->BeginAuthenticationProcess();
 	}
 }
 
@@ -61,4 +63,16 @@ void ACavrnusSpatialConnector::EndPlay(const EEndPlayReason::Type EndPlayReason)
 
 void ACavrnusSpatialConnector::CavrnusEndPlay()
 {
+}
+
+UClass* ACavrnusSpatialConnector::GetDefaultBlueprint(const FString& Path, UClass* BaseClass) const
+{
+	// Use BP as default value
+	UClass* LoadedBlueprintClass = StaticLoadClass(BaseClass, nullptr, *Path, nullptr, LOAD_None, nullptr);
+	if (!LoadedBlueprintClass)
+	{
+		UE_LOG(LogCavrnusConnector, Error, TEXT("Blueprint asset failed to load from path: %s, base class name: %s"), *Path, *BaseClass->GetName());
+	}
+
+	return LoadedBlueprintClass;
 }

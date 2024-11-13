@@ -1,10 +1,11 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #include "RelayModel/SpacePropertyModel.h"
 #include <TextureResource.h>
 
 namespace Cavrnus
 {
-	SpacePropertyModel::SpacePropertyModel() 
+	SpacePropertyModel::SpacePropertyModel()
 	{
 		ChatModel = new SpaceChatModel();
 	}
@@ -36,15 +37,17 @@ namespace Cavrnus
 		{
 			CurrServerPropValues.FindOrAdd(fullPropertyId);
 		}
-		
+
 		CurrServerPropValues[fullPropertyId] = value;
-		TryExecPropBindings(fullPropertyId);
+
+		if (!CurrLocalPropValues.Contains(fullPropertyId))
+			TryExecPropBindings(fullPropertyId);
 	}
 
 	int SpacePropertyModel::SetLocalPropVal(FAbsolutePropertyId fullPropertyId, FPropertyValue value)
 	{
-		//We treat this like a has, but use a dict cuz stupid string comparison stuff
-		if (CurrPropReadonlyMetadata.Contains(fullPropertyId)) 
+		// We treat this like a has, but use a dictionary to handle string comparisons
+		if (CurrPropReadonlyMetadata.Contains(fullPropertyId))
 		{
 			return -1;
 		}
@@ -65,7 +68,7 @@ namespace Cavrnus
 
 	FPropertyValue SpacePropertyModel::GetCurrentPropValue(FAbsolutePropertyId fullPropertyId)
 	{
-		//Returns an invalid value
+		//Returns a default value
 		if (!PropValueExists(fullPropertyId))
 			return FPropertyValue();
 
@@ -90,7 +93,7 @@ namespace Cavrnus
 			const FPropertyValue& oldPropVal = GetCurrentPropValue(fullPropertyId);
 
 			CurrLocalPropValues.Remove(fullPropertyId);
-			
+
 			const FPropertyValue& newPropVal = GetCurrentPropValue(fullPropertyId);
 
 			bool changed = !(newPropVal == oldPropVal);
@@ -101,16 +104,16 @@ namespace Cavrnus
 
 	void SpacePropertyModel::UpdatePropMetadata(FAbsolutePropertyId fullPropertyId, bool isReadonly)
 	{
-		if (!isReadonly && CurrPropReadonlyMetadata.Contains(fullPropertyId)) 
+		if (!isReadonly && CurrPropReadonlyMetadata.Contains(fullPropertyId))
 		{
 			CurrPropReadonlyMetadata.Remove(fullPropertyId);
 		}
-		else if (isReadonly && !CurrPropReadonlyMetadata.Contains(fullPropertyId)) 
+		else if (isReadonly && !CurrPropReadonlyMetadata.Contains(fullPropertyId))
 		{
 			CurrPropReadonlyMetadata.Add(fullPropertyId, true);
 		}
 
-		if (isReadonly && LocalPropValidationIds.Contains(fullPropertyId)) 
+		if (isReadonly && LocalPropValidationIds.Contains(fullPropertyId))
 		{
 			LocalPropValidationIds.Remove(fullPropertyId);
 
@@ -129,11 +132,6 @@ namespace Cavrnus
 	void SpacePropertyModel::TryExecPropBindings(FAbsolutePropertyId fullPropertyId)
 	{
 		const FPropertyValue& activePropVal = GetCurrentPropValue(fullPropertyId);
-
-		//This shouldn't happen, but could potentially when handling oddly ordered stuff.
-		//We'll ignore it since it shouldn't be the case for long.
-		if (activePropVal.PropType == FPropertyValue::PropertyType::Unset)
-			return;
 
 		if (PropBindings.Contains(fullPropertyId))
 		{
@@ -159,13 +157,13 @@ namespace Cavrnus
 		UCavrnusBinding* binding;
 		binding = NewObject<UCavrnusBinding>();
 		binding->SetupUnbind([this, fullPropertyId, cb]()
-		{
-			if (!PropBindings.Contains(fullPropertyId))
-				return;
-			PropBindings[fullPropertyId].Remove(cb);
-			if (PropBindings[fullPropertyId].IsEmpty())
-				PropBindings.Remove(fullPropertyId);
-		});
+			{
+				if (!PropBindings.Contains(fullPropertyId))
+					return;
+				PropBindings[fullPropertyId].Remove(cb);
+				if (PropBindings[fullPropertyId].IsEmpty())
+					PropBindings.Remove(fullPropertyId);
+			});
 
 		return binding;
 	}
@@ -185,17 +183,17 @@ namespace Cavrnus
 		UCavrnusBinding* binding;
 		binding = NewObject<UCavrnusBinding>();
 		binding->SetupUnbind([this, UserConnectionId, cb]()
-		{
-			if (!UserVideoFrameBindings.Contains(UserConnectionId))
-				return;
-			UserVideoFrameBindings[UserConnectionId].Remove(cb);
-			if (UserVideoFrameBindings[UserConnectionId].IsEmpty())
-				UserVideoFrameBindings.Remove(UserConnectionId);
-		});
+			{
+				if (!UserVideoFrameBindings.Contains(UserConnectionId))
+					return;
+				UserVideoFrameBindings[UserConnectionId].Remove(cb);
+				if (UserVideoFrameBindings[UserConnectionId].IsEmpty())
+					UserVideoFrameBindings.Remove(UserConnectionId);
+			});
 
 		return binding;
 	}
-	
+
 	Cavrnus::FPropertyValue SpacePropertyModel::GetPropValue(FAbsolutePropertyId fullPropertyId)
 	{
 		if (PropValueExists(fullPropertyId))
@@ -207,7 +205,6 @@ namespace Cavrnus
 	{
 		CurrDefinedProps.Add(fullPropertyId);
 	}
-
 
 	void SpacePropertyModel::AddSpaceUser(const FCavrnusUser& user)
 	{
@@ -243,7 +240,7 @@ namespace Cavrnus
 	}
 
 	void SpacePropertyModel::UpdateUserVideoTexture(FString userId, int ResX, int ResY, const TArray<uint8>& ByteArray)
-	{		
+	{
 		if (!CurrSpaceUsersVideoTextures.Contains(userId))
 			return;
 
@@ -280,7 +277,7 @@ namespace Cavrnus
 		{
 			localUserArrived(LocalUser);
 		}
-		else 
+		else
 		{
 			CavrnusSpaceUserEvent* callback = new CavrnusSpaceUserEvent(localUserArrived);
 			LocalUserArrivedCallbacks.Add(callback);
@@ -300,12 +297,11 @@ namespace Cavrnus
 		UCavrnusBinding* binding;
 		binding = NewObject<UCavrnusBinding>();
 		binding->SetupUnbind([this, added, removed]()
-		{
-			UserAddedBindings.Remove(added);
-			UserRemovedBindings.Remove(removed);
-		});
+			{
+				UserAddedBindings.Remove(added);
+				UserRemovedBindings.Remove(removed);
+			});
 
 		return binding;
 	}
-
-}
+} // namespace Cavrnus

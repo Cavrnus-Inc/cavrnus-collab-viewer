@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include <Kismet/BlueprintFunctionLibrary.h>
+#include <Dom/JsonObject.h>
 #include "CvtUtilities.generated.h"
 
 UCLASS(Abstract)

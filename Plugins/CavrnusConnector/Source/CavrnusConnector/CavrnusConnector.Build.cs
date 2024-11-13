@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright(c) Cavrnus. All rights reserved.
 
 using UnrealBuildTool;
 using System;
@@ -73,6 +73,8 @@ public class CavrnusConnector : ModuleRules
 
     public CavrnusConnector(ReadOnlyTargetRules Target) : base(Target)
     {
+        Console.WriteLine("====== Entering CavrnusConnector.Build.cs ====== ");
+
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         bUseRTTI = true;
         bEnableExceptions = true;
@@ -95,8 +97,7 @@ public class CavrnusConnector : ModuleRules
             "SlateCore",
             "RenderCore",
             "RHI",
-			"ProceduralMeshComponent",
-			"Networking",
+            "Networking",
             "Sockets",
             "JsonBlueprintUtilities",
 #if UE_5_4_OR_LATER
@@ -170,6 +171,6 @@ public class CavrnusConnector : ModuleRules
 
         RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "CavrnusRelayNet/..."));
 
-        Console.WriteLine("====== Exiting from CavrnusConnector.Build.cs ====== ");
+        Console.WriteLine("====== Exiting CavrnusConnector.Build.cs ====== ");
     }
 }

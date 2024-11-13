@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #include "LivePropertyUpdates/CavrnusLivePropertyUpdate.h"
 #include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 #include "Translation/CavrnusProtoTranslation.h"
@@ -7,7 +8,6 @@
 
 UCavrnusLivePropertyUpdate::UCavrnusLivePropertyUpdate() : livePropertyUpdate(nullptr)
 {
-
 }
 
 UCavrnusLivePropertyUpdate::~UCavrnusLivePropertyUpdate()

@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #include "RelayModel/CavrnusRelayModel.h"
 #include "CavrnusConnectorSettings.h"
 #include "RelayModel/SpacePropertyModel.h"
@@ -192,6 +193,9 @@ namespace Cavrnus
 		case ServerData::RelayRemoteMessage::kGetVideoInputDevicesResp:
 			callbackModel->HandleServerCallback(msg.getvideoinputdevicesresp().reqid(), msg);
 			break;
+		case ServerData::RelayRemoteMessage::kContentDestinationFolderResp:
+			callbackModel->HandleServerCallback(msg.contentdestinationfolderresp().reqid(), msg);
+			break;
 		case ServerData::RelayRemoteMessage::kMessage:
 			HandleLogging(msg.message());
 			break;
@@ -236,6 +240,9 @@ namespace Cavrnus
 			break;
 		case ServerData::RelayRemoteMessage::kFetchFileByIdCompletedResp:
 			ContentModel.HandleCompletionCallback(UTF8_TO_TCHAR(msg.fetchfilebyidcompletedresp().contentid().c_str()), UTF8_TO_TCHAR(msg.fetchfilebyidcompletedresp().filepath().c_str()), UTF8_TO_TCHAR(msg.fetchfilebyidcompletedresp().finalfilenamewithextension().c_str()));
+			break;
+		case ServerData::RelayRemoteMessage::kFetchRemoteContentInfoResp:
+			callbackModel->HandleServerCallback(msg.fetchremotecontentinforesp().reqid(), msg);
 			break;
 		case ServerData::RelayRemoteMessage::kFetchAllUploadedContentResp:
 			callbackModel->HandleServerCallback(msg.fetchalluploadedcontentresp().reqid(), msg);
@@ -446,4 +453,4 @@ namespace Cavrnus
 
 		spacePropertyModelLookup[spaceConnId]->UpdateServerPropVal(propId, val);
 	}
-}
+} // namespace Cavrnus

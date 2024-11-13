@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #include "LivePropertyUpdates/CavrnusLiveVectorPropertyUpdate.h"
 #include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 #include "Translation/CavrnusProtoTranslation.h"

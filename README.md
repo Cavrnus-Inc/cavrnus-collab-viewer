@@ -3,7 +3,7 @@
     <img src="ReadmeContent/banner.png" alt="Cavrnus Banner"/>
 </p>
 
-# <p style="text-align: center;">Cavrnus Collaborative Viewer Template (CVT)</p>
+# <p style="text-align: center;">Cavrnus Collab Viewer</p>
 
 <h4 align="center">
   <a href="https://www.cavrnus.com/">
@@ -28,7 +28,7 @@
 ## Project Information  
 **Version:** 1.0.0    
 **Last Updated:** 2024-09-13    
-**Documentation:** [Cavrnus CVT Documentation](https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/948764675/Cavrnus+CVT+Integration+Guide)     
+**Documentation:** [Cavrnus Collaborative Viewer Documentation](https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/948764675/Cavrnus+with+the+Unreal+Collab+Viewer+Template+CVT)     
 
 ## Introduction
 
@@ -90,10 +90,10 @@ Starting from an existing level is easy!
     <p align="center"><img src="ReadmeContent/connector.png"/></p> 
 
 
-### **Full Cavrnus CVT Integration Guide** 
-This <b>CavrnusCVT</b> project also includes an in-depth guide of the [Cavrnus + CVT integration process](https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/948764675/Cavrnus+CVT+Integration+Guide).
+### **Full Cavrnus Collab Viewer Integration Guide** 
+This <b>CavrnusCVT</b> project also includes an in-depth guide of the [Cavrnus Collab Viewer integration process](https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/1048182803/Cavrnus-CVT-Plugin+Setup).
 
-For more information on the underlying <b>CavrnusConnector</b> plugin of which the CavnrusCVT plugin is built upon, refer to [Cavrnus Spatial Connector for UnrealEngine](https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/872808449/Cavrnus+Spatial+Connector+for+Unreal+Engine) documentation.
+For more information on the underlying <b>CavrnusConnector</b> plugin of which the Cavrnus Collab Viewer plugin is built upon, refer to [Cavrnus Spatial Connector for UnrealEngine](https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/872808449/Cavrnus+Spatial+Connector+for+Unreal+Engine) documentation.
 
 
 ## Support and Feedback

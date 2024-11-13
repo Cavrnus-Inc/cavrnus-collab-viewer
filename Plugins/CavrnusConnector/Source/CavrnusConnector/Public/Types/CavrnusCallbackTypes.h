@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 /**
  * @file CavrnusCallbackTypes.h
  * @brief This file defines various callback types used in the Cavrnus Spatial Connector plugin for Unreal Engine 5.
@@ -8,6 +9,7 @@
  * and user interactions. The callbacks are used to facilitate asynchronous operations and event-driven programming
  * within the plugin.
  */
+
 #pragma once
 
 #include "Kismet/BlueprintFunctionLibrary.h"
@@ -70,6 +72,11 @@ typedef TFunction<void(const FString&)> CavrnusSpaceBeginLoading;
  */
 typedef TFunction<void(const FCavrnusSpaceConnection&)> CavrnusSpaceConnected;
 
+/**
+ * @brief Callback type for handling space created events.
+ *
+ * @param FCavrnusSpaceInfo The space information.
+ */
 typedef TFunction<void(const FCavrnusSpaceInfo&)> CavrnusSpaceCreated;
 
 /**
@@ -208,6 +215,13 @@ typedef TFunction<void(float, const FString&)> CavrnusContentProgressFunction;
 typedef TFunction<void(const TArray<uint8>&, const FString&)> CavrnusContentFunction;
 
 /**
+ * @brief Callback type for handling content info functions.
+ *
+ * @param FCavrnusRemoteContent Remote content data.
+ */
+typedef TFunction<void(const FCavrnusRemoteContent&)> CavrnusRemoteContentInfoFunction;
+
+/**
  * @brief Callback type for handling remote content functions.
  *
  * @param TArray<FCavrnusRemoteContent> Array of remote content data.
@@ -221,7 +235,18 @@ typedef TFunction<void(const TArray<FCavrnusRemoteContent>&)> CavrnusRemoteConte
  */
 typedef TFunction<void(const FCavrnusRemoteContent&)> CavrnusUploadCompleteFunction;
 
+/**
+ * @brief Callback type for handling new chat entry events.
+ *
+ * @param FChatEntry The new chat data.
+ */
 typedef TFunction<void(FChatEntry)> CavrnusChatFunction;
+
+/**
+ * @brief Callback type for handling deleted chat entry events.
+ *
+ * @param FChatEntry The unique ID of the removed chat entry.
+ */
 typedef TFunction<void(FString)> CavrnusChatRemovedFunction;
 
 /**
@@ -237,4 +262,3 @@ public:
 private:
 
 };
-

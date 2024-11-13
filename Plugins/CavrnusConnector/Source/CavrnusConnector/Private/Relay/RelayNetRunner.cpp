@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #include "RelayNetRunner.h"
 
 namespace Cavrnus
@@ -116,7 +117,5 @@ namespace Cavrnus
 		{
 			std::cerr << "RelayNetRunner: Exception caught: " << e.what() << std::endl;
 		}
-
 	}
-
 } // namespace Cavrnus

@@ -1,4 +1,4 @@
-// // Copyright (c), Cavrnus. All rights reserved.
+// Copyright (c), Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -7,9 +7,6 @@
 #include "UI/CavrnusBaseUserWidget.h"
 #include "MinimalSideBarMenu.generated.h"
 
-/**
- * 
- */
 USTRUCT(BlueprintType)
 struct FMenuData
 {

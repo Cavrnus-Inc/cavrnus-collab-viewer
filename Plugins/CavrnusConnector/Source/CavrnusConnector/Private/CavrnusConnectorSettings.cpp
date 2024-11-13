@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #include "CavrnusConnectorSettings.h"
 #include "Engine/Engine.h"
 
@@ -9,12 +10,15 @@ UCavrnusConnectorSettings::UCavrnusConnectorSettings(const FObjectInitializer& o
 	RelayNetPort = 36045;
 	RelayNetIPAddress = "127.0.0.1";
 	RelayNetExecutableRelativeLocation = "CavrnusRelayNet\\net6.0-windows\\CavrnusRelayNet.exe";
+	RelayNetSilent = true;
 	RelayNetVerboseLogging = false;
+	RelayNetLogOutputToFile = false;
+	RelayNetDisableRTC = false;
+	
 	AutoStartConnector = false;
 
 	// Then load the config
 	this->LoadConfig();
-
 }
 
 //=====================================================================

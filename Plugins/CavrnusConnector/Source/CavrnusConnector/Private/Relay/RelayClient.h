@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include "CavrnusRelayLibrary.h"
@@ -33,5 +34,4 @@ namespace Cavrnus
 		FSocket* ListenSocket;
 		FSocket* ClientSocket;
 	};
-}
-
+} // namespace Cavrnus

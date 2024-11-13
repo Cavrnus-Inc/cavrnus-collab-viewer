@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include "../../Public/Types/CavrnusSpaceConnection.h"
@@ -29,7 +30,7 @@ namespace ServerData
 	class ChatAdded;
 	class ChatUpdated;
 	class ChatRemoved;
-}
+} // namespace ServerData
 
 namespace Cavrnus
 {
@@ -149,5 +150,4 @@ namespace Cavrnus
 		void HandleChatUpdated(const ServerData::ChatUpdated& chatUpdated);
 		void HandleChatRemoved(const ServerData::ChatRemoved& chatRemoved);
 	};
-
-} // namespace CavrnusRelay
+} // namespace Cavrnus

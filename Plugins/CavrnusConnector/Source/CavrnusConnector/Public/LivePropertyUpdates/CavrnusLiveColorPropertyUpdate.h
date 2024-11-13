@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 /**
  * @file CavrnusLiveColorPropertyUpdate.h
  * @brief This file defines the UCavrnusLiveColorPropertyUpdate class used for handling live color property updates in Cavrnus.

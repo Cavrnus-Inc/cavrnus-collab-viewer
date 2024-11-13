@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -6,6 +7,8 @@
 #include "Components/TextBlock.h"
 #include "Components/VerticalBox.h"
 #include "Pagination.generated.h"
+
+class UButton;
 
 /**
  * @brief Class representing a pagination system for a list of items in the UI.
@@ -15,13 +18,11 @@
  * loading different pages.
  */
 
-class UButton;
-
 UCLASS(Abstract)
-class UPagination : public UUserWidget
+class CAVRNUSCONNECTOR_API UPagination : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
 public:
 	/**
 	 * @brief Sets up the pagination widget with the given item widget class.

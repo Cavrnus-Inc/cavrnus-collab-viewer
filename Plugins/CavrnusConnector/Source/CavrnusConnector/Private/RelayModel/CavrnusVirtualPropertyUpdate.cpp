@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #include "RelayModel/CavrnusVirtualPropertyUpdate.h"
 #include "RelayModel/CavrnusRelayModel.h"
 #include "Types/CavrnusPropertyValue.h"
@@ -22,9 +23,7 @@ namespace Cavrnus
 
 		lastSentValue = propVal;
 
-		int localChangeId = -1;
-		if(!Options.Smoothed)
-			RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, propVal);
+		int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, propVal);
 		RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildBeginLivePropertyUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, propVal, localChangeId, Options));
 
 		lastUpdatedTimeSec = FPlatformTime::Seconds();
@@ -38,9 +37,7 @@ namespace Cavrnus
 	{
 		lastSentValue = propVal;
 
-		int localChangeId = -1;
-		if (!Options.Smoothed)
-			RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, propVal);
+		int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, propVal);
 		RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildContinueLivePropertyUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, propVal, localChangeId, Options));
 
 		lastUpdatedTimeSec = FPlatformTime::Seconds();
@@ -48,9 +45,7 @@ namespace Cavrnus
 
 	void CavrnusVirtualPropertyUpdate::Finalize()
 	{
-		int localChangeId = -1;
-		if (!Options.Smoothed)
-			RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, lastSentValue);
+		int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, lastSentValue);
 		RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFinalizeLivePropertyUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, lastSentValue, localChangeId, Options));
 
 		lastUpdatedTimeSec = FPlatformTime::Seconds();
@@ -60,9 +55,7 @@ namespace Cavrnus
 	{
 		lastSentValue = propVal;
 
-		int localChangeId = -1;
-		if (!Options.Smoothed)
-			RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, propVal);
+		int localChangeId = RelayModel->GetSpacePropertyModel(SpaceConn)->SetLocalPropVal(PropertyId, propVal);
 		RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFinalizeLivePropertyUpdateMsg(SpaceConn, LiveUpdaterId, PropertyId, propVal, localChangeId, Options));
 
 		lastUpdatedTimeSec = FPlatformTime::Seconds();
@@ -72,5 +65,4 @@ namespace Cavrnus
 	{
 		RelayModel->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildCancelLiveUpdateMsg(SpaceConn, LiveUpdaterId));
 	}
-}
-
+} // namespace Cavrnus

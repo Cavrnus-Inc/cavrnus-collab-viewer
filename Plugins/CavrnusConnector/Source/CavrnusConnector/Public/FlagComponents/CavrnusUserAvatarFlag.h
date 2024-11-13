@@ -1,5 +1,7 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
+
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
 #include "Types/CavrnusSpawnedObject.h"

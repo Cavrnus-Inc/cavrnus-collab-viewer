@@ -1,9 +1,9 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #include "RelayModel/SpacePermissionsModel.h"
 
 namespace Cavrnus
 {
-
 	SpacePermissionsModel::SpacePermissionsModel()
 	{
 	}
@@ -48,4 +48,4 @@ namespace Cavrnus
 
 		return binding;
 	}
-}
+} // namespace Cavrnus

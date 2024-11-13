@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #include "CavrnusSpatialConnectorSubSystem.h"
 #include "CavrnusFunctionLibrary.h"
 #include "CavrnusSpatialConnector.h"
@@ -8,7 +9,6 @@
 #include "Types\CavrnusUser.h"
 #include "TimerManager.h"
 #include "Engine/World.h"
-#include "CavrnusPropertiesContainer.h"
 #include "SpawnObjectHelpers.h"
 #include "RelayModel\CavrnusRelayModel.h"
 
@@ -23,13 +23,15 @@
 class FLevelEditorModule;
 class SLevelViewport;
 #endif
+#include <UI/CavrnusServerSelectionWidget.h>
 
 UCavrnusSpatialConnectorSubSystemProxy::UIManager::UIManager() {}
 
-void UCavrnusSpatialConnectorSubSystemProxy::UIManager::Initialize(ACavrnusSpatialConnector* Connector)
+void UCavrnusSpatialConnectorSubSystemProxy::UIManager::Initialize(ACavrnusSpatialConnector* Connector, UCavrnusSpatialConnectorSubSystemProxy* InCavrnusSubSystem)
 {
 	CurrentCavrnusSpatialConnector = Connector;
 	World = Connector->GetWorld();
+	CavrnusSpatialConnectorSubSystem = InCavrnusSubSystem;
 }
 
 UUserWidget* UCavrnusSpatialConnectorSubSystemProxy::UIManager::SpawnWidget(TSubclassOf<UUserWidget> WidgetClass)
@@ -100,6 +102,29 @@ void UCavrnusSpatialConnectorSubSystemProxy::UIManager::RemoveAllWidgets()
 	}
 }
 
+void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowServerSelectionWidget()
+{
+	UCavrnusServerSelectionWidget* Widget = CreateWidget<UCavrnusServerSelectionWidget>(World, CurrentCavrnusSpatialConnector->ServerSelectionMenu);
+	if (Widget != nullptr)
+	{
+		FString Server = GetConnector()->MyServer;
+		if (!Server.IsEmpty())// Typically, is an empty string if Server Selection Widget is used
+			Widget->DomainInput->SetText(FText::FromString(Server)); 
+		Widget->OnProceed.AddLambda(
+			[this, Widget](FString Domain)
+			{
+				RemoveWidget(Widget);
+				GetConnector()->MyServer = Domain;
+				if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
+				{
+					SubProxy->AuthenticateAndJoin();
+				}
+			}
+		);
+		Widget->AddToViewport();
+	}
+}
+
 void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowAuthWidget(bool bShowWidget)
 {
 	if (bShowWidget)
@@ -116,41 +141,25 @@ void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowAuthWidget(bool bSho
 	}
 }
 
-void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowGuestLoginWidget(CavrnusAuthRecv AuthSuccess, CavrnusError AuthFailure)
+void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowGuestLoginWidget()
 {
-	if (UCavrnusGuestLoginWidget* LoginWidget = CreateWidget<UCavrnusGuestLoginWidget>(World, CurrentCavrnusSpatialConnector->GuestJoinMenu))
+	const ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
+
+	if (CavrnusSpatialConnector->GuestJoinMenu)
 	{
-
-		LoginWidget->OnLogin.AddLambda
-		(
-			[this, LoginWidget, AuthSuccess, AuthFailure](FString GuestLoginUsername)
-			{
-				RemoveWidget(LoginWidget);
-				ShowAuthWidget(true);
-				UCavrnusFunctionLibrary::AuthenticateAsGuest(CurrentCavrnusSpatialConnector->MyServer, GuestLoginUsername, AuthSuccess, AuthFailure);
-			}
-		);
-
-		LoginWidget->AddToViewport();
+		SpawnWidget(CavrnusSpatialConnector->GuestJoinMenu);
+		UCavrnusFunctionLibrary::AwaitAuthentication(CavrnusSpatialConnectorSubSystem->AuthSuccess);
 	}
 }
 
-void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowLoginWidget(CavrnusAuthRecv AuthSuccess, CavrnusError AuthFailure)
+void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowLoginWidget()
 {
-	ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
+	const ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
 
-	// Spawn a widget and get credentials from that
-	if (UCavrnusLoginWidget* LoginWidget = Cast<UCavrnusLoginWidget>(SpawnWidget(CavrnusSpatialConnector->MemberLoginMenu)))
+	if (CavrnusSpatialConnector->MemberLoginMenu)
 	{
-		LoginWidget->OnLogin.AddLambda
-		(
-			[this, LoginWidget, CavrnusSpatialConnector, AuthSuccess, AuthFailure](FString LoginEmail, FString LoginPassword)
-			{
-				RemoveWidget(LoginWidget);
-				ShowAuthWidget(true);
-				UCavrnusFunctionLibrary::AuthenticateWithPassword(CavrnusSpatialConnector->MyServer, LoginEmail, LoginPassword, AuthSuccess, AuthFailure);
-			}
-		);
+		SpawnWidget(CavrnusSpatialConnector->MemberLoginMenu);
+		UCavrnusFunctionLibrary::AwaitAuthentication(CavrnusSpatialConnectorSubSystem->AuthSuccess);
 	}
 }
 
@@ -158,7 +167,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowLoadingWidget(bool b
 {
 	if (bShowWidget)
 	{
-		ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
+		const ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
 		if (CavrnusSpatialConnector->LoadingWidgetClass)
 		{
 			LoadingWidget = SpawnWidget(CavrnusSpatialConnector->LoadingWidgetClass);
@@ -172,17 +181,17 @@ void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowLoadingWidget(bool b
 
 void UCavrnusSpatialConnectorSubSystemProxy::UIManager::ShowSpaceList()
 {
-	ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
-	if (UCavrnusSpaceListWidget* SpaceListWidget = Cast<UCavrnusSpaceListWidget>(SpawnWidget(CavrnusSpatialConnector->SpaceJoinMenu)))
+	const ACavrnusSpatialConnector* CavrnusSpatialConnector = GetConnector();
+
+	if (CavrnusSpatialConnector->SpaceJoinMenu)
 	{
-		SpaceListWidget->SpaceSelected = [this, SpaceListWidget](const FCavrnusSpaceInfo& SpaceInfo)
+		SpawnWidget(CavrnusSpatialConnector->SpaceJoinMenu);
+		UCavrnusFunctionLibrary::AwaitAnySpaceBeginLoading([this](const FString&)
 		{
-			RemoveWidget(SpaceListWidget);
-			if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy =UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
-			{
-				SubProxy->AttemptToJoinSpace(SpaceInfo.SpaceId);
-			}
-		};
+			ShowLoadingWidget(true);
+		});
+
+		UCavrnusFunctionLibrary::AwaitAnySpaceConnection(CavrnusSpatialConnectorSubSystem->SpaceConnectionSuccess);
 	}
 }
 
@@ -274,12 +283,28 @@ void UCavrnusSpatialConnectorSubSystemProxy::SetGameInstance(UGameInstance* GIns
 void UCavrnusSpatialConnectorSubSystemProxy::RegisterCavrnusSpatialConnector(ACavrnusSpatialConnector* CavrnusSpatialConnector)
 {
 	CurrentCavrnusSpatialConnector = CavrnusSpatialConnector;
-	UIManagerInstance->Initialize(CavrnusSpatialConnector);
+	UIManagerInstance->Initialize(CavrnusSpatialConnector, this);
 }
 
 ACavrnusSpatialConnector* UCavrnusSpatialConnectorSubSystemProxy::GetCavrnusSpatialConnector() const
 {
 	return CurrentCavrnusSpatialConnector.Get();
+}
+
+void UCavrnusSpatialConnectorSubSystemProxy::BeginAuthenticationProcess()
+{
+	ACavrnusSpatialConnector* CavrnusSpatialConnector = GetCavrnusSpatialConnector();
+	if (!CavrnusSpatialConnector)
+		return;
+	if (CavrnusSpatialConnector->MyServer.IsEmpty())
+	{
+		UIManagerInstance->ShowServerSelectionWidget();
+		UE_LOG(LogCavrnusConnector, Warning, TEXT("Developer should set domain in CavrnusSpatialConnector Actor"));
+	}
+	else
+	{
+		AuthenticateAndJoin();
+	}
 }
 
 void UCavrnusSpatialConnectorSubSystemProxy::AuthenticateAndJoin()
@@ -288,7 +313,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::AuthenticateAndJoin()
 	if (!CavrnusSpatialConnector)
 		return;
 	
-	// TO DO: Check if actually a valid token?
+	// Todo: Check if actually a valid token?
 	if (Authentication.Token.IsEmpty())
 	{
 		if (CavrnusSpatialConnector->AuthMethod == ECavrnusAuthMethod::JoinAsGuest)
@@ -306,7 +331,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::AuthenticateAndJoin()
 			}
 			else if (CavrnusSpatialConnector->GuestLoginMethod == ECavrnusGuestLoginMethod::PromptToEnterName)
 			{
-				UIManagerInstance->ShowGuestLoginWidget(AuthSuccess, AuthFailure);
+				UIManagerInstance->ShowGuestLoginWidget();
 			}
 			else
 			{
@@ -328,7 +353,7 @@ void UCavrnusSpatialConnectorSubSystemProxy::AuthenticateAndJoin()
 			}
 			else if (CavrnusSpatialConnector->MemberLoginMethod == ECavrnusMemberLoginMethod::PromptMemberToLogin)
 			{
-				UIManagerInstance->ShowLoginWidget(AuthSuccess, AuthFailure);
+				UIManagerInstance->ShowLoginWidget();
 			}
 			else
 			{
@@ -372,11 +397,11 @@ void UCavrnusSpatialConnectorSubSystemProxy::OnAuthFailure(FString ErrorMessage)
 	UE_LOG(LogCavrnusConnector, Error, TEXT("Failed to authenticate, error: %s"), *ErrorMessage);
 	if (CavrnusSpatialConnector->AuthMethod == ECavrnusAuthMethod::JoinAsMember)
 	{
-		UIManagerInstance->ShowLoginWidget(AuthSuccess, AuthFailure);
+		UIManagerInstance->ShowLoginWidget();
 	}
 	else if (CavrnusSpatialConnector->AuthMethod == ECavrnusAuthMethod::JoinAsGuest)
 	{
-		UIManagerInstance->ShowGuestLoginWidget(AuthSuccess, AuthFailure);
+		UIManagerInstance->ShowGuestLoginWidget();
 	}
 }
 
@@ -385,13 +410,13 @@ void UCavrnusSpatialConnectorSubSystemProxy::OnSpaceConnectionSuccess(FCavrnusSp
 	UIManagerInstance->ShowAuthWidget(false);
 
 	AvatarManager = NewObject<UCavrnusAvatarManager>();
-	CavrnusSpaceUserEvent userAdded = [this, SpaceConnection](const FCavrnusUser& user) {
+	CavrnusSpaceUserEvent userAdded = [this](const FCavrnusUser& user) {
 		AvatarManager->RegisterUser(user, GetCavrnusSpatialConnector()->RemoteAvatarClass, GetWorld(), SpawnHelpers);
 	};
 	CavrnusSpaceUserEvent userRemoved = [this](const FCavrnusUser& user) {
 		AvatarManager->UnregisterUser(user, GetWorld());
 	};
-
+	
 	UCavrnusFunctionLibrary::BindSpaceUsers(SpaceConnection, userAdded, userRemoved);
 
 	SpaceConn = SpaceConnection;
@@ -501,11 +526,22 @@ void UCavrnusSpatialConnectorSubSystemProxy::InitializeCavrnusActor(AActor* Cavr
 	}
 }
 
+void UCavrnusSpatialConnectorSubSystemProxy::ShowAuthWidget(const bool bShow)
+{
+	UIManagerInstance->ShowAuthWidget(bShow);
+}
+
+void UCavrnusSpatialConnectorSubSystemProxy::ShowLoadingWidget(const bool bShow)
+{
+	UIManagerInstance->ShowLoadingWidget(bShow);
+}
+
 void UCavrnusSpatialConnectorSubSystemProxy::AttemptToJoinSpace(FString JoinSpaceId)
 {
 	UIManagerInstance->ShowLoadingWidget(true);
 
 	UE_LOG(LogCavrnusConnector, Log, TEXT("Attempting to join space: %s"), *JoinSpaceId);
+	UCavrnusFunctionLibrary::GetCavrnusSpatialConnector()->SpaceId = JoinSpaceId;
 	UCavrnusFunctionLibrary::JoinSpace(JoinSpaceId, SpaceConnectionSuccess, SpaceConnectionFailure);
 }
 

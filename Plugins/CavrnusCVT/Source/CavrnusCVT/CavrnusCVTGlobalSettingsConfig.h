@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include <Engine/DeveloperSettings.h>
 #include "CavrnusCVTGlobalSettingsConfig.generated.h"
 
 UCLASS(config = Game, defaultconfig, meta = (DisplayName = "Cavrnus CVT Settings"))

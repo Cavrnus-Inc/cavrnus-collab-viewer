@@ -1,4 +1,4 @@
-// // Copyright (c), Cavrnus. All rights reserved.
+// Copyright (c), Cavrnus. All rights reserved.
 
 #include "UI/UserMenu/CavrnusUserMenu.h"
 #include "CavrnusFunctionLibrary.h"
@@ -63,6 +63,13 @@ void UCavrnusUserMenu::NativeDestruct()
 	if (UsersBinding)
 		UsersBinding->Unbind();
 	
+	for (auto Entry : Entries)
+	{
+		if (Entry.Value->IsValidLowLevel())
+		{
+			ScrollBox->RemoveChild(Entry.Value);
+		}
+	}
 	Entries.Empty();
 }
 

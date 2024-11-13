@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include "CavrnusRelayLibrary.h"
@@ -25,5 +26,4 @@ namespace Cavrnus
 		PROCESS_INFORMATION RelayNetProcess;
 		std::thread RelayNetProcessRunner;
 	};
-}
-
+} // namespace Cavrnus

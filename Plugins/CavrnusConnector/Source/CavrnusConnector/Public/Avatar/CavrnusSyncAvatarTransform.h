@@ -1,4 +1,4 @@
-// // Copyright (c), Cavrnus. All rights reserved.
+// Copyright (c), Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -10,8 +10,10 @@ UCLASS(Abstract, BlueprintType, Blueprintable)
 class CAVRNUSCONNECTOR_API UCavrnusSyncAvatarTransform : public UActorComponent
 {
 	GENERATED_BODY()
-
 public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Cavrnus|AvatarTransform")
+	bool SendCameraTransform = false;
+	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Cavrnus|AvatarTransform")
 	bool UseHeightOffset = false;
 	

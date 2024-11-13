@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 #include "ValueSyncs/CavrnusValueSyncBase.h"
 #include "CavrnusPropertiesContainer.h"
 #include "LivePropertyUpdates/CavrnusLivePropertyUpdate.h"
@@ -17,7 +18,6 @@ UCavrnusValueSyncBase::UCavrnusValueSyncBase()
 {
 	PrimaryComponentTick.bCanEverTick = true;
 }
-
 
 //===========================================================
 UCavrnusValueSyncBase::~UCavrnusValueSyncBase()
@@ -61,8 +61,8 @@ void UCavrnusValueSyncBase::TickComponent(float DeltaTime, ELevelTick TickType, 
 	if (SpaceConn.SpaceConnectionId == -1)
 		return;
 
-	// This can't go in SpaceConnected, cuz the container state is still invalid during component regen at that point.
-	// We need to wait for a valid state to start polling/bindinge :P
+	// This can't go in SpaceConnected, because the container state is still invalid at that point.
+	// We need to wait for a valid state to start polling/binding :P
 	if (!shouldSync) 
 	{
 		if (!GetContainer() || GetContainerName().IsEmpty())
@@ -210,8 +210,6 @@ FString UCavrnusValueSyncBase::ReportOwnerName() const
 	return OwnerName;
 }
 
-
-
 #pragma region EditorScript
 
 // Overridden to automatically force the owning actor to
@@ -309,4 +307,3 @@ FString UCavrnusValueSyncBase::GetGeneratedContainerName() const
 }
 
 #pragma endregion
-

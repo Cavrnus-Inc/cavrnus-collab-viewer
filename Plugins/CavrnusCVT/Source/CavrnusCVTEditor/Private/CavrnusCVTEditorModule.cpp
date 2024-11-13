@@ -41,8 +41,8 @@ void FCavrnusCVTEditorModule::RegisterMenus()
 void FCavrnusCVTEditorModule::CreateCavrnusCvtRibbon(FMenuBarBuilder& Builder)
 {
 	Builder.AddPullDownMenu(
-		  LOCTEXT("MenuLocKey", "CavrnusCVT"),
-		  LOCTEXT("MenuTooltipKey", "Opens menu for CavrnusCVT plugin"),
+		  LOCTEXT("MenuLocKey", "Cavrnus Collab Viewer"),
+		  LOCTEXT("MenuTooltipKey", "Opens menu for CollabViewer plugin"),
 		  FNewMenuDelegate::CreateRaw(this, &FCavrnusCVTEditorModule::CreateRibbonSubEntry),
 		  FName(TEXT("Cavrnus")),
 		  FName(TEXT("CavrnusHelpMenu"))
@@ -51,7 +51,7 @@ void FCavrnusCVTEditorModule::CreateCavrnusCvtRibbon(FMenuBarBuilder& Builder)
 void FCavrnusCVTEditorModule::CreateRibbonSubEntry(FMenuBuilder& MenuBuilder)
 {
 	MenuBuilder.AddMenuEntry(
-		LOCTEXT("SetupLevel", "Setup level for Cavrnus & CVT"),
+		LOCTEXT("SetupLevel", "Setup level for Cavrnus Collab Viewer"),
 		LOCTEXT("SetupLevelTooltip", "Configures SpatialConnector and sets default GameMode to use CVT"),
 		FSlateIcon(),
 		FUIAction(FExecuteAction::CreateRaw(this, &FCavrnusCVTEditorModule::SetupLevel))

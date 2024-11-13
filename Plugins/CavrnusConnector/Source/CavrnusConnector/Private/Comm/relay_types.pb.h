@@ -1855,6 +1855,9 @@ class CavrnusRemoteContent final :
     kNameFieldNumber = 2,
     kFileNameFieldNumber = 3,
     kThumbnailUrlFieldNumber = 4,
+    kFileSizeStringFieldNumber = 6,
+    kFileSizeFieldNumber = 5,
+    kIsCachedOnDiskFieldNumber = 7,
   };
   // repeated string tagKeys = 10;
   int tagkeys_size() const;
@@ -1960,6 +1963,38 @@ class CavrnusRemoteContent final :
   std::string* _internal_mutable_thumbnailurl();
   public:
 
+  // string fileSizeString = 6;
+  void clear_filesizestring();
+  const std::string& filesizestring() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filesizestring(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filesizestring();
+  PROTOBUF_NODISCARD std::string* release_filesizestring();
+  void set_allocated_filesizestring(std::string* filesizestring);
+  private:
+  const std::string& _internal_filesizestring() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filesizestring(const std::string& value);
+  std::string* _internal_mutable_filesizestring();
+  public:
+
+  // int64 fileSize = 5;
+  void clear_filesize();
+  int64_t filesize() const;
+  void set_filesize(int64_t value);
+  private:
+  int64_t _internal_filesize() const;
+  void _internal_set_filesize(int64_t value);
+  public:
+
+  // bool isCachedOnDisk = 7;
+  void clear_iscachedondisk();
+  bool iscachedondisk() const;
+  void set_iscachedondisk(bool value);
+  private:
+  bool _internal_iscachedondisk() const;
+  void _internal_set_iscachedondisk(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ServerData.CavrnusRemoteContent)
  private:
   class _Internal;
@@ -1974,6 +2009,9 @@ class CavrnusRemoteContent final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filename_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr thumbnailurl_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filesizestring_;
+    int64_t filesize_;
+    bool iscachedondisk_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2978,6 +3016,96 @@ inline void CavrnusRemoteContent::set_allocated_thumbnailurl(std::string* thumbn
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:ServerData.CavrnusRemoteContent.thumbnailUrl)
+}
+
+// int64 fileSize = 5;
+inline void CavrnusRemoteContent::clear_filesize() {
+  _impl_.filesize_ = int64_t{0};
+}
+inline int64_t CavrnusRemoteContent::_internal_filesize() const {
+  return _impl_.filesize_;
+}
+inline int64_t CavrnusRemoteContent::filesize() const {
+  // @@protoc_insertion_point(field_get:ServerData.CavrnusRemoteContent.fileSize)
+  return _internal_filesize();
+}
+inline void CavrnusRemoteContent::_internal_set_filesize(int64_t value) {
+  
+  _impl_.filesize_ = value;
+}
+inline void CavrnusRemoteContent::set_filesize(int64_t value) {
+  _internal_set_filesize(value);
+  // @@protoc_insertion_point(field_set:ServerData.CavrnusRemoteContent.fileSize)
+}
+
+// string fileSizeString = 6;
+inline void CavrnusRemoteContent::clear_filesizestring() {
+  _impl_.filesizestring_.ClearToEmpty();
+}
+inline const std::string& CavrnusRemoteContent::filesizestring() const {
+  // @@protoc_insertion_point(field_get:ServerData.CavrnusRemoteContent.fileSizeString)
+  return _internal_filesizestring();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CavrnusRemoteContent::set_filesizestring(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filesizestring_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ServerData.CavrnusRemoteContent.fileSizeString)
+}
+inline std::string* CavrnusRemoteContent::mutable_filesizestring() {
+  std::string* _s = _internal_mutable_filesizestring();
+  // @@protoc_insertion_point(field_mutable:ServerData.CavrnusRemoteContent.fileSizeString)
+  return _s;
+}
+inline const std::string& CavrnusRemoteContent::_internal_filesizestring() const {
+  return _impl_.filesizestring_.Get();
+}
+inline void CavrnusRemoteContent::_internal_set_filesizestring(const std::string& value) {
+  
+  _impl_.filesizestring_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CavrnusRemoteContent::_internal_mutable_filesizestring() {
+  
+  return _impl_.filesizestring_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CavrnusRemoteContent::release_filesizestring() {
+  // @@protoc_insertion_point(field_release:ServerData.CavrnusRemoteContent.fileSizeString)
+  return _impl_.filesizestring_.Release();
+}
+inline void CavrnusRemoteContent::set_allocated_filesizestring(std::string* filesizestring) {
+  if (filesizestring != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filesizestring_.SetAllocated(filesizestring, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filesizestring_.IsDefault()) {
+    _impl_.filesizestring_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ServerData.CavrnusRemoteContent.fileSizeString)
+}
+
+// bool isCachedOnDisk = 7;
+inline void CavrnusRemoteContent::clear_iscachedondisk() {
+  _impl_.iscachedondisk_ = false;
+}
+inline bool CavrnusRemoteContent::_internal_iscachedondisk() const {
+  return _impl_.iscachedondisk_;
+}
+inline bool CavrnusRemoteContent::iscachedondisk() const {
+  // @@protoc_insertion_point(field_get:ServerData.CavrnusRemoteContent.isCachedOnDisk)
+  return _internal_iscachedondisk();
+}
+inline void CavrnusRemoteContent::_internal_set_iscachedondisk(bool value) {
+  
+  _impl_.iscachedondisk_ = value;
+}
+inline void CavrnusRemoteContent::set_iscachedondisk(bool value) {
+  _internal_set_iscachedondisk(value);
+  // @@protoc_insertion_point(field_set:ServerData.CavrnusRemoteContent.isCachedOnDisk)
 }
 
 // repeated string tagKeys = 10;

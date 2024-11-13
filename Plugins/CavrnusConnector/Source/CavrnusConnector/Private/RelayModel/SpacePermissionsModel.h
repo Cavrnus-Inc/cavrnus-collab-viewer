@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include <Containers/Map.h>
@@ -22,5 +23,4 @@ namespace Cavrnus
 
 		TMap<FString, TArray<CavrnusPolicyUpdated*>> PolicyBindings;
 	};
-
-} // namespace CavrnusRelay
+} // namespace Cavrnus

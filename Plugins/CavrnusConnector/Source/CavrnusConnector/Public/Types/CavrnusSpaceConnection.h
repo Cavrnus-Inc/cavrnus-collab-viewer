@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 /**
  * @file CavrnusSpaceConnection.h
  * @brief Declaration of the FCavrnusSpaceConnection struct, which is one of the most important objects in Cavrnus.  

@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #include "CavrnusInteropLayer.h"
 #include "CavrnusConnectorModule.h"
 #include "CavrnusConnectorSettings.h"
@@ -108,13 +109,8 @@ namespace Cavrnus
 	//===============================================================
 	void CavrnusInteropLayer::SendMessage(const ServerData::RelayClientMessage& message)
 	{
-		//send queue is lock free but only one thread can send message at a time
-		std::lock_guard<std::mutex> lock(Send_mutex_);
-
-		ServerData::RelayClientMessage* BatchMessage = SendMessageBatch.add_messages();
-		BatchMessage->CopyFrom(message);
+		QueuedSendMessages.Add(message);
 	}
-
 
 	//===============================================================
 	const TArray<ServerData::RelayRemoteMessage> CavrnusInteropLayer::GetReceivedMessages()
@@ -136,22 +132,32 @@ namespace Cavrnus
 	//TODO: QUESTION, can't this just be done synchronously in SendMessage?
 	void CavrnusInteropLayer::DoTick()
 	{
-		//for (int i = 0; i < messagesToSend.Num(); i++)
-		//{
-		//	//TODO: SEND messagesToSend[i] to socket
-		//}
-		//messagesToSend.Empty();
+		//send queue is lock free but only one thread can send message at a time
+		std::lock_guard<std::mutex> lock(Send_mutex_);
+
+		for (int i = 0; i < QueuedSendMessages.Num(); i++)
+		{
+			ServerData::RelayClientMessage* BatchMessage = SendMessageBatch.add_messages();
+			BatchMessage->CopyFrom(QueuedSendMessages[i]);
+		}
+		QueuedSendMessages.Empty();
+
+			//for (int i = 0; i < messagesToSend.Num(); i++)
+			//{
+			//	//TODO: SEND messagesToSend[i] to socket
+			//}
+			//messagesToSend.Empty();
 	}
 
 
 	//===============================================================
-	void CavrnusInteropLayer::SendKeepAlive()
+	ServerData::RelayClientMessage CavrnusInteropLayer::BuildKeepAlive()
 	{
 		ServerData::RelayClientMessage msg;
 		ServerData::KeepAlive keepAlive;
 		msg.mutable_keepalive()->CopyFrom(keepAlive);
 
-		SendMessage(msg);
+		return msg;
 	}
 
 
@@ -166,7 +172,8 @@ namespace Cavrnus
 			{
 				LastKeepAliveTick.store(CurrTick);
 				//std::cout << "Sending KeepAlive!!!" << std::endl;
-				SendKeepAlive();
+				ServerData::RelayClientMessage* BatchMessage = SendMessageBatch.add_messages();
+				BatchMessage->CopyFrom(BuildKeepAlive());
 			}
 
 			//std::shared_ptr<ServerData::RelayClientMessage> sendMessage;
@@ -178,7 +185,7 @@ namespace Cavrnus
 #if PERFORMANCE_TRACKING				
 				int seconds = (int)(FPlatformTime::Seconds());
 				int numMessages = SendMessageBatch.messages_size();
-				std::map<int,int>::iterator it = PropertiesSentPerSecond.find(seconds);
+				std::map<int, int>::iterator it = PropertiesSentPerSecond.find(seconds);
 				if (it != PropertiesSentPerSecond.end())
 				{
 					it->second += numMessages;
@@ -247,7 +254,7 @@ namespace Cavrnus
 #if UE_BUILD_SHIPPING
 			bool bSilent = true;
 #else
-			bool bSilent = settings->RelayNetVerboseLogging ? settings->RelayNetSilent : true;
+			bool bSilent = settings->RelayNetSilent;
 #endif
 
 			if (RelayNetRunner_.startService(Client_.GetServerPort(), bSilent, TCHAR_TO_UTF8(*exeLocation), TCHAR_TO_UTF8(*settings->GetRelayNetOptionalParameters())))
@@ -285,4 +292,4 @@ namespace Cavrnus
 
 		return PluginPath;
 	}
-}
+} // namespace Cavrnus

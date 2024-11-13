@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 /**
  * @file CavrnusLivePropertyUpdate.h
  * @brief This file defines the UCavrnusLivePropertyUpdate class used for handling live property updates in Cavrnus.
@@ -56,7 +57,6 @@ public:
 	 * @return The time in seconds since the last update.
 	 */
 	double GetLastUpdatedTimeSeconds();
-
 
 	void UpdateWithNewDataGeneric(const Cavrnus::FPropertyValue& propVal);
 

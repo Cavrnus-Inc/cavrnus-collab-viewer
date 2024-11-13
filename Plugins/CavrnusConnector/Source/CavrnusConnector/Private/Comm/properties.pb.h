@@ -75,6 +75,9 @@ extern BooleanPropertyKeyframed_BooleanKeyframeDefaultTypeInternal _BooleanPrope
 class BooleanPropertyMetadata;
 struct BooleanPropertyMetadataDefaultTypeInternal;
 extern BooleanPropertyMetadataDefaultTypeInternal _BooleanPropertyMetadata_default_instance_;
+class BooleanPropertyRefValueProvider;
+struct BooleanPropertyRefValueProviderDefaultTypeInternal;
+extern BooleanPropertyRefValueProviderDefaultTypeInternal _BooleanPropertyRefValueProvider_default_instance_;
 class BooleanPropertyScalarComparison;
 struct BooleanPropertyScalarComparisonDefaultTypeInternal;
 extern BooleanPropertyScalarComparisonDefaultTypeInternal _BooleanPropertyScalarComparison_default_instance_;
@@ -111,6 +114,9 @@ extern ColorPropertyKeyframed_ColorKeyframeDefaultTypeInternal _ColorPropertyKey
 class ColorPropertyMetadata;
 struct ColorPropertyMetadataDefaultTypeInternal;
 extern ColorPropertyMetadataDefaultTypeInternal _ColorPropertyMetadata_default_instance_;
+class ColorPropertyRefValueProvider;
+struct ColorPropertyRefValueProviderDefaultTypeInternal;
+extern ColorPropertyRefValueProviderDefaultTypeInternal _ColorPropertyRefValueProvider_default_instance_;
 class ColorPropertyValue;
 struct ColorPropertyValueDefaultTypeInternal;
 extern ColorPropertyValueDefaultTypeInternal _ColorPropertyValue_default_instance_;
@@ -162,9 +168,18 @@ extern JsonPropertyAssignmentDefaultTypeInternal _JsonPropertyAssignment_default
 class JsonPropertyDeclaration;
 struct JsonPropertyDeclarationDefaultTypeInternal;
 extern JsonPropertyDeclarationDefaultTypeInternal _JsonPropertyDeclaration_default_instance_;
+class JsonPropertyKeyframed;
+struct JsonPropertyKeyframedDefaultTypeInternal;
+extern JsonPropertyKeyframedDefaultTypeInternal _JsonPropertyKeyframed_default_instance_;
+class JsonPropertyKeyframed_JsonKeyframe;
+struct JsonPropertyKeyframed_JsonKeyframeDefaultTypeInternal;
+extern JsonPropertyKeyframed_JsonKeyframeDefaultTypeInternal _JsonPropertyKeyframed_JsonKeyframe_default_instance_;
 class JsonPropertyMetadata;
 struct JsonPropertyMetadataDefaultTypeInternal;
 extern JsonPropertyMetadataDefaultTypeInternal _JsonPropertyMetadata_default_instance_;
+class JsonPropertyRefValueProvider;
+struct JsonPropertyRefValueProviderDefaultTypeInternal;
+extern JsonPropertyRefValueProviderDefaultTypeInternal _JsonPropertyRefValueProvider_default_instance_;
 class JsonPropertyValue;
 struct JsonPropertyValueDefaultTypeInternal;
 extern JsonPropertyValueDefaultTypeInternal _JsonPropertyValue_default_instance_;
@@ -183,9 +198,18 @@ extern LinkPropertyAssignmentDefaultTypeInternal _LinkPropertyAssignment_default
 class LinkPropertyDeclaration;
 struct LinkPropertyDeclarationDefaultTypeInternal;
 extern LinkPropertyDeclarationDefaultTypeInternal _LinkPropertyDeclaration_default_instance_;
+class LinkPropertyKeyframed;
+struct LinkPropertyKeyframedDefaultTypeInternal;
+extern LinkPropertyKeyframedDefaultTypeInternal _LinkPropertyKeyframed_default_instance_;
+class LinkPropertyKeyframed_LinkKeyframe;
+struct LinkPropertyKeyframed_LinkKeyframeDefaultTypeInternal;
+extern LinkPropertyKeyframed_LinkKeyframeDefaultTypeInternal _LinkPropertyKeyframed_LinkKeyframe_default_instance_;
 class LinkPropertyMetadata;
 struct LinkPropertyMetadataDefaultTypeInternal;
 extern LinkPropertyMetadataDefaultTypeInternal _LinkPropertyMetadata_default_instance_;
+class LinkPropertyRefValueProvider;
+struct LinkPropertyRefValueProviderDefaultTypeInternal;
+extern LinkPropertyRefValueProviderDefaultTypeInternal _LinkPropertyRefValueProvider_default_instance_;
 class LinkPropertyValue;
 struct LinkPropertyValueDefaultTypeInternal;
 extern LinkPropertyValueDefaultTypeInternal _LinkPropertyValue_default_instance_;
@@ -195,6 +219,9 @@ extern PropertyIdentifierDefaultTypeInternal _PropertyIdentifier_default_instanc
 class PropertyMetadata;
 struct PropertyMetadataDefaultTypeInternal;
 extern PropertyMetadataDefaultTypeInternal _PropertyMetadata_default_instance_;
+class PropertyRefProviderValue;
+struct PropertyRefProviderValueDefaultTypeInternal;
+extern PropertyRefProviderValueDefaultTypeInternal _PropertyRefProviderValue_default_instance_;
 class ScalarEditingMetadata;
 struct ScalarEditingMetadataDefaultTypeInternal;
 extern ScalarEditingMetadataDefaultTypeInternal _ScalarEditingMetadata_default_instance_;
@@ -231,6 +258,9 @@ extern ScalarPropertyPlaybackBasicDefaultTypeInternal _ScalarPropertyPlaybackBas
 class ScalarPropertyPulse;
 struct ScalarPropertyPulseDefaultTypeInternal;
 extern ScalarPropertyPulseDefaultTypeInternal _ScalarPropertyPulse_default_instance_;
+class ScalarPropertyRefValueProvider;
+struct ScalarPropertyRefValueProviderDefaultTypeInternal;
+extern ScalarPropertyRefValueProviderDefaultTypeInternal _ScalarPropertyRefValueProvider_default_instance_;
 class ScalarPropertyValue;
 struct ScalarPropertyValueDefaultTypeInternal;
 extern ScalarPropertyValueDefaultTypeInternal _ScalarPropertyValue_default_instance_;
@@ -249,9 +279,18 @@ extern StringPropertyDeclarationDefaultTypeInternal _StringPropertyDeclaration_d
 class StringPropertyFormatted;
 struct StringPropertyFormattedDefaultTypeInternal;
 extern StringPropertyFormattedDefaultTypeInternal _StringPropertyFormatted_default_instance_;
+class StringPropertyKeyframed;
+struct StringPropertyKeyframedDefaultTypeInternal;
+extern StringPropertyKeyframedDefaultTypeInternal _StringPropertyKeyframed_default_instance_;
+class StringPropertyKeyframed_StringKeyframe;
+struct StringPropertyKeyframed_StringKeyframeDefaultTypeInternal;
+extern StringPropertyKeyframed_StringKeyframeDefaultTypeInternal _StringPropertyKeyframed_StringKeyframe_default_instance_;
 class StringPropertyMetadata;
 struct StringPropertyMetadataDefaultTypeInternal;
 extern StringPropertyMetadataDefaultTypeInternal _StringPropertyMetadata_default_instance_;
+class StringPropertyRefValueProvider;
+struct StringPropertyRefValueProviderDefaultTypeInternal;
+extern StringPropertyRefValueProviderDefaultTypeInternal _StringPropertyRefValueProvider_default_instance_;
 class StringPropertyValue;
 struct StringPropertyValueDefaultTypeInternal;
 extern StringPropertyValueDefaultTypeInternal _StringPropertyValue_default_instance_;
@@ -294,6 +333,9 @@ extern TransformSetInterpolatorSRTDefaultTypeInternal _TransformSetInterpolatorS
 class TransformSetLookAt;
 struct TransformSetLookAtDefaultTypeInternal;
 extern TransformSetLookAtDefaultTypeInternal _TransformSetLookAt_default_instance_;
+class TransformSetRefValueProvider;
+struct TransformSetRefValueProviderDefaultTypeInternal;
+extern TransformSetRefValueProviderDefaultTypeInternal _TransformSetRefValueProvider_default_instance_;
 class TransformSetSQT;
 struct TransformSetSQTDefaultTypeInternal;
 extern TransformSetSQTDefaultTypeInternal _TransformSetSQT_default_instance_;
@@ -360,6 +402,9 @@ extern VectorPropertyMetadataDefaultTypeInternal _VectorPropertyMetadata_default
 class VectorPropertyQuadratic;
 struct VectorPropertyQuadraticDefaultTypeInternal;
 extern VectorPropertyQuadraticDefaultTypeInternal _VectorPropertyQuadratic_default_instance_;
+class VectorPropertyRefValueProvider;
+struct VectorPropertyRefValueProviderDefaultTypeInternal;
+extern VectorPropertyRefValueProviderDefaultTypeInternal _VectorPropertyRefValueProvider_default_instance_;
 class VectorPropertyValue;
 struct VectorPropertyValueDefaultTypeInternal;
 extern VectorPropertyValueDefaultTypeInternal _VectorPropertyValue_default_instance_;
@@ -374,6 +419,7 @@ template<> ::Property::BooleanPropertyDeclaration* Arena::CreateMaybeMessage<::P
 template<> ::Property::BooleanPropertyKeyframed* Arena::CreateMaybeMessage<::Property::BooleanPropertyKeyframed>(Arena*);
 template<> ::Property::BooleanPropertyKeyframed_BooleanKeyframe* Arena::CreateMaybeMessage<::Property::BooleanPropertyKeyframed_BooleanKeyframe>(Arena*);
 template<> ::Property::BooleanPropertyMetadata* Arena::CreateMaybeMessage<::Property::BooleanPropertyMetadata>(Arena*);
+template<> ::Property::BooleanPropertyRefValueProvider* Arena::CreateMaybeMessage<::Property::BooleanPropertyRefValueProvider>(Arena*);
 template<> ::Property::BooleanPropertyScalarComparison* Arena::CreateMaybeMessage<::Property::BooleanPropertyScalarComparison>(Arena*);
 template<> ::Property::BooleanPropertyValue* Arena::CreateMaybeMessage<::Property::BooleanPropertyValue>(Arena*);
 template<> ::Property::ColorEditingMetadata* Arena::CreateMaybeMessage<::Property::ColorEditingMetadata>(Arena*);
@@ -386,6 +432,7 @@ template<> ::Property::ColorPropertyInterpolator* Arena::CreateMaybeMessage<::Pr
 template<> ::Property::ColorPropertyKeyframed* Arena::CreateMaybeMessage<::Property::ColorPropertyKeyframed>(Arena*);
 template<> ::Property::ColorPropertyKeyframed_ColorKeyframe* Arena::CreateMaybeMessage<::Property::ColorPropertyKeyframed_ColorKeyframe>(Arena*);
 template<> ::Property::ColorPropertyMetadata* Arena::CreateMaybeMessage<::Property::ColorPropertyMetadata>(Arena*);
+template<> ::Property::ColorPropertyRefValueProvider* Arena::CreateMaybeMessage<::Property::ColorPropertyRefValueProvider>(Arena*);
 template<> ::Property::ColorPropertyValue* Arena::CreateMaybeMessage<::Property::ColorPropertyValue>(Arena*);
 template<> ::Property::CustomGeneratorSubGen* Arena::CreateMaybeMessage<::Property::CustomGeneratorSubGen>(Arena*);
 template<> ::Property::CustomGeneratorSubGenBoolean* Arena::CreateMaybeMessage<::Property::CustomGeneratorSubGenBoolean>(Arena*);
@@ -403,17 +450,24 @@ template<> ::Property::JsonEditingMetadata* Arena::CreateMaybeMessage<::Property
 template<> ::Property::JsonGeneratorMetadata* Arena::CreateMaybeMessage<::Property::JsonGeneratorMetadata>(Arena*);
 template<> ::Property::JsonPropertyAssignment* Arena::CreateMaybeMessage<::Property::JsonPropertyAssignment>(Arena*);
 template<> ::Property::JsonPropertyDeclaration* Arena::CreateMaybeMessage<::Property::JsonPropertyDeclaration>(Arena*);
+template<> ::Property::JsonPropertyKeyframed* Arena::CreateMaybeMessage<::Property::JsonPropertyKeyframed>(Arena*);
+template<> ::Property::JsonPropertyKeyframed_JsonKeyframe* Arena::CreateMaybeMessage<::Property::JsonPropertyKeyframed_JsonKeyframe>(Arena*);
 template<> ::Property::JsonPropertyMetadata* Arena::CreateMaybeMessage<::Property::JsonPropertyMetadata>(Arena*);
+template<> ::Property::JsonPropertyRefValueProvider* Arena::CreateMaybeMessage<::Property::JsonPropertyRefValueProvider>(Arena*);
 template<> ::Property::JsonPropertyValue* Arena::CreateMaybeMessage<::Property::JsonPropertyValue>(Arena*);
 template<> ::Property::LinkContentTypeSpecifier* Arena::CreateMaybeMessage<::Property::LinkContentTypeSpecifier>(Arena*);
 template<> ::Property::LinkEditingMetadata* Arena::CreateMaybeMessage<::Property::LinkEditingMetadata>(Arena*);
 template<> ::Property::LinkGeneratorMetadata* Arena::CreateMaybeMessage<::Property::LinkGeneratorMetadata>(Arena*);
 template<> ::Property::LinkPropertyAssignment* Arena::CreateMaybeMessage<::Property::LinkPropertyAssignment>(Arena*);
 template<> ::Property::LinkPropertyDeclaration* Arena::CreateMaybeMessage<::Property::LinkPropertyDeclaration>(Arena*);
+template<> ::Property::LinkPropertyKeyframed* Arena::CreateMaybeMessage<::Property::LinkPropertyKeyframed>(Arena*);
+template<> ::Property::LinkPropertyKeyframed_LinkKeyframe* Arena::CreateMaybeMessage<::Property::LinkPropertyKeyframed_LinkKeyframe>(Arena*);
 template<> ::Property::LinkPropertyMetadata* Arena::CreateMaybeMessage<::Property::LinkPropertyMetadata>(Arena*);
+template<> ::Property::LinkPropertyRefValueProvider* Arena::CreateMaybeMessage<::Property::LinkPropertyRefValueProvider>(Arena*);
 template<> ::Property::LinkPropertyValue* Arena::CreateMaybeMessage<::Property::LinkPropertyValue>(Arena*);
 template<> ::Property::PropertyIdentifier* Arena::CreateMaybeMessage<::Property::PropertyIdentifier>(Arena*);
 template<> ::Property::PropertyMetadata* Arena::CreateMaybeMessage<::Property::PropertyMetadata>(Arena*);
+template<> ::Property::PropertyRefProviderValue* Arena::CreateMaybeMessage<::Property::PropertyRefProviderValue>(Arena*);
 template<> ::Property::ScalarEditingMetadata* Arena::CreateMaybeMessage<::Property::ScalarEditingMetadata>(Arena*);
 template<> ::Property::ScalarGeneratorMetadata* Arena::CreateMaybeMessage<::Property::ScalarGeneratorMetadata>(Arena*);
 template<> ::Property::ScalarPropertyApproach* Arena::CreateMaybeMessage<::Property::ScalarPropertyApproach>(Arena*);
@@ -426,13 +480,17 @@ template<> ::Property::ScalarPropertyMetadata* Arena::CreateMaybeMessage<::Prope
 template<> ::Property::ScalarPropertyPlayback* Arena::CreateMaybeMessage<::Property::ScalarPropertyPlayback>(Arena*);
 template<> ::Property::ScalarPropertyPlaybackBasic* Arena::CreateMaybeMessage<::Property::ScalarPropertyPlaybackBasic>(Arena*);
 template<> ::Property::ScalarPropertyPulse* Arena::CreateMaybeMessage<::Property::ScalarPropertyPulse>(Arena*);
+template<> ::Property::ScalarPropertyRefValueProvider* Arena::CreateMaybeMessage<::Property::ScalarPropertyRefValueProvider>(Arena*);
 template<> ::Property::ScalarPropertyValue* Arena::CreateMaybeMessage<::Property::ScalarPropertyValue>(Arena*);
 template<> ::Property::StringEditingMetadata* Arena::CreateMaybeMessage<::Property::StringEditingMetadata>(Arena*);
 template<> ::Property::StringGeneratorMetadata* Arena::CreateMaybeMessage<::Property::StringGeneratorMetadata>(Arena*);
 template<> ::Property::StringPropertyAssignment* Arena::CreateMaybeMessage<::Property::StringPropertyAssignment>(Arena*);
 template<> ::Property::StringPropertyDeclaration* Arena::CreateMaybeMessage<::Property::StringPropertyDeclaration>(Arena*);
 template<> ::Property::StringPropertyFormatted* Arena::CreateMaybeMessage<::Property::StringPropertyFormatted>(Arena*);
+template<> ::Property::StringPropertyKeyframed* Arena::CreateMaybeMessage<::Property::StringPropertyKeyframed>(Arena*);
+template<> ::Property::StringPropertyKeyframed_StringKeyframe* Arena::CreateMaybeMessage<::Property::StringPropertyKeyframed_StringKeyframe>(Arena*);
 template<> ::Property::StringPropertyMetadata* Arena::CreateMaybeMessage<::Property::StringPropertyMetadata>(Arena*);
+template<> ::Property::StringPropertyRefValueProvider* Arena::CreateMaybeMessage<::Property::StringPropertyRefValueProvider>(Arena*);
 template<> ::Property::StringPropertyValue* Arena::CreateMaybeMessage<::Property::StringPropertyValue>(Arena*);
 template<> ::Property::StringValueEnumerationOption* Arena::CreateMaybeMessage<::Property::StringValueEnumerationOption>(Arena*);
 template<> ::Property::TransformEditingMetadata* Arena::CreateMaybeMessage<::Property::TransformEditingMetadata>(Arena*);
@@ -447,6 +505,7 @@ template<> ::Property::TransformSetInterpolatorLookAt* Arena::CreateMaybeMessage
 template<> ::Property::TransformSetInterpolatorSQT* Arena::CreateMaybeMessage<::Property::TransformSetInterpolatorSQT>(Arena*);
 template<> ::Property::TransformSetInterpolatorSRT* Arena::CreateMaybeMessage<::Property::TransformSetInterpolatorSRT>(Arena*);
 template<> ::Property::TransformSetLookAt* Arena::CreateMaybeMessage<::Property::TransformSetLookAt>(Arena*);
+template<> ::Property::TransformSetRefValueProvider* Arena::CreateMaybeMessage<::Property::TransformSetRefValueProvider>(Arena*);
 template<> ::Property::TransformSetSQT* Arena::CreateMaybeMessage<::Property::TransformSetSQT>(Arena*);
 template<> ::Property::TransformSetSRT* Arena::CreateMaybeMessage<::Property::TransformSetSRT>(Arena*);
 template<> ::Property::TransformUpdate* Arena::CreateMaybeMessage<::Property::TransformUpdate>(Arena*);
@@ -469,6 +528,7 @@ template<> ::Property::VectorPropertyKeyframed* Arena::CreateMaybeMessage<::Prop
 template<> ::Property::VectorPropertyKeyframed_VectorKeyframe* Arena::CreateMaybeMessage<::Property::VectorPropertyKeyframed_VectorKeyframe>(Arena*);
 template<> ::Property::VectorPropertyMetadata* Arena::CreateMaybeMessage<::Property::VectorPropertyMetadata>(Arena*);
 template<> ::Property::VectorPropertyQuadratic* Arena::CreateMaybeMessage<::Property::VectorPropertyQuadratic>(Arena*);
+template<> ::Property::VectorPropertyRefValueProvider* Arena::CreateMaybeMessage<::Property::VectorPropertyRefValueProvider>(Arena*);
 template<> ::Property::VectorPropertyValue* Arena::CreateMaybeMessage<::Property::VectorPropertyValue>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace Property {
@@ -2329,6 +2389,183 @@ class Interpolation final :
 };
 // -------------------------------------------------------------------
 
+class PropertyRefProviderValue final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.PropertyRefProviderValue) */ {
+ public:
+  inline PropertyRefProviderValue() : PropertyRefProviderValue(nullptr) {}
+  ~PropertyRefProviderValue() override;
+  explicit PROTOBUF_CONSTEXPR PropertyRefProviderValue(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PropertyRefProviderValue(const PropertyRefProviderValue& from);
+  PropertyRefProviderValue(PropertyRefProviderValue&& from) noexcept
+    : PropertyRefProviderValue() {
+    *this = ::std::move(from);
+  }
+
+  inline PropertyRefProviderValue& operator=(const PropertyRefProviderValue& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PropertyRefProviderValue& operator=(PropertyRefProviderValue&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PropertyRefProviderValue& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PropertyRefProviderValue* internal_default_instance() {
+    return reinterpret_cast<const PropertyRefProviderValue*>(
+               &_PropertyRefProviderValue_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(PropertyRefProviderValue& a, PropertyRefProviderValue& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PropertyRefProviderValue* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PropertyRefProviderValue* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PropertyRefProviderValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PropertyRefProviderValue>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PropertyRefProviderValue& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PropertyRefProviderValue& from) {
+    PropertyRefProviderValue::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PropertyRefProviderValue* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.PropertyRefProviderValue";
+  }
+  protected:
+  explicit PropertyRefProviderValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefFieldNumber = 1,
+    kValueFieldNumber = 2,
+  };
+  // .Property.PropertyIdentifier ref = 1;
+  bool has_ref() const;
+  private:
+  bool _internal_has_ref() const;
+  public:
+  void clear_ref();
+  const ::Property::PropertyIdentifier& ref() const;
+  PROTOBUF_NODISCARD ::Property::PropertyIdentifier* release_ref();
+  ::Property::PropertyIdentifier* mutable_ref();
+  void set_allocated_ref(::Property::PropertyIdentifier* ref);
+  private:
+  const ::Property::PropertyIdentifier& _internal_ref() const;
+  ::Property::PropertyIdentifier* _internal_mutable_ref();
+  public:
+  void unsafe_arena_set_allocated_ref(
+      ::Property::PropertyIdentifier* ref);
+  ::Property::PropertyIdentifier* unsafe_arena_release_ref();
+
+  // .Property.AnyPropertyValue value = 2;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  const ::Property::AnyPropertyValue& value() const;
+  PROTOBUF_NODISCARD ::Property::AnyPropertyValue* release_value();
+  ::Property::AnyPropertyValue* mutable_value();
+  void set_allocated_value(::Property::AnyPropertyValue* value);
+  private:
+  const ::Property::AnyPropertyValue& _internal_value() const;
+  ::Property::AnyPropertyValue* _internal_mutable_value();
+  public:
+  void unsafe_arena_set_allocated_value(
+      ::Property::AnyPropertyValue* value);
+  ::Property::AnyPropertyValue* unsafe_arena_release_value();
+
+  // @@protoc_insertion_point(class_scope:Property.PropertyRefProviderValue)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::Property::PropertyIdentifier* ref_;
+    ::Property::AnyPropertyValue* value_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ScalarPropertyAssignment final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.ScalarPropertyAssignment) */ {
  public:
@@ -2377,7 +2614,7 @@ class ScalarPropertyAssignment final :
                &_ScalarPropertyAssignment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(ScalarPropertyAssignment& a, ScalarPropertyAssignment& b) {
     a.Swap(&b);
@@ -2618,6 +2855,7 @@ class ScalarPropertyValue final :
     kInterp = 9,
     kCustom = 10,
     kApproach = 11,
+    kRefProvider = 12,
     VALUETYPE_NOT_SET = 0,
   };
 
@@ -2626,7 +2864,7 @@ class ScalarPropertyValue final :
                &_ScalarPropertyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(ScalarPropertyValue& a, ScalarPropertyValue& b) {
     a.Swap(&b);
@@ -2710,6 +2948,7 @@ class ScalarPropertyValue final :
     kInterpFieldNumber = 9,
     kCustomFieldNumber = 10,
     kApproachFieldNumber = 11,
+    kRefProviderFieldNumber = 12,
   };
   // float constant = 1;
   bool has_constant() const;
@@ -2899,6 +3138,24 @@ class ScalarPropertyValue final :
       ::Property::ScalarPropertyApproach* approach);
   ::Property::ScalarPropertyApproach* unsafe_arena_release_approach();
 
+  // .Property.ScalarPropertyRefValueProvider refProvider = 12;
+  bool has_refprovider() const;
+  private:
+  bool _internal_has_refprovider() const;
+  public:
+  void clear_refprovider();
+  const ::Property::ScalarPropertyRefValueProvider& refprovider() const;
+  PROTOBUF_NODISCARD ::Property::ScalarPropertyRefValueProvider* release_refprovider();
+  ::Property::ScalarPropertyRefValueProvider* mutable_refprovider();
+  void set_allocated_refprovider(::Property::ScalarPropertyRefValueProvider* refprovider);
+  private:
+  const ::Property::ScalarPropertyRefValueProvider& _internal_refprovider() const;
+  ::Property::ScalarPropertyRefValueProvider* _internal_mutable_refprovider();
+  public:
+  void unsafe_arena_set_allocated_refprovider(
+      ::Property::ScalarPropertyRefValueProvider* refprovider);
+  ::Property::ScalarPropertyRefValueProvider* unsafe_arena_release_refprovider();
+
   void clear_ValueType();
   ValueTypeCase ValueType_case() const;
   // @@protoc_insertion_point(class_scope:Property.ScalarPropertyValue)
@@ -2915,6 +3172,7 @@ class ScalarPropertyValue final :
   void set_has_interp();
   void set_has_custom();
   void set_has_approach();
+  void set_has_refprovider();
 
   inline bool has_ValueType() const;
   inline void clear_has_ValueType();
@@ -2937,6 +3195,7 @@ class ScalarPropertyValue final :
       ::Property::ScalarPropertyInterpolator* interp_;
       ::Property::CustomGeneratorValue* custom_;
       ::Property::ScalarPropertyApproach* approach_;
+      ::Property::ScalarPropertyRefValueProvider* refprovider_;
     } ValueType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -2995,7 +3254,7 @@ class ScalarPropertyInterpolator final :
                &_ScalarPropertyInterpolator_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(ScalarPropertyInterpolator& a, ScalarPropertyInterpolator& b) {
     a.Swap(&b);
@@ -3212,7 +3471,7 @@ class ScalarPropertyPulse final :
                &_ScalarPropertyPulse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(ScalarPropertyPulse& a, ScalarPropertyPulse& b) {
     a.Swap(&b);
@@ -3429,7 +3688,7 @@ class ScalarPropertyPlaybackBasic final :
                &_ScalarPropertyPlaybackBasic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(ScalarPropertyPlaybackBasic& a, ScalarPropertyPlaybackBasic& b) {
     a.Swap(&b);
@@ -3599,7 +3858,7 @@ class ScalarPropertyPlayback final :
                &_ScalarPropertyPlayback_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(ScalarPropertyPlayback& a, ScalarPropertyPlayback& b) {
     a.Swap(&b);
@@ -3807,7 +4066,7 @@ class ScalarPropertyKeyframed_ScalarKeyframe final :
                &_ScalarPropertyKeyframed_ScalarKeyframe_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(ScalarPropertyKeyframed_ScalarKeyframe& a, ScalarPropertyKeyframed_ScalarKeyframe& b) {
     a.Swap(&b);
@@ -4006,7 +4265,7 @@ class ScalarPropertyKeyframed final :
                &_ScalarPropertyKeyframed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(ScalarPropertyKeyframed& a, ScalarPropertyKeyframed& b) {
     a.Swap(&b);
@@ -4208,7 +4467,7 @@ class ScalarPropertyApproach final :
                &_ScalarPropertyApproach_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(ScalarPropertyApproach& a, ScalarPropertyApproach& b) {
     a.Swap(&b);
@@ -4377,6 +4636,183 @@ class ScalarPropertyApproach final :
 };
 // -------------------------------------------------------------------
 
+class ScalarPropertyRefValueProvider final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.ScalarPropertyRefValueProvider) */ {
+ public:
+  inline ScalarPropertyRefValueProvider() : ScalarPropertyRefValueProvider(nullptr) {}
+  ~ScalarPropertyRefValueProvider() override;
+  explicit PROTOBUF_CONSTEXPR ScalarPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ScalarPropertyRefValueProvider(const ScalarPropertyRefValueProvider& from);
+  ScalarPropertyRefValueProvider(ScalarPropertyRefValueProvider&& from) noexcept
+    : ScalarPropertyRefValueProvider() {
+    *this = ::std::move(from);
+  }
+
+  inline ScalarPropertyRefValueProvider& operator=(const ScalarPropertyRefValueProvider& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ScalarPropertyRefValueProvider& operator=(ScalarPropertyRefValueProvider&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ScalarPropertyRefValueProvider& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ScalarPropertyRefValueProvider* internal_default_instance() {
+    return reinterpret_cast<const ScalarPropertyRefValueProvider*>(
+               &_ScalarPropertyRefValueProvider_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(ScalarPropertyRefValueProvider& a, ScalarPropertyRefValueProvider& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ScalarPropertyRefValueProvider* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ScalarPropertyRefValueProvider* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ScalarPropertyRefValueProvider* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ScalarPropertyRefValueProvider>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ScalarPropertyRefValueProvider& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ScalarPropertyRefValueProvider& from) {
+    ScalarPropertyRefValueProvider::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ScalarPropertyRefValueProvider* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.ScalarPropertyRefValueProvider";
+  }
+  protected:
+  explicit ScalarPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefsFieldNumber = 1,
+    kWrappedFieldNumber = 3,
+  };
+  // repeated .Property.PropertyRefProviderValue refs = 1;
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+  public:
+  void clear_refs();
+  ::Property::PropertyRefProviderValue* mutable_refs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+      mutable_refs();
+  private:
+  const ::Property::PropertyRefProviderValue& _internal_refs(int index) const;
+  ::Property::PropertyRefProviderValue* _internal_add_refs();
+  public:
+  const ::Property::PropertyRefProviderValue& refs(int index) const;
+  ::Property::PropertyRefProviderValue* add_refs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+      refs() const;
+
+  // .Property.ScalarPropertyValue wrapped = 3;
+  bool has_wrapped() const;
+  private:
+  bool _internal_has_wrapped() const;
+  public:
+  void clear_wrapped();
+  const ::Property::ScalarPropertyValue& wrapped() const;
+  PROTOBUF_NODISCARD ::Property::ScalarPropertyValue* release_wrapped();
+  ::Property::ScalarPropertyValue* mutable_wrapped();
+  void set_allocated_wrapped(::Property::ScalarPropertyValue* wrapped);
+  private:
+  const ::Property::ScalarPropertyValue& _internal_wrapped() const;
+  ::Property::ScalarPropertyValue* _internal_mutable_wrapped();
+  public:
+  void unsafe_arena_set_allocated_wrapped(
+      ::Property::ScalarPropertyValue* wrapped);
+  ::Property::ScalarPropertyValue* unsafe_arena_release_wrapped();
+
+  // @@protoc_insertion_point(class_scope:Property.ScalarPropertyRefValueProvider)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue > refs_;
+    ::Property::ScalarPropertyValue* wrapped_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ScalarPropertyDeclaration final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.ScalarPropertyDeclaration) */ {
  public:
@@ -4425,7 +4861,7 @@ class ScalarPropertyDeclaration final :
                &_ScalarPropertyDeclaration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(ScalarPropertyDeclaration& a, ScalarPropertyDeclaration& b) {
     a.Swap(&b);
@@ -4593,7 +5029,7 @@ class ScalarEditingMetadata final :
                &_ScalarEditingMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(ScalarEditingMetadata& a, ScalarEditingMetadata& b) {
     a.Swap(&b);
@@ -4845,7 +5281,7 @@ class ScalarGeneratorMetadata final :
                &_ScalarGeneratorMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(ScalarGeneratorMetadata& a, ScalarGeneratorMetadata& b) {
     a.Swap(&b);
@@ -5022,7 +5458,7 @@ class ScalarPropertyMetadata final :
                &_ScalarPropertyMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(ScalarPropertyMetadata& a, ScalarPropertyMetadata& b) {
     a.Swap(&b);
@@ -5199,7 +5635,7 @@ class StringPropertyAssignment final :
                &_StringPropertyAssignment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(StringPropertyAssignment& a, StringPropertyAssignment& b) {
     a.Swap(&b);
@@ -5389,6 +5825,8 @@ class StringPropertyValue final :
     kRef = 3,
     kExpr = 4,
     kUseDefault = 5,
+    kKeyframes = 6,
+    kRefProvider = 7,
     kCustom = 10,
     VALUETYPE_NOT_SET = 0,
   };
@@ -5398,7 +5836,7 @@ class StringPropertyValue final :
                &_StringPropertyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(StringPropertyValue& a, StringPropertyValue& b) {
     a.Swap(&b);
@@ -5476,6 +5914,8 @@ class StringPropertyValue final :
     kRefFieldNumber = 3,
     kExprFieldNumber = 4,
     kUseDefaultFieldNumber = 5,
+    kKeyframesFieldNumber = 6,
+    kRefProviderFieldNumber = 7,
     kCustomFieldNumber = 10,
   };
   // string constant = 1;
@@ -5563,6 +6003,42 @@ class StringPropertyValue final :
   void _internal_set_usedefault(bool value);
   public:
 
+  // .Property.StringPropertyKeyframed keyframes = 6;
+  bool has_keyframes() const;
+  private:
+  bool _internal_has_keyframes() const;
+  public:
+  void clear_keyframes();
+  const ::Property::StringPropertyKeyframed& keyframes() const;
+  PROTOBUF_NODISCARD ::Property::StringPropertyKeyframed* release_keyframes();
+  ::Property::StringPropertyKeyframed* mutable_keyframes();
+  void set_allocated_keyframes(::Property::StringPropertyKeyframed* keyframes);
+  private:
+  const ::Property::StringPropertyKeyframed& _internal_keyframes() const;
+  ::Property::StringPropertyKeyframed* _internal_mutable_keyframes();
+  public:
+  void unsafe_arena_set_allocated_keyframes(
+      ::Property::StringPropertyKeyframed* keyframes);
+  ::Property::StringPropertyKeyframed* unsafe_arena_release_keyframes();
+
+  // .Property.StringPropertyRefValueProvider refProvider = 7;
+  bool has_refprovider() const;
+  private:
+  bool _internal_has_refprovider() const;
+  public:
+  void clear_refprovider();
+  const ::Property::StringPropertyRefValueProvider& refprovider() const;
+  PROTOBUF_NODISCARD ::Property::StringPropertyRefValueProvider* release_refprovider();
+  ::Property::StringPropertyRefValueProvider* mutable_refprovider();
+  void set_allocated_refprovider(::Property::StringPropertyRefValueProvider* refprovider);
+  private:
+  const ::Property::StringPropertyRefValueProvider& _internal_refprovider() const;
+  ::Property::StringPropertyRefValueProvider* _internal_mutable_refprovider();
+  public:
+  void unsafe_arena_set_allocated_refprovider(
+      ::Property::StringPropertyRefValueProvider* refprovider);
+  ::Property::StringPropertyRefValueProvider* unsafe_arena_release_refprovider();
+
   // .Property.CustomGeneratorValue custom = 10;
   bool has_custom() const;
   private:
@@ -5591,6 +6067,8 @@ class StringPropertyValue final :
   void set_has_ref();
   void set_has_expr();
   void set_has_usedefault();
+  void set_has_keyframes();
+  void set_has_refprovider();
   void set_has_custom();
 
   inline bool has_ValueType() const;
@@ -5608,6 +6086,8 @@ class StringPropertyValue final :
       ::Property::PropertyIdentifier* ref_;
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expr_;
       bool usedefault_;
+      ::Property::StringPropertyKeyframed* keyframes_;
+      ::Property::StringPropertyRefValueProvider* refprovider_;
       ::Property::CustomGeneratorValue* custom_;
     } ValueType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5667,7 +6147,7 @@ class StringPropertyFormatted final :
                &_StringPropertyFormatted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(StringPropertyFormatted& a, StringPropertyFormatted& b) {
     a.Swap(&b);
@@ -5792,6 +6272,542 @@ class StringPropertyFormatted final :
 };
 // -------------------------------------------------------------------
 
+class StringPropertyKeyframed_StringKeyframe final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.StringPropertyKeyframed.StringKeyframe) */ {
+ public:
+  inline StringPropertyKeyframed_StringKeyframe() : StringPropertyKeyframed_StringKeyframe(nullptr) {}
+  ~StringPropertyKeyframed_StringKeyframe() override;
+  explicit PROTOBUF_CONSTEXPR StringPropertyKeyframed_StringKeyframe(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  StringPropertyKeyframed_StringKeyframe(const StringPropertyKeyframed_StringKeyframe& from);
+  StringPropertyKeyframed_StringKeyframe(StringPropertyKeyframed_StringKeyframe&& from) noexcept
+    : StringPropertyKeyframed_StringKeyframe() {
+    *this = ::std::move(from);
+  }
+
+  inline StringPropertyKeyframed_StringKeyframe& operator=(const StringPropertyKeyframed_StringKeyframe& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StringPropertyKeyframed_StringKeyframe& operator=(StringPropertyKeyframed_StringKeyframe&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StringPropertyKeyframed_StringKeyframe& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StringPropertyKeyframed_StringKeyframe* internal_default_instance() {
+    return reinterpret_cast<const StringPropertyKeyframed_StringKeyframe*>(
+               &_StringPropertyKeyframed_StringKeyframe_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(StringPropertyKeyframed_StringKeyframe& a, StringPropertyKeyframed_StringKeyframe& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StringPropertyKeyframed_StringKeyframe* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StringPropertyKeyframed_StringKeyframe* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StringPropertyKeyframed_StringKeyframe* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StringPropertyKeyframed_StringKeyframe>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const StringPropertyKeyframed_StringKeyframe& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const StringPropertyKeyframed_StringKeyframe& from) {
+    StringPropertyKeyframed_StringKeyframe::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StringPropertyKeyframed_StringKeyframe* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.StringPropertyKeyframed.StringKeyframe";
+  }
+  protected:
+  explicit StringPropertyKeyframed_StringKeyframe(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValFieldNumber = 2,
+    kTFieldNumber = 1,
+  };
+  // .Property.StringPropertyValue val = 2;
+  bool has_val() const;
+  private:
+  bool _internal_has_val() const;
+  public:
+  void clear_val();
+  const ::Property::StringPropertyValue& val() const;
+  PROTOBUF_NODISCARD ::Property::StringPropertyValue* release_val();
+  ::Property::StringPropertyValue* mutable_val();
+  void set_allocated_val(::Property::StringPropertyValue* val);
+  private:
+  const ::Property::StringPropertyValue& _internal_val() const;
+  ::Property::StringPropertyValue* _internal_mutable_val();
+  public:
+  void unsafe_arena_set_allocated_val(
+      ::Property::StringPropertyValue* val);
+  ::Property::StringPropertyValue* unsafe_arena_release_val();
+
+  // float t = 1;
+  void clear_t();
+  float t() const;
+  void set_t(float value);
+  private:
+  float _internal_t() const;
+  void _internal_set_t(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Property.StringPropertyKeyframed.StringKeyframe)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::Property::StringPropertyValue* val_;
+    float t_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
+class StringPropertyKeyframed final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.StringPropertyKeyframed) */ {
+ public:
+  inline StringPropertyKeyframed() : StringPropertyKeyframed(nullptr) {}
+  ~StringPropertyKeyframed() override;
+  explicit PROTOBUF_CONSTEXPR StringPropertyKeyframed(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  StringPropertyKeyframed(const StringPropertyKeyframed& from);
+  StringPropertyKeyframed(StringPropertyKeyframed&& from) noexcept
+    : StringPropertyKeyframed() {
+    *this = ::std::move(from);
+  }
+
+  inline StringPropertyKeyframed& operator=(const StringPropertyKeyframed& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StringPropertyKeyframed& operator=(StringPropertyKeyframed&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StringPropertyKeyframed& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StringPropertyKeyframed* internal_default_instance() {
+    return reinterpret_cast<const StringPropertyKeyframed*>(
+               &_StringPropertyKeyframed_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(StringPropertyKeyframed& a, StringPropertyKeyframed& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StringPropertyKeyframed* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StringPropertyKeyframed* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StringPropertyKeyframed* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StringPropertyKeyframed>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const StringPropertyKeyframed& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const StringPropertyKeyframed& from) {
+    StringPropertyKeyframed::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StringPropertyKeyframed* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.StringPropertyKeyframed";
+  }
+  protected:
+  explicit StringPropertyKeyframed(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef StringPropertyKeyframed_StringKeyframe StringKeyframe;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeysFieldNumber = 10,
+    kTSrcFieldNumber = 8,
+    kLoopingFieldNumber = 11,
+  };
+  // repeated .Property.StringPropertyKeyframed.StringKeyframe keys = 10;
+  int keys_size() const;
+  private:
+  int _internal_keys_size() const;
+  public:
+  void clear_keys();
+  ::Property::StringPropertyKeyframed_StringKeyframe* mutable_keys(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::StringPropertyKeyframed_StringKeyframe >*
+      mutable_keys();
+  private:
+  const ::Property::StringPropertyKeyframed_StringKeyframe& _internal_keys(int index) const;
+  ::Property::StringPropertyKeyframed_StringKeyframe* _internal_add_keys();
+  public:
+  const ::Property::StringPropertyKeyframed_StringKeyframe& keys(int index) const;
+  ::Property::StringPropertyKeyframed_StringKeyframe* add_keys();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::StringPropertyKeyframed_StringKeyframe >&
+      keys() const;
+
+  // optional .Property.ScalarPropertyValue tSrc = 8;
+  bool has_tsrc() const;
+  private:
+  bool _internal_has_tsrc() const;
+  public:
+  void clear_tsrc();
+  const ::Property::ScalarPropertyValue& tsrc() const;
+  PROTOBUF_NODISCARD ::Property::ScalarPropertyValue* release_tsrc();
+  ::Property::ScalarPropertyValue* mutable_tsrc();
+  void set_allocated_tsrc(::Property::ScalarPropertyValue* tsrc);
+  private:
+  const ::Property::ScalarPropertyValue& _internal_tsrc() const;
+  ::Property::ScalarPropertyValue* _internal_mutable_tsrc();
+  public:
+  void unsafe_arena_set_allocated_tsrc(
+      ::Property::ScalarPropertyValue* tsrc);
+  ::Property::ScalarPropertyValue* unsafe_arena_release_tsrc();
+
+  // .Property.KeyframeLoopingEnum looping = 11;
+  void clear_looping();
+  ::Property::KeyframeLoopingEnum looping() const;
+  void set_looping(::Property::KeyframeLoopingEnum value);
+  private:
+  ::Property::KeyframeLoopingEnum _internal_looping() const;
+  void _internal_set_looping(::Property::KeyframeLoopingEnum value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Property.StringPropertyKeyframed)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::StringPropertyKeyframed_StringKeyframe > keys_;
+    ::Property::ScalarPropertyValue* tsrc_;
+    int looping_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
+class StringPropertyRefValueProvider final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.StringPropertyRefValueProvider) */ {
+ public:
+  inline StringPropertyRefValueProvider() : StringPropertyRefValueProvider(nullptr) {}
+  ~StringPropertyRefValueProvider() override;
+  explicit PROTOBUF_CONSTEXPR StringPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  StringPropertyRefValueProvider(const StringPropertyRefValueProvider& from);
+  StringPropertyRefValueProvider(StringPropertyRefValueProvider&& from) noexcept
+    : StringPropertyRefValueProvider() {
+    *this = ::std::move(from);
+  }
+
+  inline StringPropertyRefValueProvider& operator=(const StringPropertyRefValueProvider& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StringPropertyRefValueProvider& operator=(StringPropertyRefValueProvider&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StringPropertyRefValueProvider& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StringPropertyRefValueProvider* internal_default_instance() {
+    return reinterpret_cast<const StringPropertyRefValueProvider*>(
+               &_StringPropertyRefValueProvider_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(StringPropertyRefValueProvider& a, StringPropertyRefValueProvider& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StringPropertyRefValueProvider* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StringPropertyRefValueProvider* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StringPropertyRefValueProvider* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StringPropertyRefValueProvider>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const StringPropertyRefValueProvider& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const StringPropertyRefValueProvider& from) {
+    StringPropertyRefValueProvider::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StringPropertyRefValueProvider* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.StringPropertyRefValueProvider";
+  }
+  protected:
+  explicit StringPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefsFieldNumber = 1,
+    kWrappedFieldNumber = 3,
+  };
+  // repeated .Property.PropertyRefProviderValue refs = 1;
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+  public:
+  void clear_refs();
+  ::Property::PropertyRefProviderValue* mutable_refs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+      mutable_refs();
+  private:
+  const ::Property::PropertyRefProviderValue& _internal_refs(int index) const;
+  ::Property::PropertyRefProviderValue* _internal_add_refs();
+  public:
+  const ::Property::PropertyRefProviderValue& refs(int index) const;
+  ::Property::PropertyRefProviderValue* add_refs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+      refs() const;
+
+  // .Property.StringPropertyValue wrapped = 3;
+  bool has_wrapped() const;
+  private:
+  bool _internal_has_wrapped() const;
+  public:
+  void clear_wrapped();
+  const ::Property::StringPropertyValue& wrapped() const;
+  PROTOBUF_NODISCARD ::Property::StringPropertyValue* release_wrapped();
+  ::Property::StringPropertyValue* mutable_wrapped();
+  void set_allocated_wrapped(::Property::StringPropertyValue* wrapped);
+  private:
+  const ::Property::StringPropertyValue& _internal_wrapped() const;
+  ::Property::StringPropertyValue* _internal_mutable_wrapped();
+  public:
+  void unsafe_arena_set_allocated_wrapped(
+      ::Property::StringPropertyValue* wrapped);
+  ::Property::StringPropertyValue* unsafe_arena_release_wrapped();
+
+  // @@protoc_insertion_point(class_scope:Property.StringPropertyRefValueProvider)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue > refs_;
+    ::Property::StringPropertyValue* wrapped_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
 class StringPropertyDeclaration final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.StringPropertyDeclaration) */ {
  public:
@@ -5840,7 +6856,7 @@ class StringPropertyDeclaration final :
                &_StringPropertyDeclaration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    27;
 
   friend void swap(StringPropertyDeclaration& a, StringPropertyDeclaration& b) {
     a.Swap(&b);
@@ -6013,7 +7029,7 @@ class StringValueEnumerationOption final :
                &_StringValueEnumerationOption_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    28;
 
   friend void swap(StringValueEnumerationOption& a, StringValueEnumerationOption& b) {
     a.Swap(&b);
@@ -6182,7 +7198,7 @@ class StringEditingMetadata final :
                &_StringEditingMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    29;
 
   friend void swap(StringEditingMetadata& a, StringEditingMetadata& b) {
     a.Swap(&b);
@@ -6370,7 +7386,7 @@ class StringGeneratorMetadata final :
                &_StringGeneratorMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    30;
 
   friend void swap(StringGeneratorMetadata& a, StringGeneratorMetadata& b) {
     a.Swap(&b);
@@ -6548,7 +7564,7 @@ class StringPropertyMetadata final :
                &_StringPropertyMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    31;
 
   friend void swap(StringPropertyMetadata& a, StringPropertyMetadata& b) {
     a.Swap(&b);
@@ -6726,7 +7742,7 @@ class LinkPropertyAssignment final :
                &_LinkPropertyAssignment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    32;
 
   friend void swap(LinkPropertyAssignment& a, LinkPropertyAssignment& b) {
     a.Swap(&b);
@@ -6915,6 +7931,8 @@ class LinkPropertyValue final :
     kRef = 3,
     kExpr = 4,
     kUseDefault = 5,
+    kKeyframes = 6,
+    kRefProvider = 7,
     kCustom = 10,
     VALUETYPE_NOT_SET = 0,
   };
@@ -6924,7 +7942,7 @@ class LinkPropertyValue final :
                &_LinkPropertyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    33;
 
   friend void swap(LinkPropertyValue& a, LinkPropertyValue& b) {
     a.Swap(&b);
@@ -7001,6 +8019,8 @@ class LinkPropertyValue final :
     kRefFieldNumber = 3,
     kExprFieldNumber = 4,
     kUseDefaultFieldNumber = 5,
+    kKeyframesFieldNumber = 6,
+    kRefProviderFieldNumber = 7,
     kCustomFieldNumber = 10,
   };
   // .Property.PropertyIdentifier constant = 1;
@@ -7070,6 +8090,42 @@ class LinkPropertyValue final :
   void _internal_set_usedefault(bool value);
   public:
 
+  // .Property.LinkPropertyKeyframed keyframes = 6;
+  bool has_keyframes() const;
+  private:
+  bool _internal_has_keyframes() const;
+  public:
+  void clear_keyframes();
+  const ::Property::LinkPropertyKeyframed& keyframes() const;
+  PROTOBUF_NODISCARD ::Property::LinkPropertyKeyframed* release_keyframes();
+  ::Property::LinkPropertyKeyframed* mutable_keyframes();
+  void set_allocated_keyframes(::Property::LinkPropertyKeyframed* keyframes);
+  private:
+  const ::Property::LinkPropertyKeyframed& _internal_keyframes() const;
+  ::Property::LinkPropertyKeyframed* _internal_mutable_keyframes();
+  public:
+  void unsafe_arena_set_allocated_keyframes(
+      ::Property::LinkPropertyKeyframed* keyframes);
+  ::Property::LinkPropertyKeyframed* unsafe_arena_release_keyframes();
+
+  // .Property.LinkPropertyRefValueProvider refProvider = 7;
+  bool has_refprovider() const;
+  private:
+  bool _internal_has_refprovider() const;
+  public:
+  void clear_refprovider();
+  const ::Property::LinkPropertyRefValueProvider& refprovider() const;
+  PROTOBUF_NODISCARD ::Property::LinkPropertyRefValueProvider* release_refprovider();
+  ::Property::LinkPropertyRefValueProvider* mutable_refprovider();
+  void set_allocated_refprovider(::Property::LinkPropertyRefValueProvider* refprovider);
+  private:
+  const ::Property::LinkPropertyRefValueProvider& _internal_refprovider() const;
+  ::Property::LinkPropertyRefValueProvider* _internal_mutable_refprovider();
+  public:
+  void unsafe_arena_set_allocated_refprovider(
+      ::Property::LinkPropertyRefValueProvider* refprovider);
+  ::Property::LinkPropertyRefValueProvider* unsafe_arena_release_refprovider();
+
   // .Property.CustomGeneratorValue custom = 10;
   bool has_custom() const;
   private:
@@ -7097,6 +8153,8 @@ class LinkPropertyValue final :
   void set_has_ref();
   void set_has_expr();
   void set_has_usedefault();
+  void set_has_keyframes();
+  void set_has_refprovider();
   void set_has_custom();
 
   inline bool has_ValueType() const;
@@ -7113,11 +8171,549 @@ class LinkPropertyValue final :
       ::Property::PropertyIdentifier* ref_;
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expr_;
       bool usedefault_;
+      ::Property::LinkPropertyKeyframed* keyframes_;
+      ::Property::LinkPropertyRefValueProvider* refprovider_;
       ::Property::CustomGeneratorValue* custom_;
     } ValueType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LinkPropertyKeyframed_LinkKeyframe final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.LinkPropertyKeyframed.LinkKeyframe) */ {
+ public:
+  inline LinkPropertyKeyframed_LinkKeyframe() : LinkPropertyKeyframed_LinkKeyframe(nullptr) {}
+  ~LinkPropertyKeyframed_LinkKeyframe() override;
+  explicit PROTOBUF_CONSTEXPR LinkPropertyKeyframed_LinkKeyframe(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  LinkPropertyKeyframed_LinkKeyframe(const LinkPropertyKeyframed_LinkKeyframe& from);
+  LinkPropertyKeyframed_LinkKeyframe(LinkPropertyKeyframed_LinkKeyframe&& from) noexcept
+    : LinkPropertyKeyframed_LinkKeyframe() {
+    *this = ::std::move(from);
+  }
+
+  inline LinkPropertyKeyframed_LinkKeyframe& operator=(const LinkPropertyKeyframed_LinkKeyframe& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LinkPropertyKeyframed_LinkKeyframe& operator=(LinkPropertyKeyframed_LinkKeyframe&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const LinkPropertyKeyframed_LinkKeyframe& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LinkPropertyKeyframed_LinkKeyframe* internal_default_instance() {
+    return reinterpret_cast<const LinkPropertyKeyframed_LinkKeyframe*>(
+               &_LinkPropertyKeyframed_LinkKeyframe_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    34;
+
+  friend void swap(LinkPropertyKeyframed_LinkKeyframe& a, LinkPropertyKeyframed_LinkKeyframe& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LinkPropertyKeyframed_LinkKeyframe* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LinkPropertyKeyframed_LinkKeyframe* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  LinkPropertyKeyframed_LinkKeyframe* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<LinkPropertyKeyframed_LinkKeyframe>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const LinkPropertyKeyframed_LinkKeyframe& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const LinkPropertyKeyframed_LinkKeyframe& from) {
+    LinkPropertyKeyframed_LinkKeyframe::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LinkPropertyKeyframed_LinkKeyframe* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.LinkPropertyKeyframed.LinkKeyframe";
+  }
+  protected:
+  explicit LinkPropertyKeyframed_LinkKeyframe(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValFieldNumber = 2,
+    kTFieldNumber = 1,
+  };
+  // .Property.LinkPropertyValue val = 2;
+  bool has_val() const;
+  private:
+  bool _internal_has_val() const;
+  public:
+  void clear_val();
+  const ::Property::LinkPropertyValue& val() const;
+  PROTOBUF_NODISCARD ::Property::LinkPropertyValue* release_val();
+  ::Property::LinkPropertyValue* mutable_val();
+  void set_allocated_val(::Property::LinkPropertyValue* val);
+  private:
+  const ::Property::LinkPropertyValue& _internal_val() const;
+  ::Property::LinkPropertyValue* _internal_mutable_val();
+  public:
+  void unsafe_arena_set_allocated_val(
+      ::Property::LinkPropertyValue* val);
+  ::Property::LinkPropertyValue* unsafe_arena_release_val();
+
+  // float t = 1;
+  void clear_t();
+  float t() const;
+  void set_t(float value);
+  private:
+  float _internal_t() const;
+  void _internal_set_t(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Property.LinkPropertyKeyframed.LinkKeyframe)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::Property::LinkPropertyValue* val_;
+    float t_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LinkPropertyKeyframed final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.LinkPropertyKeyframed) */ {
+ public:
+  inline LinkPropertyKeyframed() : LinkPropertyKeyframed(nullptr) {}
+  ~LinkPropertyKeyframed() override;
+  explicit PROTOBUF_CONSTEXPR LinkPropertyKeyframed(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  LinkPropertyKeyframed(const LinkPropertyKeyframed& from);
+  LinkPropertyKeyframed(LinkPropertyKeyframed&& from) noexcept
+    : LinkPropertyKeyframed() {
+    *this = ::std::move(from);
+  }
+
+  inline LinkPropertyKeyframed& operator=(const LinkPropertyKeyframed& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LinkPropertyKeyframed& operator=(LinkPropertyKeyframed&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const LinkPropertyKeyframed& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LinkPropertyKeyframed* internal_default_instance() {
+    return reinterpret_cast<const LinkPropertyKeyframed*>(
+               &_LinkPropertyKeyframed_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  friend void swap(LinkPropertyKeyframed& a, LinkPropertyKeyframed& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LinkPropertyKeyframed* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LinkPropertyKeyframed* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  LinkPropertyKeyframed* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<LinkPropertyKeyframed>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const LinkPropertyKeyframed& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const LinkPropertyKeyframed& from) {
+    LinkPropertyKeyframed::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LinkPropertyKeyframed* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.LinkPropertyKeyframed";
+  }
+  protected:
+  explicit LinkPropertyKeyframed(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef LinkPropertyKeyframed_LinkKeyframe LinkKeyframe;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeysFieldNumber = 10,
+    kTSrcFieldNumber = 8,
+    kLoopingFieldNumber = 11,
+  };
+  // repeated .Property.LinkPropertyKeyframed.LinkKeyframe keys = 10;
+  int keys_size() const;
+  private:
+  int _internal_keys_size() const;
+  public:
+  void clear_keys();
+  ::Property::LinkPropertyKeyframed_LinkKeyframe* mutable_keys(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::LinkPropertyKeyframed_LinkKeyframe >*
+      mutable_keys();
+  private:
+  const ::Property::LinkPropertyKeyframed_LinkKeyframe& _internal_keys(int index) const;
+  ::Property::LinkPropertyKeyframed_LinkKeyframe* _internal_add_keys();
+  public:
+  const ::Property::LinkPropertyKeyframed_LinkKeyframe& keys(int index) const;
+  ::Property::LinkPropertyKeyframed_LinkKeyframe* add_keys();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::LinkPropertyKeyframed_LinkKeyframe >&
+      keys() const;
+
+  // optional .Property.ScalarPropertyValue tSrc = 8;
+  bool has_tsrc() const;
+  private:
+  bool _internal_has_tsrc() const;
+  public:
+  void clear_tsrc();
+  const ::Property::ScalarPropertyValue& tsrc() const;
+  PROTOBUF_NODISCARD ::Property::ScalarPropertyValue* release_tsrc();
+  ::Property::ScalarPropertyValue* mutable_tsrc();
+  void set_allocated_tsrc(::Property::ScalarPropertyValue* tsrc);
+  private:
+  const ::Property::ScalarPropertyValue& _internal_tsrc() const;
+  ::Property::ScalarPropertyValue* _internal_mutable_tsrc();
+  public:
+  void unsafe_arena_set_allocated_tsrc(
+      ::Property::ScalarPropertyValue* tsrc);
+  ::Property::ScalarPropertyValue* unsafe_arena_release_tsrc();
+
+  // .Property.KeyframeLoopingEnum looping = 11;
+  void clear_looping();
+  ::Property::KeyframeLoopingEnum looping() const;
+  void set_looping(::Property::KeyframeLoopingEnum value);
+  private:
+  ::Property::KeyframeLoopingEnum _internal_looping() const;
+  void _internal_set_looping(::Property::KeyframeLoopingEnum value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Property.LinkPropertyKeyframed)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::LinkPropertyKeyframed_LinkKeyframe > keys_;
+    ::Property::ScalarPropertyValue* tsrc_;
+    int looping_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LinkPropertyRefValueProvider final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.LinkPropertyRefValueProvider) */ {
+ public:
+  inline LinkPropertyRefValueProvider() : LinkPropertyRefValueProvider(nullptr) {}
+  ~LinkPropertyRefValueProvider() override;
+  explicit PROTOBUF_CONSTEXPR LinkPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  LinkPropertyRefValueProvider(const LinkPropertyRefValueProvider& from);
+  LinkPropertyRefValueProvider(LinkPropertyRefValueProvider&& from) noexcept
+    : LinkPropertyRefValueProvider() {
+    *this = ::std::move(from);
+  }
+
+  inline LinkPropertyRefValueProvider& operator=(const LinkPropertyRefValueProvider& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LinkPropertyRefValueProvider& operator=(LinkPropertyRefValueProvider&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const LinkPropertyRefValueProvider& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LinkPropertyRefValueProvider* internal_default_instance() {
+    return reinterpret_cast<const LinkPropertyRefValueProvider*>(
+               &_LinkPropertyRefValueProvider_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    36;
+
+  friend void swap(LinkPropertyRefValueProvider& a, LinkPropertyRefValueProvider& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LinkPropertyRefValueProvider* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LinkPropertyRefValueProvider* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  LinkPropertyRefValueProvider* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<LinkPropertyRefValueProvider>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const LinkPropertyRefValueProvider& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const LinkPropertyRefValueProvider& from) {
+    LinkPropertyRefValueProvider::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LinkPropertyRefValueProvider* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.LinkPropertyRefValueProvider";
+  }
+  protected:
+  explicit LinkPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefsFieldNumber = 1,
+    kWrappedFieldNumber = 3,
+  };
+  // repeated .Property.PropertyRefProviderValue refs = 1;
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+  public:
+  void clear_refs();
+  ::Property::PropertyRefProviderValue* mutable_refs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+      mutable_refs();
+  private:
+  const ::Property::PropertyRefProviderValue& _internal_refs(int index) const;
+  ::Property::PropertyRefProviderValue* _internal_add_refs();
+  public:
+  const ::Property::PropertyRefProviderValue& refs(int index) const;
+  ::Property::PropertyRefProviderValue* add_refs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+      refs() const;
+
+  // .Property.LinkPropertyValue wrapped = 3;
+  bool has_wrapped() const;
+  private:
+  bool _internal_has_wrapped() const;
+  public:
+  void clear_wrapped();
+  const ::Property::LinkPropertyValue& wrapped() const;
+  PROTOBUF_NODISCARD ::Property::LinkPropertyValue* release_wrapped();
+  ::Property::LinkPropertyValue* mutable_wrapped();
+  void set_allocated_wrapped(::Property::LinkPropertyValue* wrapped);
+  private:
+  const ::Property::LinkPropertyValue& _internal_wrapped() const;
+  ::Property::LinkPropertyValue* _internal_mutable_wrapped();
+  public:
+  void unsafe_arena_set_allocated_wrapped(
+      ::Property::LinkPropertyValue* wrapped);
+  ::Property::LinkPropertyValue* unsafe_arena_release_wrapped();
+
+  // @@protoc_insertion_point(class_scope:Property.LinkPropertyRefValueProvider)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue > refs_;
+    ::Property::LinkPropertyValue* wrapped_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_properties_2eproto;
@@ -7172,7 +8768,7 @@ class LinkPropertyDeclaration final :
                &_LinkPropertyDeclaration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    37;
 
   friend void swap(LinkPropertyDeclaration& a, LinkPropertyDeclaration& b) {
     a.Swap(&b);
@@ -7345,7 +8941,7 @@ class LinkPropertyMetadata final :
                &_LinkPropertyMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    38;
 
   friend void swap(LinkPropertyMetadata& a, LinkPropertyMetadata& b) {
     a.Swap(&b);
@@ -7523,7 +9119,7 @@ class LinkGeneratorMetadata final :
                &_LinkGeneratorMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    39;
 
   friend void swap(LinkGeneratorMetadata& a, LinkGeneratorMetadata& b) {
     a.Swap(&b);
@@ -7701,7 +9297,7 @@ class LinkEditingMetadata final :
                &_LinkEditingMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    40;
 
   friend void swap(LinkEditingMetadata& a, LinkEditingMetadata& b) {
     a.Swap(&b);
@@ -7881,7 +9477,7 @@ class LinkContentTypeSpecifier final :
                &_LinkContentTypeSpecifier_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    41;
 
   friend void swap(LinkContentTypeSpecifier& a, LinkContentTypeSpecifier& b) {
     a.Swap(&b);
@@ -8171,7 +9767,7 @@ class VectorPropertyAssignment final :
                &_VectorPropertyAssignment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    42;
 
   friend void swap(VectorPropertyAssignment& a, VectorPropertyAssignment& b) {
     a.Swap(&b);
@@ -8412,6 +10008,7 @@ class VectorPropertyValue final :
     kQuadratic = 11,
     kUniform = 12,
     kApproach = 13,
+    kRefProvider = 14,
     VALUETYPE_NOT_SET = 0,
   };
 
@@ -8420,7 +10017,7 @@ class VectorPropertyValue final :
                &_VectorPropertyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    43;
 
   friend void swap(VectorPropertyValue& a, VectorPropertyValue& b) {
     a.Swap(&b);
@@ -8504,6 +10101,7 @@ class VectorPropertyValue final :
     kQuadraticFieldNumber = 11,
     kUniformFieldNumber = 12,
     kApproachFieldNumber = 13,
+    kRefProviderFieldNumber = 14,
   };
   // .Common.Float4 constant = 1;
   bool has_constant() const;
@@ -8698,6 +10296,24 @@ class VectorPropertyValue final :
       ::Property::VectorPropertyApproach* approach);
   ::Property::VectorPropertyApproach* unsafe_arena_release_approach();
 
+  // .Property.VectorPropertyRefValueProvider refProvider = 14;
+  bool has_refprovider() const;
+  private:
+  bool _internal_has_refprovider() const;
+  public:
+  void clear_refprovider();
+  const ::Property::VectorPropertyRefValueProvider& refprovider() const;
+  PROTOBUF_NODISCARD ::Property::VectorPropertyRefValueProvider* release_refprovider();
+  ::Property::VectorPropertyRefValueProvider* mutable_refprovider();
+  void set_allocated_refprovider(::Property::VectorPropertyRefValueProvider* refprovider);
+  private:
+  const ::Property::VectorPropertyRefValueProvider& _internal_refprovider() const;
+  ::Property::VectorPropertyRefValueProvider* _internal_mutable_refprovider();
+  public:
+  void unsafe_arena_set_allocated_refprovider(
+      ::Property::VectorPropertyRefValueProvider* refprovider);
+  ::Property::VectorPropertyRefValueProvider* unsafe_arena_release_refprovider();
+
   void clear_ValueType();
   ValueTypeCase ValueType_case() const;
   // @@protoc_insertion_point(class_scope:Property.VectorPropertyValue)
@@ -8714,6 +10330,7 @@ class VectorPropertyValue final :
   void set_has_quadratic();
   void set_has_uniform();
   void set_has_approach();
+  void set_has_refprovider();
 
   inline bool has_ValueType() const;
   inline void clear_has_ValueType();
@@ -8736,6 +10353,7 @@ class VectorPropertyValue final :
       ::Property::VectorPropertyQuadratic* quadratic_;
       ::Property::ScalarPropertyValue* uniform_;
       ::Property::VectorPropertyApproach* approach_;
+      ::Property::VectorPropertyRefValueProvider* refprovider_;
     } ValueType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -8794,7 +10412,7 @@ class VectorPropertyInterpolator final :
                &_VectorPropertyInterpolator_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    44;
 
   friend void swap(VectorPropertyInterpolator& a, VectorPropertyInterpolator& b) {
     a.Swap(&b);
@@ -9011,7 +10629,7 @@ class VectorPerChannel final :
                &_VectorPerChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    45;
 
   friend void swap(VectorPerChannel& a, VectorPerChannel& b) {
     a.Swap(&b);
@@ -9229,7 +10847,7 @@ class VectorPropertyQuadratic final :
                &_VectorPropertyQuadratic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    46;
 
   friend void swap(VectorPropertyQuadratic& a, VectorPropertyQuadratic& b) {
     a.Swap(&b);
@@ -9447,7 +11065,7 @@ class VectorPropertyApproach final :
                &_VectorPropertyApproach_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    47;
 
   friend void swap(VectorPropertyApproach& a, VectorPropertyApproach& b) {
     a.Swap(&b);
@@ -9664,7 +11282,7 @@ class VectorPropertyKeyframed_VectorKeyframe final :
                &_VectorPropertyKeyframed_VectorKeyframe_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    48;
 
   friend void swap(VectorPropertyKeyframed_VectorKeyframe& a, VectorPropertyKeyframed_VectorKeyframe& b) {
     a.Swap(&b);
@@ -9873,7 +11491,7 @@ class VectorPropertyKeyframed final :
                &_VectorPropertyKeyframed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    49;
 
   friend void swap(VectorPropertyKeyframed& a, VectorPropertyKeyframed& b) {
     a.Swap(&b);
@@ -10070,6 +11688,183 @@ class VectorPropertyKeyframed final :
 };
 // -------------------------------------------------------------------
 
+class VectorPropertyRefValueProvider final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.VectorPropertyRefValueProvider) */ {
+ public:
+  inline VectorPropertyRefValueProvider() : VectorPropertyRefValueProvider(nullptr) {}
+  ~VectorPropertyRefValueProvider() override;
+  explicit PROTOBUF_CONSTEXPR VectorPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  VectorPropertyRefValueProvider(const VectorPropertyRefValueProvider& from);
+  VectorPropertyRefValueProvider(VectorPropertyRefValueProvider&& from) noexcept
+    : VectorPropertyRefValueProvider() {
+    *this = ::std::move(from);
+  }
+
+  inline VectorPropertyRefValueProvider& operator=(const VectorPropertyRefValueProvider& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline VectorPropertyRefValueProvider& operator=(VectorPropertyRefValueProvider&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const VectorPropertyRefValueProvider& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const VectorPropertyRefValueProvider* internal_default_instance() {
+    return reinterpret_cast<const VectorPropertyRefValueProvider*>(
+               &_VectorPropertyRefValueProvider_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    50;
+
+  friend void swap(VectorPropertyRefValueProvider& a, VectorPropertyRefValueProvider& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(VectorPropertyRefValueProvider* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(VectorPropertyRefValueProvider* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  VectorPropertyRefValueProvider* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<VectorPropertyRefValueProvider>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const VectorPropertyRefValueProvider& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const VectorPropertyRefValueProvider& from) {
+    VectorPropertyRefValueProvider::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(VectorPropertyRefValueProvider* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.VectorPropertyRefValueProvider";
+  }
+  protected:
+  explicit VectorPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefsFieldNumber = 1,
+    kWrappedFieldNumber = 3,
+  };
+  // repeated .Property.PropertyRefProviderValue refs = 1;
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+  public:
+  void clear_refs();
+  ::Property::PropertyRefProviderValue* mutable_refs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+      mutable_refs();
+  private:
+  const ::Property::PropertyRefProviderValue& _internal_refs(int index) const;
+  ::Property::PropertyRefProviderValue* _internal_add_refs();
+  public:
+  const ::Property::PropertyRefProviderValue& refs(int index) const;
+  ::Property::PropertyRefProviderValue* add_refs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+      refs() const;
+
+  // .Property.VectorPropertyValue wrapped = 3;
+  bool has_wrapped() const;
+  private:
+  bool _internal_has_wrapped() const;
+  public:
+  void clear_wrapped();
+  const ::Property::VectorPropertyValue& wrapped() const;
+  PROTOBUF_NODISCARD ::Property::VectorPropertyValue* release_wrapped();
+  ::Property::VectorPropertyValue* mutable_wrapped();
+  void set_allocated_wrapped(::Property::VectorPropertyValue* wrapped);
+  private:
+  const ::Property::VectorPropertyValue& _internal_wrapped() const;
+  ::Property::VectorPropertyValue* _internal_mutable_wrapped();
+  public:
+  void unsafe_arena_set_allocated_wrapped(
+      ::Property::VectorPropertyValue* wrapped);
+  ::Property::VectorPropertyValue* unsafe_arena_release_wrapped();
+
+  // @@protoc_insertion_point(class_scope:Property.VectorPropertyRefValueProvider)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue > refs_;
+    ::Property::VectorPropertyValue* wrapped_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
 class VectorPropertyDeclaration final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.VectorPropertyDeclaration) */ {
  public:
@@ -10118,7 +11913,7 @@ class VectorPropertyDeclaration final :
                &_VectorPropertyDeclaration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    51;
 
   friend void swap(VectorPropertyDeclaration& a, VectorPropertyDeclaration& b) {
     a.Swap(&b);
@@ -10295,7 +12090,7 @@ class VectorEditingMetadata final :
                &_VectorEditingMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    52;
 
   friend void swap(VectorEditingMetadata& a, VectorEditingMetadata& b) {
     a.Swap(&b);
@@ -10487,7 +12282,7 @@ class VectorGeneratorMetadata final :
                &_VectorGeneratorMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    53;
 
   friend void swap(VectorGeneratorMetadata& a, VectorGeneratorMetadata& b) {
     a.Swap(&b);
@@ -10665,7 +12460,7 @@ class VectorPropertyMetadata final :
                &_VectorPropertyMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    54;
 
   friend void swap(VectorPropertyMetadata& a, VectorPropertyMetadata& b) {
     a.Swap(&b);
@@ -10843,7 +12638,7 @@ class ColorPropertyAssignment final :
                &_ColorPropertyAssignment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    55;
 
   friend void swap(ColorPropertyAssignment& a, ColorPropertyAssignment& b) {
     a.Swap(&b);
@@ -11082,6 +12877,7 @@ class ColorPropertyValue final :
     kInterp = 9,
     kCustom = 10,
     kApproach = 12,
+    kRefProvider = 13,
     VALUETYPE_NOT_SET = 0,
   };
 
@@ -11090,7 +12886,7 @@ class ColorPropertyValue final :
                &_ColorPropertyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    56;
 
   friend void swap(ColorPropertyValue& a, ColorPropertyValue& b) {
     a.Swap(&b);
@@ -11172,6 +12968,7 @@ class ColorPropertyValue final :
     kInterpFieldNumber = 9,
     kCustomFieldNumber = 10,
     kApproachFieldNumber = 12,
+    kRefProviderFieldNumber = 13,
   };
   // .Common.Color4 constant = 1;
   bool has_constant() const;
@@ -11330,6 +13127,24 @@ class ColorPropertyValue final :
       ::Property::ColorPropertyApproach* approach);
   ::Property::ColorPropertyApproach* unsafe_arena_release_approach();
 
+  // .Property.ColorPropertyRefValueProvider refProvider = 13;
+  bool has_refprovider() const;
+  private:
+  bool _internal_has_refprovider() const;
+  public:
+  void clear_refprovider();
+  const ::Property::ColorPropertyRefValueProvider& refprovider() const;
+  PROTOBUF_NODISCARD ::Property::ColorPropertyRefValueProvider* release_refprovider();
+  ::Property::ColorPropertyRefValueProvider* mutable_refprovider();
+  void set_allocated_refprovider(::Property::ColorPropertyRefValueProvider* refprovider);
+  private:
+  const ::Property::ColorPropertyRefValueProvider& _internal_refprovider() const;
+  ::Property::ColorPropertyRefValueProvider* _internal_mutable_refprovider();
+  public:
+  void unsafe_arena_set_allocated_refprovider(
+      ::Property::ColorPropertyRefValueProvider* refprovider);
+  ::Property::ColorPropertyRefValueProvider* unsafe_arena_release_refprovider();
+
   void clear_ValueType();
   ValueTypeCase ValueType_case() const;
   // @@protoc_insertion_point(class_scope:Property.ColorPropertyValue)
@@ -11344,6 +13159,7 @@ class ColorPropertyValue final :
   void set_has_interp();
   void set_has_custom();
   void set_has_approach();
+  void set_has_refprovider();
 
   inline bool has_ValueType() const;
   inline void clear_has_ValueType();
@@ -11364,6 +13180,7 @@ class ColorPropertyValue final :
       ::Property::ColorPropertyInterpolator* interp_;
       ::Property::CustomGeneratorValue* custom_;
       ::Property::ColorPropertyApproach* approach_;
+      ::Property::ColorPropertyRefValueProvider* refprovider_;
     } ValueType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -11422,7 +13239,7 @@ class ColorPropertyInterpolator final :
                &_ColorPropertyInterpolator_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    57;
 
   friend void swap(ColorPropertyInterpolator& a, ColorPropertyInterpolator& b) {
     a.Swap(&b);
@@ -11639,7 +13456,7 @@ class ColorPerChannel final :
                &_ColorPerChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    58;
 
   friend void swap(ColorPerChannel& a, ColorPerChannel& b) {
     a.Swap(&b);
@@ -11856,7 +13673,7 @@ class ColorPropertyKeyframed_ColorKeyframe final :
                &_ColorPropertyKeyframed_ColorKeyframe_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    59;
 
   friend void swap(ColorPropertyKeyframed_ColorKeyframe& a, ColorPropertyKeyframed_ColorKeyframe& b) {
     a.Swap(&b);
@@ -12065,7 +13882,7 @@ class ColorPropertyKeyframed final :
                &_ColorPropertyKeyframed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    60;
 
   friend void swap(ColorPropertyKeyframed& a, ColorPropertyKeyframed& b) {
     a.Swap(&b);
@@ -12267,7 +14084,7 @@ class ColorPropertyApproach final :
                &_ColorPropertyApproach_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    61;
 
   friend void swap(ColorPropertyApproach& a, ColorPropertyApproach& b) {
     a.Swap(&b);
@@ -12436,6 +14253,183 @@ class ColorPropertyApproach final :
 };
 // -------------------------------------------------------------------
 
+class ColorPropertyRefValueProvider final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.ColorPropertyRefValueProvider) */ {
+ public:
+  inline ColorPropertyRefValueProvider() : ColorPropertyRefValueProvider(nullptr) {}
+  ~ColorPropertyRefValueProvider() override;
+  explicit PROTOBUF_CONSTEXPR ColorPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ColorPropertyRefValueProvider(const ColorPropertyRefValueProvider& from);
+  ColorPropertyRefValueProvider(ColorPropertyRefValueProvider&& from) noexcept
+    : ColorPropertyRefValueProvider() {
+    *this = ::std::move(from);
+  }
+
+  inline ColorPropertyRefValueProvider& operator=(const ColorPropertyRefValueProvider& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ColorPropertyRefValueProvider& operator=(ColorPropertyRefValueProvider&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ColorPropertyRefValueProvider& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ColorPropertyRefValueProvider* internal_default_instance() {
+    return reinterpret_cast<const ColorPropertyRefValueProvider*>(
+               &_ColorPropertyRefValueProvider_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    62;
+
+  friend void swap(ColorPropertyRefValueProvider& a, ColorPropertyRefValueProvider& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ColorPropertyRefValueProvider* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ColorPropertyRefValueProvider* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ColorPropertyRefValueProvider* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ColorPropertyRefValueProvider>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ColorPropertyRefValueProvider& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ColorPropertyRefValueProvider& from) {
+    ColorPropertyRefValueProvider::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ColorPropertyRefValueProvider* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.ColorPropertyRefValueProvider";
+  }
+  protected:
+  explicit ColorPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefsFieldNumber = 1,
+    kWrappedFieldNumber = 3,
+  };
+  // repeated .Property.PropertyRefProviderValue refs = 1;
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+  public:
+  void clear_refs();
+  ::Property::PropertyRefProviderValue* mutable_refs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+      mutable_refs();
+  private:
+  const ::Property::PropertyRefProviderValue& _internal_refs(int index) const;
+  ::Property::PropertyRefProviderValue* _internal_add_refs();
+  public:
+  const ::Property::PropertyRefProviderValue& refs(int index) const;
+  ::Property::PropertyRefProviderValue* add_refs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+      refs() const;
+
+  // .Property.ColorPropertyValue wrapped = 3;
+  bool has_wrapped() const;
+  private:
+  bool _internal_has_wrapped() const;
+  public:
+  void clear_wrapped();
+  const ::Property::ColorPropertyValue& wrapped() const;
+  PROTOBUF_NODISCARD ::Property::ColorPropertyValue* release_wrapped();
+  ::Property::ColorPropertyValue* mutable_wrapped();
+  void set_allocated_wrapped(::Property::ColorPropertyValue* wrapped);
+  private:
+  const ::Property::ColorPropertyValue& _internal_wrapped() const;
+  ::Property::ColorPropertyValue* _internal_mutable_wrapped();
+  public:
+  void unsafe_arena_set_allocated_wrapped(
+      ::Property::ColorPropertyValue* wrapped);
+  ::Property::ColorPropertyValue* unsafe_arena_release_wrapped();
+
+  // @@protoc_insertion_point(class_scope:Property.ColorPropertyRefValueProvider)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue > refs_;
+    ::Property::ColorPropertyValue* wrapped_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ColorPropertyDeclaration final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.ColorPropertyDeclaration) */ {
  public:
@@ -12484,7 +14478,7 @@ class ColorPropertyDeclaration final :
                &_ColorPropertyDeclaration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    63;
 
   friend void swap(ColorPropertyDeclaration& a, ColorPropertyDeclaration& b) {
     a.Swap(&b);
@@ -12661,7 +14655,7 @@ class ColorEditingMetadata final :
                &_ColorEditingMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    64;
 
   friend void swap(ColorEditingMetadata& a, ColorEditingMetadata& b) {
     a.Swap(&b);
@@ -12829,7 +14823,7 @@ class ColorGeneratorMetadata final :
                &_ColorGeneratorMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    65;
 
   friend void swap(ColorGeneratorMetadata& a, ColorGeneratorMetadata& b) {
     a.Swap(&b);
@@ -13007,7 +15001,7 @@ class ColorPropertyMetadata final :
                &_ColorPropertyMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    66;
 
   friend void swap(ColorPropertyMetadata& a, ColorPropertyMetadata& b) {
     a.Swap(&b);
@@ -13185,7 +15179,7 @@ class BooleanPropertyAssignment final :
                &_BooleanPropertyAssignment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    67;
 
   friend void swap(BooleanPropertyAssignment& a, BooleanPropertyAssignment& b) {
     a.Swap(&b);
@@ -13372,6 +15366,7 @@ class BooleanPropertyValue final :
     kScalarCmp = 7,
     kUseDefault = 8,
     kCustom = 10,
+    kRefProvider = 11,
     VALUETYPE_NOT_SET = 0,
   };
 
@@ -13380,7 +15375,7 @@ class BooleanPropertyValue final :
                &_BooleanPropertyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    68;
 
   friend void swap(BooleanPropertyValue& a, BooleanPropertyValue& b) {
     a.Swap(&b);
@@ -13460,6 +15455,7 @@ class BooleanPropertyValue final :
     kScalarCmpFieldNumber = 7,
     kUseDefaultFieldNumber = 8,
     kCustomFieldNumber = 10,
+    kRefProviderFieldNumber = 11,
   };
   // bool constant = 1;
   bool has_constant() const;
@@ -13577,6 +15573,24 @@ class BooleanPropertyValue final :
       ::Property::CustomGeneratorValue* custom);
   ::Property::CustomGeneratorValue* unsafe_arena_release_custom();
 
+  // .Property.BooleanPropertyRefValueProvider refProvider = 11;
+  bool has_refprovider() const;
+  private:
+  bool _internal_has_refprovider() const;
+  public:
+  void clear_refprovider();
+  const ::Property::BooleanPropertyRefValueProvider& refprovider() const;
+  PROTOBUF_NODISCARD ::Property::BooleanPropertyRefValueProvider* release_refprovider();
+  ::Property::BooleanPropertyRefValueProvider* mutable_refprovider();
+  void set_allocated_refprovider(::Property::BooleanPropertyRefValueProvider* refprovider);
+  private:
+  const ::Property::BooleanPropertyRefValueProvider& _internal_refprovider() const;
+  ::Property::BooleanPropertyRefValueProvider* _internal_mutable_refprovider();
+  public:
+  void unsafe_arena_set_allocated_refprovider(
+      ::Property::BooleanPropertyRefValueProvider* refprovider);
+  ::Property::BooleanPropertyRefValueProvider* unsafe_arena_release_refprovider();
+
   void clear_ValueType();
   ValueTypeCase ValueType_case() const;
   // @@protoc_insertion_point(class_scope:Property.BooleanPropertyValue)
@@ -13589,6 +15603,7 @@ class BooleanPropertyValue final :
   void set_has_scalarcmp();
   void set_has_usedefault();
   void set_has_custom();
+  void set_has_refprovider();
 
   inline bool has_ValueType() const;
   inline void clear_has_ValueType();
@@ -13607,6 +15622,7 @@ class BooleanPropertyValue final :
       ::Property::BooleanPropertyScalarComparison* scalarcmp_;
       bool usedefault_;
       ::Property::CustomGeneratorValue* custom_;
+      ::Property::BooleanPropertyRefValueProvider* refprovider_;
     } ValueType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -13665,7 +15681,7 @@ class BooleanPropertyKeyframed_BooleanKeyframe final :
                &_BooleanPropertyKeyframed_BooleanKeyframe_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    69;
 
   friend void swap(BooleanPropertyKeyframed_BooleanKeyframe& a, BooleanPropertyKeyframed_BooleanKeyframe& b) {
     a.Swap(&b);
@@ -13833,7 +15849,7 @@ class BooleanPropertyKeyframed final :
                &_BooleanPropertyKeyframed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    70;
 
   friend void swap(BooleanPropertyKeyframed& a, BooleanPropertyKeyframed& b) {
     a.Swap(&b);
@@ -14024,7 +16040,7 @@ class BooleanPropertyScalarComparison final :
                &_BooleanPropertyScalarComparison_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    71;
 
   friend void swap(BooleanPropertyScalarComparison& a, BooleanPropertyScalarComparison& b) {
     a.Swap(&b);
@@ -14164,6 +16180,183 @@ class BooleanPropertyScalarComparison final :
 };
 // -------------------------------------------------------------------
 
+class BooleanPropertyRefValueProvider final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.BooleanPropertyRefValueProvider) */ {
+ public:
+  inline BooleanPropertyRefValueProvider() : BooleanPropertyRefValueProvider(nullptr) {}
+  ~BooleanPropertyRefValueProvider() override;
+  explicit PROTOBUF_CONSTEXPR BooleanPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BooleanPropertyRefValueProvider(const BooleanPropertyRefValueProvider& from);
+  BooleanPropertyRefValueProvider(BooleanPropertyRefValueProvider&& from) noexcept
+    : BooleanPropertyRefValueProvider() {
+    *this = ::std::move(from);
+  }
+
+  inline BooleanPropertyRefValueProvider& operator=(const BooleanPropertyRefValueProvider& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BooleanPropertyRefValueProvider& operator=(BooleanPropertyRefValueProvider&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BooleanPropertyRefValueProvider& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BooleanPropertyRefValueProvider* internal_default_instance() {
+    return reinterpret_cast<const BooleanPropertyRefValueProvider*>(
+               &_BooleanPropertyRefValueProvider_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    72;
+
+  friend void swap(BooleanPropertyRefValueProvider& a, BooleanPropertyRefValueProvider& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BooleanPropertyRefValueProvider* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BooleanPropertyRefValueProvider* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BooleanPropertyRefValueProvider* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BooleanPropertyRefValueProvider>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const BooleanPropertyRefValueProvider& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const BooleanPropertyRefValueProvider& from) {
+    BooleanPropertyRefValueProvider::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BooleanPropertyRefValueProvider* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.BooleanPropertyRefValueProvider";
+  }
+  protected:
+  explicit BooleanPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefsFieldNumber = 1,
+    kWrappedFieldNumber = 3,
+  };
+  // repeated .Property.PropertyRefProviderValue refs = 1;
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+  public:
+  void clear_refs();
+  ::Property::PropertyRefProviderValue* mutable_refs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+      mutable_refs();
+  private:
+  const ::Property::PropertyRefProviderValue& _internal_refs(int index) const;
+  ::Property::PropertyRefProviderValue* _internal_add_refs();
+  public:
+  const ::Property::PropertyRefProviderValue& refs(int index) const;
+  ::Property::PropertyRefProviderValue* add_refs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+      refs() const;
+
+  // .Property.BooleanPropertyValue wrapped = 3;
+  bool has_wrapped() const;
+  private:
+  bool _internal_has_wrapped() const;
+  public:
+  void clear_wrapped();
+  const ::Property::BooleanPropertyValue& wrapped() const;
+  PROTOBUF_NODISCARD ::Property::BooleanPropertyValue* release_wrapped();
+  ::Property::BooleanPropertyValue* mutable_wrapped();
+  void set_allocated_wrapped(::Property::BooleanPropertyValue* wrapped);
+  private:
+  const ::Property::BooleanPropertyValue& _internal_wrapped() const;
+  ::Property::BooleanPropertyValue* _internal_mutable_wrapped();
+  public:
+  void unsafe_arena_set_allocated_wrapped(
+      ::Property::BooleanPropertyValue* wrapped);
+  ::Property::BooleanPropertyValue* unsafe_arena_release_wrapped();
+
+  // @@protoc_insertion_point(class_scope:Property.BooleanPropertyRefValueProvider)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue > refs_;
+    ::Property::BooleanPropertyValue* wrapped_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
 class BooleanPropertyDeclaration final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.BooleanPropertyDeclaration) */ {
  public:
@@ -14212,7 +16405,7 @@ class BooleanPropertyDeclaration final :
                &_BooleanPropertyDeclaration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    73;
 
   friend void swap(BooleanPropertyDeclaration& a, BooleanPropertyDeclaration& b) {
     a.Swap(&b);
@@ -14379,7 +16572,7 @@ class BooleanEditingMetadata final :
                &_BooleanEditingMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    74;
 
   friend void swap(BooleanEditingMetadata& a, BooleanEditingMetadata& b) {
     a.Swap(&b);
@@ -14498,7 +16691,7 @@ class BooleanGeneratorMetadata final :
                &_BooleanGeneratorMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    75;
 
   friend void swap(BooleanGeneratorMetadata& a, BooleanGeneratorMetadata& b) {
     a.Swap(&b);
@@ -14676,7 +16869,7 @@ class BooleanPropertyMetadata final :
                &_BooleanPropertyMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    76;
 
   friend void swap(BooleanPropertyMetadata& a, BooleanPropertyMetadata& b) {
     a.Swap(&b);
@@ -14854,7 +17047,7 @@ class JsonPropertyAssignment final :
                &_JsonPropertyAssignment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    77;
 
   friend void swap(JsonPropertyAssignment& a, JsonPropertyAssignment& b) {
     a.Swap(&b);
@@ -15038,7 +17231,9 @@ class JsonPropertyValue final :
     kRef = 2,
     kExpr = 3,
     kUseDefault = 4,
+    kKeyframes = 5,
     kCustom = 10,
+    kRefProvider = 11,
     VALUETYPE_NOT_SET = 0,
   };
 
@@ -15047,7 +17242,7 @@ class JsonPropertyValue final :
                &_JsonPropertyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    78;
 
   friend void swap(JsonPropertyValue& a, JsonPropertyValue& b) {
     a.Swap(&b);
@@ -15124,7 +17319,9 @@ class JsonPropertyValue final :
     kRefFieldNumber = 2,
     kExprFieldNumber = 3,
     kUseDefaultFieldNumber = 4,
+    kKeyframesFieldNumber = 5,
     kCustomFieldNumber = 10,
+    kRefProviderFieldNumber = 11,
   };
   // string constantJson = 1;
   bool has_constantjson() const;
@@ -15193,6 +17390,24 @@ class JsonPropertyValue final :
   void _internal_set_usedefault(bool value);
   public:
 
+  // .Property.JsonPropertyKeyframed keyframes = 5;
+  bool has_keyframes() const;
+  private:
+  bool _internal_has_keyframes() const;
+  public:
+  void clear_keyframes();
+  const ::Property::JsonPropertyKeyframed& keyframes() const;
+  PROTOBUF_NODISCARD ::Property::JsonPropertyKeyframed* release_keyframes();
+  ::Property::JsonPropertyKeyframed* mutable_keyframes();
+  void set_allocated_keyframes(::Property::JsonPropertyKeyframed* keyframes);
+  private:
+  const ::Property::JsonPropertyKeyframed& _internal_keyframes() const;
+  ::Property::JsonPropertyKeyframed* _internal_mutable_keyframes();
+  public:
+  void unsafe_arena_set_allocated_keyframes(
+      ::Property::JsonPropertyKeyframed* keyframes);
+  ::Property::JsonPropertyKeyframed* unsafe_arena_release_keyframes();
+
   // .Property.CustomGeneratorValue custom = 10;
   bool has_custom() const;
   private:
@@ -15211,6 +17426,24 @@ class JsonPropertyValue final :
       ::Property::CustomGeneratorValue* custom);
   ::Property::CustomGeneratorValue* unsafe_arena_release_custom();
 
+  // .Property.JsonPropertyRefValueProvider refProvider = 11;
+  bool has_refprovider() const;
+  private:
+  bool _internal_has_refprovider() const;
+  public:
+  void clear_refprovider();
+  const ::Property::JsonPropertyRefValueProvider& refprovider() const;
+  PROTOBUF_NODISCARD ::Property::JsonPropertyRefValueProvider* release_refprovider();
+  ::Property::JsonPropertyRefValueProvider* mutable_refprovider();
+  void set_allocated_refprovider(::Property::JsonPropertyRefValueProvider* refprovider);
+  private:
+  const ::Property::JsonPropertyRefValueProvider& _internal_refprovider() const;
+  ::Property::JsonPropertyRefValueProvider* _internal_mutable_refprovider();
+  public:
+  void unsafe_arena_set_allocated_refprovider(
+      ::Property::JsonPropertyRefValueProvider* refprovider);
+  ::Property::JsonPropertyRefValueProvider* unsafe_arena_release_refprovider();
+
   void clear_ValueType();
   ValueTypeCase ValueType_case() const;
   // @@protoc_insertion_point(class_scope:Property.JsonPropertyValue)
@@ -15220,7 +17453,9 @@ class JsonPropertyValue final :
   void set_has_ref();
   void set_has_expr();
   void set_has_usedefault();
+  void set_has_keyframes();
   void set_has_custom();
+  void set_has_refprovider();
 
   inline bool has_ValueType() const;
   inline void clear_has_ValueType();
@@ -15236,11 +17471,549 @@ class JsonPropertyValue final :
       ::Property::PropertyIdentifier* ref_;
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expr_;
       bool usedefault_;
+      ::Property::JsonPropertyKeyframed* keyframes_;
       ::Property::CustomGeneratorValue* custom_;
+      ::Property::JsonPropertyRefValueProvider* refprovider_;
     } ValueType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
+class JsonPropertyKeyframed_JsonKeyframe final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.JsonPropertyKeyframed.JsonKeyframe) */ {
+ public:
+  inline JsonPropertyKeyframed_JsonKeyframe() : JsonPropertyKeyframed_JsonKeyframe(nullptr) {}
+  ~JsonPropertyKeyframed_JsonKeyframe() override;
+  explicit PROTOBUF_CONSTEXPR JsonPropertyKeyframed_JsonKeyframe(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonPropertyKeyframed_JsonKeyframe(const JsonPropertyKeyframed_JsonKeyframe& from);
+  JsonPropertyKeyframed_JsonKeyframe(JsonPropertyKeyframed_JsonKeyframe&& from) noexcept
+    : JsonPropertyKeyframed_JsonKeyframe() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonPropertyKeyframed_JsonKeyframe& operator=(const JsonPropertyKeyframed_JsonKeyframe& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonPropertyKeyframed_JsonKeyframe& operator=(JsonPropertyKeyframed_JsonKeyframe&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonPropertyKeyframed_JsonKeyframe& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const JsonPropertyKeyframed_JsonKeyframe* internal_default_instance() {
+    return reinterpret_cast<const JsonPropertyKeyframed_JsonKeyframe*>(
+               &_JsonPropertyKeyframed_JsonKeyframe_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    79;
+
+  friend void swap(JsonPropertyKeyframed_JsonKeyframe& a, JsonPropertyKeyframed_JsonKeyframe& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonPropertyKeyframed_JsonKeyframe* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonPropertyKeyframed_JsonKeyframe* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonPropertyKeyframed_JsonKeyframe* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonPropertyKeyframed_JsonKeyframe>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonPropertyKeyframed_JsonKeyframe& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonPropertyKeyframed_JsonKeyframe& from) {
+    JsonPropertyKeyframed_JsonKeyframe::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonPropertyKeyframed_JsonKeyframe* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.JsonPropertyKeyframed.JsonKeyframe";
+  }
+  protected:
+  explicit JsonPropertyKeyframed_JsonKeyframe(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValFieldNumber = 2,
+    kTFieldNumber = 1,
+  };
+  // .Property.JsonPropertyValue val = 2;
+  bool has_val() const;
+  private:
+  bool _internal_has_val() const;
+  public:
+  void clear_val();
+  const ::Property::JsonPropertyValue& val() const;
+  PROTOBUF_NODISCARD ::Property::JsonPropertyValue* release_val();
+  ::Property::JsonPropertyValue* mutable_val();
+  void set_allocated_val(::Property::JsonPropertyValue* val);
+  private:
+  const ::Property::JsonPropertyValue& _internal_val() const;
+  ::Property::JsonPropertyValue* _internal_mutable_val();
+  public:
+  void unsafe_arena_set_allocated_val(
+      ::Property::JsonPropertyValue* val);
+  ::Property::JsonPropertyValue* unsafe_arena_release_val();
+
+  // float t = 1;
+  void clear_t();
+  float t() const;
+  void set_t(float value);
+  private:
+  float _internal_t() const;
+  void _internal_set_t(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Property.JsonPropertyKeyframed.JsonKeyframe)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::Property::JsonPropertyValue* val_;
+    float t_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
+class JsonPropertyKeyframed final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.JsonPropertyKeyframed) */ {
+ public:
+  inline JsonPropertyKeyframed() : JsonPropertyKeyframed(nullptr) {}
+  ~JsonPropertyKeyframed() override;
+  explicit PROTOBUF_CONSTEXPR JsonPropertyKeyframed(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonPropertyKeyframed(const JsonPropertyKeyframed& from);
+  JsonPropertyKeyframed(JsonPropertyKeyframed&& from) noexcept
+    : JsonPropertyKeyframed() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonPropertyKeyframed& operator=(const JsonPropertyKeyframed& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonPropertyKeyframed& operator=(JsonPropertyKeyframed&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonPropertyKeyframed& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const JsonPropertyKeyframed* internal_default_instance() {
+    return reinterpret_cast<const JsonPropertyKeyframed*>(
+               &_JsonPropertyKeyframed_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    80;
+
+  friend void swap(JsonPropertyKeyframed& a, JsonPropertyKeyframed& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonPropertyKeyframed* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonPropertyKeyframed* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonPropertyKeyframed* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonPropertyKeyframed>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonPropertyKeyframed& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonPropertyKeyframed& from) {
+    JsonPropertyKeyframed::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonPropertyKeyframed* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.JsonPropertyKeyframed";
+  }
+  protected:
+  explicit JsonPropertyKeyframed(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef JsonPropertyKeyframed_JsonKeyframe JsonKeyframe;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeysFieldNumber = 10,
+    kTSrcFieldNumber = 8,
+    kLoopingFieldNumber = 11,
+  };
+  // repeated .Property.JsonPropertyKeyframed.JsonKeyframe keys = 10;
+  int keys_size() const;
+  private:
+  int _internal_keys_size() const;
+  public:
+  void clear_keys();
+  ::Property::JsonPropertyKeyframed_JsonKeyframe* mutable_keys(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::JsonPropertyKeyframed_JsonKeyframe >*
+      mutable_keys();
+  private:
+  const ::Property::JsonPropertyKeyframed_JsonKeyframe& _internal_keys(int index) const;
+  ::Property::JsonPropertyKeyframed_JsonKeyframe* _internal_add_keys();
+  public:
+  const ::Property::JsonPropertyKeyframed_JsonKeyframe& keys(int index) const;
+  ::Property::JsonPropertyKeyframed_JsonKeyframe* add_keys();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::JsonPropertyKeyframed_JsonKeyframe >&
+      keys() const;
+
+  // optional .Property.ScalarPropertyValue tSrc = 8;
+  bool has_tsrc() const;
+  private:
+  bool _internal_has_tsrc() const;
+  public:
+  void clear_tsrc();
+  const ::Property::ScalarPropertyValue& tsrc() const;
+  PROTOBUF_NODISCARD ::Property::ScalarPropertyValue* release_tsrc();
+  ::Property::ScalarPropertyValue* mutable_tsrc();
+  void set_allocated_tsrc(::Property::ScalarPropertyValue* tsrc);
+  private:
+  const ::Property::ScalarPropertyValue& _internal_tsrc() const;
+  ::Property::ScalarPropertyValue* _internal_mutable_tsrc();
+  public:
+  void unsafe_arena_set_allocated_tsrc(
+      ::Property::ScalarPropertyValue* tsrc);
+  ::Property::ScalarPropertyValue* unsafe_arena_release_tsrc();
+
+  // .Property.KeyframeLoopingEnum looping = 11;
+  void clear_looping();
+  ::Property::KeyframeLoopingEnum looping() const;
+  void set_looping(::Property::KeyframeLoopingEnum value);
+  private:
+  ::Property::KeyframeLoopingEnum _internal_looping() const;
+  void _internal_set_looping(::Property::KeyframeLoopingEnum value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Property.JsonPropertyKeyframed)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::JsonPropertyKeyframed_JsonKeyframe > keys_;
+    ::Property::ScalarPropertyValue* tsrc_;
+    int looping_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
+class JsonPropertyRefValueProvider final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.JsonPropertyRefValueProvider) */ {
+ public:
+  inline JsonPropertyRefValueProvider() : JsonPropertyRefValueProvider(nullptr) {}
+  ~JsonPropertyRefValueProvider() override;
+  explicit PROTOBUF_CONSTEXPR JsonPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonPropertyRefValueProvider(const JsonPropertyRefValueProvider& from);
+  JsonPropertyRefValueProvider(JsonPropertyRefValueProvider&& from) noexcept
+    : JsonPropertyRefValueProvider() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonPropertyRefValueProvider& operator=(const JsonPropertyRefValueProvider& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonPropertyRefValueProvider& operator=(JsonPropertyRefValueProvider&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonPropertyRefValueProvider& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const JsonPropertyRefValueProvider* internal_default_instance() {
+    return reinterpret_cast<const JsonPropertyRefValueProvider*>(
+               &_JsonPropertyRefValueProvider_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    81;
+
+  friend void swap(JsonPropertyRefValueProvider& a, JsonPropertyRefValueProvider& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonPropertyRefValueProvider* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonPropertyRefValueProvider* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonPropertyRefValueProvider* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonPropertyRefValueProvider>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonPropertyRefValueProvider& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonPropertyRefValueProvider& from) {
+    JsonPropertyRefValueProvider::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonPropertyRefValueProvider* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.JsonPropertyRefValueProvider";
+  }
+  protected:
+  explicit JsonPropertyRefValueProvider(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefsFieldNumber = 1,
+    kWrappedFieldNumber = 3,
+  };
+  // repeated .Property.PropertyRefProviderValue refs = 1;
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+  public:
+  void clear_refs();
+  ::Property::PropertyRefProviderValue* mutable_refs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+      mutable_refs();
+  private:
+  const ::Property::PropertyRefProviderValue& _internal_refs(int index) const;
+  ::Property::PropertyRefProviderValue* _internal_add_refs();
+  public:
+  const ::Property::PropertyRefProviderValue& refs(int index) const;
+  ::Property::PropertyRefProviderValue* add_refs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+      refs() const;
+
+  // .Property.JsonPropertyValue wrapped = 3;
+  bool has_wrapped() const;
+  private:
+  bool _internal_has_wrapped() const;
+  public:
+  void clear_wrapped();
+  const ::Property::JsonPropertyValue& wrapped() const;
+  PROTOBUF_NODISCARD ::Property::JsonPropertyValue* release_wrapped();
+  ::Property::JsonPropertyValue* mutable_wrapped();
+  void set_allocated_wrapped(::Property::JsonPropertyValue* wrapped);
+  private:
+  const ::Property::JsonPropertyValue& _internal_wrapped() const;
+  ::Property::JsonPropertyValue* _internal_mutable_wrapped();
+  public:
+  void unsafe_arena_set_allocated_wrapped(
+      ::Property::JsonPropertyValue* wrapped);
+  ::Property::JsonPropertyValue* unsafe_arena_release_wrapped();
+
+  // @@protoc_insertion_point(class_scope:Property.JsonPropertyRefValueProvider)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue > refs_;
+    ::Property::JsonPropertyValue* wrapped_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_properties_2eproto;
@@ -15295,7 +18068,7 @@ class JsonPropertyDeclaration final :
                &_JsonPropertyDeclaration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    82;
 
   friend void swap(JsonPropertyDeclaration& a, JsonPropertyDeclaration& b) {
     a.Swap(&b);
@@ -15467,7 +18240,7 @@ class JsonEditingMetadata final :
                &_JsonEditingMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    83;
 
   friend void swap(JsonEditingMetadata& a, JsonEditingMetadata& b) {
     a.Swap(&b);
@@ -15586,7 +18359,7 @@ class JsonGeneratorMetadata final :
                &_JsonGeneratorMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    84;
 
   friend void swap(JsonGeneratorMetadata& a, JsonGeneratorMetadata& b) {
     a.Swap(&b);
@@ -15764,7 +18537,7 @@ class JsonPropertyMetadata final :
                &_JsonPropertyMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    85;
 
   friend void swap(JsonPropertyMetadata& a, JsonPropertyMetadata& b) {
     a.Swap(&b);
@@ -15951,6 +18724,7 @@ class TransformSet final :
     kCustom = 12,
     kConditional = 13,
     kApproach = 14,
+    kRefProvider = 15,
     SETTYPE_NOT_SET = 0,
   };
 
@@ -15959,7 +18733,7 @@ class TransformSet final :
                &_TransformSet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    86;
 
   friend void swap(TransformSet& a, TransformSet& b) {
     a.Swap(&b);
@@ -16045,6 +18819,7 @@ class TransformSet final :
     kCustomFieldNumber = 12,
     kConditionalFieldNumber = 13,
     kApproachFieldNumber = 14,
+    kRefProviderFieldNumber = 15,
   };
   // .Property.TransformSetSRT srt = 1;
   bool has_srt() const;
@@ -16270,6 +19045,24 @@ class TransformSet final :
       ::Property::TransformSetApproach* approach);
   ::Property::TransformSetApproach* unsafe_arena_release_approach();
 
+  // .Property.TransformSetRefValueProvider refProvider = 15;
+  bool has_refprovider() const;
+  private:
+  bool _internal_has_refprovider() const;
+  public:
+  void clear_refprovider();
+  const ::Property::TransformSetRefValueProvider& refprovider() const;
+  PROTOBUF_NODISCARD ::Property::TransformSetRefValueProvider* release_refprovider();
+  ::Property::TransformSetRefValueProvider* mutable_refprovider();
+  void set_allocated_refprovider(::Property::TransformSetRefValueProvider* refprovider);
+  private:
+  const ::Property::TransformSetRefValueProvider& _internal_refprovider() const;
+  ::Property::TransformSetRefValueProvider* _internal_mutable_refprovider();
+  public:
+  void unsafe_arena_set_allocated_refprovider(
+      ::Property::TransformSetRefValueProvider* refprovider);
+  ::Property::TransformSetRefValueProvider* unsafe_arena_release_refprovider();
+
   void clear_SetType();
   SetTypeCase SetType_case() const;
   // @@protoc_insertion_point(class_scope:Property.TransformSet)
@@ -16288,6 +19081,7 @@ class TransformSet final :
   void set_has_custom();
   void set_has_conditional();
   void set_has_approach();
+  void set_has_refprovider();
 
   inline bool has_SetType() const;
   inline void clear_has_SetType();
@@ -16312,6 +19106,7 @@ class TransformSet final :
       ::Property::CustomGeneratorValue* custom_;
       ::Property::TransformSetConditional* conditional_;
       ::Property::TransformSetApproach* approach_;
+      ::Property::TransformSetRefValueProvider* refprovider_;
     } SetType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -16370,7 +19165,7 @@ class TransformSetSRT final :
                &_TransformSetSRT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    87;
 
   friend void swap(TransformSetSRT& a, TransformSetSRT& b) {
     a.Swap(&b);
@@ -16567,7 +19362,7 @@ class TransformSetSQT final :
                &_TransformSetSQT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    88;
 
   friend void swap(TransformSetSQT& a, TransformSetSQT& b) {
     a.Swap(&b);
@@ -16764,7 +19559,7 @@ class TransformSetLookAt final :
                &_TransformSetLookAt_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    89;
 
   friend void swap(TransformSetLookAt& a, TransformSetLookAt& b) {
     a.Swap(&b);
@@ -16962,7 +19757,7 @@ class TransformSetInterpolatorSRT final :
                &_TransformSetInterpolatorSRT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    90;
 
   friend void swap(TransformSetInterpolatorSRT& a, TransformSetInterpolatorSRT& b) {
     a.Swap(&b);
@@ -17179,7 +19974,7 @@ class TransformSetInterpolatorSQT final :
                &_TransformSetInterpolatorSQT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    91;
 
   friend void swap(TransformSetInterpolatorSQT& a, TransformSetInterpolatorSQT& b) {
     a.Swap(&b);
@@ -17396,7 +20191,7 @@ class TransformSetInterpolatorLookAt final :
                &_TransformSetInterpolatorLookAt_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    92;
 
   friend void swap(TransformSetInterpolatorLookAt& a, TransformSetInterpolatorLookAt& b) {
     a.Swap(&b);
@@ -17613,7 +20408,7 @@ class TransformSetApproach final :
                &_TransformSetApproach_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    93;
 
   friend void swap(TransformSetApproach& a, TransformSetApproach& b) {
     a.Swap(&b);
@@ -17830,7 +20625,7 @@ class TransformSetConditional final :
                &_TransformSetConditional_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    94;
 
   friend void swap(TransformSetConditional& a, TransformSetConditional& b) {
     a.Swap(&b);
@@ -17980,6 +20775,183 @@ class TransformSetConditional final :
 };
 // -------------------------------------------------------------------
 
+class TransformSetRefValueProvider final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.TransformSetRefValueProvider) */ {
+ public:
+  inline TransformSetRefValueProvider() : TransformSetRefValueProvider(nullptr) {}
+  ~TransformSetRefValueProvider() override;
+  explicit PROTOBUF_CONSTEXPR TransformSetRefValueProvider(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TransformSetRefValueProvider(const TransformSetRefValueProvider& from);
+  TransformSetRefValueProvider(TransformSetRefValueProvider&& from) noexcept
+    : TransformSetRefValueProvider() {
+    *this = ::std::move(from);
+  }
+
+  inline TransformSetRefValueProvider& operator=(const TransformSetRefValueProvider& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TransformSetRefValueProvider& operator=(TransformSetRefValueProvider&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TransformSetRefValueProvider& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TransformSetRefValueProvider* internal_default_instance() {
+    return reinterpret_cast<const TransformSetRefValueProvider*>(
+               &_TransformSetRefValueProvider_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    95;
+
+  friend void swap(TransformSetRefValueProvider& a, TransformSetRefValueProvider& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TransformSetRefValueProvider* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TransformSetRefValueProvider* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TransformSetRefValueProvider* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TransformSetRefValueProvider>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TransformSetRefValueProvider& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TransformSetRefValueProvider& from) {
+    TransformSetRefValueProvider::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TransformSetRefValueProvider* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Property.TransformSetRefValueProvider";
+  }
+  protected:
+  explicit TransformSetRefValueProvider(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRefsFieldNumber = 1,
+    kWrappedFieldNumber = 3,
+  };
+  // repeated .Property.PropertyRefProviderValue refs = 1;
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+  public:
+  void clear_refs();
+  ::Property::PropertyRefProviderValue* mutable_refs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+      mutable_refs();
+  private:
+  const ::Property::PropertyRefProviderValue& _internal_refs(int index) const;
+  ::Property::PropertyRefProviderValue* _internal_add_refs();
+  public:
+  const ::Property::PropertyRefProviderValue& refs(int index) const;
+  ::Property::PropertyRefProviderValue* add_refs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+      refs() const;
+
+  // .Property.TransformSet wrapped = 3;
+  bool has_wrapped() const;
+  private:
+  bool _internal_has_wrapped() const;
+  public:
+  void clear_wrapped();
+  const ::Property::TransformSet& wrapped() const;
+  PROTOBUF_NODISCARD ::Property::TransformSet* release_wrapped();
+  ::Property::TransformSet* mutable_wrapped();
+  void set_allocated_wrapped(::Property::TransformSet* wrapped);
+  private:
+  const ::Property::TransformSet& _internal_wrapped() const;
+  ::Property::TransformSet* _internal_mutable_wrapped();
+  public:
+  void unsafe_arena_set_allocated_wrapped(
+      ::Property::TransformSet* wrapped);
+  ::Property::TransformSet* unsafe_arena_release_wrapped();
+
+  // @@protoc_insertion_point(class_scope:Property.TransformSetRefValueProvider)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue > refs_;
+    ::Property::TransformSet* wrapped_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_properties_2eproto;
+};
+// -------------------------------------------------------------------
+
 class TransformUpdate final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Property.TransformUpdate) */ {
  public:
@@ -18041,7 +21013,7 @@ class TransformUpdate final :
                &_TransformUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    96;
 
   friend void swap(TransformUpdate& a, TransformUpdate& b) {
     a.Swap(&b);
@@ -18378,7 +21350,7 @@ class TransformUpdateAddT final :
                &_TransformUpdateAddT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    97;
 
   friend void swap(TransformUpdateAddT& a, TransformUpdateAddT& b) {
     a.Swap(&b);
@@ -18535,7 +21507,7 @@ class TransformUpdateAddR final :
                &_TransformUpdateAddR_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    98;
 
   friend void swap(TransformUpdateAddR& a, TransformUpdateAddR& b) {
     a.Swap(&b);
@@ -18692,7 +21664,7 @@ class TransformUpdateAddQ final :
                &_TransformUpdateAddQ_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    99;
 
   friend void swap(TransformUpdateAddQ& a, TransformUpdateAddQ& b) {
     a.Swap(&b);
@@ -18849,7 +21821,7 @@ class TransformUpdateScaleUniform final :
                &_TransformUpdateScaleUniform_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    100;
 
   friend void swap(TransformUpdateScaleUniform& a, TransformUpdateScaleUniform& b) {
     a.Swap(&b);
@@ -19006,7 +21978,7 @@ class TransformUpdateScaleNonuniform final :
                &_TransformUpdateScaleNonuniform_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    101;
 
   friend void swap(TransformUpdateScaleNonuniform& a, TransformUpdateScaleNonuniform& b) {
     a.Swap(&b);
@@ -19163,7 +22135,7 @@ class TransformUpdateLookAt final :
                &_TransformUpdateLookAt_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    102;
 
   friend void swap(TransformUpdateLookAt& a, TransformUpdateLookAt& b) {
     a.Swap(&b);
@@ -19340,7 +22312,7 @@ class TransformUpdateRotateToEuler final :
                &_TransformUpdateRotateToEuler_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    103;
 
   friend void swap(TransformUpdateRotateToEuler& a, TransformUpdateRotateToEuler& b) {
     a.Swap(&b);
@@ -19517,7 +22489,7 @@ class TransformUpdateRotateToQuat final :
                &_TransformUpdateRotateToQuat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    104;
 
   friend void swap(TransformUpdateRotateToQuat& a, TransformUpdateRotateToQuat& b) {
     a.Swap(&b);
@@ -19700,7 +22672,7 @@ class TransformPropertyAssignment final :
                &_TransformPropertyAssignment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    105;
 
   friend void swap(TransformPropertyAssignment& a, TransformPropertyAssignment& b) {
     a.Swap(&b);
@@ -19937,7 +22909,7 @@ class TransformPropertyDeclaration final :
                &_TransformPropertyDeclaration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    106;
 
   friend void swap(TransformPropertyDeclaration& a, TransformPropertyDeclaration& b) {
     a.Swap(&b);
@@ -20114,7 +23086,7 @@ class TransformEditingMetadata final :
                &_TransformEditingMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    107;
 
   friend void swap(TransformEditingMetadata& a, TransformEditingMetadata& b) {
     a.Swap(&b);
@@ -20282,7 +23254,7 @@ class TransformGeneratorMetadata final :
                &_TransformGeneratorMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    108;
 
   friend void swap(TransformGeneratorMetadata& a, TransformGeneratorMetadata& b) {
     a.Swap(&b);
@@ -20460,7 +23432,7 @@ class TransformPropertyMetadata final :
                &_TransformPropertyMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    109;
 
   friend void swap(TransformPropertyMetadata& a, TransformPropertyMetadata& b) {
     a.Swap(&b);
@@ -20638,7 +23610,7 @@ class CustomGeneratorSubGenScalar final :
                &_CustomGeneratorSubGenScalar_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    110;
 
   friend void swap(CustomGeneratorSubGenScalar& a, CustomGeneratorSubGenScalar& b) {
     a.Swap(&b);
@@ -20816,7 +23788,7 @@ class CustomGeneratorSubGenString final :
                &_CustomGeneratorSubGenString_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    96;
+    111;
 
   friend void swap(CustomGeneratorSubGenString& a, CustomGeneratorSubGenString& b) {
     a.Swap(&b);
@@ -20994,7 +23966,7 @@ class CustomGeneratorSubGenLink final :
                &_CustomGeneratorSubGenLink_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    112;
 
   friend void swap(CustomGeneratorSubGenLink& a, CustomGeneratorSubGenLink& b) {
     a.Swap(&b);
@@ -21172,7 +24144,7 @@ class CustomGeneratorSubGenVector final :
                &_CustomGeneratorSubGenVector_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    113;
 
   friend void swap(CustomGeneratorSubGenVector& a, CustomGeneratorSubGenVector& b) {
     a.Swap(&b);
@@ -21350,7 +24322,7 @@ class CustomGeneratorSubGenColor final :
                &_CustomGeneratorSubGenColor_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    114;
 
   friend void swap(CustomGeneratorSubGenColor& a, CustomGeneratorSubGenColor& b) {
     a.Swap(&b);
@@ -21528,7 +24500,7 @@ class CustomGeneratorSubGenBoolean final :
                &_CustomGeneratorSubGenBoolean_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    115;
 
   friend void swap(CustomGeneratorSubGenBoolean& a, CustomGeneratorSubGenBoolean& b) {
     a.Swap(&b);
@@ -21706,7 +24678,7 @@ class CustomGeneratorSubGenJson final :
                &_CustomGeneratorSubGenJson_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    116;
 
   friend void swap(CustomGeneratorSubGenJson& a, CustomGeneratorSubGenJson& b) {
     a.Swap(&b);
@@ -21884,7 +24856,7 @@ class CustomGeneratorSubGenTransform final :
                &_CustomGeneratorSubGenTransform_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    117;
 
   friend void swap(CustomGeneratorSubGenTransform& a, CustomGeneratorSubGenTransform& b) {
     a.Swap(&b);
@@ -22074,7 +25046,7 @@ class CustomGeneratorSubGen final :
                &_CustomGeneratorSubGen_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    118;
 
   friend void swap(CustomGeneratorSubGen& a, CustomGeneratorSubGen& b) {
     a.Swap(&b);
@@ -22390,7 +25362,7 @@ class CustomGeneratorValue final :
                &_CustomGeneratorValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    119;
 
   friend void swap(CustomGeneratorValue& a, CustomGeneratorValue& b) {
     a.Swap(&b);
@@ -24528,6 +27500,190 @@ inline void Interpolation::set_delay(float value) {
 
 // -------------------------------------------------------------------
 
+// PropertyRefProviderValue
+
+// .Property.PropertyIdentifier ref = 1;
+inline bool PropertyRefProviderValue::_internal_has_ref() const {
+  return this != internal_default_instance() && _impl_.ref_ != nullptr;
+}
+inline bool PropertyRefProviderValue::has_ref() const {
+  return _internal_has_ref();
+}
+inline void PropertyRefProviderValue::clear_ref() {
+  if (GetArenaForAllocation() == nullptr && _impl_.ref_ != nullptr) {
+    delete _impl_.ref_;
+  }
+  _impl_.ref_ = nullptr;
+}
+inline const ::Property::PropertyIdentifier& PropertyRefProviderValue::_internal_ref() const {
+  const ::Property::PropertyIdentifier* p = _impl_.ref_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::PropertyIdentifier&>(
+      ::Property::_PropertyIdentifier_default_instance_);
+}
+inline const ::Property::PropertyIdentifier& PropertyRefProviderValue::ref() const {
+  // @@protoc_insertion_point(field_get:Property.PropertyRefProviderValue.ref)
+  return _internal_ref();
+}
+inline void PropertyRefProviderValue::unsafe_arena_set_allocated_ref(
+    ::Property::PropertyIdentifier* ref) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.ref_);
+  }
+  _impl_.ref_ = ref;
+  if (ref) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.PropertyRefProviderValue.ref)
+}
+inline ::Property::PropertyIdentifier* PropertyRefProviderValue::release_ref() {
+  
+  ::Property::PropertyIdentifier* temp = _impl_.ref_;
+  _impl_.ref_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::PropertyIdentifier* PropertyRefProviderValue::unsafe_arena_release_ref() {
+  // @@protoc_insertion_point(field_release:Property.PropertyRefProviderValue.ref)
+  
+  ::Property::PropertyIdentifier* temp = _impl_.ref_;
+  _impl_.ref_ = nullptr;
+  return temp;
+}
+inline ::Property::PropertyIdentifier* PropertyRefProviderValue::_internal_mutable_ref() {
+  
+  if (_impl_.ref_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::PropertyIdentifier>(GetArenaForAllocation());
+    _impl_.ref_ = p;
+  }
+  return _impl_.ref_;
+}
+inline ::Property::PropertyIdentifier* PropertyRefProviderValue::mutable_ref() {
+  ::Property::PropertyIdentifier* _msg = _internal_mutable_ref();
+  // @@protoc_insertion_point(field_mutable:Property.PropertyRefProviderValue.ref)
+  return _msg;
+}
+inline void PropertyRefProviderValue::set_allocated_ref(::Property::PropertyIdentifier* ref) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.ref_;
+  }
+  if (ref) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(ref);
+    if (message_arena != submessage_arena) {
+      ref = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, ref, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.ref_ = ref;
+  // @@protoc_insertion_point(field_set_allocated:Property.PropertyRefProviderValue.ref)
+}
+
+// .Property.AnyPropertyValue value = 2;
+inline bool PropertyRefProviderValue::_internal_has_value() const {
+  return this != internal_default_instance() && _impl_.value_ != nullptr;
+}
+inline bool PropertyRefProviderValue::has_value() const {
+  return _internal_has_value();
+}
+inline void PropertyRefProviderValue::clear_value() {
+  if (GetArenaForAllocation() == nullptr && _impl_.value_ != nullptr) {
+    delete _impl_.value_;
+  }
+  _impl_.value_ = nullptr;
+}
+inline const ::Property::AnyPropertyValue& PropertyRefProviderValue::_internal_value() const {
+  const ::Property::AnyPropertyValue* p = _impl_.value_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::AnyPropertyValue&>(
+      ::Property::_AnyPropertyValue_default_instance_);
+}
+inline const ::Property::AnyPropertyValue& PropertyRefProviderValue::value() const {
+  // @@protoc_insertion_point(field_get:Property.PropertyRefProviderValue.value)
+  return _internal_value();
+}
+inline void PropertyRefProviderValue::unsafe_arena_set_allocated_value(
+    ::Property::AnyPropertyValue* value) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  _impl_.value_ = value;
+  if (value) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.PropertyRefProviderValue.value)
+}
+inline ::Property::AnyPropertyValue* PropertyRefProviderValue::release_value() {
+  
+  ::Property::AnyPropertyValue* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::AnyPropertyValue* PropertyRefProviderValue::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_release:Property.PropertyRefProviderValue.value)
+  
+  ::Property::AnyPropertyValue* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+  return temp;
+}
+inline ::Property::AnyPropertyValue* PropertyRefProviderValue::_internal_mutable_value() {
+  
+  if (_impl_.value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::AnyPropertyValue>(GetArenaForAllocation());
+    _impl_.value_ = p;
+  }
+  return _impl_.value_;
+}
+inline ::Property::AnyPropertyValue* PropertyRefProviderValue::mutable_value() {
+  ::Property::AnyPropertyValue* _msg = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:Property.PropertyRefProviderValue.value)
+  return _msg;
+}
+inline void PropertyRefProviderValue::set_allocated_value(::Property::AnyPropertyValue* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.value_;
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(value);
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:Property.PropertyRefProviderValue.value)
+}
+
+// -------------------------------------------------------------------
+
 // ScalarPropertyAssignment
 
 // optional .Property.ScalarPropertyAssignment.ScalarPropertyMethod method = 1;
@@ -25472,6 +28628,80 @@ inline ::Property::ScalarPropertyApproach* ScalarPropertyValue::_internal_mutabl
 inline ::Property::ScalarPropertyApproach* ScalarPropertyValue::mutable_approach() {
   ::Property::ScalarPropertyApproach* _msg = _internal_mutable_approach();
   // @@protoc_insertion_point(field_mutable:Property.ScalarPropertyValue.approach)
+  return _msg;
+}
+
+// .Property.ScalarPropertyRefValueProvider refProvider = 12;
+inline bool ScalarPropertyValue::_internal_has_refprovider() const {
+  return ValueType_case() == kRefProvider;
+}
+inline bool ScalarPropertyValue::has_refprovider() const {
+  return _internal_has_refprovider();
+}
+inline void ScalarPropertyValue::set_has_refprovider() {
+  _impl_._oneof_case_[0] = kRefProvider;
+}
+inline void ScalarPropertyValue::clear_refprovider() {
+  if (_internal_has_refprovider()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.refprovider_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::ScalarPropertyRefValueProvider* ScalarPropertyValue::release_refprovider() {
+  // @@protoc_insertion_point(field_release:Property.ScalarPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::ScalarPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::ScalarPropertyRefValueProvider& ScalarPropertyValue::_internal_refprovider() const {
+  return _internal_has_refprovider()
+      ? *_impl_.ValueType_.refprovider_
+      : reinterpret_cast< ::Property::ScalarPropertyRefValueProvider&>(::Property::_ScalarPropertyRefValueProvider_default_instance_);
+}
+inline const ::Property::ScalarPropertyRefValueProvider& ScalarPropertyValue::refprovider() const {
+  // @@protoc_insertion_point(field_get:Property.ScalarPropertyValue.refProvider)
+  return _internal_refprovider();
+}
+inline ::Property::ScalarPropertyRefValueProvider* ScalarPropertyValue::unsafe_arena_release_refprovider() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.ScalarPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::ScalarPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ScalarPropertyValue::unsafe_arena_set_allocated_refprovider(::Property::ScalarPropertyRefValueProvider* refprovider) {
+  clear_ValueType();
+  if (refprovider) {
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = refprovider;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.ScalarPropertyValue.refProvider)
+}
+inline ::Property::ScalarPropertyRefValueProvider* ScalarPropertyValue::_internal_mutable_refprovider() {
+  if (!_internal_has_refprovider()) {
+    clear_ValueType();
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = CreateMaybeMessage< ::Property::ScalarPropertyRefValueProvider >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.refprovider_;
+}
+inline ::Property::ScalarPropertyRefValueProvider* ScalarPropertyValue::mutable_refprovider() {
+  ::Property::ScalarPropertyRefValueProvider* _msg = _internal_mutable_refprovider();
+  // @@protoc_insertion_point(field_mutable:Property.ScalarPropertyValue.refProvider)
   return _msg;
 }
 
@@ -27280,6 +30510,140 @@ inline void ScalarPropertyApproach::set_allocated_start(::Property::ScalarProper
 
 // -------------------------------------------------------------------
 
+// ScalarPropertyRefValueProvider
+
+// repeated .Property.PropertyRefProviderValue refs = 1;
+inline int ScalarPropertyRefValueProvider::_internal_refs_size() const {
+  return _impl_.refs_.size();
+}
+inline int ScalarPropertyRefValueProvider::refs_size() const {
+  return _internal_refs_size();
+}
+inline void ScalarPropertyRefValueProvider::clear_refs() {
+  _impl_.refs_.Clear();
+}
+inline ::Property::PropertyRefProviderValue* ScalarPropertyRefValueProvider::mutable_refs(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.ScalarPropertyRefValueProvider.refs)
+  return _impl_.refs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+ScalarPropertyRefValueProvider::mutable_refs() {
+  // @@protoc_insertion_point(field_mutable_list:Property.ScalarPropertyRefValueProvider.refs)
+  return &_impl_.refs_;
+}
+inline const ::Property::PropertyRefProviderValue& ScalarPropertyRefValueProvider::_internal_refs(int index) const {
+  return _impl_.refs_.Get(index);
+}
+inline const ::Property::PropertyRefProviderValue& ScalarPropertyRefValueProvider::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Property.ScalarPropertyRefValueProvider.refs)
+  return _internal_refs(index);
+}
+inline ::Property::PropertyRefProviderValue* ScalarPropertyRefValueProvider::_internal_add_refs() {
+  return _impl_.refs_.Add();
+}
+inline ::Property::PropertyRefProviderValue* ScalarPropertyRefValueProvider::add_refs() {
+  ::Property::PropertyRefProviderValue* _add = _internal_add_refs();
+  // @@protoc_insertion_point(field_add:Property.ScalarPropertyRefValueProvider.refs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+ScalarPropertyRefValueProvider::refs() const {
+  // @@protoc_insertion_point(field_list:Property.ScalarPropertyRefValueProvider.refs)
+  return _impl_.refs_;
+}
+
+// .Property.ScalarPropertyValue wrapped = 3;
+inline bool ScalarPropertyRefValueProvider::_internal_has_wrapped() const {
+  return this != internal_default_instance() && _impl_.wrapped_ != nullptr;
+}
+inline bool ScalarPropertyRefValueProvider::has_wrapped() const {
+  return _internal_has_wrapped();
+}
+inline void ScalarPropertyRefValueProvider::clear_wrapped() {
+  if (GetArenaForAllocation() == nullptr && _impl_.wrapped_ != nullptr) {
+    delete _impl_.wrapped_;
+  }
+  _impl_.wrapped_ = nullptr;
+}
+inline const ::Property::ScalarPropertyValue& ScalarPropertyRefValueProvider::_internal_wrapped() const {
+  const ::Property::ScalarPropertyValue* p = _impl_.wrapped_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::ScalarPropertyValue&>(
+      ::Property::_ScalarPropertyValue_default_instance_);
+}
+inline const ::Property::ScalarPropertyValue& ScalarPropertyRefValueProvider::wrapped() const {
+  // @@protoc_insertion_point(field_get:Property.ScalarPropertyRefValueProvider.wrapped)
+  return _internal_wrapped();
+}
+inline void ScalarPropertyRefValueProvider::unsafe_arena_set_allocated_wrapped(
+    ::Property::ScalarPropertyValue* wrapped) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_);
+  }
+  _impl_.wrapped_ = wrapped;
+  if (wrapped) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.ScalarPropertyRefValueProvider.wrapped)
+}
+inline ::Property::ScalarPropertyValue* ScalarPropertyRefValueProvider::release_wrapped() {
+  
+  ::Property::ScalarPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::ScalarPropertyValue* ScalarPropertyRefValueProvider::unsafe_arena_release_wrapped() {
+  // @@protoc_insertion_point(field_release:Property.ScalarPropertyRefValueProvider.wrapped)
+  
+  ::Property::ScalarPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+  return temp;
+}
+inline ::Property::ScalarPropertyValue* ScalarPropertyRefValueProvider::_internal_mutable_wrapped() {
+  
+  if (_impl_.wrapped_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::ScalarPropertyValue>(GetArenaForAllocation());
+    _impl_.wrapped_ = p;
+  }
+  return _impl_.wrapped_;
+}
+inline ::Property::ScalarPropertyValue* ScalarPropertyRefValueProvider::mutable_wrapped() {
+  ::Property::ScalarPropertyValue* _msg = _internal_mutable_wrapped();
+  // @@protoc_insertion_point(field_mutable:Property.ScalarPropertyRefValueProvider.wrapped)
+  return _msg;
+}
+inline void ScalarPropertyRefValueProvider::set_allocated_wrapped(::Property::ScalarPropertyValue* wrapped) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.wrapped_;
+  }
+  if (wrapped) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(wrapped);
+    if (message_arena != submessage_arena) {
+      wrapped = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.wrapped_ = wrapped;
+  // @@protoc_insertion_point(field_set_allocated:Property.ScalarPropertyRefValueProvider.wrapped)
+}
+
+// -------------------------------------------------------------------
+
 // ScalarPropertyDeclaration
 
 // float default = 2;
@@ -28460,6 +31824,154 @@ inline void StringPropertyValue::set_usedefault(bool value) {
   // @@protoc_insertion_point(field_set:Property.StringPropertyValue.useDefault)
 }
 
+// .Property.StringPropertyKeyframed keyframes = 6;
+inline bool StringPropertyValue::_internal_has_keyframes() const {
+  return ValueType_case() == kKeyframes;
+}
+inline bool StringPropertyValue::has_keyframes() const {
+  return _internal_has_keyframes();
+}
+inline void StringPropertyValue::set_has_keyframes() {
+  _impl_._oneof_case_[0] = kKeyframes;
+}
+inline void StringPropertyValue::clear_keyframes() {
+  if (_internal_has_keyframes()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.keyframes_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::StringPropertyKeyframed* StringPropertyValue::release_keyframes() {
+  // @@protoc_insertion_point(field_release:Property.StringPropertyValue.keyframes)
+  if (_internal_has_keyframes()) {
+    clear_has_ValueType();
+    ::Property::StringPropertyKeyframed* temp = _impl_.ValueType_.keyframes_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.keyframes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::StringPropertyKeyframed& StringPropertyValue::_internal_keyframes() const {
+  return _internal_has_keyframes()
+      ? *_impl_.ValueType_.keyframes_
+      : reinterpret_cast< ::Property::StringPropertyKeyframed&>(::Property::_StringPropertyKeyframed_default_instance_);
+}
+inline const ::Property::StringPropertyKeyframed& StringPropertyValue::keyframes() const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyValue.keyframes)
+  return _internal_keyframes();
+}
+inline ::Property::StringPropertyKeyframed* StringPropertyValue::unsafe_arena_release_keyframes() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.StringPropertyValue.keyframes)
+  if (_internal_has_keyframes()) {
+    clear_has_ValueType();
+    ::Property::StringPropertyKeyframed* temp = _impl_.ValueType_.keyframes_;
+    _impl_.ValueType_.keyframes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void StringPropertyValue::unsafe_arena_set_allocated_keyframes(::Property::StringPropertyKeyframed* keyframes) {
+  clear_ValueType();
+  if (keyframes) {
+    set_has_keyframes();
+    _impl_.ValueType_.keyframes_ = keyframes;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.StringPropertyValue.keyframes)
+}
+inline ::Property::StringPropertyKeyframed* StringPropertyValue::_internal_mutable_keyframes() {
+  if (!_internal_has_keyframes()) {
+    clear_ValueType();
+    set_has_keyframes();
+    _impl_.ValueType_.keyframes_ = CreateMaybeMessage< ::Property::StringPropertyKeyframed >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.keyframes_;
+}
+inline ::Property::StringPropertyKeyframed* StringPropertyValue::mutable_keyframes() {
+  ::Property::StringPropertyKeyframed* _msg = _internal_mutable_keyframes();
+  // @@protoc_insertion_point(field_mutable:Property.StringPropertyValue.keyframes)
+  return _msg;
+}
+
+// .Property.StringPropertyRefValueProvider refProvider = 7;
+inline bool StringPropertyValue::_internal_has_refprovider() const {
+  return ValueType_case() == kRefProvider;
+}
+inline bool StringPropertyValue::has_refprovider() const {
+  return _internal_has_refprovider();
+}
+inline void StringPropertyValue::set_has_refprovider() {
+  _impl_._oneof_case_[0] = kRefProvider;
+}
+inline void StringPropertyValue::clear_refprovider() {
+  if (_internal_has_refprovider()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.refprovider_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::StringPropertyRefValueProvider* StringPropertyValue::release_refprovider() {
+  // @@protoc_insertion_point(field_release:Property.StringPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::StringPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::StringPropertyRefValueProvider& StringPropertyValue::_internal_refprovider() const {
+  return _internal_has_refprovider()
+      ? *_impl_.ValueType_.refprovider_
+      : reinterpret_cast< ::Property::StringPropertyRefValueProvider&>(::Property::_StringPropertyRefValueProvider_default_instance_);
+}
+inline const ::Property::StringPropertyRefValueProvider& StringPropertyValue::refprovider() const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyValue.refProvider)
+  return _internal_refprovider();
+}
+inline ::Property::StringPropertyRefValueProvider* StringPropertyValue::unsafe_arena_release_refprovider() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.StringPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::StringPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void StringPropertyValue::unsafe_arena_set_allocated_refprovider(::Property::StringPropertyRefValueProvider* refprovider) {
+  clear_ValueType();
+  if (refprovider) {
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = refprovider;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.StringPropertyValue.refProvider)
+}
+inline ::Property::StringPropertyRefValueProvider* StringPropertyValue::_internal_mutable_refprovider() {
+  if (!_internal_has_refprovider()) {
+    clear_ValueType();
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = CreateMaybeMessage< ::Property::StringPropertyRefValueProvider >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.refprovider_;
+}
+inline ::Property::StringPropertyRefValueProvider* StringPropertyValue::mutable_refprovider() {
+  ::Property::StringPropertyRefValueProvider* _msg = _internal_mutable_refprovider();
+  // @@protoc_insertion_point(field_mutable:Property.StringPropertyValue.refProvider)
+  return _msg;
+}
+
 // .Property.CustomGeneratorValue custom = 10;
 inline bool StringPropertyValue::_internal_has_custom() const {
   return ValueType_case() == kCustom;
@@ -28635,6 +32147,408 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::AnyPropertyV
 StringPropertyFormatted::arguments() const {
   // @@protoc_insertion_point(field_list:Property.StringPropertyFormatted.Arguments)
   return _impl_.arguments_;
+}
+
+// -------------------------------------------------------------------
+
+// StringPropertyKeyframed_StringKeyframe
+
+// float t = 1;
+inline void StringPropertyKeyframed_StringKeyframe::clear_t() {
+  _impl_.t_ = 0;
+}
+inline float StringPropertyKeyframed_StringKeyframe::_internal_t() const {
+  return _impl_.t_;
+}
+inline float StringPropertyKeyframed_StringKeyframe::t() const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyKeyframed.StringKeyframe.t)
+  return _internal_t();
+}
+inline void StringPropertyKeyframed_StringKeyframe::_internal_set_t(float value) {
+  
+  _impl_.t_ = value;
+}
+inline void StringPropertyKeyframed_StringKeyframe::set_t(float value) {
+  _internal_set_t(value);
+  // @@protoc_insertion_point(field_set:Property.StringPropertyKeyframed.StringKeyframe.t)
+}
+
+// .Property.StringPropertyValue val = 2;
+inline bool StringPropertyKeyframed_StringKeyframe::_internal_has_val() const {
+  return this != internal_default_instance() && _impl_.val_ != nullptr;
+}
+inline bool StringPropertyKeyframed_StringKeyframe::has_val() const {
+  return _internal_has_val();
+}
+inline void StringPropertyKeyframed_StringKeyframe::clear_val() {
+  if (GetArenaForAllocation() == nullptr && _impl_.val_ != nullptr) {
+    delete _impl_.val_;
+  }
+  _impl_.val_ = nullptr;
+}
+inline const ::Property::StringPropertyValue& StringPropertyKeyframed_StringKeyframe::_internal_val() const {
+  const ::Property::StringPropertyValue* p = _impl_.val_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::StringPropertyValue&>(
+      ::Property::_StringPropertyValue_default_instance_);
+}
+inline const ::Property::StringPropertyValue& StringPropertyKeyframed_StringKeyframe::val() const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyKeyframed.StringKeyframe.val)
+  return _internal_val();
+}
+inline void StringPropertyKeyframed_StringKeyframe::unsafe_arena_set_allocated_val(
+    ::Property::StringPropertyValue* val) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.val_);
+  }
+  _impl_.val_ = val;
+  if (val) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.StringPropertyKeyframed.StringKeyframe.val)
+}
+inline ::Property::StringPropertyValue* StringPropertyKeyframed_StringKeyframe::release_val() {
+  
+  ::Property::StringPropertyValue* temp = _impl_.val_;
+  _impl_.val_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::StringPropertyValue* StringPropertyKeyframed_StringKeyframe::unsafe_arena_release_val() {
+  // @@protoc_insertion_point(field_release:Property.StringPropertyKeyframed.StringKeyframe.val)
+  
+  ::Property::StringPropertyValue* temp = _impl_.val_;
+  _impl_.val_ = nullptr;
+  return temp;
+}
+inline ::Property::StringPropertyValue* StringPropertyKeyframed_StringKeyframe::_internal_mutable_val() {
+  
+  if (_impl_.val_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::StringPropertyValue>(GetArenaForAllocation());
+    _impl_.val_ = p;
+  }
+  return _impl_.val_;
+}
+inline ::Property::StringPropertyValue* StringPropertyKeyframed_StringKeyframe::mutable_val() {
+  ::Property::StringPropertyValue* _msg = _internal_mutable_val();
+  // @@protoc_insertion_point(field_mutable:Property.StringPropertyKeyframed.StringKeyframe.val)
+  return _msg;
+}
+inline void StringPropertyKeyframed_StringKeyframe::set_allocated_val(::Property::StringPropertyValue* val) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.val_;
+  }
+  if (val) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(val);
+    if (message_arena != submessage_arena) {
+      val = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, val, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.val_ = val;
+  // @@protoc_insertion_point(field_set_allocated:Property.StringPropertyKeyframed.StringKeyframe.val)
+}
+
+// -------------------------------------------------------------------
+
+// StringPropertyKeyframed
+
+// optional .Property.ScalarPropertyValue tSrc = 8;
+inline bool StringPropertyKeyframed::_internal_has_tsrc() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.tsrc_ != nullptr);
+  return value;
+}
+inline bool StringPropertyKeyframed::has_tsrc() const {
+  return _internal_has_tsrc();
+}
+inline void StringPropertyKeyframed::clear_tsrc() {
+  if (_impl_.tsrc_ != nullptr) _impl_.tsrc_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::Property::ScalarPropertyValue& StringPropertyKeyframed::_internal_tsrc() const {
+  const ::Property::ScalarPropertyValue* p = _impl_.tsrc_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::ScalarPropertyValue&>(
+      ::Property::_ScalarPropertyValue_default_instance_);
+}
+inline const ::Property::ScalarPropertyValue& StringPropertyKeyframed::tsrc() const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyKeyframed.tSrc)
+  return _internal_tsrc();
+}
+inline void StringPropertyKeyframed::unsafe_arena_set_allocated_tsrc(
+    ::Property::ScalarPropertyValue* tsrc) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.tsrc_);
+  }
+  _impl_.tsrc_ = tsrc;
+  if (tsrc) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.StringPropertyKeyframed.tSrc)
+}
+inline ::Property::ScalarPropertyValue* StringPropertyKeyframed::release_tsrc() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Property::ScalarPropertyValue* temp = _impl_.tsrc_;
+  _impl_.tsrc_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::ScalarPropertyValue* StringPropertyKeyframed::unsafe_arena_release_tsrc() {
+  // @@protoc_insertion_point(field_release:Property.StringPropertyKeyframed.tSrc)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Property::ScalarPropertyValue* temp = _impl_.tsrc_;
+  _impl_.tsrc_ = nullptr;
+  return temp;
+}
+inline ::Property::ScalarPropertyValue* StringPropertyKeyframed::_internal_mutable_tsrc() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.tsrc_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::ScalarPropertyValue>(GetArenaForAllocation());
+    _impl_.tsrc_ = p;
+  }
+  return _impl_.tsrc_;
+}
+inline ::Property::ScalarPropertyValue* StringPropertyKeyframed::mutable_tsrc() {
+  ::Property::ScalarPropertyValue* _msg = _internal_mutable_tsrc();
+  // @@protoc_insertion_point(field_mutable:Property.StringPropertyKeyframed.tSrc)
+  return _msg;
+}
+inline void StringPropertyKeyframed::set_allocated_tsrc(::Property::ScalarPropertyValue* tsrc) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.tsrc_;
+  }
+  if (tsrc) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(tsrc);
+    if (message_arena != submessage_arena) {
+      tsrc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, tsrc, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.tsrc_ = tsrc;
+  // @@protoc_insertion_point(field_set_allocated:Property.StringPropertyKeyframed.tSrc)
+}
+
+// repeated .Property.StringPropertyKeyframed.StringKeyframe keys = 10;
+inline int StringPropertyKeyframed::_internal_keys_size() const {
+  return _impl_.keys_.size();
+}
+inline int StringPropertyKeyframed::keys_size() const {
+  return _internal_keys_size();
+}
+inline void StringPropertyKeyframed::clear_keys() {
+  _impl_.keys_.Clear();
+}
+inline ::Property::StringPropertyKeyframed_StringKeyframe* StringPropertyKeyframed::mutable_keys(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.StringPropertyKeyframed.keys)
+  return _impl_.keys_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::StringPropertyKeyframed_StringKeyframe >*
+StringPropertyKeyframed::mutable_keys() {
+  // @@protoc_insertion_point(field_mutable_list:Property.StringPropertyKeyframed.keys)
+  return &_impl_.keys_;
+}
+inline const ::Property::StringPropertyKeyframed_StringKeyframe& StringPropertyKeyframed::_internal_keys(int index) const {
+  return _impl_.keys_.Get(index);
+}
+inline const ::Property::StringPropertyKeyframed_StringKeyframe& StringPropertyKeyframed::keys(int index) const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyKeyframed.keys)
+  return _internal_keys(index);
+}
+inline ::Property::StringPropertyKeyframed_StringKeyframe* StringPropertyKeyframed::_internal_add_keys() {
+  return _impl_.keys_.Add();
+}
+inline ::Property::StringPropertyKeyframed_StringKeyframe* StringPropertyKeyframed::add_keys() {
+  ::Property::StringPropertyKeyframed_StringKeyframe* _add = _internal_add_keys();
+  // @@protoc_insertion_point(field_add:Property.StringPropertyKeyframed.keys)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::StringPropertyKeyframed_StringKeyframe >&
+StringPropertyKeyframed::keys() const {
+  // @@protoc_insertion_point(field_list:Property.StringPropertyKeyframed.keys)
+  return _impl_.keys_;
+}
+
+// .Property.KeyframeLoopingEnum looping = 11;
+inline void StringPropertyKeyframed::clear_looping() {
+  _impl_.looping_ = 0;
+}
+inline ::Property::KeyframeLoopingEnum StringPropertyKeyframed::_internal_looping() const {
+  return static_cast< ::Property::KeyframeLoopingEnum >(_impl_.looping_);
+}
+inline ::Property::KeyframeLoopingEnum StringPropertyKeyframed::looping() const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyKeyframed.looping)
+  return _internal_looping();
+}
+inline void StringPropertyKeyframed::_internal_set_looping(::Property::KeyframeLoopingEnum value) {
+  
+  _impl_.looping_ = value;
+}
+inline void StringPropertyKeyframed::set_looping(::Property::KeyframeLoopingEnum value) {
+  _internal_set_looping(value);
+  // @@protoc_insertion_point(field_set:Property.StringPropertyKeyframed.looping)
+}
+
+// -------------------------------------------------------------------
+
+// StringPropertyRefValueProvider
+
+// repeated .Property.PropertyRefProviderValue refs = 1;
+inline int StringPropertyRefValueProvider::_internal_refs_size() const {
+  return _impl_.refs_.size();
+}
+inline int StringPropertyRefValueProvider::refs_size() const {
+  return _internal_refs_size();
+}
+inline void StringPropertyRefValueProvider::clear_refs() {
+  _impl_.refs_.Clear();
+}
+inline ::Property::PropertyRefProviderValue* StringPropertyRefValueProvider::mutable_refs(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.StringPropertyRefValueProvider.refs)
+  return _impl_.refs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+StringPropertyRefValueProvider::mutable_refs() {
+  // @@protoc_insertion_point(field_mutable_list:Property.StringPropertyRefValueProvider.refs)
+  return &_impl_.refs_;
+}
+inline const ::Property::PropertyRefProviderValue& StringPropertyRefValueProvider::_internal_refs(int index) const {
+  return _impl_.refs_.Get(index);
+}
+inline const ::Property::PropertyRefProviderValue& StringPropertyRefValueProvider::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyRefValueProvider.refs)
+  return _internal_refs(index);
+}
+inline ::Property::PropertyRefProviderValue* StringPropertyRefValueProvider::_internal_add_refs() {
+  return _impl_.refs_.Add();
+}
+inline ::Property::PropertyRefProviderValue* StringPropertyRefValueProvider::add_refs() {
+  ::Property::PropertyRefProviderValue* _add = _internal_add_refs();
+  // @@protoc_insertion_point(field_add:Property.StringPropertyRefValueProvider.refs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+StringPropertyRefValueProvider::refs() const {
+  // @@protoc_insertion_point(field_list:Property.StringPropertyRefValueProvider.refs)
+  return _impl_.refs_;
+}
+
+// .Property.StringPropertyValue wrapped = 3;
+inline bool StringPropertyRefValueProvider::_internal_has_wrapped() const {
+  return this != internal_default_instance() && _impl_.wrapped_ != nullptr;
+}
+inline bool StringPropertyRefValueProvider::has_wrapped() const {
+  return _internal_has_wrapped();
+}
+inline void StringPropertyRefValueProvider::clear_wrapped() {
+  if (GetArenaForAllocation() == nullptr && _impl_.wrapped_ != nullptr) {
+    delete _impl_.wrapped_;
+  }
+  _impl_.wrapped_ = nullptr;
+}
+inline const ::Property::StringPropertyValue& StringPropertyRefValueProvider::_internal_wrapped() const {
+  const ::Property::StringPropertyValue* p = _impl_.wrapped_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::StringPropertyValue&>(
+      ::Property::_StringPropertyValue_default_instance_);
+}
+inline const ::Property::StringPropertyValue& StringPropertyRefValueProvider::wrapped() const {
+  // @@protoc_insertion_point(field_get:Property.StringPropertyRefValueProvider.wrapped)
+  return _internal_wrapped();
+}
+inline void StringPropertyRefValueProvider::unsafe_arena_set_allocated_wrapped(
+    ::Property::StringPropertyValue* wrapped) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_);
+  }
+  _impl_.wrapped_ = wrapped;
+  if (wrapped) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.StringPropertyRefValueProvider.wrapped)
+}
+inline ::Property::StringPropertyValue* StringPropertyRefValueProvider::release_wrapped() {
+  
+  ::Property::StringPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::StringPropertyValue* StringPropertyRefValueProvider::unsafe_arena_release_wrapped() {
+  // @@protoc_insertion_point(field_release:Property.StringPropertyRefValueProvider.wrapped)
+  
+  ::Property::StringPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+  return temp;
+}
+inline ::Property::StringPropertyValue* StringPropertyRefValueProvider::_internal_mutable_wrapped() {
+  
+  if (_impl_.wrapped_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::StringPropertyValue>(GetArenaForAllocation());
+    _impl_.wrapped_ = p;
+  }
+  return _impl_.wrapped_;
+}
+inline ::Property::StringPropertyValue* StringPropertyRefValueProvider::mutable_wrapped() {
+  ::Property::StringPropertyValue* _msg = _internal_mutable_wrapped();
+  // @@protoc_insertion_point(field_mutable:Property.StringPropertyRefValueProvider.wrapped)
+  return _msg;
+}
+inline void StringPropertyRefValueProvider::set_allocated_wrapped(::Property::StringPropertyValue* wrapped) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.wrapped_;
+  }
+  if (wrapped) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(wrapped);
+    if (message_arena != submessage_arena) {
+      wrapped = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.wrapped_ = wrapped;
+  // @@protoc_insertion_point(field_set_allocated:Property.StringPropertyRefValueProvider.wrapped)
 }
 
 // -------------------------------------------------------------------
@@ -29792,6 +33706,154 @@ inline void LinkPropertyValue::set_usedefault(bool value) {
   // @@protoc_insertion_point(field_set:Property.LinkPropertyValue.useDefault)
 }
 
+// .Property.LinkPropertyKeyframed keyframes = 6;
+inline bool LinkPropertyValue::_internal_has_keyframes() const {
+  return ValueType_case() == kKeyframes;
+}
+inline bool LinkPropertyValue::has_keyframes() const {
+  return _internal_has_keyframes();
+}
+inline void LinkPropertyValue::set_has_keyframes() {
+  _impl_._oneof_case_[0] = kKeyframes;
+}
+inline void LinkPropertyValue::clear_keyframes() {
+  if (_internal_has_keyframes()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.keyframes_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::LinkPropertyKeyframed* LinkPropertyValue::release_keyframes() {
+  // @@protoc_insertion_point(field_release:Property.LinkPropertyValue.keyframes)
+  if (_internal_has_keyframes()) {
+    clear_has_ValueType();
+    ::Property::LinkPropertyKeyframed* temp = _impl_.ValueType_.keyframes_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.keyframes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::LinkPropertyKeyframed& LinkPropertyValue::_internal_keyframes() const {
+  return _internal_has_keyframes()
+      ? *_impl_.ValueType_.keyframes_
+      : reinterpret_cast< ::Property::LinkPropertyKeyframed&>(::Property::_LinkPropertyKeyframed_default_instance_);
+}
+inline const ::Property::LinkPropertyKeyframed& LinkPropertyValue::keyframes() const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyValue.keyframes)
+  return _internal_keyframes();
+}
+inline ::Property::LinkPropertyKeyframed* LinkPropertyValue::unsafe_arena_release_keyframes() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.LinkPropertyValue.keyframes)
+  if (_internal_has_keyframes()) {
+    clear_has_ValueType();
+    ::Property::LinkPropertyKeyframed* temp = _impl_.ValueType_.keyframes_;
+    _impl_.ValueType_.keyframes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void LinkPropertyValue::unsafe_arena_set_allocated_keyframes(::Property::LinkPropertyKeyframed* keyframes) {
+  clear_ValueType();
+  if (keyframes) {
+    set_has_keyframes();
+    _impl_.ValueType_.keyframes_ = keyframes;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.LinkPropertyValue.keyframes)
+}
+inline ::Property::LinkPropertyKeyframed* LinkPropertyValue::_internal_mutable_keyframes() {
+  if (!_internal_has_keyframes()) {
+    clear_ValueType();
+    set_has_keyframes();
+    _impl_.ValueType_.keyframes_ = CreateMaybeMessage< ::Property::LinkPropertyKeyframed >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.keyframes_;
+}
+inline ::Property::LinkPropertyKeyframed* LinkPropertyValue::mutable_keyframes() {
+  ::Property::LinkPropertyKeyframed* _msg = _internal_mutable_keyframes();
+  // @@protoc_insertion_point(field_mutable:Property.LinkPropertyValue.keyframes)
+  return _msg;
+}
+
+// .Property.LinkPropertyRefValueProvider refProvider = 7;
+inline bool LinkPropertyValue::_internal_has_refprovider() const {
+  return ValueType_case() == kRefProvider;
+}
+inline bool LinkPropertyValue::has_refprovider() const {
+  return _internal_has_refprovider();
+}
+inline void LinkPropertyValue::set_has_refprovider() {
+  _impl_._oneof_case_[0] = kRefProvider;
+}
+inline void LinkPropertyValue::clear_refprovider() {
+  if (_internal_has_refprovider()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.refprovider_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::LinkPropertyRefValueProvider* LinkPropertyValue::release_refprovider() {
+  // @@protoc_insertion_point(field_release:Property.LinkPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::LinkPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::LinkPropertyRefValueProvider& LinkPropertyValue::_internal_refprovider() const {
+  return _internal_has_refprovider()
+      ? *_impl_.ValueType_.refprovider_
+      : reinterpret_cast< ::Property::LinkPropertyRefValueProvider&>(::Property::_LinkPropertyRefValueProvider_default_instance_);
+}
+inline const ::Property::LinkPropertyRefValueProvider& LinkPropertyValue::refprovider() const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyValue.refProvider)
+  return _internal_refprovider();
+}
+inline ::Property::LinkPropertyRefValueProvider* LinkPropertyValue::unsafe_arena_release_refprovider() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.LinkPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::LinkPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void LinkPropertyValue::unsafe_arena_set_allocated_refprovider(::Property::LinkPropertyRefValueProvider* refprovider) {
+  clear_ValueType();
+  if (refprovider) {
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = refprovider;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.LinkPropertyValue.refProvider)
+}
+inline ::Property::LinkPropertyRefValueProvider* LinkPropertyValue::_internal_mutable_refprovider() {
+  if (!_internal_has_refprovider()) {
+    clear_ValueType();
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = CreateMaybeMessage< ::Property::LinkPropertyRefValueProvider >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.refprovider_;
+}
+inline ::Property::LinkPropertyRefValueProvider* LinkPropertyValue::mutable_refprovider() {
+  ::Property::LinkPropertyRefValueProvider* _msg = _internal_mutable_refprovider();
+  // @@protoc_insertion_point(field_mutable:Property.LinkPropertyValue.refProvider)
+  return _msg;
+}
+
 // .Property.CustomGeneratorValue custom = 10;
 inline bool LinkPropertyValue::_internal_has_custom() const {
   return ValueType_case() == kCustom;
@@ -29875,6 +33937,408 @@ inline void LinkPropertyValue::clear_has_ValueType() {
 inline LinkPropertyValue::ValueTypeCase LinkPropertyValue::ValueType_case() const {
   return LinkPropertyValue::ValueTypeCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// LinkPropertyKeyframed_LinkKeyframe
+
+// float t = 1;
+inline void LinkPropertyKeyframed_LinkKeyframe::clear_t() {
+  _impl_.t_ = 0;
+}
+inline float LinkPropertyKeyframed_LinkKeyframe::_internal_t() const {
+  return _impl_.t_;
+}
+inline float LinkPropertyKeyframed_LinkKeyframe::t() const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyKeyframed.LinkKeyframe.t)
+  return _internal_t();
+}
+inline void LinkPropertyKeyframed_LinkKeyframe::_internal_set_t(float value) {
+  
+  _impl_.t_ = value;
+}
+inline void LinkPropertyKeyframed_LinkKeyframe::set_t(float value) {
+  _internal_set_t(value);
+  // @@protoc_insertion_point(field_set:Property.LinkPropertyKeyframed.LinkKeyframe.t)
+}
+
+// .Property.LinkPropertyValue val = 2;
+inline bool LinkPropertyKeyframed_LinkKeyframe::_internal_has_val() const {
+  return this != internal_default_instance() && _impl_.val_ != nullptr;
+}
+inline bool LinkPropertyKeyframed_LinkKeyframe::has_val() const {
+  return _internal_has_val();
+}
+inline void LinkPropertyKeyframed_LinkKeyframe::clear_val() {
+  if (GetArenaForAllocation() == nullptr && _impl_.val_ != nullptr) {
+    delete _impl_.val_;
+  }
+  _impl_.val_ = nullptr;
+}
+inline const ::Property::LinkPropertyValue& LinkPropertyKeyframed_LinkKeyframe::_internal_val() const {
+  const ::Property::LinkPropertyValue* p = _impl_.val_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::LinkPropertyValue&>(
+      ::Property::_LinkPropertyValue_default_instance_);
+}
+inline const ::Property::LinkPropertyValue& LinkPropertyKeyframed_LinkKeyframe::val() const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyKeyframed.LinkKeyframe.val)
+  return _internal_val();
+}
+inline void LinkPropertyKeyframed_LinkKeyframe::unsafe_arena_set_allocated_val(
+    ::Property::LinkPropertyValue* val) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.val_);
+  }
+  _impl_.val_ = val;
+  if (val) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.LinkPropertyKeyframed.LinkKeyframe.val)
+}
+inline ::Property::LinkPropertyValue* LinkPropertyKeyframed_LinkKeyframe::release_val() {
+  
+  ::Property::LinkPropertyValue* temp = _impl_.val_;
+  _impl_.val_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::LinkPropertyValue* LinkPropertyKeyframed_LinkKeyframe::unsafe_arena_release_val() {
+  // @@protoc_insertion_point(field_release:Property.LinkPropertyKeyframed.LinkKeyframe.val)
+  
+  ::Property::LinkPropertyValue* temp = _impl_.val_;
+  _impl_.val_ = nullptr;
+  return temp;
+}
+inline ::Property::LinkPropertyValue* LinkPropertyKeyframed_LinkKeyframe::_internal_mutable_val() {
+  
+  if (_impl_.val_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::LinkPropertyValue>(GetArenaForAllocation());
+    _impl_.val_ = p;
+  }
+  return _impl_.val_;
+}
+inline ::Property::LinkPropertyValue* LinkPropertyKeyframed_LinkKeyframe::mutable_val() {
+  ::Property::LinkPropertyValue* _msg = _internal_mutable_val();
+  // @@protoc_insertion_point(field_mutable:Property.LinkPropertyKeyframed.LinkKeyframe.val)
+  return _msg;
+}
+inline void LinkPropertyKeyframed_LinkKeyframe::set_allocated_val(::Property::LinkPropertyValue* val) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.val_;
+  }
+  if (val) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(val);
+    if (message_arena != submessage_arena) {
+      val = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, val, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.val_ = val;
+  // @@protoc_insertion_point(field_set_allocated:Property.LinkPropertyKeyframed.LinkKeyframe.val)
+}
+
+// -------------------------------------------------------------------
+
+// LinkPropertyKeyframed
+
+// optional .Property.ScalarPropertyValue tSrc = 8;
+inline bool LinkPropertyKeyframed::_internal_has_tsrc() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.tsrc_ != nullptr);
+  return value;
+}
+inline bool LinkPropertyKeyframed::has_tsrc() const {
+  return _internal_has_tsrc();
+}
+inline void LinkPropertyKeyframed::clear_tsrc() {
+  if (_impl_.tsrc_ != nullptr) _impl_.tsrc_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::Property::ScalarPropertyValue& LinkPropertyKeyframed::_internal_tsrc() const {
+  const ::Property::ScalarPropertyValue* p = _impl_.tsrc_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::ScalarPropertyValue&>(
+      ::Property::_ScalarPropertyValue_default_instance_);
+}
+inline const ::Property::ScalarPropertyValue& LinkPropertyKeyframed::tsrc() const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyKeyframed.tSrc)
+  return _internal_tsrc();
+}
+inline void LinkPropertyKeyframed::unsafe_arena_set_allocated_tsrc(
+    ::Property::ScalarPropertyValue* tsrc) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.tsrc_);
+  }
+  _impl_.tsrc_ = tsrc;
+  if (tsrc) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.LinkPropertyKeyframed.tSrc)
+}
+inline ::Property::ScalarPropertyValue* LinkPropertyKeyframed::release_tsrc() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Property::ScalarPropertyValue* temp = _impl_.tsrc_;
+  _impl_.tsrc_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::ScalarPropertyValue* LinkPropertyKeyframed::unsafe_arena_release_tsrc() {
+  // @@protoc_insertion_point(field_release:Property.LinkPropertyKeyframed.tSrc)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Property::ScalarPropertyValue* temp = _impl_.tsrc_;
+  _impl_.tsrc_ = nullptr;
+  return temp;
+}
+inline ::Property::ScalarPropertyValue* LinkPropertyKeyframed::_internal_mutable_tsrc() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.tsrc_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::ScalarPropertyValue>(GetArenaForAllocation());
+    _impl_.tsrc_ = p;
+  }
+  return _impl_.tsrc_;
+}
+inline ::Property::ScalarPropertyValue* LinkPropertyKeyframed::mutable_tsrc() {
+  ::Property::ScalarPropertyValue* _msg = _internal_mutable_tsrc();
+  // @@protoc_insertion_point(field_mutable:Property.LinkPropertyKeyframed.tSrc)
+  return _msg;
+}
+inline void LinkPropertyKeyframed::set_allocated_tsrc(::Property::ScalarPropertyValue* tsrc) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.tsrc_;
+  }
+  if (tsrc) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(tsrc);
+    if (message_arena != submessage_arena) {
+      tsrc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, tsrc, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.tsrc_ = tsrc;
+  // @@protoc_insertion_point(field_set_allocated:Property.LinkPropertyKeyframed.tSrc)
+}
+
+// repeated .Property.LinkPropertyKeyframed.LinkKeyframe keys = 10;
+inline int LinkPropertyKeyframed::_internal_keys_size() const {
+  return _impl_.keys_.size();
+}
+inline int LinkPropertyKeyframed::keys_size() const {
+  return _internal_keys_size();
+}
+inline void LinkPropertyKeyframed::clear_keys() {
+  _impl_.keys_.Clear();
+}
+inline ::Property::LinkPropertyKeyframed_LinkKeyframe* LinkPropertyKeyframed::mutable_keys(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.LinkPropertyKeyframed.keys)
+  return _impl_.keys_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::LinkPropertyKeyframed_LinkKeyframe >*
+LinkPropertyKeyframed::mutable_keys() {
+  // @@protoc_insertion_point(field_mutable_list:Property.LinkPropertyKeyframed.keys)
+  return &_impl_.keys_;
+}
+inline const ::Property::LinkPropertyKeyframed_LinkKeyframe& LinkPropertyKeyframed::_internal_keys(int index) const {
+  return _impl_.keys_.Get(index);
+}
+inline const ::Property::LinkPropertyKeyframed_LinkKeyframe& LinkPropertyKeyframed::keys(int index) const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyKeyframed.keys)
+  return _internal_keys(index);
+}
+inline ::Property::LinkPropertyKeyframed_LinkKeyframe* LinkPropertyKeyframed::_internal_add_keys() {
+  return _impl_.keys_.Add();
+}
+inline ::Property::LinkPropertyKeyframed_LinkKeyframe* LinkPropertyKeyframed::add_keys() {
+  ::Property::LinkPropertyKeyframed_LinkKeyframe* _add = _internal_add_keys();
+  // @@protoc_insertion_point(field_add:Property.LinkPropertyKeyframed.keys)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::LinkPropertyKeyframed_LinkKeyframe >&
+LinkPropertyKeyframed::keys() const {
+  // @@protoc_insertion_point(field_list:Property.LinkPropertyKeyframed.keys)
+  return _impl_.keys_;
+}
+
+// .Property.KeyframeLoopingEnum looping = 11;
+inline void LinkPropertyKeyframed::clear_looping() {
+  _impl_.looping_ = 0;
+}
+inline ::Property::KeyframeLoopingEnum LinkPropertyKeyframed::_internal_looping() const {
+  return static_cast< ::Property::KeyframeLoopingEnum >(_impl_.looping_);
+}
+inline ::Property::KeyframeLoopingEnum LinkPropertyKeyframed::looping() const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyKeyframed.looping)
+  return _internal_looping();
+}
+inline void LinkPropertyKeyframed::_internal_set_looping(::Property::KeyframeLoopingEnum value) {
+  
+  _impl_.looping_ = value;
+}
+inline void LinkPropertyKeyframed::set_looping(::Property::KeyframeLoopingEnum value) {
+  _internal_set_looping(value);
+  // @@protoc_insertion_point(field_set:Property.LinkPropertyKeyframed.looping)
+}
+
+// -------------------------------------------------------------------
+
+// LinkPropertyRefValueProvider
+
+// repeated .Property.PropertyRefProviderValue refs = 1;
+inline int LinkPropertyRefValueProvider::_internal_refs_size() const {
+  return _impl_.refs_.size();
+}
+inline int LinkPropertyRefValueProvider::refs_size() const {
+  return _internal_refs_size();
+}
+inline void LinkPropertyRefValueProvider::clear_refs() {
+  _impl_.refs_.Clear();
+}
+inline ::Property::PropertyRefProviderValue* LinkPropertyRefValueProvider::mutable_refs(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.LinkPropertyRefValueProvider.refs)
+  return _impl_.refs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+LinkPropertyRefValueProvider::mutable_refs() {
+  // @@protoc_insertion_point(field_mutable_list:Property.LinkPropertyRefValueProvider.refs)
+  return &_impl_.refs_;
+}
+inline const ::Property::PropertyRefProviderValue& LinkPropertyRefValueProvider::_internal_refs(int index) const {
+  return _impl_.refs_.Get(index);
+}
+inline const ::Property::PropertyRefProviderValue& LinkPropertyRefValueProvider::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyRefValueProvider.refs)
+  return _internal_refs(index);
+}
+inline ::Property::PropertyRefProviderValue* LinkPropertyRefValueProvider::_internal_add_refs() {
+  return _impl_.refs_.Add();
+}
+inline ::Property::PropertyRefProviderValue* LinkPropertyRefValueProvider::add_refs() {
+  ::Property::PropertyRefProviderValue* _add = _internal_add_refs();
+  // @@protoc_insertion_point(field_add:Property.LinkPropertyRefValueProvider.refs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+LinkPropertyRefValueProvider::refs() const {
+  // @@protoc_insertion_point(field_list:Property.LinkPropertyRefValueProvider.refs)
+  return _impl_.refs_;
+}
+
+// .Property.LinkPropertyValue wrapped = 3;
+inline bool LinkPropertyRefValueProvider::_internal_has_wrapped() const {
+  return this != internal_default_instance() && _impl_.wrapped_ != nullptr;
+}
+inline bool LinkPropertyRefValueProvider::has_wrapped() const {
+  return _internal_has_wrapped();
+}
+inline void LinkPropertyRefValueProvider::clear_wrapped() {
+  if (GetArenaForAllocation() == nullptr && _impl_.wrapped_ != nullptr) {
+    delete _impl_.wrapped_;
+  }
+  _impl_.wrapped_ = nullptr;
+}
+inline const ::Property::LinkPropertyValue& LinkPropertyRefValueProvider::_internal_wrapped() const {
+  const ::Property::LinkPropertyValue* p = _impl_.wrapped_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::LinkPropertyValue&>(
+      ::Property::_LinkPropertyValue_default_instance_);
+}
+inline const ::Property::LinkPropertyValue& LinkPropertyRefValueProvider::wrapped() const {
+  // @@protoc_insertion_point(field_get:Property.LinkPropertyRefValueProvider.wrapped)
+  return _internal_wrapped();
+}
+inline void LinkPropertyRefValueProvider::unsafe_arena_set_allocated_wrapped(
+    ::Property::LinkPropertyValue* wrapped) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_);
+  }
+  _impl_.wrapped_ = wrapped;
+  if (wrapped) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.LinkPropertyRefValueProvider.wrapped)
+}
+inline ::Property::LinkPropertyValue* LinkPropertyRefValueProvider::release_wrapped() {
+  
+  ::Property::LinkPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::LinkPropertyValue* LinkPropertyRefValueProvider::unsafe_arena_release_wrapped() {
+  // @@protoc_insertion_point(field_release:Property.LinkPropertyRefValueProvider.wrapped)
+  
+  ::Property::LinkPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+  return temp;
+}
+inline ::Property::LinkPropertyValue* LinkPropertyRefValueProvider::_internal_mutable_wrapped() {
+  
+  if (_impl_.wrapped_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::LinkPropertyValue>(GetArenaForAllocation());
+    _impl_.wrapped_ = p;
+  }
+  return _impl_.wrapped_;
+}
+inline ::Property::LinkPropertyValue* LinkPropertyRefValueProvider::mutable_wrapped() {
+  ::Property::LinkPropertyValue* _msg = _internal_mutable_wrapped();
+  // @@protoc_insertion_point(field_mutable:Property.LinkPropertyRefValueProvider.wrapped)
+  return _msg;
+}
+inline void LinkPropertyRefValueProvider::set_allocated_wrapped(::Property::LinkPropertyValue* wrapped) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.wrapped_;
+  }
+  if (wrapped) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(wrapped);
+    if (message_arena != submessage_arena) {
+      wrapped = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.wrapped_ = wrapped;
+  // @@protoc_insertion_point(field_set_allocated:Property.LinkPropertyRefValueProvider.wrapped)
+}
+
 // -------------------------------------------------------------------
 
 // LinkPropertyDeclaration
@@ -31610,6 +36074,80 @@ inline ::Property::VectorPropertyApproach* VectorPropertyValue::_internal_mutabl
 inline ::Property::VectorPropertyApproach* VectorPropertyValue::mutable_approach() {
   ::Property::VectorPropertyApproach* _msg = _internal_mutable_approach();
   // @@protoc_insertion_point(field_mutable:Property.VectorPropertyValue.approach)
+  return _msg;
+}
+
+// .Property.VectorPropertyRefValueProvider refProvider = 14;
+inline bool VectorPropertyValue::_internal_has_refprovider() const {
+  return ValueType_case() == kRefProvider;
+}
+inline bool VectorPropertyValue::has_refprovider() const {
+  return _internal_has_refprovider();
+}
+inline void VectorPropertyValue::set_has_refprovider() {
+  _impl_._oneof_case_[0] = kRefProvider;
+}
+inline void VectorPropertyValue::clear_refprovider() {
+  if (_internal_has_refprovider()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.refprovider_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::VectorPropertyRefValueProvider* VectorPropertyValue::release_refprovider() {
+  // @@protoc_insertion_point(field_release:Property.VectorPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::VectorPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::VectorPropertyRefValueProvider& VectorPropertyValue::_internal_refprovider() const {
+  return _internal_has_refprovider()
+      ? *_impl_.ValueType_.refprovider_
+      : reinterpret_cast< ::Property::VectorPropertyRefValueProvider&>(::Property::_VectorPropertyRefValueProvider_default_instance_);
+}
+inline const ::Property::VectorPropertyRefValueProvider& VectorPropertyValue::refprovider() const {
+  // @@protoc_insertion_point(field_get:Property.VectorPropertyValue.refProvider)
+  return _internal_refprovider();
+}
+inline ::Property::VectorPropertyRefValueProvider* VectorPropertyValue::unsafe_arena_release_refprovider() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.VectorPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::VectorPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void VectorPropertyValue::unsafe_arena_set_allocated_refprovider(::Property::VectorPropertyRefValueProvider* refprovider) {
+  clear_ValueType();
+  if (refprovider) {
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = refprovider;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.VectorPropertyValue.refProvider)
+}
+inline ::Property::VectorPropertyRefValueProvider* VectorPropertyValue::_internal_mutable_refprovider() {
+  if (!_internal_has_refprovider()) {
+    clear_ValueType();
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = CreateMaybeMessage< ::Property::VectorPropertyRefValueProvider >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.refprovider_;
+}
+inline ::Property::VectorPropertyRefValueProvider* VectorPropertyValue::mutable_refprovider() {
+  ::Property::VectorPropertyRefValueProvider* _msg = _internal_mutable_refprovider();
+  // @@protoc_insertion_point(field_mutable:Property.VectorPropertyValue.refProvider)
   return _msg;
 }
 
@@ -33562,6 +38100,140 @@ inline void VectorPropertyKeyframed::set_interpolationmethod(::Property::VectorP
 
 // -------------------------------------------------------------------
 
+// VectorPropertyRefValueProvider
+
+// repeated .Property.PropertyRefProviderValue refs = 1;
+inline int VectorPropertyRefValueProvider::_internal_refs_size() const {
+  return _impl_.refs_.size();
+}
+inline int VectorPropertyRefValueProvider::refs_size() const {
+  return _internal_refs_size();
+}
+inline void VectorPropertyRefValueProvider::clear_refs() {
+  _impl_.refs_.Clear();
+}
+inline ::Property::PropertyRefProviderValue* VectorPropertyRefValueProvider::mutable_refs(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.VectorPropertyRefValueProvider.refs)
+  return _impl_.refs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+VectorPropertyRefValueProvider::mutable_refs() {
+  // @@protoc_insertion_point(field_mutable_list:Property.VectorPropertyRefValueProvider.refs)
+  return &_impl_.refs_;
+}
+inline const ::Property::PropertyRefProviderValue& VectorPropertyRefValueProvider::_internal_refs(int index) const {
+  return _impl_.refs_.Get(index);
+}
+inline const ::Property::PropertyRefProviderValue& VectorPropertyRefValueProvider::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Property.VectorPropertyRefValueProvider.refs)
+  return _internal_refs(index);
+}
+inline ::Property::PropertyRefProviderValue* VectorPropertyRefValueProvider::_internal_add_refs() {
+  return _impl_.refs_.Add();
+}
+inline ::Property::PropertyRefProviderValue* VectorPropertyRefValueProvider::add_refs() {
+  ::Property::PropertyRefProviderValue* _add = _internal_add_refs();
+  // @@protoc_insertion_point(field_add:Property.VectorPropertyRefValueProvider.refs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+VectorPropertyRefValueProvider::refs() const {
+  // @@protoc_insertion_point(field_list:Property.VectorPropertyRefValueProvider.refs)
+  return _impl_.refs_;
+}
+
+// .Property.VectorPropertyValue wrapped = 3;
+inline bool VectorPropertyRefValueProvider::_internal_has_wrapped() const {
+  return this != internal_default_instance() && _impl_.wrapped_ != nullptr;
+}
+inline bool VectorPropertyRefValueProvider::has_wrapped() const {
+  return _internal_has_wrapped();
+}
+inline void VectorPropertyRefValueProvider::clear_wrapped() {
+  if (GetArenaForAllocation() == nullptr && _impl_.wrapped_ != nullptr) {
+    delete _impl_.wrapped_;
+  }
+  _impl_.wrapped_ = nullptr;
+}
+inline const ::Property::VectorPropertyValue& VectorPropertyRefValueProvider::_internal_wrapped() const {
+  const ::Property::VectorPropertyValue* p = _impl_.wrapped_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::VectorPropertyValue&>(
+      ::Property::_VectorPropertyValue_default_instance_);
+}
+inline const ::Property::VectorPropertyValue& VectorPropertyRefValueProvider::wrapped() const {
+  // @@protoc_insertion_point(field_get:Property.VectorPropertyRefValueProvider.wrapped)
+  return _internal_wrapped();
+}
+inline void VectorPropertyRefValueProvider::unsafe_arena_set_allocated_wrapped(
+    ::Property::VectorPropertyValue* wrapped) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_);
+  }
+  _impl_.wrapped_ = wrapped;
+  if (wrapped) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.VectorPropertyRefValueProvider.wrapped)
+}
+inline ::Property::VectorPropertyValue* VectorPropertyRefValueProvider::release_wrapped() {
+  
+  ::Property::VectorPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::VectorPropertyValue* VectorPropertyRefValueProvider::unsafe_arena_release_wrapped() {
+  // @@protoc_insertion_point(field_release:Property.VectorPropertyRefValueProvider.wrapped)
+  
+  ::Property::VectorPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+  return temp;
+}
+inline ::Property::VectorPropertyValue* VectorPropertyRefValueProvider::_internal_mutable_wrapped() {
+  
+  if (_impl_.wrapped_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::VectorPropertyValue>(GetArenaForAllocation());
+    _impl_.wrapped_ = p;
+  }
+  return _impl_.wrapped_;
+}
+inline ::Property::VectorPropertyValue* VectorPropertyRefValueProvider::mutable_wrapped() {
+  ::Property::VectorPropertyValue* _msg = _internal_mutable_wrapped();
+  // @@protoc_insertion_point(field_mutable:Property.VectorPropertyRefValueProvider.wrapped)
+  return _msg;
+}
+inline void VectorPropertyRefValueProvider::set_allocated_wrapped(::Property::VectorPropertyValue* wrapped) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.wrapped_;
+  }
+  if (wrapped) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(wrapped);
+    if (message_arena != submessage_arena) {
+      wrapped = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.wrapped_ = wrapped;
+  // @@protoc_insertion_point(field_set_allocated:Property.VectorPropertyRefValueProvider.wrapped)
+}
+
+// -------------------------------------------------------------------
+
 // VectorPropertyDeclaration
 
 // .Common.Float4 default = 2;
@@ -34957,6 +39629,80 @@ inline ::Property::ColorPropertyApproach* ColorPropertyValue::_internal_mutable_
 inline ::Property::ColorPropertyApproach* ColorPropertyValue::mutable_approach() {
   ::Property::ColorPropertyApproach* _msg = _internal_mutable_approach();
   // @@protoc_insertion_point(field_mutable:Property.ColorPropertyValue.approach)
+  return _msg;
+}
+
+// .Property.ColorPropertyRefValueProvider refProvider = 13;
+inline bool ColorPropertyValue::_internal_has_refprovider() const {
+  return ValueType_case() == kRefProvider;
+}
+inline bool ColorPropertyValue::has_refprovider() const {
+  return _internal_has_refprovider();
+}
+inline void ColorPropertyValue::set_has_refprovider() {
+  _impl_._oneof_case_[0] = kRefProvider;
+}
+inline void ColorPropertyValue::clear_refprovider() {
+  if (_internal_has_refprovider()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.refprovider_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::ColorPropertyRefValueProvider* ColorPropertyValue::release_refprovider() {
+  // @@protoc_insertion_point(field_release:Property.ColorPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::ColorPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::ColorPropertyRefValueProvider& ColorPropertyValue::_internal_refprovider() const {
+  return _internal_has_refprovider()
+      ? *_impl_.ValueType_.refprovider_
+      : reinterpret_cast< ::Property::ColorPropertyRefValueProvider&>(::Property::_ColorPropertyRefValueProvider_default_instance_);
+}
+inline const ::Property::ColorPropertyRefValueProvider& ColorPropertyValue::refprovider() const {
+  // @@protoc_insertion_point(field_get:Property.ColorPropertyValue.refProvider)
+  return _internal_refprovider();
+}
+inline ::Property::ColorPropertyRefValueProvider* ColorPropertyValue::unsafe_arena_release_refprovider() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.ColorPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::ColorPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ColorPropertyValue::unsafe_arena_set_allocated_refprovider(::Property::ColorPropertyRefValueProvider* refprovider) {
+  clear_ValueType();
+  if (refprovider) {
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = refprovider;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.ColorPropertyValue.refProvider)
+}
+inline ::Property::ColorPropertyRefValueProvider* ColorPropertyValue::_internal_mutable_refprovider() {
+  if (!_internal_has_refprovider()) {
+    clear_ValueType();
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = CreateMaybeMessage< ::Property::ColorPropertyRefValueProvider >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.refprovider_;
+}
+inline ::Property::ColorPropertyRefValueProvider* ColorPropertyValue::mutable_refprovider() {
+  ::Property::ColorPropertyRefValueProvider* _msg = _internal_mutable_refprovider();
+  // @@protoc_insertion_point(field_mutable:Property.ColorPropertyValue.refProvider)
   return _msg;
 }
 
@@ -36525,6 +41271,140 @@ inline void ColorPropertyApproach::set_allocated_start(::Property::ColorProperty
 
 // -------------------------------------------------------------------
 
+// ColorPropertyRefValueProvider
+
+// repeated .Property.PropertyRefProviderValue refs = 1;
+inline int ColorPropertyRefValueProvider::_internal_refs_size() const {
+  return _impl_.refs_.size();
+}
+inline int ColorPropertyRefValueProvider::refs_size() const {
+  return _internal_refs_size();
+}
+inline void ColorPropertyRefValueProvider::clear_refs() {
+  _impl_.refs_.Clear();
+}
+inline ::Property::PropertyRefProviderValue* ColorPropertyRefValueProvider::mutable_refs(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.ColorPropertyRefValueProvider.refs)
+  return _impl_.refs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+ColorPropertyRefValueProvider::mutable_refs() {
+  // @@protoc_insertion_point(field_mutable_list:Property.ColorPropertyRefValueProvider.refs)
+  return &_impl_.refs_;
+}
+inline const ::Property::PropertyRefProviderValue& ColorPropertyRefValueProvider::_internal_refs(int index) const {
+  return _impl_.refs_.Get(index);
+}
+inline const ::Property::PropertyRefProviderValue& ColorPropertyRefValueProvider::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Property.ColorPropertyRefValueProvider.refs)
+  return _internal_refs(index);
+}
+inline ::Property::PropertyRefProviderValue* ColorPropertyRefValueProvider::_internal_add_refs() {
+  return _impl_.refs_.Add();
+}
+inline ::Property::PropertyRefProviderValue* ColorPropertyRefValueProvider::add_refs() {
+  ::Property::PropertyRefProviderValue* _add = _internal_add_refs();
+  // @@protoc_insertion_point(field_add:Property.ColorPropertyRefValueProvider.refs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+ColorPropertyRefValueProvider::refs() const {
+  // @@protoc_insertion_point(field_list:Property.ColorPropertyRefValueProvider.refs)
+  return _impl_.refs_;
+}
+
+// .Property.ColorPropertyValue wrapped = 3;
+inline bool ColorPropertyRefValueProvider::_internal_has_wrapped() const {
+  return this != internal_default_instance() && _impl_.wrapped_ != nullptr;
+}
+inline bool ColorPropertyRefValueProvider::has_wrapped() const {
+  return _internal_has_wrapped();
+}
+inline void ColorPropertyRefValueProvider::clear_wrapped() {
+  if (GetArenaForAllocation() == nullptr && _impl_.wrapped_ != nullptr) {
+    delete _impl_.wrapped_;
+  }
+  _impl_.wrapped_ = nullptr;
+}
+inline const ::Property::ColorPropertyValue& ColorPropertyRefValueProvider::_internal_wrapped() const {
+  const ::Property::ColorPropertyValue* p = _impl_.wrapped_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::ColorPropertyValue&>(
+      ::Property::_ColorPropertyValue_default_instance_);
+}
+inline const ::Property::ColorPropertyValue& ColorPropertyRefValueProvider::wrapped() const {
+  // @@protoc_insertion_point(field_get:Property.ColorPropertyRefValueProvider.wrapped)
+  return _internal_wrapped();
+}
+inline void ColorPropertyRefValueProvider::unsafe_arena_set_allocated_wrapped(
+    ::Property::ColorPropertyValue* wrapped) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_);
+  }
+  _impl_.wrapped_ = wrapped;
+  if (wrapped) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.ColorPropertyRefValueProvider.wrapped)
+}
+inline ::Property::ColorPropertyValue* ColorPropertyRefValueProvider::release_wrapped() {
+  
+  ::Property::ColorPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::ColorPropertyValue* ColorPropertyRefValueProvider::unsafe_arena_release_wrapped() {
+  // @@protoc_insertion_point(field_release:Property.ColorPropertyRefValueProvider.wrapped)
+  
+  ::Property::ColorPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+  return temp;
+}
+inline ::Property::ColorPropertyValue* ColorPropertyRefValueProvider::_internal_mutable_wrapped() {
+  
+  if (_impl_.wrapped_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::ColorPropertyValue>(GetArenaForAllocation());
+    _impl_.wrapped_ = p;
+  }
+  return _impl_.wrapped_;
+}
+inline ::Property::ColorPropertyValue* ColorPropertyRefValueProvider::mutable_wrapped() {
+  ::Property::ColorPropertyValue* _msg = _internal_mutable_wrapped();
+  // @@protoc_insertion_point(field_mutable:Property.ColorPropertyRefValueProvider.wrapped)
+  return _msg;
+}
+inline void ColorPropertyRefValueProvider::set_allocated_wrapped(::Property::ColorPropertyValue* wrapped) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.wrapped_;
+  }
+  if (wrapped) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(wrapped);
+    if (message_arena != submessage_arena) {
+      wrapped = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.wrapped_ = wrapped;
+  // @@protoc_insertion_point(field_set_allocated:Property.ColorPropertyRefValueProvider.wrapped)
+}
+
+// -------------------------------------------------------------------
+
 // ColorPropertyDeclaration
 
 // .Common.Color4 default = 2;
@@ -37747,6 +42627,80 @@ inline ::Property::CustomGeneratorValue* BooleanPropertyValue::mutable_custom() 
   return _msg;
 }
 
+// .Property.BooleanPropertyRefValueProvider refProvider = 11;
+inline bool BooleanPropertyValue::_internal_has_refprovider() const {
+  return ValueType_case() == kRefProvider;
+}
+inline bool BooleanPropertyValue::has_refprovider() const {
+  return _internal_has_refprovider();
+}
+inline void BooleanPropertyValue::set_has_refprovider() {
+  _impl_._oneof_case_[0] = kRefProvider;
+}
+inline void BooleanPropertyValue::clear_refprovider() {
+  if (_internal_has_refprovider()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.refprovider_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::BooleanPropertyRefValueProvider* BooleanPropertyValue::release_refprovider() {
+  // @@protoc_insertion_point(field_release:Property.BooleanPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::BooleanPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::BooleanPropertyRefValueProvider& BooleanPropertyValue::_internal_refprovider() const {
+  return _internal_has_refprovider()
+      ? *_impl_.ValueType_.refprovider_
+      : reinterpret_cast< ::Property::BooleanPropertyRefValueProvider&>(::Property::_BooleanPropertyRefValueProvider_default_instance_);
+}
+inline const ::Property::BooleanPropertyRefValueProvider& BooleanPropertyValue::refprovider() const {
+  // @@protoc_insertion_point(field_get:Property.BooleanPropertyValue.refProvider)
+  return _internal_refprovider();
+}
+inline ::Property::BooleanPropertyRefValueProvider* BooleanPropertyValue::unsafe_arena_release_refprovider() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.BooleanPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::BooleanPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void BooleanPropertyValue::unsafe_arena_set_allocated_refprovider(::Property::BooleanPropertyRefValueProvider* refprovider) {
+  clear_ValueType();
+  if (refprovider) {
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = refprovider;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.BooleanPropertyValue.refProvider)
+}
+inline ::Property::BooleanPropertyRefValueProvider* BooleanPropertyValue::_internal_mutable_refprovider() {
+  if (!_internal_has_refprovider()) {
+    clear_ValueType();
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = CreateMaybeMessage< ::Property::BooleanPropertyRefValueProvider >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.refprovider_;
+}
+inline ::Property::BooleanPropertyRefValueProvider* BooleanPropertyValue::mutable_refprovider() {
+  ::Property::BooleanPropertyRefValueProvider* _msg = _internal_mutable_refprovider();
+  // @@protoc_insertion_point(field_mutable:Property.BooleanPropertyValue.refProvider)
+  return _msg;
+}
+
 inline bool BooleanPropertyValue::has_ValueType() const {
   return ValueType_case() != VALUETYPE_NOT_SET;
 }
@@ -38226,6 +43180,140 @@ inline void BooleanPropertyScalarComparison::set_allocated_b(::Property::ScalarP
   }
   _impl_.b_ = b;
   // @@protoc_insertion_point(field_set_allocated:Property.BooleanPropertyScalarComparison.b)
+}
+
+// -------------------------------------------------------------------
+
+// BooleanPropertyRefValueProvider
+
+// repeated .Property.PropertyRefProviderValue refs = 1;
+inline int BooleanPropertyRefValueProvider::_internal_refs_size() const {
+  return _impl_.refs_.size();
+}
+inline int BooleanPropertyRefValueProvider::refs_size() const {
+  return _internal_refs_size();
+}
+inline void BooleanPropertyRefValueProvider::clear_refs() {
+  _impl_.refs_.Clear();
+}
+inline ::Property::PropertyRefProviderValue* BooleanPropertyRefValueProvider::mutable_refs(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.BooleanPropertyRefValueProvider.refs)
+  return _impl_.refs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+BooleanPropertyRefValueProvider::mutable_refs() {
+  // @@protoc_insertion_point(field_mutable_list:Property.BooleanPropertyRefValueProvider.refs)
+  return &_impl_.refs_;
+}
+inline const ::Property::PropertyRefProviderValue& BooleanPropertyRefValueProvider::_internal_refs(int index) const {
+  return _impl_.refs_.Get(index);
+}
+inline const ::Property::PropertyRefProviderValue& BooleanPropertyRefValueProvider::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Property.BooleanPropertyRefValueProvider.refs)
+  return _internal_refs(index);
+}
+inline ::Property::PropertyRefProviderValue* BooleanPropertyRefValueProvider::_internal_add_refs() {
+  return _impl_.refs_.Add();
+}
+inline ::Property::PropertyRefProviderValue* BooleanPropertyRefValueProvider::add_refs() {
+  ::Property::PropertyRefProviderValue* _add = _internal_add_refs();
+  // @@protoc_insertion_point(field_add:Property.BooleanPropertyRefValueProvider.refs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+BooleanPropertyRefValueProvider::refs() const {
+  // @@protoc_insertion_point(field_list:Property.BooleanPropertyRefValueProvider.refs)
+  return _impl_.refs_;
+}
+
+// .Property.BooleanPropertyValue wrapped = 3;
+inline bool BooleanPropertyRefValueProvider::_internal_has_wrapped() const {
+  return this != internal_default_instance() && _impl_.wrapped_ != nullptr;
+}
+inline bool BooleanPropertyRefValueProvider::has_wrapped() const {
+  return _internal_has_wrapped();
+}
+inline void BooleanPropertyRefValueProvider::clear_wrapped() {
+  if (GetArenaForAllocation() == nullptr && _impl_.wrapped_ != nullptr) {
+    delete _impl_.wrapped_;
+  }
+  _impl_.wrapped_ = nullptr;
+}
+inline const ::Property::BooleanPropertyValue& BooleanPropertyRefValueProvider::_internal_wrapped() const {
+  const ::Property::BooleanPropertyValue* p = _impl_.wrapped_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::BooleanPropertyValue&>(
+      ::Property::_BooleanPropertyValue_default_instance_);
+}
+inline const ::Property::BooleanPropertyValue& BooleanPropertyRefValueProvider::wrapped() const {
+  // @@protoc_insertion_point(field_get:Property.BooleanPropertyRefValueProvider.wrapped)
+  return _internal_wrapped();
+}
+inline void BooleanPropertyRefValueProvider::unsafe_arena_set_allocated_wrapped(
+    ::Property::BooleanPropertyValue* wrapped) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_);
+  }
+  _impl_.wrapped_ = wrapped;
+  if (wrapped) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.BooleanPropertyRefValueProvider.wrapped)
+}
+inline ::Property::BooleanPropertyValue* BooleanPropertyRefValueProvider::release_wrapped() {
+  
+  ::Property::BooleanPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::BooleanPropertyValue* BooleanPropertyRefValueProvider::unsafe_arena_release_wrapped() {
+  // @@protoc_insertion_point(field_release:Property.BooleanPropertyRefValueProvider.wrapped)
+  
+  ::Property::BooleanPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+  return temp;
+}
+inline ::Property::BooleanPropertyValue* BooleanPropertyRefValueProvider::_internal_mutable_wrapped() {
+  
+  if (_impl_.wrapped_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::BooleanPropertyValue>(GetArenaForAllocation());
+    _impl_.wrapped_ = p;
+  }
+  return _impl_.wrapped_;
+}
+inline ::Property::BooleanPropertyValue* BooleanPropertyRefValueProvider::mutable_wrapped() {
+  ::Property::BooleanPropertyValue* _msg = _internal_mutable_wrapped();
+  // @@protoc_insertion_point(field_mutable:Property.BooleanPropertyRefValueProvider.wrapped)
+  return _msg;
+}
+inline void BooleanPropertyRefValueProvider::set_allocated_wrapped(::Property::BooleanPropertyValue* wrapped) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.wrapped_;
+  }
+  if (wrapped) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(wrapped);
+    if (message_arena != submessage_arena) {
+      wrapped = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.wrapped_ = wrapped;
+  // @@protoc_insertion_point(field_set_allocated:Property.BooleanPropertyRefValueProvider.wrapped)
 }
 
 // -------------------------------------------------------------------
@@ -39148,6 +44236,80 @@ inline void JsonPropertyValue::set_usedefault(bool value) {
   // @@protoc_insertion_point(field_set:Property.JsonPropertyValue.useDefault)
 }
 
+// .Property.JsonPropertyKeyframed keyframes = 5;
+inline bool JsonPropertyValue::_internal_has_keyframes() const {
+  return ValueType_case() == kKeyframes;
+}
+inline bool JsonPropertyValue::has_keyframes() const {
+  return _internal_has_keyframes();
+}
+inline void JsonPropertyValue::set_has_keyframes() {
+  _impl_._oneof_case_[0] = kKeyframes;
+}
+inline void JsonPropertyValue::clear_keyframes() {
+  if (_internal_has_keyframes()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.keyframes_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::JsonPropertyKeyframed* JsonPropertyValue::release_keyframes() {
+  // @@protoc_insertion_point(field_release:Property.JsonPropertyValue.keyframes)
+  if (_internal_has_keyframes()) {
+    clear_has_ValueType();
+    ::Property::JsonPropertyKeyframed* temp = _impl_.ValueType_.keyframes_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.keyframes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::JsonPropertyKeyframed& JsonPropertyValue::_internal_keyframes() const {
+  return _internal_has_keyframes()
+      ? *_impl_.ValueType_.keyframes_
+      : reinterpret_cast< ::Property::JsonPropertyKeyframed&>(::Property::_JsonPropertyKeyframed_default_instance_);
+}
+inline const ::Property::JsonPropertyKeyframed& JsonPropertyValue::keyframes() const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyValue.keyframes)
+  return _internal_keyframes();
+}
+inline ::Property::JsonPropertyKeyframed* JsonPropertyValue::unsafe_arena_release_keyframes() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.JsonPropertyValue.keyframes)
+  if (_internal_has_keyframes()) {
+    clear_has_ValueType();
+    ::Property::JsonPropertyKeyframed* temp = _impl_.ValueType_.keyframes_;
+    _impl_.ValueType_.keyframes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void JsonPropertyValue::unsafe_arena_set_allocated_keyframes(::Property::JsonPropertyKeyframed* keyframes) {
+  clear_ValueType();
+  if (keyframes) {
+    set_has_keyframes();
+    _impl_.ValueType_.keyframes_ = keyframes;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.JsonPropertyValue.keyframes)
+}
+inline ::Property::JsonPropertyKeyframed* JsonPropertyValue::_internal_mutable_keyframes() {
+  if (!_internal_has_keyframes()) {
+    clear_ValueType();
+    set_has_keyframes();
+    _impl_.ValueType_.keyframes_ = CreateMaybeMessage< ::Property::JsonPropertyKeyframed >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.keyframes_;
+}
+inline ::Property::JsonPropertyKeyframed* JsonPropertyValue::mutable_keyframes() {
+  ::Property::JsonPropertyKeyframed* _msg = _internal_mutable_keyframes();
+  // @@protoc_insertion_point(field_mutable:Property.JsonPropertyValue.keyframes)
+  return _msg;
+}
+
 // .Property.CustomGeneratorValue custom = 10;
 inline bool JsonPropertyValue::_internal_has_custom() const {
   return ValueType_case() == kCustom;
@@ -39222,6 +44384,80 @@ inline ::Property::CustomGeneratorValue* JsonPropertyValue::mutable_custom() {
   return _msg;
 }
 
+// .Property.JsonPropertyRefValueProvider refProvider = 11;
+inline bool JsonPropertyValue::_internal_has_refprovider() const {
+  return ValueType_case() == kRefProvider;
+}
+inline bool JsonPropertyValue::has_refprovider() const {
+  return _internal_has_refprovider();
+}
+inline void JsonPropertyValue::set_has_refprovider() {
+  _impl_._oneof_case_[0] = kRefProvider;
+}
+inline void JsonPropertyValue::clear_refprovider() {
+  if (_internal_has_refprovider()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ValueType_.refprovider_;
+    }
+    clear_has_ValueType();
+  }
+}
+inline ::Property::JsonPropertyRefValueProvider* JsonPropertyValue::release_refprovider() {
+  // @@protoc_insertion_point(field_release:Property.JsonPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::JsonPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::JsonPropertyRefValueProvider& JsonPropertyValue::_internal_refprovider() const {
+  return _internal_has_refprovider()
+      ? *_impl_.ValueType_.refprovider_
+      : reinterpret_cast< ::Property::JsonPropertyRefValueProvider&>(::Property::_JsonPropertyRefValueProvider_default_instance_);
+}
+inline const ::Property::JsonPropertyRefValueProvider& JsonPropertyValue::refprovider() const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyValue.refProvider)
+  return _internal_refprovider();
+}
+inline ::Property::JsonPropertyRefValueProvider* JsonPropertyValue::unsafe_arena_release_refprovider() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.JsonPropertyValue.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_ValueType();
+    ::Property::JsonPropertyRefValueProvider* temp = _impl_.ValueType_.refprovider_;
+    _impl_.ValueType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void JsonPropertyValue::unsafe_arena_set_allocated_refprovider(::Property::JsonPropertyRefValueProvider* refprovider) {
+  clear_ValueType();
+  if (refprovider) {
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = refprovider;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.JsonPropertyValue.refProvider)
+}
+inline ::Property::JsonPropertyRefValueProvider* JsonPropertyValue::_internal_mutable_refprovider() {
+  if (!_internal_has_refprovider()) {
+    clear_ValueType();
+    set_has_refprovider();
+    _impl_.ValueType_.refprovider_ = CreateMaybeMessage< ::Property::JsonPropertyRefValueProvider >(GetArenaForAllocation());
+  }
+  return _impl_.ValueType_.refprovider_;
+}
+inline ::Property::JsonPropertyRefValueProvider* JsonPropertyValue::mutable_refprovider() {
+  ::Property::JsonPropertyRefValueProvider* _msg = _internal_mutable_refprovider();
+  // @@protoc_insertion_point(field_mutable:Property.JsonPropertyValue.refProvider)
+  return _msg;
+}
+
 inline bool JsonPropertyValue::has_ValueType() const {
   return ValueType_case() != VALUETYPE_NOT_SET;
 }
@@ -39231,6 +44467,408 @@ inline void JsonPropertyValue::clear_has_ValueType() {
 inline JsonPropertyValue::ValueTypeCase JsonPropertyValue::ValueType_case() const {
   return JsonPropertyValue::ValueTypeCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// JsonPropertyKeyframed_JsonKeyframe
+
+// float t = 1;
+inline void JsonPropertyKeyframed_JsonKeyframe::clear_t() {
+  _impl_.t_ = 0;
+}
+inline float JsonPropertyKeyframed_JsonKeyframe::_internal_t() const {
+  return _impl_.t_;
+}
+inline float JsonPropertyKeyframed_JsonKeyframe::t() const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyKeyframed.JsonKeyframe.t)
+  return _internal_t();
+}
+inline void JsonPropertyKeyframed_JsonKeyframe::_internal_set_t(float value) {
+  
+  _impl_.t_ = value;
+}
+inline void JsonPropertyKeyframed_JsonKeyframe::set_t(float value) {
+  _internal_set_t(value);
+  // @@protoc_insertion_point(field_set:Property.JsonPropertyKeyframed.JsonKeyframe.t)
+}
+
+// .Property.JsonPropertyValue val = 2;
+inline bool JsonPropertyKeyframed_JsonKeyframe::_internal_has_val() const {
+  return this != internal_default_instance() && _impl_.val_ != nullptr;
+}
+inline bool JsonPropertyKeyframed_JsonKeyframe::has_val() const {
+  return _internal_has_val();
+}
+inline void JsonPropertyKeyframed_JsonKeyframe::clear_val() {
+  if (GetArenaForAllocation() == nullptr && _impl_.val_ != nullptr) {
+    delete _impl_.val_;
+  }
+  _impl_.val_ = nullptr;
+}
+inline const ::Property::JsonPropertyValue& JsonPropertyKeyframed_JsonKeyframe::_internal_val() const {
+  const ::Property::JsonPropertyValue* p = _impl_.val_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::JsonPropertyValue&>(
+      ::Property::_JsonPropertyValue_default_instance_);
+}
+inline const ::Property::JsonPropertyValue& JsonPropertyKeyframed_JsonKeyframe::val() const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyKeyframed.JsonKeyframe.val)
+  return _internal_val();
+}
+inline void JsonPropertyKeyframed_JsonKeyframe::unsafe_arena_set_allocated_val(
+    ::Property::JsonPropertyValue* val) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.val_);
+  }
+  _impl_.val_ = val;
+  if (val) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.JsonPropertyKeyframed.JsonKeyframe.val)
+}
+inline ::Property::JsonPropertyValue* JsonPropertyKeyframed_JsonKeyframe::release_val() {
+  
+  ::Property::JsonPropertyValue* temp = _impl_.val_;
+  _impl_.val_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::JsonPropertyValue* JsonPropertyKeyframed_JsonKeyframe::unsafe_arena_release_val() {
+  // @@protoc_insertion_point(field_release:Property.JsonPropertyKeyframed.JsonKeyframe.val)
+  
+  ::Property::JsonPropertyValue* temp = _impl_.val_;
+  _impl_.val_ = nullptr;
+  return temp;
+}
+inline ::Property::JsonPropertyValue* JsonPropertyKeyframed_JsonKeyframe::_internal_mutable_val() {
+  
+  if (_impl_.val_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::JsonPropertyValue>(GetArenaForAllocation());
+    _impl_.val_ = p;
+  }
+  return _impl_.val_;
+}
+inline ::Property::JsonPropertyValue* JsonPropertyKeyframed_JsonKeyframe::mutable_val() {
+  ::Property::JsonPropertyValue* _msg = _internal_mutable_val();
+  // @@protoc_insertion_point(field_mutable:Property.JsonPropertyKeyframed.JsonKeyframe.val)
+  return _msg;
+}
+inline void JsonPropertyKeyframed_JsonKeyframe::set_allocated_val(::Property::JsonPropertyValue* val) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.val_;
+  }
+  if (val) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(val);
+    if (message_arena != submessage_arena) {
+      val = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, val, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.val_ = val;
+  // @@protoc_insertion_point(field_set_allocated:Property.JsonPropertyKeyframed.JsonKeyframe.val)
+}
+
+// -------------------------------------------------------------------
+
+// JsonPropertyKeyframed
+
+// optional .Property.ScalarPropertyValue tSrc = 8;
+inline bool JsonPropertyKeyframed::_internal_has_tsrc() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.tsrc_ != nullptr);
+  return value;
+}
+inline bool JsonPropertyKeyframed::has_tsrc() const {
+  return _internal_has_tsrc();
+}
+inline void JsonPropertyKeyframed::clear_tsrc() {
+  if (_impl_.tsrc_ != nullptr) _impl_.tsrc_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::Property::ScalarPropertyValue& JsonPropertyKeyframed::_internal_tsrc() const {
+  const ::Property::ScalarPropertyValue* p = _impl_.tsrc_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::ScalarPropertyValue&>(
+      ::Property::_ScalarPropertyValue_default_instance_);
+}
+inline const ::Property::ScalarPropertyValue& JsonPropertyKeyframed::tsrc() const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyKeyframed.tSrc)
+  return _internal_tsrc();
+}
+inline void JsonPropertyKeyframed::unsafe_arena_set_allocated_tsrc(
+    ::Property::ScalarPropertyValue* tsrc) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.tsrc_);
+  }
+  _impl_.tsrc_ = tsrc;
+  if (tsrc) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.JsonPropertyKeyframed.tSrc)
+}
+inline ::Property::ScalarPropertyValue* JsonPropertyKeyframed::release_tsrc() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Property::ScalarPropertyValue* temp = _impl_.tsrc_;
+  _impl_.tsrc_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::ScalarPropertyValue* JsonPropertyKeyframed::unsafe_arena_release_tsrc() {
+  // @@protoc_insertion_point(field_release:Property.JsonPropertyKeyframed.tSrc)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Property::ScalarPropertyValue* temp = _impl_.tsrc_;
+  _impl_.tsrc_ = nullptr;
+  return temp;
+}
+inline ::Property::ScalarPropertyValue* JsonPropertyKeyframed::_internal_mutable_tsrc() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.tsrc_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::ScalarPropertyValue>(GetArenaForAllocation());
+    _impl_.tsrc_ = p;
+  }
+  return _impl_.tsrc_;
+}
+inline ::Property::ScalarPropertyValue* JsonPropertyKeyframed::mutable_tsrc() {
+  ::Property::ScalarPropertyValue* _msg = _internal_mutable_tsrc();
+  // @@protoc_insertion_point(field_mutable:Property.JsonPropertyKeyframed.tSrc)
+  return _msg;
+}
+inline void JsonPropertyKeyframed::set_allocated_tsrc(::Property::ScalarPropertyValue* tsrc) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.tsrc_;
+  }
+  if (tsrc) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(tsrc);
+    if (message_arena != submessage_arena) {
+      tsrc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, tsrc, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.tsrc_ = tsrc;
+  // @@protoc_insertion_point(field_set_allocated:Property.JsonPropertyKeyframed.tSrc)
+}
+
+// repeated .Property.JsonPropertyKeyframed.JsonKeyframe keys = 10;
+inline int JsonPropertyKeyframed::_internal_keys_size() const {
+  return _impl_.keys_.size();
+}
+inline int JsonPropertyKeyframed::keys_size() const {
+  return _internal_keys_size();
+}
+inline void JsonPropertyKeyframed::clear_keys() {
+  _impl_.keys_.Clear();
+}
+inline ::Property::JsonPropertyKeyframed_JsonKeyframe* JsonPropertyKeyframed::mutable_keys(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.JsonPropertyKeyframed.keys)
+  return _impl_.keys_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::JsonPropertyKeyframed_JsonKeyframe >*
+JsonPropertyKeyframed::mutable_keys() {
+  // @@protoc_insertion_point(field_mutable_list:Property.JsonPropertyKeyframed.keys)
+  return &_impl_.keys_;
+}
+inline const ::Property::JsonPropertyKeyframed_JsonKeyframe& JsonPropertyKeyframed::_internal_keys(int index) const {
+  return _impl_.keys_.Get(index);
+}
+inline const ::Property::JsonPropertyKeyframed_JsonKeyframe& JsonPropertyKeyframed::keys(int index) const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyKeyframed.keys)
+  return _internal_keys(index);
+}
+inline ::Property::JsonPropertyKeyframed_JsonKeyframe* JsonPropertyKeyframed::_internal_add_keys() {
+  return _impl_.keys_.Add();
+}
+inline ::Property::JsonPropertyKeyframed_JsonKeyframe* JsonPropertyKeyframed::add_keys() {
+  ::Property::JsonPropertyKeyframed_JsonKeyframe* _add = _internal_add_keys();
+  // @@protoc_insertion_point(field_add:Property.JsonPropertyKeyframed.keys)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::JsonPropertyKeyframed_JsonKeyframe >&
+JsonPropertyKeyframed::keys() const {
+  // @@protoc_insertion_point(field_list:Property.JsonPropertyKeyframed.keys)
+  return _impl_.keys_;
+}
+
+// .Property.KeyframeLoopingEnum looping = 11;
+inline void JsonPropertyKeyframed::clear_looping() {
+  _impl_.looping_ = 0;
+}
+inline ::Property::KeyframeLoopingEnum JsonPropertyKeyframed::_internal_looping() const {
+  return static_cast< ::Property::KeyframeLoopingEnum >(_impl_.looping_);
+}
+inline ::Property::KeyframeLoopingEnum JsonPropertyKeyframed::looping() const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyKeyframed.looping)
+  return _internal_looping();
+}
+inline void JsonPropertyKeyframed::_internal_set_looping(::Property::KeyframeLoopingEnum value) {
+  
+  _impl_.looping_ = value;
+}
+inline void JsonPropertyKeyframed::set_looping(::Property::KeyframeLoopingEnum value) {
+  _internal_set_looping(value);
+  // @@protoc_insertion_point(field_set:Property.JsonPropertyKeyframed.looping)
+}
+
+// -------------------------------------------------------------------
+
+// JsonPropertyRefValueProvider
+
+// repeated .Property.PropertyRefProviderValue refs = 1;
+inline int JsonPropertyRefValueProvider::_internal_refs_size() const {
+  return _impl_.refs_.size();
+}
+inline int JsonPropertyRefValueProvider::refs_size() const {
+  return _internal_refs_size();
+}
+inline void JsonPropertyRefValueProvider::clear_refs() {
+  _impl_.refs_.Clear();
+}
+inline ::Property::PropertyRefProviderValue* JsonPropertyRefValueProvider::mutable_refs(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.JsonPropertyRefValueProvider.refs)
+  return _impl_.refs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+JsonPropertyRefValueProvider::mutable_refs() {
+  // @@protoc_insertion_point(field_mutable_list:Property.JsonPropertyRefValueProvider.refs)
+  return &_impl_.refs_;
+}
+inline const ::Property::PropertyRefProviderValue& JsonPropertyRefValueProvider::_internal_refs(int index) const {
+  return _impl_.refs_.Get(index);
+}
+inline const ::Property::PropertyRefProviderValue& JsonPropertyRefValueProvider::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyRefValueProvider.refs)
+  return _internal_refs(index);
+}
+inline ::Property::PropertyRefProviderValue* JsonPropertyRefValueProvider::_internal_add_refs() {
+  return _impl_.refs_.Add();
+}
+inline ::Property::PropertyRefProviderValue* JsonPropertyRefValueProvider::add_refs() {
+  ::Property::PropertyRefProviderValue* _add = _internal_add_refs();
+  // @@protoc_insertion_point(field_add:Property.JsonPropertyRefValueProvider.refs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+JsonPropertyRefValueProvider::refs() const {
+  // @@protoc_insertion_point(field_list:Property.JsonPropertyRefValueProvider.refs)
+  return _impl_.refs_;
+}
+
+// .Property.JsonPropertyValue wrapped = 3;
+inline bool JsonPropertyRefValueProvider::_internal_has_wrapped() const {
+  return this != internal_default_instance() && _impl_.wrapped_ != nullptr;
+}
+inline bool JsonPropertyRefValueProvider::has_wrapped() const {
+  return _internal_has_wrapped();
+}
+inline void JsonPropertyRefValueProvider::clear_wrapped() {
+  if (GetArenaForAllocation() == nullptr && _impl_.wrapped_ != nullptr) {
+    delete _impl_.wrapped_;
+  }
+  _impl_.wrapped_ = nullptr;
+}
+inline const ::Property::JsonPropertyValue& JsonPropertyRefValueProvider::_internal_wrapped() const {
+  const ::Property::JsonPropertyValue* p = _impl_.wrapped_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::JsonPropertyValue&>(
+      ::Property::_JsonPropertyValue_default_instance_);
+}
+inline const ::Property::JsonPropertyValue& JsonPropertyRefValueProvider::wrapped() const {
+  // @@protoc_insertion_point(field_get:Property.JsonPropertyRefValueProvider.wrapped)
+  return _internal_wrapped();
+}
+inline void JsonPropertyRefValueProvider::unsafe_arena_set_allocated_wrapped(
+    ::Property::JsonPropertyValue* wrapped) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_);
+  }
+  _impl_.wrapped_ = wrapped;
+  if (wrapped) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.JsonPropertyRefValueProvider.wrapped)
+}
+inline ::Property::JsonPropertyValue* JsonPropertyRefValueProvider::release_wrapped() {
+  
+  ::Property::JsonPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::JsonPropertyValue* JsonPropertyRefValueProvider::unsafe_arena_release_wrapped() {
+  // @@protoc_insertion_point(field_release:Property.JsonPropertyRefValueProvider.wrapped)
+  
+  ::Property::JsonPropertyValue* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+  return temp;
+}
+inline ::Property::JsonPropertyValue* JsonPropertyRefValueProvider::_internal_mutable_wrapped() {
+  
+  if (_impl_.wrapped_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::JsonPropertyValue>(GetArenaForAllocation());
+    _impl_.wrapped_ = p;
+  }
+  return _impl_.wrapped_;
+}
+inline ::Property::JsonPropertyValue* JsonPropertyRefValueProvider::mutable_wrapped() {
+  ::Property::JsonPropertyValue* _msg = _internal_mutable_wrapped();
+  // @@protoc_insertion_point(field_mutable:Property.JsonPropertyRefValueProvider.wrapped)
+  return _msg;
+}
+inline void JsonPropertyRefValueProvider::set_allocated_wrapped(::Property::JsonPropertyValue* wrapped) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.wrapped_;
+  }
+  if (wrapped) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(wrapped);
+    if (message_arena != submessage_arena) {
+      wrapped = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.wrapped_ = wrapped;
+  // @@protoc_insertion_point(field_set_allocated:Property.JsonPropertyRefValueProvider.wrapped)
+}
+
 // -------------------------------------------------------------------
 
 // JsonPropertyDeclaration
@@ -40641,6 +46279,80 @@ inline ::Property::TransformSetApproach* TransformSet::_internal_mutable_approac
 inline ::Property::TransformSetApproach* TransformSet::mutable_approach() {
   ::Property::TransformSetApproach* _msg = _internal_mutable_approach();
   // @@protoc_insertion_point(field_mutable:Property.TransformSet.approach)
+  return _msg;
+}
+
+// .Property.TransformSetRefValueProvider refProvider = 15;
+inline bool TransformSet::_internal_has_refprovider() const {
+  return SetType_case() == kRefProvider;
+}
+inline bool TransformSet::has_refprovider() const {
+  return _internal_has_refprovider();
+}
+inline void TransformSet::set_has_refprovider() {
+  _impl_._oneof_case_[0] = kRefProvider;
+}
+inline void TransformSet::clear_refprovider() {
+  if (_internal_has_refprovider()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.SetType_.refprovider_;
+    }
+    clear_has_SetType();
+  }
+}
+inline ::Property::TransformSetRefValueProvider* TransformSet::release_refprovider() {
+  // @@protoc_insertion_point(field_release:Property.TransformSet.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_SetType();
+    ::Property::TransformSetRefValueProvider* temp = _impl_.SetType_.refprovider_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.SetType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Property::TransformSetRefValueProvider& TransformSet::_internal_refprovider() const {
+  return _internal_has_refprovider()
+      ? *_impl_.SetType_.refprovider_
+      : reinterpret_cast< ::Property::TransformSetRefValueProvider&>(::Property::_TransformSetRefValueProvider_default_instance_);
+}
+inline const ::Property::TransformSetRefValueProvider& TransformSet::refprovider() const {
+  // @@protoc_insertion_point(field_get:Property.TransformSet.refProvider)
+  return _internal_refprovider();
+}
+inline ::Property::TransformSetRefValueProvider* TransformSet::unsafe_arena_release_refprovider() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Property.TransformSet.refProvider)
+  if (_internal_has_refprovider()) {
+    clear_has_SetType();
+    ::Property::TransformSetRefValueProvider* temp = _impl_.SetType_.refprovider_;
+    _impl_.SetType_.refprovider_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void TransformSet::unsafe_arena_set_allocated_refprovider(::Property::TransformSetRefValueProvider* refprovider) {
+  clear_SetType();
+  if (refprovider) {
+    set_has_refprovider();
+    _impl_.SetType_.refprovider_ = refprovider;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.TransformSet.refProvider)
+}
+inline ::Property::TransformSetRefValueProvider* TransformSet::_internal_mutable_refprovider() {
+  if (!_internal_has_refprovider()) {
+    clear_SetType();
+    set_has_refprovider();
+    _impl_.SetType_.refprovider_ = CreateMaybeMessage< ::Property::TransformSetRefValueProvider >(GetArenaForAllocation());
+  }
+  return _impl_.SetType_.refprovider_;
+}
+inline ::Property::TransformSetRefValueProvider* TransformSet::mutable_refprovider() {
+  ::Property::TransformSetRefValueProvider* _msg = _internal_mutable_refprovider();
+  // @@protoc_insertion_point(field_mutable:Property.TransformSet.refProvider)
   return _msg;
 }
 
@@ -43203,6 +48915,140 @@ inline void TransformSetConditional::set_allocated_falsevalue(::Property::Transf
   }
   _impl_.falsevalue_ = falsevalue;
   // @@protoc_insertion_point(field_set_allocated:Property.TransformSetConditional.falseValue)
+}
+
+// -------------------------------------------------------------------
+
+// TransformSetRefValueProvider
+
+// repeated .Property.PropertyRefProviderValue refs = 1;
+inline int TransformSetRefValueProvider::_internal_refs_size() const {
+  return _impl_.refs_.size();
+}
+inline int TransformSetRefValueProvider::refs_size() const {
+  return _internal_refs_size();
+}
+inline void TransformSetRefValueProvider::clear_refs() {
+  _impl_.refs_.Clear();
+}
+inline ::Property::PropertyRefProviderValue* TransformSetRefValueProvider::mutable_refs(int index) {
+  // @@protoc_insertion_point(field_mutable:Property.TransformSetRefValueProvider.refs)
+  return _impl_.refs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >*
+TransformSetRefValueProvider::mutable_refs() {
+  // @@protoc_insertion_point(field_mutable_list:Property.TransformSetRefValueProvider.refs)
+  return &_impl_.refs_;
+}
+inline const ::Property::PropertyRefProviderValue& TransformSetRefValueProvider::_internal_refs(int index) const {
+  return _impl_.refs_.Get(index);
+}
+inline const ::Property::PropertyRefProviderValue& TransformSetRefValueProvider::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Property.TransformSetRefValueProvider.refs)
+  return _internal_refs(index);
+}
+inline ::Property::PropertyRefProviderValue* TransformSetRefValueProvider::_internal_add_refs() {
+  return _impl_.refs_.Add();
+}
+inline ::Property::PropertyRefProviderValue* TransformSetRefValueProvider::add_refs() {
+  ::Property::PropertyRefProviderValue* _add = _internal_add_refs();
+  // @@protoc_insertion_point(field_add:Property.TransformSetRefValueProvider.refs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Property::PropertyRefProviderValue >&
+TransformSetRefValueProvider::refs() const {
+  // @@protoc_insertion_point(field_list:Property.TransformSetRefValueProvider.refs)
+  return _impl_.refs_;
+}
+
+// .Property.TransformSet wrapped = 3;
+inline bool TransformSetRefValueProvider::_internal_has_wrapped() const {
+  return this != internal_default_instance() && _impl_.wrapped_ != nullptr;
+}
+inline bool TransformSetRefValueProvider::has_wrapped() const {
+  return _internal_has_wrapped();
+}
+inline void TransformSetRefValueProvider::clear_wrapped() {
+  if (GetArenaForAllocation() == nullptr && _impl_.wrapped_ != nullptr) {
+    delete _impl_.wrapped_;
+  }
+  _impl_.wrapped_ = nullptr;
+}
+inline const ::Property::TransformSet& TransformSetRefValueProvider::_internal_wrapped() const {
+  const ::Property::TransformSet* p = _impl_.wrapped_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Property::TransformSet&>(
+      ::Property::_TransformSet_default_instance_);
+}
+inline const ::Property::TransformSet& TransformSetRefValueProvider::wrapped() const {
+  // @@protoc_insertion_point(field_get:Property.TransformSetRefValueProvider.wrapped)
+  return _internal_wrapped();
+}
+inline void TransformSetRefValueProvider::unsafe_arena_set_allocated_wrapped(
+    ::Property::TransformSet* wrapped) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_);
+  }
+  _impl_.wrapped_ = wrapped;
+  if (wrapped) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Property.TransformSetRefValueProvider.wrapped)
+}
+inline ::Property::TransformSet* TransformSetRefValueProvider::release_wrapped() {
+  
+  ::Property::TransformSet* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::Property::TransformSet* TransformSetRefValueProvider::unsafe_arena_release_wrapped() {
+  // @@protoc_insertion_point(field_release:Property.TransformSetRefValueProvider.wrapped)
+  
+  ::Property::TransformSet* temp = _impl_.wrapped_;
+  _impl_.wrapped_ = nullptr;
+  return temp;
+}
+inline ::Property::TransformSet* TransformSetRefValueProvider::_internal_mutable_wrapped() {
+  
+  if (_impl_.wrapped_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Property::TransformSet>(GetArenaForAllocation());
+    _impl_.wrapped_ = p;
+  }
+  return _impl_.wrapped_;
+}
+inline ::Property::TransformSet* TransformSetRefValueProvider::mutable_wrapped() {
+  ::Property::TransformSet* _msg = _internal_mutable_wrapped();
+  // @@protoc_insertion_point(field_mutable:Property.TransformSetRefValueProvider.wrapped)
+  return _msg;
+}
+inline void TransformSetRefValueProvider::set_allocated_wrapped(::Property::TransformSet* wrapped) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.wrapped_;
+  }
+  if (wrapped) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(wrapped);
+    if (message_arena != submessage_arena) {
+      wrapped = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.wrapped_ = wrapped;
+  // @@protoc_insertion_point(field_set_allocated:Property.TransformSetRefValueProvider.wrapped)
 }
 
 // -------------------------------------------------------------------
@@ -47962,6 +53808,36 @@ CustomGeneratorValue::subgens() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

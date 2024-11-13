@@ -1,4 +1,4 @@
-// // Copyright (c), Cavrnus. All rights reserved.
+// Copyright (c), Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -6,9 +6,6 @@
 #include "UI/CavrnusBaseUserWidget.h"
 #include "MinimalSidebarButton.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class CAVRNUSCONNECTOR_API UMinimalSidebarButton : public UCavrnusBaseUserWidget
 {

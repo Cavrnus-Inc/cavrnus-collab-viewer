@@ -1,4 +1,5 @@
 // Copyright(c) Cavrnus. All rights reserved.
+
 /**
  * @file CavrnusLiveBoolPropertyUpdate.h
  * @brief This file defines the UCavrnusLiveBoolPropertyUpdate class used for handling live boolean property updates in Cavrnus.

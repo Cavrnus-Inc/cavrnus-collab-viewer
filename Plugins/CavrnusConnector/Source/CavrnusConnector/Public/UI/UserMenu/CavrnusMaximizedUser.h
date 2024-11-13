@@ -1,4 +1,4 @@
-// // Copyright (c), Cavrnus. All rights reserved.
+// Copyright (c), Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -8,9 +8,6 @@
 #include "UI/CavrnusBaseUserWidget.h"
 #include "CavrnusMaximizedUser.generated.h"
 
-/**
- * 
- */
 UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API UCavrnusMaximizedUser : public UCavrnusUserWidget
 {

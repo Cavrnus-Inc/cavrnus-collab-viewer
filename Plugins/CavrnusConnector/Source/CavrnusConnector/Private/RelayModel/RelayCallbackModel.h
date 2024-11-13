@@ -1,4 +1,5 @@
 ﻿// Copyright(c) Cavrnus. All rights reserved.
+
 #pragma once
 
 #include <Containers/Map.h>
@@ -41,9 +42,12 @@ namespace Cavrnus
 		int RegisterFetchAudioOutputs(CavrnusAvailableOutputDevices onRecvDevices);
 		int RegisterFetchVideoInputs(CavrnusAvailableVideoInputDevices onRecvDevices);
 
+		int RegisterFetchRemoteContentInfo(CavrnusRemoteContentInfoFunction onfetchedContentInfo);
 		int RegisterFetchAllAvailableContent(CavrnusRemoteContentFunction onfetchedContent);
 
 		int RegisterUploadContent(CavrnusUploadCompleteFunction onUploadComplete);
+
+		int RegisterFolderReq(const TFunction<void(FString)>& onRecvFullFolderPath);
 
 	private:
 		CavrnusRelayModel* relayModel;
@@ -86,8 +90,13 @@ namespace Cavrnus
 		TMap<int, CavrnusRemoteContentFunction*> AllRemoteContentCallbacks;
 		void HandleAllRemoteContentRecv(int callbackId, ServerData::FetchAllUploadedContentResp resp);
 
+		TMap<int, CavrnusRemoteContentInfoFunction*> AllContentInfoCallbacks;
+		void HandleRemoteContentInfoComplete(int callbackId, ServerData::FetchRemoteContentInfoResp resp);
+
 		TMap<int, CavrnusUploadCompleteFunction*> AllUploadContentCallbacks;
 		void HandleUploadComplete(int callbackId, ServerData::UploadLocalFileResp resp);
-	};
 
-}
+		TMap<int, TFunction<void(FString)>*> AllFolderReqCallbacks;
+		void HandleFolderResp(int callbackId, ServerData::ContentDestinationFolderResp resp);
+	};
+} // namespace Cavrnus

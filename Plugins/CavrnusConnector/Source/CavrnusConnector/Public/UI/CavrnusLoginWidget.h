@@ -7,7 +7,11 @@
 #include "CavrnusBaseUserWidget.h"
 #include "CavrnusLoginWidget.generated.h"
 
+class UButton;
+class UEditableTextBox;
 class UTexture2D;
+
+DECLARE_MULTICAST_DELEGATE_TwoParams(FOnLoginClicked, FString, FString);
 
 /**
  * @brief Base class for widget for obtaining login credentials.
@@ -15,8 +19,6 @@ class UTexture2D;
  * This widget provides a user interface for inputting email and password credentials,
  * and handles the login process within the Cavrnus platform.
  */
-
-DECLARE_MULTICAST_DELEGATE_TwoParams(FOnLoginClicked, FString, FString);
 
 UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API UCavrnusLoginWidget : public UCavrnusBaseUserWidget

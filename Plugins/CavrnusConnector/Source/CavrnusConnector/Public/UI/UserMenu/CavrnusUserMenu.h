@@ -1,4 +1,4 @@
-// // Copyright (c), Cavrnus. All rights reserved.
+// Copyright (c), Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -10,9 +10,6 @@
 
 class UScrollBox;
 
-/**
- * 
- */
 UCLASS(Abstract)
 class CAVRNUSCONNECTOR_API UCavrnusUserMenu : public USidebarMenuBase
 {
