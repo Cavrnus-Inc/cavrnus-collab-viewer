@@ -1,8 +1,10 @@
 # Changelog
 
-## [2024.3.1] - 2024-11-5
+## [2024.3.1] - 2024-11-22
 
 ### Added
+- SpaceInfo data added to CavrnusSpaceConnection
+- Added JoinIdLogin widget to join space directly.
 - Added ability to force/unforce RelayNet to Keep Alive while Unreal is frozen
 - Changelog.md now copied to Docs subdirectory
 - SpaceInformation UI button and window

@@ -1,4 +1,4 @@
-﻿// Copyright(c) Cavrnus. All rights reserved.
+﻿// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -30,6 +30,7 @@ namespace ServerData
 	class ChatAdded;
 	class ChatUpdated;
 	class ChatRemoved;
+	class RelayDataCache;
 } // namespace ServerData
 
 namespace Cavrnus
@@ -39,6 +40,7 @@ namespace Cavrnus
 	class RelayCallbackModel;
 	class SpacePropertyModel;
 	class SpacePermissionsModel;
+	class CavrnusDataCache;
 
 	/**
 	 * @class CavrnusRelayModel
@@ -92,6 +94,7 @@ namespace Cavrnus
 		SpacePropertyModel* GetSpacePropertyModel(FCavrnusSpaceConnection spaceConn);
 		RelayCallbackModel* GetCallbackModel();
 		DataState* GetDataState();
+		CavrnusDataCache* GetDataCache();
 		
 		/**
 		 * @brief Sends a message to the server.
@@ -126,6 +129,7 @@ namespace Cavrnus
 		CavrnusInteropLayer* interopLayer;
 		RelayCallbackModel* callbackModel;
 		DataState* dataState;
+		CavrnusDataCache* dataCache;
 		SpacePermissionsModel* globalPermissionsModel;
 		TMap<int, SpacePermissionsModel*> spacePermissionsModelLookup;
 		TMap<int, SpacePropertyModel*> spacePropertyModelLookup;
@@ -138,6 +142,7 @@ namespace Cavrnus
 		const TFunction<void(FCavrnusSpawnedObject)>* ObjectDestructionCallback = nullptr;
 
 		void HandleLogging(const ServerData::StatusMessage& message);
+		void HandleInitialDataCache(const ServerData::RelayDataCache& cache);
 		void HandleSpaceUserAdded(ServerData::CavrnusSpaceConnection spaceConn, ServerData::CavrnusUser userId);
 		void HandleSpaceUserRemoved(ServerData::CavrnusSpaceConnection spaceConn, std::string userId);
 		void HandleSpaceUserVideoFrame(const ServerData::UserVideoFrame& VideoFrame);

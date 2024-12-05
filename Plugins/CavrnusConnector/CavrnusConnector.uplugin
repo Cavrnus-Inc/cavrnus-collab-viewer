@@ -8,7 +8,7 @@
 	"CreatedBy": "Cavrnus, Inc.",
 	"CreatedByURL": "http://www.cavrnus.com/",
 	"DocsURL": "https://cavrnus.atlassian.net/wiki/spaces/CSM/overview",
-	"MarketplaceURL": "",
+	"FabURL": "com.epicgames.launcher://ue/Fab/product/e01602cf-776a-4d1e-a22d-5ef0f03e9cd8",
 	"SupportURL": "https://cavrnus.atlassian.net/servicedesk/customer/portal/1/group/-1",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
@@ -18,12 +18,18 @@
 		{
 			"Name": "CavrnusConnector",
 			"Type": "Runtime",
-			"LoadingPhase": "PreDefault"
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64"
+			]
 		},
 		{
 			"Name": "CavrnusConnectorEditor",
 			"Type": "Editor",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
 		}
 	],
 	"Plugins": [

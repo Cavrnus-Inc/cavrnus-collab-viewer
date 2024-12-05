@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 /**
  * @file CavrnusFunctionLibrary.h
@@ -140,7 +140,16 @@ public:
 
 	static void FetchJoinableSpaces(CavrnusAllSpacesInfoEvent OnRecvCurrentJoinableSpaces);
 
-	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpaceInfoEvent, FCavrnusSpaceInfo, SpaceInfo);
+	DECLARE_DYNAMIC_DELEGATE_OneParam(FCavrnusSpaceInfoEvent, const FCavrnusSpaceInfo&, SpaceInfo);
+	/**
+	 * @brief Fetches the SpaceInfo of a specific space
+	 */
+	UFUNCTION(BlueprintCallable, CallInEditor, Exec, Category = "Cavrnus|Spaces",
+		meta = (ToolTip = "Fetches the SpaceInfo of a specific space, using either it's ID or it's Join Code", ShortToolTip = "Fetches the SpaceInfo of a specific space"))
+	static void FetchSpaceInfo(FString spaceId, FCavrnusSpaceInfoEvent OnRecvSpaceInfo);
+
+	static void FetchSpaceInfo(FString spaceId, CavrnusSpaceInfoEvent OnRecvSpaceInfo);
+
 	/**
 	 * @brief Updates the current list of Spaces that can be joined.  Triggers when the metadata of a Space changes, or when the user's access to join it has changed.
 	 * @param SpaceAdded Delegate called when a space is added.

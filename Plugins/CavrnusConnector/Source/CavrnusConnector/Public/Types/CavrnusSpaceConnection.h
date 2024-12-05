@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 /**
  * @file CavrnusSpaceConnection.h
@@ -10,6 +10,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CavrnusSpaceInfo.h"
 
 #include "CavrnusSpaceConnection.generated.h"		// Always last
 
@@ -36,6 +37,14 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceConnection
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Spaces")
 	FString LocalUserContainerName = "";
 
+	/** Does the local user own this space */
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Spaces")
+	bool SpaceOwnedByLocalUser = false;
+
+	/** The current space's info */
+	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Spaces")
+	FCavrnusSpaceInfo SpaceInfo;
+
 	/**
 	 * @brief Default constructor.
 	 *
@@ -53,6 +62,7 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceConnection
 	FCavrnusSpaceConnection(int SpaceConnectionId)
 		: SpaceConnectionId(SpaceConnectionId)
 	{
+		SpaceInfo = FCavrnusSpaceInfo();
 	}
 
 	/**
@@ -64,8 +74,9 @@ struct CAVRNUSCONNECTOR_API FCavrnusSpaceConnection
 	 * @param InLocalUserConnectionId Identifier for the local user's connection.
 	 * @param InLocalUserContainerName Name of the container associated with the local user.
 	 */
-	FCavrnusSpaceConnection(int InSpaceConnectionId, const FString& InLocalUserConnectionId, const FString& InLocalUserContainerName)
-		: SpaceConnectionId(InSpaceConnectionId), LocalUserConnectionId(InLocalUserConnectionId), LocalUserContainerName(InLocalUserContainerName)
+	FCavrnusSpaceConnection(int InSpaceConnectionId, const FString& InLocalUserConnectionId, const FString& InLocalUserContainerName, bool spaceOwnedByLocalUser, FCavrnusSpaceInfo spaceInfo)
+		: SpaceConnectionId(InSpaceConnectionId), LocalUserConnectionId(InLocalUserConnectionId), LocalUserContainerName(InLocalUserContainerName), SpaceInfo(spaceInfo)
 	{
+		SpaceOwnedByLocalUser = spaceOwnedByLocalUser;
 	}
 };

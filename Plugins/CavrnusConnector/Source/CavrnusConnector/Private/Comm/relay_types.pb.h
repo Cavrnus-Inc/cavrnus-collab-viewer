@@ -30,6 +30,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/timestamp.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_relay_5ftypes_2eproto
@@ -60,6 +61,9 @@ extern CavrnusSpaceConnectionDefaultTypeInternal _CavrnusSpaceConnection_default
 class CavrnusUser;
 struct CavrnusUserDefaultTypeInternal;
 extern CavrnusUserDefaultTypeInternal _CavrnusUser_default_instance_;
+class RelayDataCache;
+struct RelayDataCacheDefaultTypeInternal;
+extern RelayDataCacheDefaultTypeInternal _RelayDataCache_default_instance_;
 class RtcAudioInputDevice;
 struct RtcAudioInputDeviceDefaultTypeInternal;
 extern RtcAudioInputDeviceDefaultTypeInternal _RtcAudioInputDevice_default_instance_;
@@ -78,6 +82,9 @@ extern RtcVideoInputDeviceDefaultTypeInternal _RtcVideoInputDevice_default_insta
 class RtcVideoInputDeviceList;
 struct RtcVideoInputDeviceListDefaultTypeInternal;
 extern RtcVideoInputDeviceListDefaultTypeInternal _RtcVideoInputDeviceList_default_instance_;
+class SpaceInfo;
+struct SpaceInfoDefaultTypeInternal;
+extern SpaceInfoDefaultTypeInternal _SpaceInfo_default_instance_;
 }  // namespace ServerData
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ServerData::CavrnusAuth* Arena::CreateMaybeMessage<::ServerData::CavrnusAuth>(Arena*);
@@ -85,12 +92,14 @@ template<> ::ServerData::CavrnusAuthLinkResponse* Arena::CreateMaybeMessage<::Se
 template<> ::ServerData::CavrnusRemoteContent* Arena::CreateMaybeMessage<::ServerData::CavrnusRemoteContent>(Arena*);
 template<> ::ServerData::CavrnusSpaceConnection* Arena::CreateMaybeMessage<::ServerData::CavrnusSpaceConnection>(Arena*);
 template<> ::ServerData::CavrnusUser* Arena::CreateMaybeMessage<::ServerData::CavrnusUser>(Arena*);
+template<> ::ServerData::RelayDataCache* Arena::CreateMaybeMessage<::ServerData::RelayDataCache>(Arena*);
 template<> ::ServerData::RtcAudioInputDevice* Arena::CreateMaybeMessage<::ServerData::RtcAudioInputDevice>(Arena*);
 template<> ::ServerData::RtcAudioInputDeviceList* Arena::CreateMaybeMessage<::ServerData::RtcAudioInputDeviceList>(Arena*);
 template<> ::ServerData::RtcAudioOutputDevice* Arena::CreateMaybeMessage<::ServerData::RtcAudioOutputDevice>(Arena*);
 template<> ::ServerData::RtcAudioOutputDeviceList* Arena::CreateMaybeMessage<::ServerData::RtcAudioOutputDeviceList>(Arena*);
 template<> ::ServerData::RtcVideoInputDevice* Arena::CreateMaybeMessage<::ServerData::RtcVideoInputDevice>(Arena*);
 template<> ::ServerData::RtcVideoInputDeviceList* Arena::CreateMaybeMessage<::ServerData::RtcVideoInputDeviceList>(Arena*);
+template<> ::ServerData::SpaceInfo* Arena::CreateMaybeMessage<::ServerData::SpaceInfo>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace ServerData {
 
@@ -422,6 +431,437 @@ class CavrnusAuthLinkResponse final :
 };
 // -------------------------------------------------------------------
 
+class SpaceInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ServerData.SpaceInfo) */ {
+ public:
+  inline SpaceInfo() : SpaceInfo(nullptr) {}
+  ~SpaceInfo() override;
+  explicit PROTOBUF_CONSTEXPR SpaceInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SpaceInfo(const SpaceInfo& from);
+  SpaceInfo(SpaceInfo&& from) noexcept
+    : SpaceInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline SpaceInfo& operator=(const SpaceInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SpaceInfo& operator=(SpaceInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SpaceInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SpaceInfo* internal_default_instance() {
+    return reinterpret_cast<const SpaceInfo*>(
+               &_SpaceInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(SpaceInfo& a, SpaceInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SpaceInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SpaceInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SpaceInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SpaceInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SpaceInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SpaceInfo& from) {
+    SpaceInfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SpaceInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ServerData.SpaceInfo";
+  }
+  protected:
+  explicit SpaceInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeywordsFieldNumber = 6,
+    kSpaceIdFieldNumber = 1,
+    kSpaceNameFieldNumber = 2,
+    kSpaceThumbnailUrlFieldNumber = 3,
+    kLastAccessFieldNumber = 5,
+    kArchivedFieldNumber = 4,
+  };
+  // repeated string keywords = 6;
+  int keywords_size() const;
+  private:
+  int _internal_keywords_size() const;
+  public:
+  void clear_keywords();
+  const std::string& keywords(int index) const;
+  std::string* mutable_keywords(int index);
+  void set_keywords(int index, const std::string& value);
+  void set_keywords(int index, std::string&& value);
+  void set_keywords(int index, const char* value);
+  void set_keywords(int index, const char* value, size_t size);
+  std::string* add_keywords();
+  void add_keywords(const std::string& value);
+  void add_keywords(std::string&& value);
+  void add_keywords(const char* value);
+  void add_keywords(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& keywords() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_keywords();
+  private:
+  const std::string& _internal_keywords(int index) const;
+  std::string* _internal_add_keywords();
+  public:
+
+  // string spaceId = 1;
+  void clear_spaceid();
+  const std::string& spaceid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_spaceid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_spaceid();
+  PROTOBUF_NODISCARD std::string* release_spaceid();
+  void set_allocated_spaceid(std::string* spaceid);
+  private:
+  const std::string& _internal_spaceid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_spaceid(const std::string& value);
+  std::string* _internal_mutable_spaceid();
+  public:
+
+  // string spaceName = 2;
+  void clear_spacename();
+  const std::string& spacename() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_spacename(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_spacename();
+  PROTOBUF_NODISCARD std::string* release_spacename();
+  void set_allocated_spacename(std::string* spacename);
+  private:
+  const std::string& _internal_spacename() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_spacename(const std::string& value);
+  std::string* _internal_mutable_spacename();
+  public:
+
+  // string spaceThumbnailUrl = 3;
+  void clear_spacethumbnailurl();
+  const std::string& spacethumbnailurl() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_spacethumbnailurl(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_spacethumbnailurl();
+  PROTOBUF_NODISCARD std::string* release_spacethumbnailurl();
+  void set_allocated_spacethumbnailurl(std::string* spacethumbnailurl);
+  private:
+  const std::string& _internal_spacethumbnailurl() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_spacethumbnailurl(const std::string& value);
+  std::string* _internal_mutable_spacethumbnailurl();
+  public:
+
+  // .google.protobuf.Timestamp lastAccess = 5;
+  bool has_lastaccess() const;
+  private:
+  bool _internal_has_lastaccess() const;
+  public:
+  void clear_lastaccess();
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& lastaccess() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Timestamp* release_lastaccess();
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* mutable_lastaccess();
+  void set_allocated_lastaccess(::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& _internal_lastaccess() const;
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_lastaccess();
+  public:
+  void unsafe_arena_set_allocated_lastaccess(
+      ::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess);
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_lastaccess();
+
+  // bool archived = 4;
+  void clear_archived();
+  bool archived() const;
+  void set_archived(bool value);
+  private:
+  bool _internal_archived() const;
+  void _internal_set_archived(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ServerData.SpaceInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> keywords_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr spaceid_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr spacename_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr spacethumbnailurl_;
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess_;
+    bool archived_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_relay_5ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RelayDataCache final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ServerData.RelayDataCache) */ {
+ public:
+  inline RelayDataCache() : RelayDataCache(nullptr) {}
+  ~RelayDataCache() override;
+  explicit PROTOBUF_CONSTEXPR RelayDataCache(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RelayDataCache(const RelayDataCache& from);
+  RelayDataCache(RelayDataCache&& from) noexcept
+    : RelayDataCache() {
+    *this = ::std::move(from);
+  }
+
+  inline RelayDataCache& operator=(const RelayDataCache& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RelayDataCache& operator=(RelayDataCache&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RelayDataCache& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RelayDataCache* internal_default_instance() {
+    return reinterpret_cast<const RelayDataCache*>(
+               &_RelayDataCache_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(RelayDataCache& a, RelayDataCache& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RelayDataCache* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RelayDataCache* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RelayDataCache* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RelayDataCache>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RelayDataCache& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RelayDataCache& from) {
+    RelayDataCache::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RelayDataCache* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ServerData.RelayDataCache";
+  }
+  protected:
+  explicit RelayDataCache(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStringKeysFieldNumber = 1,
+    kStringValuesFieldNumber = 2,
+  };
+  // repeated string stringKeys = 1;
+  int stringkeys_size() const;
+  private:
+  int _internal_stringkeys_size() const;
+  public:
+  void clear_stringkeys();
+  const std::string& stringkeys(int index) const;
+  std::string* mutable_stringkeys(int index);
+  void set_stringkeys(int index, const std::string& value);
+  void set_stringkeys(int index, std::string&& value);
+  void set_stringkeys(int index, const char* value);
+  void set_stringkeys(int index, const char* value, size_t size);
+  std::string* add_stringkeys();
+  void add_stringkeys(const std::string& value);
+  void add_stringkeys(std::string&& value);
+  void add_stringkeys(const char* value);
+  void add_stringkeys(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& stringkeys() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_stringkeys();
+  private:
+  const std::string& _internal_stringkeys(int index) const;
+  std::string* _internal_add_stringkeys();
+  public:
+
+  // repeated string stringValues = 2;
+  int stringvalues_size() const;
+  private:
+  int _internal_stringvalues_size() const;
+  public:
+  void clear_stringvalues();
+  const std::string& stringvalues(int index) const;
+  std::string* mutable_stringvalues(int index);
+  void set_stringvalues(int index, const std::string& value);
+  void set_stringvalues(int index, std::string&& value);
+  void set_stringvalues(int index, const char* value);
+  void set_stringvalues(int index, const char* value, size_t size);
+  std::string* add_stringvalues();
+  void add_stringvalues(const std::string& value);
+  void add_stringvalues(std::string&& value);
+  void add_stringvalues(const char* value);
+  void add_stringvalues(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& stringvalues() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_stringvalues();
+  private:
+  const std::string& _internal_stringvalues(int index) const;
+  std::string* _internal_add_stringvalues();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ServerData.RelayDataCache)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> stringkeys_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> stringvalues_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_relay_5ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CavrnusSpaceConnection final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ServerData.CavrnusSpaceConnection) */ {
  public:
@@ -470,7 +910,7 @@ class CavrnusSpaceConnection final :
                &_CavrnusSpaceConnection_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(CavrnusSpaceConnection& a, CavrnusSpaceConnection& b) {
     a.Swap(&b);
@@ -544,7 +984,9 @@ class CavrnusSpaceConnection final :
 
   enum : int {
     kLocalUserConnectionIdFieldNumber = 10,
+    kSpaceInfoFieldNumber = 12,
     kSpaceConnectionIdFieldNumber = 1,
+    kSpaceOwnedByLocalUserFieldNumber = 11,
   };
   // string localUserConnectionId = 10;
   void clear_localuserconnectionid();
@@ -560,6 +1002,24 @@ class CavrnusSpaceConnection final :
   std::string* _internal_mutable_localuserconnectionid();
   public:
 
+  // .ServerData.SpaceInfo spaceInfo = 12;
+  bool has_spaceinfo() const;
+  private:
+  bool _internal_has_spaceinfo() const;
+  public:
+  void clear_spaceinfo();
+  const ::ServerData::SpaceInfo& spaceinfo() const;
+  PROTOBUF_NODISCARD ::ServerData::SpaceInfo* release_spaceinfo();
+  ::ServerData::SpaceInfo* mutable_spaceinfo();
+  void set_allocated_spaceinfo(::ServerData::SpaceInfo* spaceinfo);
+  private:
+  const ::ServerData::SpaceInfo& _internal_spaceinfo() const;
+  ::ServerData::SpaceInfo* _internal_mutable_spaceinfo();
+  public:
+  void unsafe_arena_set_allocated_spaceinfo(
+      ::ServerData::SpaceInfo* spaceinfo);
+  ::ServerData::SpaceInfo* unsafe_arena_release_spaceinfo();
+
   // int32 SpaceConnectionId = 1;
   void clear_spaceconnectionid();
   int32_t spaceconnectionid() const;
@@ -567,6 +1027,15 @@ class CavrnusSpaceConnection final :
   private:
   int32_t _internal_spaceconnectionid() const;
   void _internal_set_spaceconnectionid(int32_t value);
+  public:
+
+  // bool spaceOwnedByLocalUser = 11;
+  void clear_spaceownedbylocaluser();
+  bool spaceownedbylocaluser() const;
+  void set_spaceownedbylocaluser(bool value);
+  private:
+  bool _internal_spaceownedbylocaluser() const;
+  void _internal_set_spaceownedbylocaluser(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:ServerData.CavrnusSpaceConnection)
@@ -578,7 +1047,9 @@ class CavrnusSpaceConnection final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr localuserconnectionid_;
+    ::ServerData::SpaceInfo* spaceinfo_;
     int32_t spaceconnectionid_;
+    bool spaceownedbylocaluser_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -634,7 +1105,7 @@ class CavrnusUser final :
                &_CavrnusUser_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(CavrnusUser& a, CavrnusUser& b) {
     a.Swap(&b);
@@ -798,7 +1269,7 @@ class RtcAudioInputDevice final :
                &_RtcAudioInputDevice_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(RtcAudioInputDevice& a, RtcAudioInputDevice& b) {
     a.Swap(&b);
@@ -967,7 +1438,7 @@ class RtcAudioInputDeviceList final :
                &_RtcAudioInputDeviceList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(RtcAudioInputDeviceList& a, RtcAudioInputDeviceList& b) {
     a.Swap(&b);
@@ -1124,7 +1595,7 @@ class RtcAudioOutputDevice final :
                &_RtcAudioOutputDevice_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(RtcAudioOutputDevice& a, RtcAudioOutputDevice& b) {
     a.Swap(&b);
@@ -1293,7 +1764,7 @@ class RtcAudioOutputDeviceList final :
                &_RtcAudioOutputDeviceList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(RtcAudioOutputDeviceList& a, RtcAudioOutputDeviceList& b) {
     a.Swap(&b);
@@ -1450,7 +1921,7 @@ class RtcVideoInputDevice final :
                &_RtcVideoInputDevice_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(RtcVideoInputDevice& a, RtcVideoInputDevice& b) {
     a.Swap(&b);
@@ -1619,7 +2090,7 @@ class RtcVideoInputDeviceList final :
                &_RtcVideoInputDeviceList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(RtcVideoInputDeviceList& a, RtcVideoInputDeviceList& b) {
     a.Swap(&b);
@@ -1776,7 +2247,7 @@ class CavrnusRemoteContent final :
                &_CavrnusRemoteContent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(CavrnusRemoteContent& a, CavrnusRemoteContent& b) {
     a.Swap(&b);
@@ -2224,6 +2695,494 @@ inline void CavrnusAuthLinkResponse::set_allocated_auth(::ServerData::CavrnusAut
 
 // -------------------------------------------------------------------
 
+// SpaceInfo
+
+// string spaceId = 1;
+inline void SpaceInfo::clear_spaceid() {
+  _impl_.spaceid_.ClearToEmpty();
+}
+inline const std::string& SpaceInfo::spaceid() const {
+  // @@protoc_insertion_point(field_get:ServerData.SpaceInfo.spaceId)
+  return _internal_spaceid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SpaceInfo::set_spaceid(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.spaceid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ServerData.SpaceInfo.spaceId)
+}
+inline std::string* SpaceInfo::mutable_spaceid() {
+  std::string* _s = _internal_mutable_spaceid();
+  // @@protoc_insertion_point(field_mutable:ServerData.SpaceInfo.spaceId)
+  return _s;
+}
+inline const std::string& SpaceInfo::_internal_spaceid() const {
+  return _impl_.spaceid_.Get();
+}
+inline void SpaceInfo::_internal_set_spaceid(const std::string& value) {
+  
+  _impl_.spaceid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SpaceInfo::_internal_mutable_spaceid() {
+  
+  return _impl_.spaceid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SpaceInfo::release_spaceid() {
+  // @@protoc_insertion_point(field_release:ServerData.SpaceInfo.spaceId)
+  return _impl_.spaceid_.Release();
+}
+inline void SpaceInfo::set_allocated_spaceid(std::string* spaceid) {
+  if (spaceid != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.spaceid_.SetAllocated(spaceid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.spaceid_.IsDefault()) {
+    _impl_.spaceid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ServerData.SpaceInfo.spaceId)
+}
+
+// string spaceName = 2;
+inline void SpaceInfo::clear_spacename() {
+  _impl_.spacename_.ClearToEmpty();
+}
+inline const std::string& SpaceInfo::spacename() const {
+  // @@protoc_insertion_point(field_get:ServerData.SpaceInfo.spaceName)
+  return _internal_spacename();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SpaceInfo::set_spacename(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.spacename_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ServerData.SpaceInfo.spaceName)
+}
+inline std::string* SpaceInfo::mutable_spacename() {
+  std::string* _s = _internal_mutable_spacename();
+  // @@protoc_insertion_point(field_mutable:ServerData.SpaceInfo.spaceName)
+  return _s;
+}
+inline const std::string& SpaceInfo::_internal_spacename() const {
+  return _impl_.spacename_.Get();
+}
+inline void SpaceInfo::_internal_set_spacename(const std::string& value) {
+  
+  _impl_.spacename_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SpaceInfo::_internal_mutable_spacename() {
+  
+  return _impl_.spacename_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SpaceInfo::release_spacename() {
+  // @@protoc_insertion_point(field_release:ServerData.SpaceInfo.spaceName)
+  return _impl_.spacename_.Release();
+}
+inline void SpaceInfo::set_allocated_spacename(std::string* spacename) {
+  if (spacename != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.spacename_.SetAllocated(spacename, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.spacename_.IsDefault()) {
+    _impl_.spacename_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ServerData.SpaceInfo.spaceName)
+}
+
+// string spaceThumbnailUrl = 3;
+inline void SpaceInfo::clear_spacethumbnailurl() {
+  _impl_.spacethumbnailurl_.ClearToEmpty();
+}
+inline const std::string& SpaceInfo::spacethumbnailurl() const {
+  // @@protoc_insertion_point(field_get:ServerData.SpaceInfo.spaceThumbnailUrl)
+  return _internal_spacethumbnailurl();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SpaceInfo::set_spacethumbnailurl(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.spacethumbnailurl_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ServerData.SpaceInfo.spaceThumbnailUrl)
+}
+inline std::string* SpaceInfo::mutable_spacethumbnailurl() {
+  std::string* _s = _internal_mutable_spacethumbnailurl();
+  // @@protoc_insertion_point(field_mutable:ServerData.SpaceInfo.spaceThumbnailUrl)
+  return _s;
+}
+inline const std::string& SpaceInfo::_internal_spacethumbnailurl() const {
+  return _impl_.spacethumbnailurl_.Get();
+}
+inline void SpaceInfo::_internal_set_spacethumbnailurl(const std::string& value) {
+  
+  _impl_.spacethumbnailurl_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SpaceInfo::_internal_mutable_spacethumbnailurl() {
+  
+  return _impl_.spacethumbnailurl_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SpaceInfo::release_spacethumbnailurl() {
+  // @@protoc_insertion_point(field_release:ServerData.SpaceInfo.spaceThumbnailUrl)
+  return _impl_.spacethumbnailurl_.Release();
+}
+inline void SpaceInfo::set_allocated_spacethumbnailurl(std::string* spacethumbnailurl) {
+  if (spacethumbnailurl != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.spacethumbnailurl_.SetAllocated(spacethumbnailurl, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.spacethumbnailurl_.IsDefault()) {
+    _impl_.spacethumbnailurl_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ServerData.SpaceInfo.spaceThumbnailUrl)
+}
+
+// bool archived = 4;
+inline void SpaceInfo::clear_archived() {
+  _impl_.archived_ = false;
+}
+inline bool SpaceInfo::_internal_archived() const {
+  return _impl_.archived_;
+}
+inline bool SpaceInfo::archived() const {
+  // @@protoc_insertion_point(field_get:ServerData.SpaceInfo.archived)
+  return _internal_archived();
+}
+inline void SpaceInfo::_internal_set_archived(bool value) {
+  
+  _impl_.archived_ = value;
+}
+inline void SpaceInfo::set_archived(bool value) {
+  _internal_set_archived(value);
+  // @@protoc_insertion_point(field_set:ServerData.SpaceInfo.archived)
+}
+
+// .google.protobuf.Timestamp lastAccess = 5;
+inline bool SpaceInfo::_internal_has_lastaccess() const {
+  return this != internal_default_instance() && _impl_.lastaccess_ != nullptr;
+}
+inline bool SpaceInfo::has_lastaccess() const {
+  return _internal_has_lastaccess();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& SpaceInfo::_internal_lastaccess() const {
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp* p = _impl_.lastaccess_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      ::PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& SpaceInfo::lastaccess() const {
+  // @@protoc_insertion_point(field_get:ServerData.SpaceInfo.lastAccess)
+  return _internal_lastaccess();
+}
+inline void SpaceInfo::unsafe_arena_set_allocated_lastaccess(
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.lastaccess_);
+  }
+  _impl_.lastaccess_ = lastaccess;
+  if (lastaccess) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerData.SpaceInfo.lastAccess)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* SpaceInfo::release_lastaccess() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.lastaccess_;
+  _impl_.lastaccess_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* SpaceInfo::unsafe_arena_release_lastaccess() {
+  // @@protoc_insertion_point(field_release:ServerData.SpaceInfo.lastAccess)
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.lastaccess_;
+  _impl_.lastaccess_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* SpaceInfo::_internal_mutable_lastaccess() {
+  
+  if (_impl_.lastaccess_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaForAllocation());
+    _impl_.lastaccess_ = p;
+  }
+  return _impl_.lastaccess_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* SpaceInfo::mutable_lastaccess() {
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _msg = _internal_mutable_lastaccess();
+  // @@protoc_insertion_point(field_mutable:ServerData.SpaceInfo.lastAccess)
+  return _msg;
+}
+inline void SpaceInfo::set_allocated_lastaccess(::PROTOBUF_NAMESPACE_ID::Timestamp* lastaccess) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.lastaccess_);
+  }
+  if (lastaccess) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(lastaccess));
+    if (message_arena != submessage_arena) {
+      lastaccess = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, lastaccess, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.lastaccess_ = lastaccess;
+  // @@protoc_insertion_point(field_set_allocated:ServerData.SpaceInfo.lastAccess)
+}
+
+// repeated string keywords = 6;
+inline int SpaceInfo::_internal_keywords_size() const {
+  return _impl_.keywords_.size();
+}
+inline int SpaceInfo::keywords_size() const {
+  return _internal_keywords_size();
+}
+inline void SpaceInfo::clear_keywords() {
+  _impl_.keywords_.Clear();
+}
+inline std::string* SpaceInfo::add_keywords() {
+  std::string* _s = _internal_add_keywords();
+  // @@protoc_insertion_point(field_add_mutable:ServerData.SpaceInfo.keywords)
+  return _s;
+}
+inline const std::string& SpaceInfo::_internal_keywords(int index) const {
+  return _impl_.keywords_.Get(index);
+}
+inline const std::string& SpaceInfo::keywords(int index) const {
+  // @@protoc_insertion_point(field_get:ServerData.SpaceInfo.keywords)
+  return _internal_keywords(index);
+}
+inline std::string* SpaceInfo::mutable_keywords(int index) {
+  // @@protoc_insertion_point(field_mutable:ServerData.SpaceInfo.keywords)
+  return _impl_.keywords_.Mutable(index);
+}
+inline void SpaceInfo::set_keywords(int index, const std::string& value) {
+  _impl_.keywords_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:ServerData.SpaceInfo.keywords)
+}
+inline void SpaceInfo::set_keywords(int index, std::string&& value) {
+  _impl_.keywords_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:ServerData.SpaceInfo.keywords)
+}
+inline void SpaceInfo::set_keywords(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.keywords_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ServerData.SpaceInfo.keywords)
+}
+inline void SpaceInfo::set_keywords(int index, const char* value, size_t size) {
+  _impl_.keywords_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ServerData.SpaceInfo.keywords)
+}
+inline std::string* SpaceInfo::_internal_add_keywords() {
+  return _impl_.keywords_.Add();
+}
+inline void SpaceInfo::add_keywords(const std::string& value) {
+  _impl_.keywords_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ServerData.SpaceInfo.keywords)
+}
+inline void SpaceInfo::add_keywords(std::string&& value) {
+  _impl_.keywords_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ServerData.SpaceInfo.keywords)
+}
+inline void SpaceInfo::add_keywords(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.keywords_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ServerData.SpaceInfo.keywords)
+}
+inline void SpaceInfo::add_keywords(const char* value, size_t size) {
+  _impl_.keywords_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ServerData.SpaceInfo.keywords)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+SpaceInfo::keywords() const {
+  // @@protoc_insertion_point(field_list:ServerData.SpaceInfo.keywords)
+  return _impl_.keywords_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+SpaceInfo::mutable_keywords() {
+  // @@protoc_insertion_point(field_mutable_list:ServerData.SpaceInfo.keywords)
+  return &_impl_.keywords_;
+}
+
+// -------------------------------------------------------------------
+
+// RelayDataCache
+
+// repeated string stringKeys = 1;
+inline int RelayDataCache::_internal_stringkeys_size() const {
+  return _impl_.stringkeys_.size();
+}
+inline int RelayDataCache::stringkeys_size() const {
+  return _internal_stringkeys_size();
+}
+inline void RelayDataCache::clear_stringkeys() {
+  _impl_.stringkeys_.Clear();
+}
+inline std::string* RelayDataCache::add_stringkeys() {
+  std::string* _s = _internal_add_stringkeys();
+  // @@protoc_insertion_point(field_add_mutable:ServerData.RelayDataCache.stringKeys)
+  return _s;
+}
+inline const std::string& RelayDataCache::_internal_stringkeys(int index) const {
+  return _impl_.stringkeys_.Get(index);
+}
+inline const std::string& RelayDataCache::stringkeys(int index) const {
+  // @@protoc_insertion_point(field_get:ServerData.RelayDataCache.stringKeys)
+  return _internal_stringkeys(index);
+}
+inline std::string* RelayDataCache::mutable_stringkeys(int index) {
+  // @@protoc_insertion_point(field_mutable:ServerData.RelayDataCache.stringKeys)
+  return _impl_.stringkeys_.Mutable(index);
+}
+inline void RelayDataCache::set_stringkeys(int index, const std::string& value) {
+  _impl_.stringkeys_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:ServerData.RelayDataCache.stringKeys)
+}
+inline void RelayDataCache::set_stringkeys(int index, std::string&& value) {
+  _impl_.stringkeys_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:ServerData.RelayDataCache.stringKeys)
+}
+inline void RelayDataCache::set_stringkeys(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.stringkeys_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ServerData.RelayDataCache.stringKeys)
+}
+inline void RelayDataCache::set_stringkeys(int index, const char* value, size_t size) {
+  _impl_.stringkeys_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ServerData.RelayDataCache.stringKeys)
+}
+inline std::string* RelayDataCache::_internal_add_stringkeys() {
+  return _impl_.stringkeys_.Add();
+}
+inline void RelayDataCache::add_stringkeys(const std::string& value) {
+  _impl_.stringkeys_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ServerData.RelayDataCache.stringKeys)
+}
+inline void RelayDataCache::add_stringkeys(std::string&& value) {
+  _impl_.stringkeys_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ServerData.RelayDataCache.stringKeys)
+}
+inline void RelayDataCache::add_stringkeys(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.stringkeys_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ServerData.RelayDataCache.stringKeys)
+}
+inline void RelayDataCache::add_stringkeys(const char* value, size_t size) {
+  _impl_.stringkeys_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ServerData.RelayDataCache.stringKeys)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+RelayDataCache::stringkeys() const {
+  // @@protoc_insertion_point(field_list:ServerData.RelayDataCache.stringKeys)
+  return _impl_.stringkeys_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+RelayDataCache::mutable_stringkeys() {
+  // @@protoc_insertion_point(field_mutable_list:ServerData.RelayDataCache.stringKeys)
+  return &_impl_.stringkeys_;
+}
+
+// repeated string stringValues = 2;
+inline int RelayDataCache::_internal_stringvalues_size() const {
+  return _impl_.stringvalues_.size();
+}
+inline int RelayDataCache::stringvalues_size() const {
+  return _internal_stringvalues_size();
+}
+inline void RelayDataCache::clear_stringvalues() {
+  _impl_.stringvalues_.Clear();
+}
+inline std::string* RelayDataCache::add_stringvalues() {
+  std::string* _s = _internal_add_stringvalues();
+  // @@protoc_insertion_point(field_add_mutable:ServerData.RelayDataCache.stringValues)
+  return _s;
+}
+inline const std::string& RelayDataCache::_internal_stringvalues(int index) const {
+  return _impl_.stringvalues_.Get(index);
+}
+inline const std::string& RelayDataCache::stringvalues(int index) const {
+  // @@protoc_insertion_point(field_get:ServerData.RelayDataCache.stringValues)
+  return _internal_stringvalues(index);
+}
+inline std::string* RelayDataCache::mutable_stringvalues(int index) {
+  // @@protoc_insertion_point(field_mutable:ServerData.RelayDataCache.stringValues)
+  return _impl_.stringvalues_.Mutable(index);
+}
+inline void RelayDataCache::set_stringvalues(int index, const std::string& value) {
+  _impl_.stringvalues_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:ServerData.RelayDataCache.stringValues)
+}
+inline void RelayDataCache::set_stringvalues(int index, std::string&& value) {
+  _impl_.stringvalues_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:ServerData.RelayDataCache.stringValues)
+}
+inline void RelayDataCache::set_stringvalues(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.stringvalues_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ServerData.RelayDataCache.stringValues)
+}
+inline void RelayDataCache::set_stringvalues(int index, const char* value, size_t size) {
+  _impl_.stringvalues_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ServerData.RelayDataCache.stringValues)
+}
+inline std::string* RelayDataCache::_internal_add_stringvalues() {
+  return _impl_.stringvalues_.Add();
+}
+inline void RelayDataCache::add_stringvalues(const std::string& value) {
+  _impl_.stringvalues_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ServerData.RelayDataCache.stringValues)
+}
+inline void RelayDataCache::add_stringvalues(std::string&& value) {
+  _impl_.stringvalues_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ServerData.RelayDataCache.stringValues)
+}
+inline void RelayDataCache::add_stringvalues(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.stringvalues_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ServerData.RelayDataCache.stringValues)
+}
+inline void RelayDataCache::add_stringvalues(const char* value, size_t size) {
+  _impl_.stringvalues_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ServerData.RelayDataCache.stringValues)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+RelayDataCache::stringvalues() const {
+  // @@protoc_insertion_point(field_list:ServerData.RelayDataCache.stringValues)
+  return _impl_.stringvalues_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+RelayDataCache::mutable_stringvalues() {
+  // @@protoc_insertion_point(field_mutable_list:ServerData.RelayDataCache.stringValues)
+  return &_impl_.stringvalues_;
+}
+
+// -------------------------------------------------------------------
+
 // CavrnusSpaceConnection
 
 // int32 SpaceConnectionId = 1;
@@ -2294,6 +3253,116 @@ inline void CavrnusSpaceConnection::set_allocated_localuserconnectionid(std::str
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:ServerData.CavrnusSpaceConnection.localUserConnectionId)
+}
+
+// bool spaceOwnedByLocalUser = 11;
+inline void CavrnusSpaceConnection::clear_spaceownedbylocaluser() {
+  _impl_.spaceownedbylocaluser_ = false;
+}
+inline bool CavrnusSpaceConnection::_internal_spaceownedbylocaluser() const {
+  return _impl_.spaceownedbylocaluser_;
+}
+inline bool CavrnusSpaceConnection::spaceownedbylocaluser() const {
+  // @@protoc_insertion_point(field_get:ServerData.CavrnusSpaceConnection.spaceOwnedByLocalUser)
+  return _internal_spaceownedbylocaluser();
+}
+inline void CavrnusSpaceConnection::_internal_set_spaceownedbylocaluser(bool value) {
+  
+  _impl_.spaceownedbylocaluser_ = value;
+}
+inline void CavrnusSpaceConnection::set_spaceownedbylocaluser(bool value) {
+  _internal_set_spaceownedbylocaluser(value);
+  // @@protoc_insertion_point(field_set:ServerData.CavrnusSpaceConnection.spaceOwnedByLocalUser)
+}
+
+// .ServerData.SpaceInfo spaceInfo = 12;
+inline bool CavrnusSpaceConnection::_internal_has_spaceinfo() const {
+  return this != internal_default_instance() && _impl_.spaceinfo_ != nullptr;
+}
+inline bool CavrnusSpaceConnection::has_spaceinfo() const {
+  return _internal_has_spaceinfo();
+}
+inline void CavrnusSpaceConnection::clear_spaceinfo() {
+  if (GetArenaForAllocation() == nullptr && _impl_.spaceinfo_ != nullptr) {
+    delete _impl_.spaceinfo_;
+  }
+  _impl_.spaceinfo_ = nullptr;
+}
+inline const ::ServerData::SpaceInfo& CavrnusSpaceConnection::_internal_spaceinfo() const {
+  const ::ServerData::SpaceInfo* p = _impl_.spaceinfo_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ServerData::SpaceInfo&>(
+      ::ServerData::_SpaceInfo_default_instance_);
+}
+inline const ::ServerData::SpaceInfo& CavrnusSpaceConnection::spaceinfo() const {
+  // @@protoc_insertion_point(field_get:ServerData.CavrnusSpaceConnection.spaceInfo)
+  return _internal_spaceinfo();
+}
+inline void CavrnusSpaceConnection::unsafe_arena_set_allocated_spaceinfo(
+    ::ServerData::SpaceInfo* spaceinfo) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.spaceinfo_);
+  }
+  _impl_.spaceinfo_ = spaceinfo;
+  if (spaceinfo) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerData.CavrnusSpaceConnection.spaceInfo)
+}
+inline ::ServerData::SpaceInfo* CavrnusSpaceConnection::release_spaceinfo() {
+  
+  ::ServerData::SpaceInfo* temp = _impl_.spaceinfo_;
+  _impl_.spaceinfo_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::ServerData::SpaceInfo* CavrnusSpaceConnection::unsafe_arena_release_spaceinfo() {
+  // @@protoc_insertion_point(field_release:ServerData.CavrnusSpaceConnection.spaceInfo)
+  
+  ::ServerData::SpaceInfo* temp = _impl_.spaceinfo_;
+  _impl_.spaceinfo_ = nullptr;
+  return temp;
+}
+inline ::ServerData::SpaceInfo* CavrnusSpaceConnection::_internal_mutable_spaceinfo() {
+  
+  if (_impl_.spaceinfo_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ServerData::SpaceInfo>(GetArenaForAllocation());
+    _impl_.spaceinfo_ = p;
+  }
+  return _impl_.spaceinfo_;
+}
+inline ::ServerData::SpaceInfo* CavrnusSpaceConnection::mutable_spaceinfo() {
+  ::ServerData::SpaceInfo* _msg = _internal_mutable_spaceinfo();
+  // @@protoc_insertion_point(field_mutable:ServerData.CavrnusSpaceConnection.spaceInfo)
+  return _msg;
+}
+inline void CavrnusSpaceConnection::set_allocated_spaceinfo(::ServerData::SpaceInfo* spaceinfo) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.spaceinfo_;
+  }
+  if (spaceinfo) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(spaceinfo);
+    if (message_arena != submessage_arena) {
+      spaceinfo = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, spaceinfo, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.spaceinfo_ = spaceinfo;
+  // @@protoc_insertion_point(field_set_allocated:ServerData.CavrnusSpaceConnection.spaceInfo)
 }
 
 // -------------------------------------------------------------------
@@ -3261,6 +4330,10 @@ CavrnusRemoteContent::mutable_tagvalues() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

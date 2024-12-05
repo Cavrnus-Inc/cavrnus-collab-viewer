@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 using UnrealBuildTool;
 using System;
@@ -22,7 +22,7 @@ public class CavrnusConnector : ModuleRules
     private string ThirdPartyPath
     {
         //Wrapping this here because ModuleDir itself is thirdPartyPath
-        get { return Path.Combine(ModuleDirectory, "ThirdParty"); }
+        get { return Path.Combine(PluginDirectory, "Source", "ThirdParty"); }
     }
 
     private string CavrnusRelayLibPath

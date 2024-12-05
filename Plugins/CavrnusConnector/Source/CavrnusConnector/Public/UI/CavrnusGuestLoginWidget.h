@@ -1,20 +1,13 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
-
 #include "CavrnusBaseUserWidget.h"
 #include "CavrnusGuestLoginWidget.generated.h"
 
-/**
- * @brief Base class for widget for obtaining guest login username.
- *
- * This class provides the user interface for entering a guest username and initiating the guest login process.
- */
-
-DECLARE_MULTICAST_DELEGATE_OneParam(FOnGuestLoginClicked, FString);
-
+class UEditableTextBox;
+class UButton;
 /**
  * @brief UCavrnusGuestLoginWidget class.
  *
@@ -50,7 +43,7 @@ public:
 	 * This property binds to a UI widget that allows the user to input their guest username.
 	 */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
-	class UEditableTextBox* GuestUsernameInput = nullptr;;
+	UEditableTextBox* GuestUsernameInput = nullptr;
 
 	/**
 	 * @brief Button for initiating guest login.
@@ -58,12 +51,5 @@ public:
 	 * This property binds to a UI widget that serves as the login button.
 	 */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
-	class UButton* LoginButton = nullptr;;
-
-	/**
-	 * @brief Delegate for handling guest login click events.
-	 *
-	 * This delegate is triggered when the login button is clicked, passing the guest username as a parameter.
-	 */
-	FOnGuestLoginClicked OnLogin;
+	UButton* LoginButton = nullptr;
 };

@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -105,6 +105,11 @@ public:
 		void ShowSpaceList();
 
 		/**
+		 * @brief Shows the JoinId login widget.
+		 */
+		void ShowJoinIdLoginWidget();
+
+		/**
 		 * @brief Gets the current spatial connector.
 		 * @return A pointer to the current spatial connector.
 		 */
@@ -168,6 +173,9 @@ public:
 	* @brief Checks for Server Setting prior to Authentication
 	*/
 	void BeginAuthenticationProcess();
+
+	typedef TFunction<void(bool)> TokenValidReturn;
+	void CheckTokenValid(const FString& server, const FString& token, const TokenValidReturn& tokenValid);
 
 	/**
 	 * @brief Authenticates and joins a space.
@@ -279,11 +287,6 @@ private:
 	TWeakObjectPtr<UGameInstance> GameInstance;
 	/** Weak pointer to the object owner. */
 	TWeakObjectPtr<UObject> ObjectOwner;
-
-public:
-	/** Boolean indicating if the subsystem is in editor mode. */
-	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus")
-	bool bInEditorMode = false;
 };
 
 /**

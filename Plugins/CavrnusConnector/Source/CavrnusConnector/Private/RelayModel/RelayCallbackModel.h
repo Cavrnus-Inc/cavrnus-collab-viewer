@@ -1,4 +1,4 @@
-﻿// Copyright(c) Cavrnus. All rights reserved.
+﻿// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -25,8 +25,12 @@ namespace Cavrnus
 
 		void HandleServerCallback(int callbackId, const ServerData::RelayRemoteMessage& msg);
 
+		void RegisterGotDataCache(TFunction<void()> onSuccess);
+		void HandleDataCache(const ServerData::RelayDataCache& dataCache);
+
 		int RegisterLoginPasswordCallback(CavrnusAuthRecv onSuccess, CavrnusError onFailure);
 		int RegisterLoginGuestCallback(CavrnusAuthRecv onSuccess, CavrnusError onFailure);
+		int RegisterLoginTokenCallback(CavrnusAuthRecv onSuccess, CavrnusError onFailure);
 
 		void RegisterAuthCallback(CavrnusAuthRecv onAuth);
 
@@ -37,6 +41,7 @@ namespace Cavrnus
 		int RegisterJoinSpaceCallback(CavrnusSpaceConnected onConnected, CavrnusError onFailure);
 
 		int RegisterFetchAvailableSpacesCallback(CavrnusAllSpacesInfoEvent onAllSpacesArrived);
+		int RegisterFetchSpaceInfoCallback(CavrnusSpaceInfoEvent onSpaceInfoFetched);
 
 		int RegisterFetchAudioInputs(CavrnusAvailableInputDevices onRecvDevices);
 		int RegisterFetchAudioOutputs(CavrnusAvailableOutputDevices onRecvDevices);
@@ -54,6 +59,10 @@ namespace Cavrnus
 
 		int currReqId = 0;
 
+		TArray<TFunction<void()>*> DataCacheCallbacks;
+		ServerData::RelayDataCache savedDataCache;
+		bool gotDataCache = false;
+
 		TArray<CavrnusAuthRecv*> AuthCallbacks;
 		void HandleAuthRecv(FCavrnusAuthentication auth);
 
@@ -65,6 +74,10 @@ namespace Cavrnus
 		TMap<int, CavrnusError*> LoginGuestErrorCallbacks;
 		void HandleLoginGuestResponse(int callbackId, ServerData::AuthenticateGuestResp resp);
 
+		TMap<int, CavrnusAuthRecv*> LoginTokenSuccessCallbacks;
+		TMap<int, CavrnusError*> LoginTokenErrorCallbacks;
+		void HandleLoginTokenResponse(int callbackId, ServerData::AuthenticateTokenResp resp);
+		
 		TArray<CavrnusSpaceBeginLoading*> BeginLoadingSpaceCallbacks;
 
 		TMap<int, CavrnusSpaceCreated*> CreateSpaceSuccessCallbacks;
@@ -95,6 +108,9 @@ namespace Cavrnus
 
 		TMap<int, CavrnusUploadCompleteFunction*> AllUploadContentCallbacks;
 		void HandleUploadComplete(int callbackId, ServerData::UploadLocalFileResp resp);
+
+		TMap<int, CavrnusSpaceInfoEvent*> FetchSpaceInfoCallbacks;
+		void HandleFetchSpaceInfoComplete(int callbackId, ServerData::GetSpaceInfoResp resp);
 
 		TMap<int, TFunction<void(FString)>*> AllFolderReqCallbacks;
 		void HandleFolderResp(int callbackId, ServerData::ContentDestinationFolderResp resp);

@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -7,45 +7,41 @@
 #include "GameFramework/Actor.h"
 #include "UI/CavrnusLoginWidget.h"
 #include "UI/CavrnusGuestLoginWidget.h"
-#include "UI/CavrnusSpaceListWidget.h"
-#include "UI/CavrnusServerSelectionWidget.h"
-
-#include "Types/CavrnusCallbackTypes.h"
-#include "Types/CavrnusSpawnedObject.h"
 
 #include "CavrnusSpatialConnector.generated.h"
 
 /** Define various options for authentication methods, member and guest login methods, and space join methods used by the ACavrnusSpatialConnector class. */
-UENUM()
-enum class ECavrnusAuthMethod
+UENUM(BlueprintType)
+enum class ECavrnusAuthMethod : uint8
 {
 	Custom,
 	JoinAsMember,
 	JoinAsGuest
 };
 
-UENUM()
-enum class ECavrnusMemberLoginMethod
+UENUM(BlueprintType)
+enum class ECavrnusMemberLoginMethod : uint8
 {
 	Custom,
 	EnterMemberLoginCredentials,
 	PromptMemberToLogin
 };
 
-UENUM()
-enum class ECavrnusGuestLoginMethod
+UENUM(BlueprintType)
+enum class ECavrnusGuestLoginMethod : uint8
 {
 	Custom,
 	EnterNameBelow,
 	PromptToEnterName
 };
 
-UENUM()
-enum class ECavrnusSpaceJoinMethod
+UENUM(BlueprintType)
+enum class ECavrnusSpaceJoinMethod : uint8
 {
 	Custom,
 	EnterSpaceId,
-	SpacesList
+	SpacesList,
+	JoinId,
 };
 
 UCLASS()
@@ -75,8 +71,9 @@ public:
 	/** Server address */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus")
 	FString MyServer;
-	// Pointer to server selection menu for the case where the developer does not set a default domain
-	TSubclassOf<UCavrnusServerSelectionWidget> ServerSelectionMenu;
+
+	UPROPERTY(EditAnywhere, Category = "Cavrnus");
+	TSubclassOf<UUserWidget> ServerSelectionMenu;
 
 	// ------------------------------------------------------------ Authentication --------------------------------------------------------------------
 	/** Property for selecting the authentication widget class. */
@@ -109,7 +106,15 @@ public:
 
 	/** Property for selecting a member login widget class, editable only if AuthMethod is JoinAsMember, and MemberLoginMethod is set to PromptMemberToLogin. Otherwise hidden */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember && MemberLoginMethod == ECavrnusMemberLoginMethod::PromptMemberToLogin", EditConditionHides))
-	TSubclassOf<UCavrnusLoginWidget> MemberLoginMenu;
+	TSubclassOf<UUserWidget> MemberLoginMenu;
+
+	/** If true, the user will remain logged-in when they re-launch the app.  Eventually these tokens will time out */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsMember", EditConditionHides))
+	bool SaveUserToken;
+
+	/** If true, the user will remain logged-in when they re-launch the app.  Eventually these tokens will time out */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "AuthMethod == ECavrnusAuthMethod::JoinAsGuest", EditConditionHides))
+	bool SaveGuestToken;
 
 	// --------------------------------------------------------- Space Joining ------------------------------------------------------------------
 	/** Enum property for selecting the space join method. */
@@ -123,6 +128,10 @@ public:
 	/** Property for selecting a space join menu widget class, editable only if SpaceJoinMethod is SpacesList. */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "SpaceJoinMethod == ECavrnusSpaceJoinMethod::SpacesList", EditConditionHides))
 	TSubclassOf<UUserWidget> SpaceJoinMenu;
+
+	/** Property for selecting a space join menu widget class, editable only if SpaceJoinMethod is SpacesList. */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Cavrnus", META = (EditCondition = "SpaceJoinMethod == ECavrnusSpaceJoinMethod::JoinId", EditConditionHides))
+	TSubclassOf<UUserWidget> JoinIdMenu;
 
 	// ------------------------------------------- Avatar Management ----------------------------------------------------------------------------
 	/** Property for selecting the asset class type used to represent remote users. */

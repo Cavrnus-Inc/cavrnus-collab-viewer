@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -46,11 +46,14 @@ namespace Cavrnus
 		static const ServerData::RelayClientMessage BuildUpdateTimeMsg(double currTime);
 		static const ServerData::RelayClientMessage BuildSetForceKeepAlive();
 		static const ServerData::RelayClientMessage BuildEndForceKeepAlive();
+		static const ServerData::RelayClientMessage BuildPostDataCacheUpdate(FString key, FString val);
 
 		static const ServerData::RelayClientMessage BuildAuthenticateGuest(int callbackId, const FString& server, const FString& screenName);
 		static const ServerData::RelayClientMessage BuildAuthenticateWithPassword(int callbackId, const FString& server, const FString& email, const FString& password);
+		static const ServerData::RelayClientMessage BuildAuthenticateToken(int callbackId, const FString& server, const FString& token);
 
 		static const ServerData::RelayClientMessage BuildFetchAvailableSpaces(int callbackId);
+		static const ServerData::RelayClientMessage BuildFetchSpaceInfo(int callbackId, const FString& spaceId);
 		static const ServerData::RelayClientMessage BuildCreateSpaceMsg(int callbackId, const FString& spaceName, const TArray<FString>& keywords);
 		static const ServerData::RelayClientMessage BuildJoinSpaceWithId(int callbackId, const FString& spaceId);
 		static const ServerData::RelayClientMessage BuildExitSpaceMsg(const FCavrnusSpaceConnection& spaceConn);

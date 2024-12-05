@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #pragma once
 
@@ -46,15 +46,15 @@ public:
 
 	/** The text box for entering the email address. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
-	class UEditableTextBox* EmailInput = nullptr;
+	UEditableTextBox* EmailInput = nullptr;
 
 	/** The text box for entering the password. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
-	class UEditableTextBox* PasswordInput = nullptr;
+	UEditableTextBox* PasswordInput = nullptr;
 
 	/** The button for initiating the login process. */
 	UPROPERTY(BlueprintReadOnly, Category = "Cavrnus|Login", meta = (BindWidget))
-	class UButton* LoginButton = nullptr;
+	UButton* LoginButton = nullptr;
 
 	/** Delegate for handling the login click event. */
 	FOnLoginClicked OnLogin;

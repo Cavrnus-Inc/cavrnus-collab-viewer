@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 // Includes
 #include "CavrnusConnectorEditorModule.h"
 #include "Interfaces/IMainFrameModule.h"
@@ -23,6 +23,7 @@
 #include <Engine/SCS_Node.h>
 #include <Kismet2/BlueprintEditorUtils.h>
 #include <Tools/Modes.h>
+#include <Misc/EngineVersionComparison.h>
 
 #define LOCTEXT_NAMESPACE "CavrnusConnectorEditor"
 
@@ -416,11 +417,16 @@ void FCavrnusConnectorEditorModule::AddCavrnusToolsOptions(FToolMenuSection& InS
 	{
 		FToolUIActionChoice AddCavrnusSpawnable(FExecuteAction::CreateLambda([this, Context]()
 			{
+#if UE_VERSION_OLDER_THAN(5, 1, 0)
 				TArray<UObject*> SelectedObjects = Context->GetSelectedObjects();
 				for (UObject* SelectedObject : SelectedObjects)
 				{
 					FAssetData AssetData(SelectedObject);
-
+#else
+				for (FAssetData& AssetData : Context->SelectedAssets)
+				{
+					UObject* SelectedObject = AssetData.GetAsset();
+#endif
 					// Generate unique key
 					int IdentifierIndex = 0;
 					FString AvailableIdentifierName = SelectedObject->GetName();
@@ -532,9 +538,10 @@ void FCavrnusConnectorEditorModule::AddCavrnusSpatialConnectorToLevel()
 					CavrnusSpatialConnector->SetIsSpatiallyLoaded(false);
 					CavrnusSpatialConnector->SpawnableIdentifiers = SpawnableIdentifiers;
 					CavrnusSpatialConnector->GuestName = "Unreal Guest";
-					CavrnusSpatialConnector->MemberLoginMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoginMenus/WBP_MemberLogin.WBP_MemberLogin_C"), UCavrnusLoginWidget::StaticClass());
+					CavrnusSpatialConnector->MemberLoginMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoginMenus/WBP_MemberLogin.WBP_MemberLogin_C"), UUserWidget::StaticClass());
+					CavrnusSpatialConnector->ServerSelectionMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/ServerMenu/WBP_ServerSelectionMenu.WBP_ServerSelectionMenu_C"), UCavrnusLoginWidget::StaticClass());
 					CavrnusSpatialConnector->GuestJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoginMenus/WBP_GuestLogin.WBP_GuestLogin_C"), UCavrnusGuestLoginWidget::StaticClass());
-					CavrnusSpatialConnector->SpaceJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/SpaceListMenu/WBP_SpaceSelection.WBP_SpaceSelection_C"), UCavrnusSpaceListWidget::StaticClass());
+					CavrnusSpatialConnector->SpaceJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/SpaceListMenu/WBP_SpaceSelection.WBP_SpaceSelection_C"), UUserWidget::StaticClass());
 					CavrnusSpatialConnector->LoadingWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoadingMenu/WBP_LoadingWidget.WBP_LoadingWidget_C"), UUserWidget::StaticClass());
 					CavrnusSpatialConnector->AuthenticationWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoadingMenu/WBP_AuthenticationWidget.WBP_AuthenticationWidget_C"), UUserWidget::StaticClass());
 					CavrnusSpatialConnector->RemoteAvatarClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/Pawns/Blueprints/BP_Cavrnus_RemoteAvatarLoader.BP_Cavrnus_RemoteAvatarLoader_C"), AActor::StaticClass());

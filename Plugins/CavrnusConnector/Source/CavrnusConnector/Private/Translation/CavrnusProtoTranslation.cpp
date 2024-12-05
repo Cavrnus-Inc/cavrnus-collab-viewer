@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #include "CavrnusProtoTranslation.h"
 
@@ -52,6 +52,17 @@ namespace Cavrnus
 		return msg;
 	}
 
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildPostDataCacheUpdate(FString key, FString val)
+	{
+		ServerData::PostDataCacheUpdate req;
+		req.set_key(TCHAR_TO_UTF8(*key));
+		req.set_stringval(TCHAR_TO_UTF8(*val));
+
+		ServerData::RelayClientMessage msg;
+		msg.mutable_postdatacacheupdate()->CopyFrom(req);
+		return msg;
+	}
+
 	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildAuthenticateWithPassword(int callbackId, const FString& server, const FString& email, const FString& password)
 	{
 		ServerData::AuthenticateReq req;
@@ -62,6 +73,18 @@ namespace Cavrnus
 
 		ServerData::RelayClientMessage msg;
 		msg.mutable_authenticatereq()->CopyFrom(req);
+		return msg;
+	}
+
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildAuthenticateToken(int callbackId, const FString& server, const FString& token)
+	{
+		ServerData::AuthenticateTokenReq req;
+		req.set_reqid(callbackId);
+		req.set_server(TCHAR_TO_UTF8(*server));
+		req.set_token(TCHAR_TO_UTF8(*token));
+
+		ServerData::RelayClientMessage msg;
+		msg.mutable_authenticatetokenreq()->CopyFrom(req);
 		return msg;
 	}
 
@@ -84,6 +107,18 @@ namespace Cavrnus
 
 		ServerData::RelayClientMessage msg;
 		msg.mutable_alljoinablespacesreq()->CopyFrom(req);
+
+		return msg;
+	}
+
+	const ServerData::RelayClientMessage CavrnusProtoTranslation::BuildFetchSpaceInfo(int callbackId, const FString& spaceId)
+	{
+		ServerData::GetSpaceInfoReq req;
+		req.set_reqid(callbackId);
+		req.set_spaceid(TCHAR_TO_UTF8(*spaceId));
+
+		ServerData::RelayClientMessage msg;
+		msg.mutable_getspaceinforeq()->CopyFrom(req);
 
 		return msg;
 	}
@@ -487,7 +522,7 @@ namespace Cavrnus
 	FCavrnusSpaceConnection CavrnusProtoTranslation::FromPb(ServerData::CavrnusSpaceConnection InSpaceConnection)
 	{
 		FString usersContainerPrefix = "users/";
-		return FCavrnusSpaceConnection(InSpaceConnection.spaceconnectionid(), UTF8_TO_TCHAR(InSpaceConnection.localuserconnectionid().c_str()), usersContainerPrefix + UTF8_TO_TCHAR(InSpaceConnection.localuserconnectionid().c_str()));
+		return FCavrnusSpaceConnection(InSpaceConnection.spaceconnectionid(), UTF8_TO_TCHAR(InSpaceConnection.localuserconnectionid().c_str()), usersContainerPrefix + UTF8_TO_TCHAR(InSpaceConnection.localuserconnectionid().c_str()), InSpaceConnection.spaceownedbylocaluser(), ToSpaceInfo(InSpaceConnection.spaceinfo()));
 	}
 
 	ServerData::CavrnusSpaceConnection CavrnusProtoTranslation::ToPb(FCavrnusSpaceConnection InSpaceConnection)

@@ -1,4 +1,4 @@
-// Copyright (c), Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #include "UI/MessageMenus/TranscriptionHudMenu/CavrnusTranscriptionHud.h"
 #include "CavrnusFunctionLibrary.h"

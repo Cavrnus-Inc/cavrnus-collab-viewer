@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #include "Public/CavrnusFunctionLibrary.h"
 #include "CavrnusConnectorModule.h"
@@ -144,6 +144,21 @@ void UCavrnusFunctionLibrary::FetchJoinableSpaces(CavrnusAllSpacesInfoEvent OnRe
 {
 	int RequestId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetCallbackModel()->RegisterFetchAvailableSpacesCallback(OnRecvCurrentJoinableSpaces);
 	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFetchAvailableSpaces(RequestId));
+}
+
+void UCavrnusFunctionLibrary::FetchSpaceInfo(FString spaceId, FCavrnusSpaceInfoEvent OnRecvSpaceInfo)
+{
+	CavrnusSpaceInfoEvent callback = [OnRecvSpaceInfo](const FCavrnusSpaceInfo& val)
+		{
+			OnRecvSpaceInfo.ExecuteIfBound(val);
+		};
+	FetchSpaceInfo(spaceId, callback);
+}
+
+void UCavrnusFunctionLibrary::FetchSpaceInfo(FString spaceId, CavrnusSpaceInfoEvent OnRecvSpaceInfo)
+{
+	int RequestId = Cavrnus::CavrnusRelayModel::GetDataModel()->GetCallbackModel()->RegisterFetchSpaceInfoCallback(OnRecvSpaceInfo);
+	Cavrnus::CavrnusRelayModel::GetDataModel()->SendMessage(Cavrnus::CavrnusProtoTranslation::BuildFetchSpaceInfo(RequestId, spaceId));
 }
 
 UCavrnusBinding* UCavrnusFunctionLibrary::BindJoinableSpaces(FCavrnusSpaceInfoEvent SpaceAdded, FCavrnusSpaceInfoEvent SpaceUpdated, FCavrnusSpaceInfoEvent SpaceRemoved)

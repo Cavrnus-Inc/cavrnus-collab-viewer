@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #include "CavrnusSpatialConnector.h"
 
@@ -17,7 +17,7 @@ ACavrnusSpatialConnector::ACavrnusSpatialConnector()
 	PrimaryActorTick.bCanEverTick = false;
 
 	AuthMethod = ECavrnusAuthMethod::JoinAsMember;	
-	MemberLoginMethod = ECavrnusMemberLoginMethod::EnterMemberLoginCredentials;		
+	MemberLoginMethod = ECavrnusMemberLoginMethod::EnterMemberLoginCredentials;
 	GuestLoginMethod = ECavrnusGuestLoginMethod::EnterNameBelow;
 	SpaceJoinMethod = ECavrnusSpaceJoinMethod::SpacesList;
 }
@@ -30,7 +30,6 @@ void ACavrnusSpatialConnector::PostInitializeComponents()
 	{
 		SubProxy->RegisterCavrnusSpatialConnector(this);
 	}
-	ServerSelectionMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/ServerMenu/WBP_ServerSelection.WBP_ServerSelection_C"), UCavrnusServerSelectionWidget::StaticClass());
 }
 
 // Called when the game starts or when spawned
@@ -42,7 +41,7 @@ void ACavrnusSpatialConnector::BeginPlay()
 
 void ACavrnusSpatialConnector::CavrnusBeginPlay()
 {
-	UWorld* WorldPtr = GetWorld();
+	const UWorld* WorldPtr = GetWorld();
 	if (!WorldPtr)
 	{
 		UE_LOG(LogCavrnusConnector, Error, TEXT("No world in ACavrnusSpatialConnector::BeginPlay()"));
@@ -50,9 +49,7 @@ void ACavrnusSpatialConnector::CavrnusBeginPlay()
 	}
 
 	if (UCavrnusSpatialConnectorSubSystemProxy* SubProxy = UCavrnusFunctionLibrary::GetCavrnusSpatialConnectorSubSystemProxy())
-	{
 		SubProxy->BeginAuthenticationProcess();
-	}
 }
 
 void ACavrnusSpatialConnector::EndPlay(const EEndPlayReason::Type EndPlayReason)

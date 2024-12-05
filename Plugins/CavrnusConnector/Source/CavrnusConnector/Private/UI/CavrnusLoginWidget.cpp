@@ -1,11 +1,11 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #include "UI/CavrnusLoginWidget.h"
 #include <Components/Button.h>
-
 #include "CavrnusFunctionLibrary.h"
 #include "CavrnusSpatialConnector.h"
 #include "CavrnusSpatialConnectorSubSystem.h"
+#include "Components/EditableTextBox.h"
 
 void UCavrnusLoginWidget::Setup()
 {
@@ -26,7 +26,7 @@ void UCavrnusLoginWidget::OnLoginClicked()
 	                                                  PasswordInput->GetText().ToString(),
 	                                                  [this](const FCavrnusAuthentication&)
 	                                                  {
-	                                                  }, [](const FString& String)
+	                                                  }, [](const FString&)
 	                                                  {
 	                                                  });
 

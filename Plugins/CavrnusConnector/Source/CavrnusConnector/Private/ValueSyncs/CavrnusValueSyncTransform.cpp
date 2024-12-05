@@ -1,4 +1,4 @@
-// Copyright(c) Cavrnus. All rights reserved.
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #include "ValueSyncs/CavrnusValueSyncTransform.h"
 #include <Kismet/KismetSystemLibrary.h>

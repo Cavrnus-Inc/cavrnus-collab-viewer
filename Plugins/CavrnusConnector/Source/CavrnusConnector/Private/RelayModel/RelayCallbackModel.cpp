@@ -1,4 +1,4 @@
-﻿// Copyright(c) Cavrnus. All rights reserved.
+﻿// Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #include "RelayModel/RelayCallbackModel.h"
 #include "CoreMinimal.h"
@@ -26,6 +26,9 @@ namespace Cavrnus
 			break;
 		case ServerData::RelayRemoteMessage::kAuthenticateGuestResp:
 			HandleLoginGuestResponse(callbackId, msg.authenticateguestresp());
+			break;
+		case ServerData::RelayRemoteMessage::kAuthenticateTokenResp:
+			HandleLoginTokenResponse(callbackId, msg.authenticatetokenresp());
 			break;
 		case ServerData::RelayRemoteMessage::kCreateSpaceResp:
 			HandleCreateSpaceResponse(callbackId, msg.createspaceresp());
@@ -57,10 +60,37 @@ namespace Cavrnus
 		case ServerData::RelayRemoteMessage::kContentDestinationFolderResp:
 			HandleFolderResp(callbackId, msg.contentdestinationfolderresp());
 			break;
+		case ServerData::RelayRemoteMessage::kGetSpaceInfoResp:
+			HandleFetchSpaceInfoComplete(callbackId, msg.getspaceinforesp());
+			break;
 		default:
-			UE_LOG(LogCavrnusConnector, Warning, TEXT("Unhandled server message, message type: %d"), static_cast<int>(msg.Msg_case()));
+			UE_LOG(LogCavrnusConnector, Warning, TEXT("Unhandled server callback, message type: %d"), static_cast<int>(msg.Msg_case()));
 			break;
 		}
+	}
+
+	void RelayCallbackModel::RegisterGotDataCache(TFunction<void()> gotCache)
+	{
+		if (gotDataCache)
+		{
+			gotCache();
+		}
+		else
+		{
+			TFunction<void()>* callback = new TFunction<void()>(gotCache);
+			DataCacheCallbacks.Add(callback);
+		}
+	}
+
+	void RelayCallbackModel::HandleDataCache(const ServerData::RelayDataCache& dataCache)
+	{
+		savedDataCache = dataCache;
+		gotDataCache = true;
+		for (int i = 0; i < DataCacheCallbacks.Num(); i++)
+		{
+			(*DataCacheCallbacks[i])();
+		}
+		DataCacheCallbacks.Empty();
 	}
 
 	void RelayCallbackModel::HandleAuthRecv(FCavrnusAuthentication auth)
@@ -128,6 +158,19 @@ namespace Cavrnus
 		return reqId;
 	}
 
+	int RelayCallbackModel::RegisterLoginTokenCallback(CavrnusAuthRecv onSuccess, CavrnusError onFailure)
+	{
+		int reqId = ++currReqId;
+
+		CavrnusAuthRecv* callback = new CavrnusAuthRecv(onSuccess);
+		LoginTokenSuccessCallbacks.Add(reqId, callback);
+
+		CavrnusError* errorCallback = new CavrnusError(onFailure);
+		LoginTokenErrorCallbacks.Add(reqId, errorCallback);
+
+		return reqId;
+	}
+
 	void RelayCallbackModel::RegisterAuthCallback(CavrnusAuthRecv onAuth)
 	{
 		if (relayModel->GetDataState()->CurrentAuthentication != nullptr)
@@ -169,6 +212,35 @@ namespace Cavrnus
 
 		LoginGuestSuccessCallbacks.Remove(callbackId);
 		LoginGuestErrorCallbacks.Remove(callbackId);
+	}
+
+	void RelayCallbackModel::HandleLoginTokenResponse(int callbackId, ServerData::AuthenticateTokenResp resp)
+	{
+		if (resp.has_auth())
+		{
+			FString token = UTF8_TO_TCHAR(resp.auth().token().c_str());
+
+			FCavrnusAuthentication auth = FCavrnusAuthentication(token);
+			HandleAuthRecv(auth);
+
+			relayModel->GetDataState()->CurrentAuthentication = new FCavrnusAuthentication(token);
+
+			UE_LOG(LogCavrnusConnector, Log, TEXT("[AUTH SUCCESS]"));
+
+			if (LoginTokenSuccessCallbacks.Contains(callbackId))
+				(*LoginTokenSuccessCallbacks[callbackId])(auth);
+		}
+		else
+		{
+			FString error = UTF8_TO_TCHAR(resp.error().c_str());
+			UE_LOG(LogCavrnusConnector, Log, TEXT("[AUTH FAILURE]: %s"), *error);
+
+			if (LoginTokenErrorCallbacks.Contains(callbackId))
+				(*LoginTokenErrorCallbacks[callbackId])(error);
+		}
+
+		LoginTokenSuccessCallbacks.Remove(callbackId);
+		LoginTokenErrorCallbacks.Remove(callbackId);
 	}
 
 	void RelayCallbackModel::RegisterBeginLoadingSpaceCallback(CavrnusSpaceBeginLoading onBeginLoading)
@@ -235,6 +307,26 @@ namespace Cavrnus
 			(*AllSpacesInfoCallbacks[callbackId])(AvailableSpaces);
 
 		AllSpacesInfoCallbacks.Remove(callbackId);
+	}
+
+	int RelayCallbackModel::RegisterFetchSpaceInfoCallback(CavrnusSpaceInfoEvent onSpaceInfoFetched)
+	{
+		int reqId = ++currReqId;
+
+		CavrnusSpaceInfoEvent* callback = new CavrnusSpaceInfoEvent(onSpaceInfoFetched);
+		FetchSpaceInfoCallbacks.Add(reqId, callback);
+
+		return reqId;
+	}
+
+	void RelayCallbackModel::HandleFetchSpaceInfoComplete(int callbackId, ServerData::GetSpaceInfoResp resp)
+	{
+		FCavrnusSpaceInfo info = CavrnusProtoTranslation::ToSpaceInfo(resp.info());
+
+		if (FetchSpaceInfoCallbacks.Contains(callbackId))
+			(*FetchSpaceInfoCallbacks[callbackId])(info);
+
+		FetchSpaceInfoCallbacks.Remove(callbackId);
 	}
 
 	void RelayCallbackModel::HandleCreateSpaceResponse(int callbackId, ServerData::CreateSpaceResp resp)
