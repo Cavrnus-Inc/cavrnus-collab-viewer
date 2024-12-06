@@ -26,8 +26,8 @@
 
     
 ## Project Information  
-**Version:** 1.0.0    
-**Last Updated:** 2024-09-13    
+**Version:** 2024.2.0    
+**Last Updated:** 2024-12-05    
 **Documentation:** [Cavrnus Collaborative Viewer Documentation](https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/948764675/Cavrnus+with+the+Unreal+Collab+Viewer+Template+CVT)     
 
 ## Introduction
@@ -39,7 +39,7 @@ The CavrnusCVT plugin offers a seamless way to integrate multi-user collaboratio
 This repo includes both the CavrnusCVT plugin and the corresponding CavrnusConnector plugin. These must live together in your project's plugin folder in order for proper functionality.
 
 ### Requirements
-- Unreal Engine 5.x.x
+- Unreal Engine 5.3.x
 
 ## Getting Started
 
