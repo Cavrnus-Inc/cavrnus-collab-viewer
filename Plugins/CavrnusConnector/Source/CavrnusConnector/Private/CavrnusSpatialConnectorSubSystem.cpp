@@ -477,11 +477,8 @@ void UCavrnusSpatialConnectorSubSystemProxy::OnPossessedPawnChanged(APawn* OldPa
 	{
 		SetupLocalUserPawn();
 	}
+	// TODO : Evaluate whether or not we need to clean up from SetupLocalUserPawn
 
-	if (OldPawn)
-	{
-		OldPawn->Destroy();
-	}
 }
 
 void UCavrnusSpatialConnectorSubSystemProxy::SetupLocalUserPawn()

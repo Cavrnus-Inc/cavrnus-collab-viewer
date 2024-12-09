@@ -10,7 +10,6 @@
 class UTextBlock;
 class UCavrnusInputField;
 class UButton;
-class UEditableTextBox;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnJoinIdWidgetCloseButtonClicked);
 

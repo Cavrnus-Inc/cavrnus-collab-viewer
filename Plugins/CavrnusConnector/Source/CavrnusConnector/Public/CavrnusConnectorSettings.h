@@ -43,10 +43,9 @@ public:
 	UPROPERTY(Config, EditAnywhere, Category = "Configuration")
 	FString RelayNetIPAddress;
 
-	// Relative location of the RelayNet .exe from the project root dir
-	// \todo make a version of this for plugin relative dir when we start shipping relaynet with plugin 
+	// Relative location of the RelayNet binaries from the plugin root dir
 	UPROPERTY(Config, EditAnywhere, Category = "Configuration")
-	FString RelayNetExecutableRelativeLocation;
+	FString RelayNetRelativeLocation;
 
 	// Prevents the console window from being visible to users
 	UPROPERTY(Config, EditAnywhere, Category = "Configuration")

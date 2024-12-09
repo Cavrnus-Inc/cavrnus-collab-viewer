@@ -5,8 +5,9 @@
 #include "CavrnusFunctionLibrary.h"
 #include "CavrnusSpatialConnector.h"
 #include "CavrnusSpatialConnectorSubSystem.h"
-#include "Components/Button.h"
 #include "UI/Components/CavrnusInputField.h"
+#include <Components/Button.h>
+#include <Components/TextBlock.h>
 
 #pragma region UE Methods
 void UCavrnusJoinIdLoginWidget::NativeConstruct()

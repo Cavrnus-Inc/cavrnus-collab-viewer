@@ -1,6 +1,6 @@
 # Changelog
 
-## [2024.3.1] - 2024-11-22
+## [2024.3.1] - 2024-12-6
 
 ### Added
 - SpaceInfo data added to CavrnusSpaceConnection
@@ -11,17 +11,22 @@
 - Server Selection Widget for case where Developer does not input server.
 - Space Tags/Keywords
 - Journal/local storage folder infrastructure 
+- Token Caching to save Cavrnus login credentials
 
 ### Changed
 - The "None" options in the CavrnusSpatialConnector menu now say "Custom", to reduce confusion.
 - Plugin friendly name now shows as "Cavrnus Spatial Connector"
 - Silent mode flag fixed and set to be True by default. Hides the Cavrnus Relay console window. Unhidden in project settings under Plugins / Cavrnus Spatial Connector.
+- Cleanup of pawn sync components. Renamed several blueprint classes/components
 
 ### Removed
 - Depedency on ProceduralMeshComponent plugin
+- Unused pawn classes and blueprint assets
 
 ### Fixed
 - Errors in SK_Avatar_CollabViewer_PhysicsAsset.uasset
+- Miscellaneous Server Select menu fixes
+- CSC no longer destroys the local user's pawn
 
 ## [2024.3.0] - 2024-10-11
 
