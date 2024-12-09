@@ -9,7 +9,7 @@ UCavrnusConnectorSettings::UCavrnusConnectorSettings(const FObjectInitializer& o
 	// Init default values
 	RelayNetPort = 36045;
 	RelayNetIPAddress = "127.0.0.1";
-	RelayNetExecutableRelativeLocation = "CavrnusRelayNet\\net6.0-windows\\CavrnusRelayNet.exe";
+	RelayNetRelativeLocation = "Source\\CavrnusConnector\\CavrnusRelayNet\\net6.0-windows";
 	RelayNetSilent = true;
 	RelayNetVerboseLogging = false;
 	RelayNetLogOutputToFile = false;
