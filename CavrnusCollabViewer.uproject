@@ -12,6 +12,11 @@
 	],
 	"Plugins": [
 		{
+			"Name": "CavrnusConnector",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.fab.cavrnusconnector"
+		},
+		{
 			"Name": "SunPosition",
 			"Enabled": true
 		},
