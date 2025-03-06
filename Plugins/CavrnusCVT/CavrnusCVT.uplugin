@@ -1,15 +1,15 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0",
-	"FriendlyName": "CavrnusCVT",
-	"Description": "Cavrnus + CVT",
-	"Category": "Other",
-	"CreatedBy": "Cavrnus",
-	"CreatedByURL": "",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
+	"VersionName": "2025.1.0",
+	"FriendlyName": "Cavrnus Collab Viewer",
+	"Description": "Instantly add multi-user collaboration, synced avatars, voice & video conferencing, transcription & translation, text chat, desktop & window sharing, model sharing & review, and high-performance data syncrhonization to any project.",
+	"Category": "Instant Multi-user Collaboration",
+	"CreatedBy": "Cavrnus, Inc.",
+	"CreatedByURL": "http://www.cavrnus.com/",
+	"DocsURL": "https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/948764675/Cavrnus+Collab+Viewer",
+	"MarketplaceURL": "fab.com/sellers/Cavrnus",
+	"SupportURL": "https://cavrnus.atlassian.net/servicedesk/customer/portal/1/group/-1",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
@@ -82,6 +82,13 @@
 		{
 			"Name": "DatasmithRuntime",
 			"Enabled": true
+		},
+		{
+			"Name": "OpenXR",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
 		}
 	],
 	"SupportedTargetPlatforms": [
