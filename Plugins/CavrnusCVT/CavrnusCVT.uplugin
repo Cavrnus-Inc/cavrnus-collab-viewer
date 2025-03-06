@@ -8,7 +8,7 @@
 	"CreatedBy": "Cavrnus, Inc.",
 	"CreatedByURL": "http://www.cavrnus.com/",
 	"DocsURL": "https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/948764675/Cavrnus+Collab+Viewer",
-	"MarketplaceURL": "fab.com/sellers/Cavrnus",
+	"FabURL": "com.epicgames.launcher://ue/Fab/product/9d8369be-798d-4833-b4ae-4c5737f71f68",
 	"SupportURL": "https://cavrnus.atlassian.net/servicedesk/customer/portal/1/group/-1",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
