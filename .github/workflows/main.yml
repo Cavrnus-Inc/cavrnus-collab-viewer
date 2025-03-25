@@ -22,13 +22,15 @@ jobs:
           # Remove the .git folder entirely
           rm -rf .git
 
-      - name: Create zip archive with tag name
+      - name: Create zip archive with project and tag name
         run: |
           # Extract tag name from GITHUB_REF (e.g., refs/tags/2025.x.x -> 2025.x.x)
           TAG=${GITHUB_REF##*/}
           echo "Tag is: ${TAG}"
-          # Create a zip archive of the repository named after the tag
-          zip -r "${TAG}.zip" . -x "${TAG}.zip"
+          # Name the archive with the project name and tag, no spaces.
+          ARCHIVE_NAME="cavrnus-collab-viewer-${TAG}.zip"
+          # Create a zip archive of the repository, excluding the archive itself.
+          zip -r "${ARCHIVE_NAME}" . -x "${ARCHIVE_NAME}"
 
       - name: Create GitHub Release
         id: create_release
@@ -38,31 +40,34 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           echo "Creating release for tag ${TAG_NAME}"
+          # Use a release name without spaces.
+          RELEASE_NAME="cavrnus-collab-viewer-${TAG_NAME}"
           RESPONSE=$(curl --fail -s -X POST \
             -H "Authorization: token ${GITHUB_TOKEN}" \
             -H "Content-Type: application/json" \
-            -d "{\"tag_name\": \"${TAG_NAME}\", \"name\": \"Release ${TAG_NAME}\", \"draft\": false, \"prerelease\": false}" \
+            -d "{\"tag_name\": \"${TAG_NAME}\", \"name\": \"${RELEASE_NAME}\", \"draft\": false, \"prerelease\": false}" \
             "https://api.github.com/repos/${REPO}/releases")
           
-          # Optionally, output the response for debugging:
+          # Optionally, output the response for debugging.
           echo "$RESPONSE"
           
-          # Extract the upload_url and remove the placeholder part {?name,label}
+          # Extract the upload_url and remove the placeholder part {?name,label}.
           UPLOAD_URL=$(echo "$RESPONSE" | jq -r '.upload_url' | sed 's/{?name,label}//')
           
-          # Write the upload_url to the GitHub output file using environment file syntax.
+          # Write the upload_url to the GitHub output file using the new environment file syntax.
           echo "upload_url=${UPLOAD_URL}" >> $GITHUB_OUTPUT
 
       - name: Upload Release Asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Extract tag name again for consistency
+          # Extract tag name for consistency and set archive name.
           TAG=${GITHUB_REF##*/}
+          ARCHIVE_NAME="cavrnus-collab-viewer-${TAG}.zip"
           UPLOAD_URL="${{ steps.create_release.outputs.upload_url }}"
           echo "Uploading asset to: ${UPLOAD_URL}"
           curl --fail -s -X POST \
             -H "Authorization: token ${GITHUB_TOKEN}" \
             -H "Content-Type: application/zip" \
-            --data-binary "@${TAG}.zip" \
-            "${UPLOAD_URL}?name=${TAG}.zip"
+            --data-binary "@${ARCHIVE_NAME}" \
+            "${UPLOAD_URL}?name=${ARCHIVE_NAME}"
