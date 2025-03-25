@@ -1,0 +1,45 @@
+name: Create Archived Release
+
+on:
+  push:
+    tags:
+      - '*'   # This triggers the workflow for any tag push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Remove all .gitignore files
+        run: |
+          # Delete all .gitignore files recursively
+          find . -name ".gitignore" -type f -delete
+
+      - name: Create zip archive
+        run: |
+          # Create a zip archive of the repository (excluding the archive itself)
+          zip -r tag-archive.zip . -x tag-archive.zip
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./tag-archive.zip
+          asset_name: tag-archive.zip
+          asset_content_type: application/zip
