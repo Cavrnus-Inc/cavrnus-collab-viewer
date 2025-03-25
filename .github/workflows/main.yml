@@ -1,9 +1,9 @@
-name: Create Archived Release
+name: Create Tag Zip Archive
 
 on:
   push:
     tags:
-      - '*'   # This triggers the workflow for any tag push
+      - '*'   # Trigger on any tag push
 
 jobs:
   build:
@@ -13,33 +13,56 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Remove all .gitignore files
+      - name: Remove Git-related files and folders
         run: |
-          # Delete all .gitignore files recursively
+          # Remove all .gitignore files
           find . -name ".gitignore" -type f -delete
+          # Remove the .github folder entirely
+          rm -rf .github
+          # Remove the .git folder entirely
+          rm -rf .git
 
-      - name: Create zip archive
+      - name: Create zip archive with tag name
         run: |
-          # Create a zip archive of the repository (excluding the archive itself)
-          zip -r tag-archive.zip . -x tag-archive.zip
+          # Extract tag name from GITHUB_REF (e.g., refs/tags/2025.x.x -> 2025.x.x)
+          TAG=${GITHUB_REF##*/}
+          echo "Tag is: ${TAG}"
+          # Create a zip archive of the repository named after the tag
+          zip -r "${TAG}.zip" . -x "${TAG}.zip"
 
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
+          TAG_NAME: ${{ github.ref_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Creating release for tag ${TAG_NAME}"
+          RESPONSE=$(curl --fail -s -X POST \
+            -H "Authorization: token ${GITHUB_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "{\"tag_name\": \"${TAG_NAME}\", \"name\": \"Release ${TAG_NAME}\", \"draft\": false, \"prerelease\": false}" \
+            "https://api.github.com/repos/${REPO}/releases")
+          
+          # Optionally, output the response for debugging:
+          echo "$RESPONSE"
+          
+          # Extract the upload_url and remove the placeholder part {?name,label}
+          UPLOAD_URL=$(echo "$RESPONSE" | jq -r '.upload_url' | sed 's/{?name,label}//')
+          
+          # Write the upload_url to the GitHub output file using environment file syntax.
+          echo "upload_url=${UPLOAD_URL}" >> $GITHUB_OUTPUT
 
       - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./tag-archive.zip
-          asset_name: tag-archive.zip
-          asset_content_type: application/zip
+        run: |
+          # Extract tag name again for consistency
+          TAG=${GITHUB_REF##*/}
+          UPLOAD_URL="${{ steps.create_release.outputs.upload_url }}"
+          echo "Uploading asset to: ${UPLOAD_URL}"
+          curl --fail -s -X POST \
+            -H "Authorization: token ${GITHUB_TOKEN}" \
+            -H "Content-Type: application/zip" \
+            --data-binary "@${TAG}.zip" \
+            "${UPLOAD_URL}?name=${TAG}.zip"
