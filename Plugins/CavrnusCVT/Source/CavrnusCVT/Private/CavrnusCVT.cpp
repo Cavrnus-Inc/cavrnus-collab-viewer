@@ -1,5 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
+// Copyright (c) 2024 Cavrnus. All rights reserved.
 #include "CavrnusCVT.h"
 
 #define LOCTEXT_NAMESPACE "FCavrnusCVTModule"

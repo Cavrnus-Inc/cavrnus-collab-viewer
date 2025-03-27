@@ -1,3 +1,5 @@
+// Copyright (c) 2024 Cavrnus. All rights reserved.
+
 #include "CavrnusCVTEditorModule.h"
 
 #include "EngineUtils.h"

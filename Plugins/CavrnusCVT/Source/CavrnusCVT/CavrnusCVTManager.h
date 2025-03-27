@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿// Copyright (c) 2024 Cavrnus. All rights reserved.
+#pragma once
 
 #include <GameFramework/Actor.h>
 #include "CavrnusCVTManager.generated.h"
