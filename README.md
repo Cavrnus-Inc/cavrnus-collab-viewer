@@ -26,8 +26,8 @@
 
     
 ## Project Information  
-**Version:** 2024.2.0    
-**Last Updated:** 2024-12-05    
+**Version:** 2025.2.1    
+**Last Updated:** 2025-03-27    
 **Documentation:** [Cavrnus Collaborative Viewer Documentation](https://cavrnus.atlassian.net/wiki/spaces/CSM/pages/948764675/Cavrnus+with+the+Unreal+Collab+Viewer+Template+CVT)     
 
 ## Introduction
