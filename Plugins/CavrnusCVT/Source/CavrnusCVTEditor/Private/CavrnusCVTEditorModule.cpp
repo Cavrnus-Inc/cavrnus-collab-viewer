@@ -2,9 +2,9 @@
 
 #include "CavrnusCVTEditorModule.h"
 
+#include "CavrnusCVTManager.h"
 #include "EngineUtils.h"
 #include "LevelEditor.h"
-#include "CavrnusCVT/CavrnusCVTManager.h"
 #include "Engine/StaticMeshActor.h"
 #include "GameFramework/GameModeBase.h"
 #include "UI/ServerSelectionMenu/CavrnusServerSelectWidget.h"

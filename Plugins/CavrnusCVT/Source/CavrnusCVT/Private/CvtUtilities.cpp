@@ -1,11 +1,11 @@
 // Copyright (c) 2024 Cavrnus. All rights reserved.
 
 #include "CvtUtilities.h"
+
 #include <Serialization/JsonReader.h>
 #include <Serialization/JsonSerializer.h>
 
-TArray<FTransform> UCvtUtilities::JsonStringToFTransformArray(const FString& JsonStr, const FString& FieldName,
-                                                              bool& Success)
+TArray<FTransform> UCvtUtilities::JsonStringToFTransformArray(const FString& JsonStr, const FString& FieldName,bool& Success)
 {
 	TArray<FTransform> Transforms;
 	TSharedPtr<FJsonObject> JsonObject;
