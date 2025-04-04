@@ -40,6 +40,10 @@
 				"Android",
 				"HoloLens"
 			]
+		},
+		{
+			"Name": "BlueprintFileUtils",
+			"Enabled": true
 		}
 	]
 }
