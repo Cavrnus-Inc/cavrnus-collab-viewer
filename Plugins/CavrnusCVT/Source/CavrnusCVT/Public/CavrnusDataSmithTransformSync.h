@@ -4,12 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "LivePropertyUpdates/CavrnusLivePropertyUpdate.h"
+#include "LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h"
 #include "Types/CavrnusBinding.h"
 #include "UObject/Object.h"
 
 #include "CavrnusDataSmithTransformSync.generated.h"
 
 struct FCavrnusSpaceConnection;
+
 /**
  * Sync component that is placed on each staticMeshActor within Datasmith Actor
  */
@@ -26,20 +28,23 @@ protected:
 private:
 	FString ContainerName = "";
 	FString PropertyName = "";
-
+	
 	bool IgnoreTransformUpdate = false;
 	
 	FTimerHandle SetBindingHandle = FTimerHandle();
 	FTimerHandle TransformUpdaterHandle = FTimerHandle();
 	
 	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
-
+	
 	UPROPERTY()
 	TObjectPtr<AActor> TargetActor;
 	UPROPERTY()
 	TObjectPtr<UCavrnusBinding> Binding;
 	UPROPERTY()
 	TObjectPtr<UCavrnusLivePropertyUpdate> LiveUpdater = nullptr;
+	
+	UPROPERTY()
+	TObjectPtr<UCavrnusLiveTransformPropertyUpdate> TransformLiveUpdater = nullptr;
 	
 	void SetLocalBinding();
 	void SetServerBinding();

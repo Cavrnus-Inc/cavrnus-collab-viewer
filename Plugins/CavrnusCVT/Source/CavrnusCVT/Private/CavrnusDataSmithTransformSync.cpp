@@ -29,7 +29,6 @@ void UCavrnusDataSmithTransformSync::SetLocalBinding()
 	{
 		if (IgnoreTransformUpdate)
 		{
-			IgnoreTransformUpdate = false;
 			UE_LOG(LogTemp, Log, TEXT("Ignored feedback transform update."));
 			
 			return;
@@ -57,6 +56,7 @@ void UCavrnusDataSmithTransformSync::SetServerBinding()
 	{
 		IgnoreTransformUpdate = true;
 		TargetActor->GetRootComponent()->SetRelativeTransform(Value);
+		IgnoreTransformUpdate = false;
 	});
 }
 
