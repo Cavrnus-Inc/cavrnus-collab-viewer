@@ -10,19 +10,20 @@ void UCavrnusDataSmithTransformSync::Setup(const FCavrnusSpaceConnection& InSpac
 	PropertyName = InProperty;
 	TargetActor = InActor;
 	
-	SetBindings();
+	SetLocalBinding();
+	SetServerBinding();
 }
 
-void UCavrnusDataSmithTransformSync::SetBindings()
+void UCavrnusDataSmithTransformSync::BeginDestroy()
 {
-	// SERVER UPDATE
-	UCavrnusFunctionLibrary::DefineTransformPropertyDefaultValue(SpaceConnection, ContainerName, PropertyName, TargetActor->GetRootComponent()->GetRelativeTransform());
-	Binding = UCavrnusFunctionLibrary::BindTransformPropertyValue(SpaceConnection, ContainerName, PropertyName, [this](const FTransform& Value, const FString&, const FString&)
-	{
-		IgnoreTransformUpdate = true;
-		TargetActor->GetRootComponent()->SetRelativeTransform(Value);
-	});
+	UObject::BeginDestroy();
+	ContainerName = "";
+	PropertyName = "";
+	TargetActor = nullptr;
+}
 
+void UCavrnusDataSmithTransformSync::SetLocalBinding()
+{
 	// LOCAL UPDATE
 	TargetActor->GetRootComponent()->TransformUpdated.AddLambda([this](const USceneComponent* UpdatedComponent, EUpdateTransformFlags, ETeleportType)
 	{
@@ -45,6 +46,17 @@ void UCavrnusDataSmithTransformSync::SetBindings()
 		}
 		
 		TrySetLocalFinalizeTimer();
+	});
+}
+
+void UCavrnusDataSmithTransformSync::SetServerBinding()
+{
+	// SERVER UPDATE
+	UCavrnusFunctionLibrary::DefineTransformPropertyDefaultValue(SpaceConnection, ContainerName, PropertyName, TargetActor->GetRootComponent()->GetRelativeTransform());
+	Binding = UCavrnusFunctionLibrary::BindTransformPropertyValue(SpaceConnection, ContainerName, PropertyName, [this](const FTransform& Value, const FString&, const FString&)
+	{
+		IgnoreTransformUpdate = true;
+		TargetActor->GetRootComponent()->SetRelativeTransform(Value);
 	});
 }
 
@@ -80,10 +92,4 @@ void UCavrnusDataSmithTransformSync::CancelLocalFinalizeTimer()
 {
 	if (const UWorld* World = TargetActor->GetWorld())
 		World->GetTimerManager().ClearTimer(TransformUpdaterHandle);
-}
-
-void UCavrnusDataSmithTransformSync::BeginDestroy()
-{
-	UObject::BeginDestroy();
-	TargetActor = nullptr;
 }

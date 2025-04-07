@@ -5,14 +5,17 @@
 #include "CavrnusDataSmithTransformSync.h"
 #include "Engine/StaticMeshActor.h"
 
-FTimerHandle CheckHierarchyHandle;
-
-void UCavrnusDataSmithPropertiesHandler::Setup(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainerName, AActor* DataSmithActor)
+void UCavrnusDataSmithPropertiesHandler::Setup(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainerName, AActor* InDataSmithActor)
 {
 	SpaceConnection = InSpaceConn;
 	ContainerName = InContainerName;
+	DataSmithActor = InDataSmithActor;
 	
-	StartPollingForHierarchy(DataSmithActor);
+	if (const UWorld* World = DataSmithActor->GetWorld())
+	{
+		World->GetTimerManager().SetTimer(CheckHierarchyHandle, FTimerDelegate::CreateUObject(this,
+		&UCavrnusDataSmithPropertiesHandler::CheckHierarchyExists), 0.5f, true);
+	}
 }
 
 void UCavrnusDataSmithPropertiesHandler::BeginDestroy()
@@ -21,44 +24,27 @@ void UCavrnusDataSmithPropertiesHandler::BeginDestroy()
 	TransformSyncs.Empty();
 }
 
-void UCavrnusDataSmithPropertiesHandler::StartPollingForHierarchy(AActor* DatasmithActor)
-{
-	if (!DatasmithActor) return;
-
-	UWorld* World = DatasmithActor->GetWorld();
-	if (!World) return;
-
-	World->GetTimerManager().SetTimer(CheckHierarchyHandle, FTimerDelegate::CreateUObject(
-		this,
-		&UCavrnusDataSmithPropertiesHandler::CheckStaticMeshHierarchyReady,
-		DatasmithActor
-	), 0.5f, true); // every 0.5 seconds
-}
-
-void UCavrnusDataSmithPropertiesHandler::CheckStaticMeshHierarchyReady(AActor* DatasmithActor)
+void UCavrnusDataSmithPropertiesHandler::CheckHierarchyExists()
 {
 	TArray<AActor*> AttachedActors;
-	DatasmithActor->GetAttachedActors(AttachedActors);
+	DataSmithActor->GetAttachedActors(AttachedActors);
 
 	if (AttachedActors.Num() > 0)
 	{
 		UE_LOG(LogTemp, Log, TEXT("Datasmith hierarchy is ready! Found %d actors."), AttachedActors.Num());
 
 		// Stop polling
-		if (UWorld* World = DatasmithActor->GetWorld())
+		if (const UWorld* World = DataSmithActor->GetWorld())
 			World->GetTimerManager().ClearTimer(CheckHierarchyHandle);
 
-		ProcessStaticMeshHierarchy(SpaceConnection, ContainerName, DatasmithActor);
+		ProcessStaticMeshHierarchy();
 	}
 	else
 		UE_LOG(LogTemp, Verbose, TEXT("Waiting for Datasmith hierarchy to load..."));
 }
 
-void UCavrnusDataSmithPropertiesHandler::ProcessStaticMeshHierarchy(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainerName, AActor* DataSmithActor)
+void UCavrnusDataSmithPropertiesHandler::ProcessStaticMeshHierarchy()
 {
-	if (DataSmithActor == nullptr)
-		return;
-	
 	TArray<AStaticMeshActor*> AllMeshActors;
 	GetAllStaticMeshActorsRecursive(DataSmithActor, AllMeshActors);
 
@@ -71,27 +57,27 @@ void UCavrnusDataSmithPropertiesHandler::ProcessStaticMeshHierarchy(const FCavrn
 			const uint32 Hash = GetTypeHash(ActorName);
 			FString UniqueName = FString::Printf(TEXT("%u_%s"), Hash, *ActorName);
 			
-			SyncTransform->Setup(InSpaceConn, InContainerName, UniqueName, MeshActor);
+			SyncTransform->Setup(SpaceConnection, ContainerName, UniqueName, MeshActor);
 			TransformSyncs.Add(SyncTransform);
 		}
 	}
 }
 
-void UCavrnusDataSmithPropertiesHandler::GetAllStaticMeshActorsRecursive(AActor* Root, TArray<AStaticMeshActor*>& OutMeshActors)
+void UCavrnusDataSmithPropertiesHandler::GetAllStaticMeshActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors)
 {
-	if (!Root)
+	if (!InRoot)
 		return;
 
 	TArray<AActor*> AttachedActors;
-	Root->GetAttachedActors(AttachedActors);
+	InRoot->GetAttachedActors(AttachedActors);
 	
 	for (auto* AA : AttachedActors)
 	{
 		if (!AA)
 			continue;
 
-		if (auto* SMA = Cast<AStaticMeshActor>(AA))
-			OutMeshActors.Add(SMA);
+		if (auto* Sma = Cast<AStaticMeshActor>(AA))
+			OutMeshActors.Add(Sma);
 
 		GetAllStaticMeshActorsRecursive(AA, OutMeshActors);
 	}

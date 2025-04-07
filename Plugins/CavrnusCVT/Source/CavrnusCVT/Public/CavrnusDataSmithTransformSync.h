@@ -11,7 +11,7 @@
 
 struct FCavrnusSpaceConnection;
 /**
- * 
+ * Sync component that is placed on each staticMeshActor within Datasmith Actor
  */
 UCLASS()
 class CAVRNUSCVT_API UCavrnusDataSmithTransformSync : public UObject
@@ -19,32 +19,33 @@ class CAVRNUSCVT_API UCavrnusDataSmithTransformSync : public UObject
 	GENERATED_BODY()
 public:
 	void Setup(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainer, const FString& InProperty, AActor* InActor);
-	
+
+protected:
 	virtual void BeginDestroy() override;
 	
 private:
-	UPROPERTY()
-	TObjectPtr<AActor> TargetActor;
-
-	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
 	FString ContainerName = "";
 	FString PropertyName = "";
-	
-	UPROPERTY()
-	TObjectPtr<UCavrnusBinding> Binding;
+
+	bool IgnoreTransformUpdate = false;
 	
 	FTimerHandle SetBindingHandle = FTimerHandle();
 	FTimerHandle TransformUpdaterHandle = FTimerHandle();
 	
+	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
+
+	UPROPERTY()
+	TObjectPtr<AActor> TargetActor;
+	UPROPERTY()
+	TObjectPtr<UCavrnusBinding> Binding;
 	UPROPERTY()
 	TObjectPtr<UCavrnusLivePropertyUpdate> LiveUpdater = nullptr;
-
-	bool IgnoreTransformUpdate = false;
 	
-	void SetBindings();
-
-	Cavrnus::FPropertyValue GetTransformPropValue(const FTransform& NewTransform);
+	void SetLocalBinding();
+	void SetServerBinding();
 
 	void TrySetLocalFinalizeTimer();
 	void CancelLocalFinalizeTimer();
+
+	Cavrnus::FPropertyValue GetTransformPropValue(const FTransform& NewTransform);
 };
