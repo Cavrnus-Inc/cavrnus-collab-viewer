@@ -25,6 +25,10 @@ public:
 private:
 	UPROPERTY()
 	TObjectPtr<AActor> TargetActor;
+
+	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
+	FString ContainerName = "";
+	FString PropertyName = "";
 	
 	UPROPERTY()
 	TObjectPtr<UCavrnusBinding> Binding;
@@ -37,5 +41,10 @@ private:
 
 	bool IgnoreTransformUpdate = false;
 	
-	void SetBinding(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainer, const FString& InProperty, AActor* InActor);
+	void SetBindings();
+
+	Cavrnus::FPropertyValue GetTransformPropValue(const FTransform& NewTransform);
+
+	void TrySetLocalFinalizeTimer();
+	void CancelLocalFinalizeTimer();
 };

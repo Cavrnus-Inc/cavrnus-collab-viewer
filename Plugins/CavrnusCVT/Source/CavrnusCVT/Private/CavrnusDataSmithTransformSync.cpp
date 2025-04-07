@@ -5,86 +5,81 @@
 
 void UCavrnusDataSmithTransformSync::Setup(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainer, const FString& InProperty, AActor* InActor)
 {
-	if (InActor)
-	{
-		const UWorld* World = InActor->GetWorld();
-		if (!World) return;
-
-		World->GetTimerManager().SetTimerForNextTick(
-			FTimerDelegate::CreateWeakLambda(this, [this, InSpaceConn, InContainer, InProperty, InActor]
-			{
-				SetBinding(InSpaceConn, InContainer, InProperty, InActor);
-			}));
-
-		SetBinding(InSpaceConn, InContainer, InProperty, InActor);
-	}
+	SpaceConnection = InSpaceConn;
+	ContainerName = InContainer;
+	PropertyName = InProperty;
+	TargetActor = InActor;
+	
+	SetBindings();
 }
 
-void UCavrnusDataSmithTransformSync::SetBinding(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainer, const FString& InProperty, AActor* InActor)
+void UCavrnusDataSmithTransformSync::SetBindings()
 {
-	bool bIsInitialized = false;
-
-	UCavrnusFunctionLibrary::DefineTransformPropertyDefaultValue(InSpaceConn, InContainer, InProperty, InActor->GetRootComponent()->GetRelativeTransform());
-	Binding = UCavrnusFunctionLibrary::BindTransformPropertyValue(InSpaceConn, InContainer, InProperty, [this, InActor, &bIsInitialized](const FTransform& Value, const FString&, const FString&)
+	// SERVER UPDATE
+	UCavrnusFunctionLibrary::DefineTransformPropertyDefaultValue(SpaceConnection, ContainerName, PropertyName, TargetActor->GetRootComponent()->GetRelativeTransform());
+	Binding = UCavrnusFunctionLibrary::BindTransformPropertyValue(SpaceConnection, ContainerName, PropertyName, [this](const FTransform& Value, const FString&, const FString&)
 	{
 		IgnoreTransformUpdate = true;
-
-		InActor->GetRootComponent()->SetRelativeTransform(Value);
-
-		if (!bIsInitialized)
-			bIsInitialized = true;
+		TargetActor->GetRootComponent()->SetRelativeTransform(Value);
 	});
-	
-	if (InActor)
+
+	// LOCAL UPDATE
+	TargetActor->GetRootComponent()->TransformUpdated.AddLambda([this](const USceneComponent* UpdatedComponent, EUpdateTransformFlags, ETeleportType)
 	{
-		InActor->GetRootComponent()->TransformUpdated.AddLambda([this, InActor, InSpaceConn, InContainer, InProperty, &bIsInitialized](const USceneComponent* UpdatedComponent, EUpdateTransformFlags, ETeleportType)
+		if (IgnoreTransformUpdate)
 		{
-			if (!bIsInitialized) return;
-
-			if (IgnoreTransformUpdate)
-			{
-				IgnoreTransformUpdate = false;
-				UE_LOG(LogTemp, Log, TEXT("Ignored feedback transform update."));
-				return;
-			}
-
-			const FTransform& NewLocalTransform = UpdatedComponent->GetRelativeTransform();
-
-			if (const UWorld* World = InActor->GetWorld())
-				World->GetTimerManager().ClearTimer(TransformUpdaterHandle);
+			IgnoreTransformUpdate = false;
+			UE_LOG(LogTemp, Log, TEXT("Ignored feedback transform update."));
+			
+			return;
+		}
 		
+		CancelLocalFinalizeTimer();
+		
+		if (LiveUpdater)
+			LiveUpdater->UpdateWithNewDataGeneric(GetTransformPropValue(UpdatedComponent->GetRelativeTransform()));
+		else
+		{
+			const auto PropValue = GetTransformPropValue(UpdatedComponent->GetRelativeTransform());
+			LiveUpdater = UCavrnusFunctionLibrary::BeginTransientGenericPropertyUpdate(SpaceConnection, ContainerName, PropertyName,PropValue);
+		}
+		
+		TrySetLocalFinalizeTimer();
+	});
+}
+
+Cavrnus::FPropertyValue UCavrnusDataSmithTransformSync::GetTransformPropValue(const FTransform& NewTransform)
+{
+	Cavrnus::FPropertyValue PropVal = Cavrnus::FPropertyValue();
+	PropVal.PropType = Cavrnus::FPropertyValue::PropertyType::Transform;
+	PropVal.TransformValue = NewTransform;
+
+	return PropVal;
+}
+
+void UCavrnusDataSmithTransformSync::TrySetLocalFinalizeTimer()
+{
+	if (const UWorld* World = TargetActor->GetWorld())
+	{
+		World->GetTimerManager().SetTimer(TransformUpdaterHandle, [this]
+		{
+			UE_LOG(LogTemp, Log, TEXT("Transform updates have stopped. Running final logic..."));
 			if (LiveUpdater)
 			{
 				Cavrnus::FPropertyValue PropVal = Cavrnus::FPropertyValue();
 				PropVal.PropType = Cavrnus::FPropertyValue::PropertyType::Transform;
-				PropVal.TransformValue = NewLocalTransform;
-				LiveUpdater->UpdateWithNewDataGeneric(PropVal);
-			} else
-			{
-				Cavrnus::FPropertyValue PropVal = Cavrnus::FPropertyValue();
-				PropVal.PropType = Cavrnus::FPropertyValue::PropertyType::Transform;
-				PropVal.TransformValue = UpdatedComponent->GetRelativeTransform();
-				LiveUpdater = UCavrnusFunctionLibrary::BeginTransientGenericPropertyUpdate(InSpaceConn, InContainer, InProperty,PropVal);
+				PropVal.TransformValue = TargetActor->GetRootComponent()->GetRelativeTransform();
+				LiveUpdater->FinalizeGeneric(PropVal);
+				LiveUpdater = nullptr;
 			}
+		}, 0.1f, false);
+	}
+}
 
-			if (const UWorld* World = InActor->GetWorld())
-			{
-				World->GetTimerManager().SetTimer(TransformUpdaterHandle, [this, UpdatedComponent]
-				{
-					UE_LOG(LogTemp, Log, TEXT("Transform updates have stopped. Running final logic..."));
-					if (LiveUpdater)
-					{
-						Cavrnus::FPropertyValue PropVal = Cavrnus::FPropertyValue();
-						PropVal.PropType = Cavrnus::FPropertyValue::PropertyType::Transform;
-						PropVal.TransformValue = UpdatedComponent->GetRelativeTransform();
-						LiveUpdater->FinalizeGeneric(PropVal);
-						LiveUpdater = nullptr;
-					}
-				}, 0.5f, false);
-			}
-		});
-	} else
-		UE_LOG(LogTemp, Error, TEXT("InActor is null!"));
+void UCavrnusDataSmithTransformSync::CancelLocalFinalizeTimer()
+{
+	if (const UWorld* World = TargetActor->GetWorld())
+		World->GetTimerManager().ClearTimer(TransformUpdaterHandle);
 }
 
 void UCavrnusDataSmithTransformSync::BeginDestroy()
