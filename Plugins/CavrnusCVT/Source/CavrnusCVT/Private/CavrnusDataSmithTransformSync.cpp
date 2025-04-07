@@ -28,21 +28,14 @@ void UCavrnusDataSmithTransformSync::SetLocalBinding()
 	TargetActor->GetRootComponent()->TransformUpdated.AddLambda([this](const USceneComponent* UpdatedComponent, EUpdateTransformFlags, ETeleportType)
 	{
 		if (IgnoreTransformUpdate)
-		{
-			UE_LOG(LogTemp, Log, TEXT("Ignored feedback transform update."));
-			
 			return;
-		}
 		
 		CancelLocalFinalizeTimer();
 		
 		if (LiveUpdater)
-			LiveUpdater->UpdateWithNewDataGeneric(GetTransformPropValue(UpdatedComponent->GetRelativeTransform()));
+			LiveUpdater->UpdateWithNewData(UpdatedComponent->GetRelativeTransform());
 		else
-		{
-			const auto PropValue = GetTransformPropValue(UpdatedComponent->GetRelativeTransform());
-			LiveUpdater = UCavrnusFunctionLibrary::BeginTransientGenericPropertyUpdate(SpaceConnection, ContainerName, PropertyName,PropValue);
-		}
+			LiveUpdater = UCavrnusFunctionLibrary::BeginTransientTransformPropertyUpdate(SpaceConnection, ContainerName, PropertyName, UpdatedComponent->GetRelativeTransform(), PostOptions);
 		
 		TrySetLocalFinalizeTimer();
 	});
@@ -60,28 +53,16 @@ void UCavrnusDataSmithTransformSync::SetServerBinding()
 	});
 }
 
-Cavrnus::FPropertyValue UCavrnusDataSmithTransformSync::GetTransformPropValue(const FTransform& NewTransform)
-{
-	Cavrnus::FPropertyValue PropVal = Cavrnus::FPropertyValue();
-	PropVal.PropType = Cavrnus::FPropertyValue::PropertyType::Transform;
-	PropVal.TransformValue = NewTransform;
-
-	return PropVal;
-}
-
 void UCavrnusDataSmithTransformSync::TrySetLocalFinalizeTimer()
 {
 	if (const UWorld* World = TargetActor->GetWorld())
 	{
 		World->GetTimerManager().SetTimer(TransformUpdaterHandle, [this]
 		{
-			UE_LOG(LogTemp, Log, TEXT("Transform updates have stopped. Running final logic..."));
+			UE_LOG(LogTemp, Log, TEXT("Transform updates have stopped. Post finalized transform!"));
 			if (LiveUpdater)
 			{
-				Cavrnus::FPropertyValue PropVal = Cavrnus::FPropertyValue();
-				PropVal.PropType = Cavrnus::FPropertyValue::PropertyType::Transform;
-				PropVal.TransformValue = TargetActor->GetRootComponent()->GetRelativeTransform();
-				LiveUpdater->FinalizeGeneric(PropVal);
+				LiveUpdater->Finalize(TargetActor->GetRootComponent()->GetRelativeTransform());
 				LiveUpdater = nullptr;
 			}
 		}, 0.1f, false);

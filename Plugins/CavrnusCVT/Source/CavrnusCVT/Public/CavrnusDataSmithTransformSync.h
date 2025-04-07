@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "LivePropertyUpdates/CavrnusLivePropertyUpdate.h"
 #include "LivePropertyUpdates/CavrnusLiveTransformPropertyUpdate.h"
 #include "Types/CavrnusBinding.h"
 #include "UObject/Object.h"
@@ -35,22 +34,18 @@ private:
 	FTimerHandle TransformUpdaterHandle = FTimerHandle();
 	
 	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
+	FPropertyPostOptions PostOptions = FPropertyPostOptions();
 	
 	UPROPERTY()
 	TObjectPtr<AActor> TargetActor;
 	UPROPERTY()
 	TObjectPtr<UCavrnusBinding> Binding;
 	UPROPERTY()
-	TObjectPtr<UCavrnusLivePropertyUpdate> LiveUpdater = nullptr;
-	
-	UPROPERTY()
-	TObjectPtr<UCavrnusLiveTransformPropertyUpdate> TransformLiveUpdater = nullptr;
+	TObjectPtr<UCavrnusLiveTransformPropertyUpdate> LiveUpdater = nullptr;
 	
 	void SetLocalBinding();
 	void SetServerBinding();
 
 	void TrySetLocalFinalizeTimer();
 	void CancelLocalFinalizeTimer();
-
-	Cavrnus::FPropertyValue GetTransformPropValue(const FTransform& NewTransform);
 };
