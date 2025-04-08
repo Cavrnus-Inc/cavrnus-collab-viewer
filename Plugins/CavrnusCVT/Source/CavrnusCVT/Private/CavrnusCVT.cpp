@@ -1,4 +1,5 @@
-// Copyright (c) 2024 Cavrnus. All rights reserved.
+// Copyright (c) 2025 Cavrnus. All rights reserved.
+
 #include "CavrnusCVT.h"
 
 #define LOCTEXT_NAMESPACE "FCavrnusCVTModule"

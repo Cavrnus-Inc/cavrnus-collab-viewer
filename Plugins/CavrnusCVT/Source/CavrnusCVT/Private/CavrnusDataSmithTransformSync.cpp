@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2024 Cavrnus. All rights reserved.
+﻿// Copyright (c) 2025 Cavrnus. All rights reserved.
 
 #include "CavrnusDataSmithTransformSync.h"
 #include "CavrnusFunctionLibrary.h"
