@@ -2,6 +2,10 @@
 
 #include "CavrnusDataSmithPropertiesHandler.h"
 
+#include "Engine/World.h"
+#include "TimerManager.h"
+#include "UObject/WeakObjectPtrTemplates.h"
+#include "UObject/UObjectGlobals.h"
 #include "CavrnusDataSmithTransformSync.h"
 #include "Engine/StaticMeshActor.h"
 

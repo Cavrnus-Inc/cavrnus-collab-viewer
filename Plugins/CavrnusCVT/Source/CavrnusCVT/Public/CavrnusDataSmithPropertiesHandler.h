@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/World.h"
+#include "TimerManager.h"
 #include "CavrnusDataSmithTransformSync.h"
 #include "Types/CavrnusSpaceConnection.h"
 #include "UObject/Object.h"
