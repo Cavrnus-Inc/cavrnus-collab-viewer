@@ -62,7 +62,7 @@ void FCavrnusCVTEditorModule::CreateRibbonSubEntry(FMenuBuilder& MenuBuilder)
 		const FText Title = FText::FromString("Confirm Project Settings Update");
 		const FText Message = FText::FromString(
 			TEXT("This will add missing collision profiles to the DefaultEngine.ini file.\n\n")
-			TEXT("Unreal will restart automatically afterwards. \n\nProceed?")
+			TEXT("Unreal Editor will restart automatically afterwards. \n\nProceed?")
 		);
 		if (FMessageDialog::Open(EAppMsgType::YesNo, Message, Title))
 		{
