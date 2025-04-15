@@ -23,6 +23,9 @@ private:
 	void CreateCavrnusCvtRibbon(FMenuBarBuilder& Builder);
 	void CreateRibbonSubEntry(FMenuBuilder& MenuBuilder);
 
+	void AddCollisionProfiles();
+	void RegisterCollisionChannelIfMissing(const FString& ChannelName);
+	bool DoesProfileExistInConfig(FName ProfileName);
 	void ConvertStaticMeshActors();
 
 	void SetupLevel();

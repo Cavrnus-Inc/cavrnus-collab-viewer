@@ -54,6 +54,25 @@ void FCavrnusCVTEditorModule::CreateCavrnusCvtRibbon(FMenuBarBuilder& Builder)
 void FCavrnusCVTEditorModule::CreateRibbonSubEntry(FMenuBuilder& MenuBuilder)
 {
 	MenuBuilder.AddMenuEntry(
+	LOCTEXT("SetupProject", "Setup Project Settings"),
+	LOCTEXT("SetupProjectTooltip", "Adds missing collision profiles."),
+	FSlateIcon(),
+	FUIAction(FExecuteAction::CreateLambda([this]
+	{
+		const FText Title = FText::FromString("Confirm Project Settings Update");
+		const FText Message = FText::FromString(
+			TEXT("This will add missing collision profiles to the DefaultEngine.ini file.\n\n")
+			TEXT("Unreal will restart automatically afterwards. \n\nProceed?")
+		);
+		if (FMessageDialog::Open(EAppMsgType::YesNo, Message, Title))
+		{
+			AddCollisionProfiles();
+			FUnrealEdMisc::Get().RestartEditor(true); // true = prompt to save
+		}
+	}))
+	);
+	
+	MenuBuilder.AddMenuEntry(
 		LOCTEXT("SetupLevel", "Setup level for Cavrnus Collab Viewer"),
 		LOCTEXT("SetupLevelTooltip", "Configures SpatialConnector and sets default GameMode to use CVT"),
 		FSlateIcon(),
@@ -62,10 +81,117 @@ void FCavrnusCVTEditorModule::CreateRibbonSubEntry(FMenuBuilder& MenuBuilder)
 
 	MenuBuilder.AddMenuEntry(
 	LOCTEXT("SetupLevel", "Convert ALL StaticMeshActors to movable"),
-	LOCTEXT("SetupLevelTooltip", "Allows for objects in level to be manipulated via CVT move command"),
+	LOCTEXT("SetupLevelTooltip", "Setup project settings"),
 	FSlateIcon(),
 	FUIAction(FExecuteAction::CreateRaw(this, &FCavrnusCVTEditorModule::ConvertStaticMeshActors))
-);
+	);
+}
+
+void FCavrnusCVTEditorModule::AddCollisionProfiles()
+{
+	RegisterCollisionChannelIfMissing("Annotation");
+	RegisterCollisionChannelIfMissing("AnnotationStroke");
+	RegisterCollisionChannelIfMissing("SnapShot");
+	RegisterCollisionChannelIfMissing("DimenssionTool");
+	RegisterCollisionChannelIfMissing("Gizmo");
+	RegisterCollisionChannelIfMissing("Xrayed");
+	RegisterCollisionChannelIfMissing("UI_A");
+}
+
+void FCavrnusCVTEditorModule::RegisterCollisionChannelIfMissing(const FString& ChannelName)
+{
+	const FString ConfigPath = FPaths::ProjectConfigDir() / TEXT("DefaultEngine.ini");
+	const FString SectionHeader = TEXT("[/Script/Engine.CollisionProfile]");
+
+	FString FileContents;
+	if (!FFileHelper::LoadFileToString(FileContents, *ConfigPath))
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to read DefaultEngine.ini"));
+		return;
+	}
+
+	// Bail if the name already exists
+	if (FileContents.Contains(FString::Printf(TEXT("Name=\"%s\""), *ChannelName)))
+	{
+		UE_LOG(LogTemp, Log, TEXT("Collision channel '%s' already exists."), *ChannelName);
+		return;
+	}
+
+	// Find a free ECC_GameTraceChannel1–18
+	int32 FreeChannelIndex = -1;
+	for (int32 i = 1; i <= 18; ++i)
+	{
+		FString ChannelEnum = FString::Printf(TEXT("ECC_GameTraceChannel%d"), i);
+		if (!FileContents.Contains(ChannelEnum))
+		{
+			FreeChannelIndex = i;
+			break;
+		}
+	}
+
+	if (FreeChannelIndex == -1)
+	{
+		UE_LOG(LogTemp, Error, TEXT("No free ECC_GameTraceChannel slots available."));
+		return;
+	}
+
+	const FString ChannelEnumString = FString::Printf(TEXT("ECC_GameTraceChannel%d"), FreeChannelIndex);
+	const FString NewLine = FString::Printf(
+		TEXT("+DefaultChannelResponses=(Channel=%s,DefaultResponse=ECR_Block,bTraceType=False,bStaticObject=False,Name=\"%s\")"),
+		*ChannelEnumString,
+		*ChannelName
+	);
+
+	// Split into lines for processing
+	TArray<FString> Lines;
+	FileContents.ParseIntoArrayLines(Lines);
+
+	int32 InsertIndex = -1;
+
+	// Try to find the insertion point (first line after the section header)
+	for (int32 i = 0; i < Lines.Num(); ++i)
+	{
+		if (Lines[i].TrimStartAndEnd().Equals(SectionHeader))
+		{
+			InsertIndex = i + 1;
+			break;
+		}
+	}
+
+	// Inject line or create the section if it doesn’t exist
+	if (InsertIndex != -1)
+	{
+		Lines.Insert(NewLine, InsertIndex);
+	}
+	else
+	{
+		Lines.Add(TEXT(""));
+		Lines.Add(SectionHeader);
+		Lines.Add(NewLine);
+	}
+
+	// Reassemble and save
+	FString NormalizedContents = FString::Join(Lines, TEXT("\n")); // force LF
+	FFileHelper::SaveStringToFile(NormalizedContents, *ConfigPath, FFileHelper::EEncodingOptions::AutoDetect, &IFileManager::Get(), FILEWRITE_None);
+}
+
+bool FCavrnusCVTEditorModule::DoesProfileExistInConfig(FName ProfileName)
+{
+	const FString ConfigPath = FPaths::ProjectConfigDir() / TEXT("DefaultEngine.ini");
+
+	TArray<FString> SectionLines;
+	if (GConfig->GetSection(TEXT("/Script/Engine.CollisionProfile"), SectionLines, ConfigPath))
+	{
+		const FString Target = FString::Printf(TEXT("Profiles=(Name=%s"), *ProfileName.ToString());
+		for (const FString& Line : SectionLines)
+		{
+			if (Line.StartsWith(Target))
+			{
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 void FCavrnusCVTEditorModule::ConvertStaticMeshActors()
