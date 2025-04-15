@@ -369,13 +369,16 @@ void FCavrnusCVTEditorModule::SetGameMode()
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("FoundGameMode is NOT a subclass of AGameModeBase"));
+		UE_LOG(LogCavrnusCVTEditor, Warning, TEXT("FoundGameMode is NOT a subclass of AGameModeBase"));
 	}
 }
 
 void FCavrnusCVTEditorModule::AddSpawnableItem(ACavrnusSpatialConnector& SC, const FString& Id, const FString& Path)
 {
-	SC.SpawnableIdentifiers.Add(Id, GetDefaultBlueprint(Path, AActor::StaticClass()));
+	if (UClass* ResolvedClass = GetDefaultBlueprint(Path, AActor::StaticClass()))
+		SC.SpawnableIdentifiers.Add(Id, ResolvedClass);
+	else
+		UE_LOG(LogCavrnusCVTEditor, Error, TEXT("Failed to load blueprint at path: %s for Id: %s"), *Path, *Id);
 }
 
 UClass* FCavrnusCVTEditorModule::GetDefaultBlueprint(const FString& Path, UClass* BaseClass)
@@ -384,7 +387,7 @@ UClass* FCavrnusCVTEditorModule::GetDefaultBlueprint(const FString& Path, UClass
 	UClass* LoadedBlueprintClass = StaticLoadClass(BaseClass, nullptr, *Path, nullptr, LOAD_None, nullptr);
 	if (!LoadedBlueprintClass)
 	{
-		UE_LOG(LogTemp, Error, TEXT("Blueprint asset failed to load from path: %s, base class name: %s"), *Path, *BaseClass->GetName());
+		UE_LOG(LogCavrnusCVTEditor, Error, TEXT("Blueprint asset failed to load from path: %s, base class name: %s"), *Path, *BaseClass->GetName());
 	}
 
 	return LoadedBlueprintClass;
