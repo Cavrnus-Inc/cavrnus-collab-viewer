@@ -30,9 +30,8 @@ private:
 
 	void SetupLevel();
 	void SetGameMode();
-	void TryAddManager();
-	void TryAddSpatialConnector();
+	void TryAddCvtActorManager();
+	void SetConnectorSettings();
 	
-	void AddSpawnableItem(ACavrnusSpatialConnector& SC, const FString& Id, const FString& Path);
 	UClass* GetDefaultBlueprint(const FString& Path, UClass* BaseClass);
 };
