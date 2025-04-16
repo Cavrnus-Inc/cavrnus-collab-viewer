@@ -36,4 +36,9 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "Cavrnus|Files")
 	static TArray<FString> GetFilesOfType(const FString& FolderPath, const FString& Extension);
+
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+	static void SetupSpawnableIdentifiers();
+
+	static UClass* GetDefaultBlueprint(const FString& Path, UClass* BaseClass);
 };

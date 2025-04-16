@@ -273,8 +273,9 @@ void FCavrnusCVTEditorModule::SetConnectorSettings()
 
 		auto Ui = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/MinimalUI/WBP_MinimalUI.WBP_MinimalUI_C"), UUserWidget::StaticClass());
 		if (Settings->WidgetsToLoad.IsEmpty())
+		{
 			Settings->WidgetsToLoad.Add(Ui);
-		else
+		} else
 		{
 			for (auto W : Settings->WidgetsToLoad)
 			{
@@ -286,13 +287,6 @@ void FCavrnusCVTEditorModule::SetConnectorSettings()
 			}
 		}
 	}
-	
-	UCavrnusFunctionLibrary::RegisterSpawnableObjectType("BP_Cavrnus_DimensionLoader", GetDefaultBlueprint("/CavrnusCVT/CavrnusIntegration/Commands/Dimension/BP_Cavrnus_DimensionLoader.BP_Cavrnus_DimensionLoader_C", AActor::StaticClass()));
-	UCavrnusFunctionLibrary::RegisterSpawnableObjectType("BP_Cavrnus_AnnotationLoaderText", GetDefaultBlueprint("/CavrnusCVT/CavrnusIntegration/Commands/Annotations/BP_Cavrnus_AnnotationLoaderText.BP_Cavrnus_AnnotationLoaderText_C", AActor::StaticClass()));
-	UCavrnusFunctionLibrary::RegisterSpawnableObjectType("BP_Cavrnus_AnnotationLoaderStroke", GetDefaultBlueprint("/CavrnusCVT/CavrnusIntegration/Commands/Annotations/BP_Cavrnus_AnnotationLoaderStroke.BP_Cavrnus_AnnotationLoaderStroke_C", AActor::StaticClass()));
-	UCavrnusFunctionLibrary::RegisterSpawnableObjectType("BP_Cavrnus_BookmarkLoader", GetDefaultBlueprint("/CavrnusCVT/CavrnusIntegration/Commands/Bookmarks/AC_Cavrnus_BookmarkLoader.AC_Cavrnus_BookmarkLoader_C", AActor::StaticClass()));
-	UCavrnusFunctionLibrary::RegisterSpawnableObjectType("BP_Cavrnus_CropboxLoader", GetDefaultBlueprint("/CavrnusCVT/CavrnusIntegration/Commands/CropBox/BP_Cavrnus_CropboxLoader.BP_Cavrnus_CropboxLoader_C", AActor::StaticClass()));
-	UCavrnusFunctionLibrary::RegisterSpawnableObjectType("BP_Cavrnus_DatasmithLoader", GetDefaultBlueprint("/CavrnusCVT/CavrnusIntegration/Commands/Datasmith/BP_Cavrnus_DatasmithLoader.BP_Cavrnus_DatasmithLoader_C", AActor::StaticClass()));
 }
 
 void FCavrnusCVTEditorModule::SetGameMode()
