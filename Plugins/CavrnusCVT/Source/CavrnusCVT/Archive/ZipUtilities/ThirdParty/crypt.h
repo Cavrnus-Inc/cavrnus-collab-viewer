@@ -1,3 +1,5 @@
+// Copyright (c) 2009-2010 Mathias Svensson. All rights reserved.
+
 /* crypt.h -- base code for crypt/uncrypt ZIPfile
 
 

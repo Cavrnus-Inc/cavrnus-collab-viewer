@@ -1,3 +1,5 @@
+// Copyright (c) 2009-2010 Mathias Svensson. All rights reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"

@@ -1,3 +1,5 @@
+// Copyright (c) 2009-2010 Mathias Svensson. All rights reserved.
+
 /* iowin32.c -- IO base function header for compress/uncompress .zip
    Version 1.2.0, September 16th, 2017
    part of the MiniZip project

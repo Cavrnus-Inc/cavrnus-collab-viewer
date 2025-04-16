@@ -1,3 +1,5 @@
+// Copyright (c) 2009-2010 Mathias Svensson. All rights reserved.
+
 /* ioapi.h -- IO base function header for compress/uncompress .zip
    part of the MiniZip project - ( http://www.winimage.com/zLibDll/minizip.html )
 
