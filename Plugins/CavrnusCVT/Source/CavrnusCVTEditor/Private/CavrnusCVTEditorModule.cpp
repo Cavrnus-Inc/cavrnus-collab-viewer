@@ -249,93 +249,10 @@ void FCavrnusCVTEditorModule::TryAddManager()
 	}
 }
 
-void FCavrnusCVTEditorModule::TryAddSpatialConnector()
-{
-	if (GEditor)
-	{
-		if (UWorld* World = GEditor->GetEditorWorldContext().World())
-		{
-			FActorSpawnParameters SpawnParams;
-			SpawnParams.OverrideLevel = World->PersistentLevel;
-
-			bool bWorldNeedsSpatialConnector = true;
-			for (TActorIterator<AActor> It(World, ACavrnusSpatialConnector::StaticClass()); It; ++It)
-			{
-				bWorldNeedsSpatialConnector = false;
-			}
-
-			if (bWorldNeedsSpatialConnector)
-			{
-				if (ACavrnusSpatialConnector* CavrnusSpatialConnector = World->SpawnActor<ACavrnusSpatialConnector>(SpawnParams))
-				{
-					CavrnusSpatialConnector->SetIsSpatiallyLoaded(false);
-					CavrnusSpatialConnector->GuestName = "CVT Guest";
-					CavrnusSpatialConnector->MemberLoginMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoginMenus/WBP_MemberLogin.WBP_MemberLogin_C"), UUserWidget::StaticClass());
-					CavrnusSpatialConnector->ServerSelectionMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/ServerMenu/WBP_ServerSelectionMenu.WBP_ServerSelectionMenu_C"), UCavrnusServerSelectionWidget::StaticClass());
-					CavrnusSpatialConnector->GuestJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoginMenus/WBP_GuestLogin.WBP_GuestLogin_C"), UCavrnusGuestLoginWidget::StaticClass());
-					CavrnusSpatialConnector->SpaceJoinMenu = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/SpaceListMenu/WBP_SpaceSelection.WBP_SpaceSelection_C"), UUserWidget::StaticClass());
-					CavrnusSpatialConnector->LoadingWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoadingMenu/WBP_LoadingWidget.WBP_LoadingWidget_C"), UUserWidget::StaticClass());
-					CavrnusSpatialConnector->AuthenticationWidgetClass = GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/Menus/LoadingMenu/WBP_AuthenticationWidget.WBP_AuthenticationWidget_C"), UUserWidget::StaticClass());
-					CavrnusSpatialConnector->RemoteAvatarClass = GetDefaultBlueprint(TEXT("/CavrnusCVT/CavrnusIntegration/Pawns/BP_CVT_RemoteAvatarLoader.BP_CVT_RemoteAvatarLoader_C"), AActor::StaticClass());
-					
-					TArray<TSubclassOf<UUserWidget>> WidgetsToLoad;
-					WidgetsToLoad.Add(GetDefaultBlueprint(TEXT("/CavrnusConnector/UI/MinimalUI/WBP_MinimalUI.WBP_MinimalUI_C"), UUserWidget::StaticClass()));
-					CavrnusSpatialConnector->WidgetsToLoad = WidgetsToLoad;
-
-					FString SavedServer;
-					FPlatformMisc::GetStoredValue(TEXT("Cavrnus"), TEXT("UE"), TEXT("SavedServerName"), SavedServer);
-					CavrnusSpatialConnector->MyServer = SavedServer;
-				}
-			}
-			else
-			{
-				UE_LOG(LogCavrnusCVTEditor, Warning, TEXT("World already contains a CavrnusSpatialConnector"));
-			}
-		}
-	}
-}
-
 void FCavrnusCVTEditorModule::SetupLevel()
 {
-	TryAddSpatialConnector();
 	TryAddManager();
 	SetGameMode();
-	
-	UClass* SpatialConnector = ACavrnusSpatialConnector::StaticClass();
-	if (const UWorld* World = GEditor->GetEditorWorldContext().World())
-	{
-		for (TActorIterator<AActor> Target(World, SpatialConnector); Target; ++Target)
-		{
-			if (AActor* Actor = *Target)
-			{
-				// Log the name of the found actor
-				UE_LOG(LogCavrnusCVTEditor, Warning, TEXT("Found actor: %s"), *Actor->GetName());
-                
-				// If you need to cast to your specific type
-				if (ACavrnusSpatialConnector* SC = Cast<ACavrnusSpatialConnector>(Actor))
-				{
-					// Perform operations on the casted actor
-					UE_LOG(LogCavrnusCVTEditor, Warning, TEXT("Successfully casted actor: %s"), *Actor->GetName());
-
-					SC->SpawnableIdentifiers.Empty();
-					AddSpawnableItem(*SC, "BP_Cavrnus_DimensionLoader", TEXT("/CavrnusCVT/CavrnusIntegration/Commands/Dimension/BP_Cavrnus_DimensionLoader.BP_Cavrnus_DimensionLoader_C"));
-					AddSpawnableItem(*SC, "BP_Cavrnus_AnnotationLoaderText", TEXT("/CavrnusCVT/CavrnusIntegration/Commands/Annotations/BP_Cavrnus_AnnotationLoaderText.BP_Cavrnus_AnnotationLoaderText_C"));
-					AddSpawnableItem(*SC, "BP_Cavrnus_AnnotationLoaderStroke", TEXT("/CavrnusCVT/CavrnusIntegration/Commands/Annotations/BP_Cavrnus_AnnotationLoaderStroke.BP_Cavrnus_AnnotationLoaderStroke_C"));
-					AddSpawnableItem(*SC, "BP_Cavrnus_BookmarkLoader", TEXT("/CavrnusCVT/CavrnusIntegration/Commands/Bookmarks/AC_Cavrnus_BookmarkLoader.AC_Cavrnus_BookmarkLoader_C"));
-					AddSpawnableItem(*SC, "BP_Cavrnus_CropboxLoader", TEXT("/CavrnusCVT/CavrnusIntegration/Commands/CropBox/BP_Cavrnus_CropboxLoader.BP_Cavrnus_CropboxLoader_C"));
-					AddSpawnableItem(*SC, "BP_Cavrnus_DatasmithLoader", TEXT("/CavrnusCVT/CavrnusIntegration/Commands/Datasmith/BP_Cavrnus_DatasmithLoader.BP_Cavrnus_DatasmithLoader_C"));
-				}
-				else
-				{
-					UE_LOG(LogCavrnusCVTEditor, Warning, TEXT("Failed to cast the actor to SpatialConnector"));
-				}
-			}
-		}
-	}
-	else
-	{
-		UE_LOG(LogCavrnusCVTEditor, Warning, TEXT("World context is invalid."));
-	}
 }
 
 void FCavrnusCVTEditorModule::SetGameMode()
@@ -371,11 +288,6 @@ void FCavrnusCVTEditorModule::SetGameMode()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("FoundGameMode is NOT a subclass of AGameModeBase"));
 	}
-}
-
-void FCavrnusCVTEditorModule::AddSpawnableItem(ACavrnusSpatialConnector& SC, const FString& Id, const FString& Path)
-{
-	SC.SpawnableIdentifiers.Add(Id, GetDefaultBlueprint(Path, AActor::StaticClass()));
 }
 
 UClass* FCavrnusCVTEditorModule::GetDefaultBlueprint(const FString& Path, UClass* BaseClass)
