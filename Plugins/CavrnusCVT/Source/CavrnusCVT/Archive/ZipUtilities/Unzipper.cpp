@@ -214,7 +214,7 @@ bool UUnzipper::UnzipCurrentFile(const int64 FileIndex, const int64 TotalFileCou
 		const int32 Error = unzGetCurrentFileInfo64(File, &FileInfo, RawFileName, FileMaxSize, nullptr, 0, nullptr, 0);
 		if (Error != UNZ_OK)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Failed to get current file info. Code: %s."), Error);
+			UE_LOG(LogTemp, Warning, TEXT("Failed to get current file info. Code: %d."), Error);
 			return false;
 		}
 
