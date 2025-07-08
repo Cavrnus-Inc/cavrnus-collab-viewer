@@ -8,7 +8,6 @@
 #include "Engine/StaticMeshActor.h"
 #include "GameFramework/GameModeBase.h"
 #include "CavrnusSpatialConnector.h"
-#include "UI/ServerSelectionMenu/CavrnusServerSelectWidget.h"
 
 #define LOCTEXT_NAMESPACE "CavrnusCVTEditor"
 IMPLEMENT_MODULE(FCavrnusCVTEditorModule, CavrnusCVTEditor)
