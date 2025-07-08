@@ -38,7 +38,8 @@ public class CavrnusCVTEditor : ModuleRules
 			"AssetTools",
 			"AssetRegistry",
 			"Kismet",
-			"BlueprintGraph"
+			"BlueprintGraph",
+			"CavrnusConnector"
 		});
 	}
 }

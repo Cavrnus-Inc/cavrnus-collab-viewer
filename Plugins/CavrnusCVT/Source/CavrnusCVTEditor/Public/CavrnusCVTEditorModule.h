@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CavrnusSpatialConnector.h"
 #include "Modules/ModuleManager.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogCavrnusCVTEditor, Log, All);
@@ -31,6 +30,7 @@ private:
 	void SetupLevel();
 	void SetGameMode();
 	void TryAddManager();
-	
+	void TryAddSpatialConnector();
+
 	UClass* GetDefaultBlueprint(const FString& Path, UClass* BaseClass);
 };
