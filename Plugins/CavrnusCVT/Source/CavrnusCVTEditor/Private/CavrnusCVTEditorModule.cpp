@@ -54,7 +54,7 @@ void FCavrnusCVTEditorModule::CreateCavrnusCvtRibbon(FMenuBarBuilder& Builder)
 void FCavrnusCVTEditorModule::CreateRibbonSubEntry(FMenuBuilder& MenuBuilder)
 {
 	MenuBuilder.AddMenuEntry(
-	LOCTEXT("SetupProject", "Setup Project Settings"),
+	LOCTEXT("SetupProject", "Setup Project Settings (Required!)"),
 	LOCTEXT("SetupProjectTooltip", "Adds missing collision profiles."),
 	FSlateIcon(),
 	FUIAction(FExecuteAction::CreateLambda([this]
@@ -73,14 +73,14 @@ void FCavrnusCVTEditorModule::CreateRibbonSubEntry(FMenuBuilder& MenuBuilder)
 	);
 	
 	MenuBuilder.AddMenuEntry(
-		LOCTEXT("SetupLevel", "Setup level for Cavrnus Collab Viewer"),
+		LOCTEXT("SetupLevel", "Setup level for Cavrnus Collab Viewer (Required!)"),
 		LOCTEXT("SetupLevelTooltip", "Configures SpatialConnector and sets default GameMode to use CVT"),
 		FSlateIcon(),
 		FUIAction(FExecuteAction::CreateRaw(this, &FCavrnusCVTEditorModule::SetupLevel))
 	);
 
 	MenuBuilder.AddMenuEntry(
-	LOCTEXT("SetupLevel", "Convert ALL StaticMeshActors to movable"),
+	LOCTEXT("SetupLevel", "Convert All Level Actors to Movable (Performance Cost)"),
 	LOCTEXT("SetupLevelTooltip", "Setup project settings"),
 	FSlateIcon(),
 	FUIAction(FExecuteAction::CreateRaw(this, &FCavrnusCVTEditorModule::ConvertStaticMeshActors))
