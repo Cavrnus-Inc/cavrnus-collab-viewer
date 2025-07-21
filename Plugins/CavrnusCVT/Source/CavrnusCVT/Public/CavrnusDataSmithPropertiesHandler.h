@@ -8,6 +8,7 @@
 #include "CavrnusDataSmithTransformSync.h"
 #include "Types/CavrnusSpaceConnection.h"
 #include "UObject/Object.h"
+#include "DatasmithRuntime.h"
 #include "CavrnusDataSmithPropertiesHandler.generated.h"
 
 class AStaticMeshActor;
@@ -35,6 +36,14 @@ private:
 	
 	FTimerHandle CheckHierarchyHandle = FTimerHandle();
 	
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+	void FixMaterialsOnRuntimeDatasmithActor(ADatasmithRuntimeActor* DatasmithActor);
+
+	int ProcessTwinmotionDatasmithChildUsingSlotNames(const AActor* Actor);
+
+	UFUNCTION()
+	void DoDebugFunction0();
+
 	UPROPERTY()
 	AActor* DataSmithActor;
 	UPROPERTY()
