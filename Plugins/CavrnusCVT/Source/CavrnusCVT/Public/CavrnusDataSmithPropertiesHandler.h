@@ -30,35 +30,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Cavrnus")
 	void Setup(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainerName, AActor* InDataSmithActor);
 
-	static int SingletonInit;
-
 protected:
 	virtual void BeginDestroy() override;
 	
 private:
-	static TMap<UClass*, TArray<FString>> SupportedPropertyMap;
-
-	void SingletonInits();
-	void BuildPropertyMap();
-	bool isSupportedProperty(UClass*, FString);
 
 	FString ContainerName = "";
 	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
 	
 	FTimerHandle CheckHierarchyHandle = FTimerHandle();
-	
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	void FixMaterialsOnRuntimeDatasmithActor(ADatasmithRuntimeActor* DatasmithActor);
-
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	void ProcessRuntimeDatasmithActorProperties(ADatasmithRuntimeActor* DatasmithActor);
-	int ProcessTwinmotionDatasmithChildUsingSlotNames(const AActor* Actor);
-	int ProcessActorProperties(AActor* Actor, const FPropertiesContainer& Container);
-	int ProcessComponents(const AActor* Actor, const FPropertiesContainer& Container);
-	int ProcessMaterialParameters(UMaterialInstanceDynamic* MaterialInterface, const FPropertiesContainer& Container);
-
-	UFUNCTION()
-	void DoDebugFunction0();
 
 	UPROPERTY()
 	AActor* DataSmithActor;
