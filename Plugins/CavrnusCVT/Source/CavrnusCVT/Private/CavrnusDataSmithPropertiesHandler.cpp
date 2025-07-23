@@ -118,61 +118,6 @@ void UCavrnusDataSmithPropertiesHandler::CheckHierarchyExists()
 	FixMaterialsOnRuntimeDatasmithActor(Cast<ADatasmithRuntimeActor>(DataSmithActor));
 }
 
-void ProcessMaterialParameters(UMaterialInterface* MaterialInstance)
-{
-	// Scalar parameters
-	TArray<FMaterialParameterInfo> ScalarParams;
-	TArray<FGuid> ScalarGuids;
-	if (!MaterialInstance)
-		return;
-	MaterialInstance->GetAllScalarParameterInfo(ScalarParams, ScalarGuids);
-	UE_LOG(LogTemp, Warning, TEXT("Material %s "), *MaterialInstance->GetName());
-	FString ScalarParamsString = "Scalar Params : ";
-		
-	for (FMaterialParameterInfo Scalar : ScalarParams)
-	{
-		ScalarParamsString.Append(Scalar.Name.ToString()).Append(", ");
-	}
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *ScalarParamsString);
-
-	// Vector parameters
-	TArray<FMaterialParameterInfo> VectorParams;
-	TArray<FGuid> VectorGuids;
-	MaterialInstance->GetAllVectorParameterInfo(VectorParams, VectorGuids);
-
-	FString VectorParamsString = "Vectors Params : ";
-
-	for (FMaterialParameterInfo Vectors : VectorParams)
-	{
-		VectorParamsString.Append(Vectors.Name.ToString()).Append(", ");
-	}
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *VectorParamsString);
-
-	// Texture parameters
-	TArray<FMaterialParameterInfo> TextureParams;
-	TArray<FGuid> TextureGuids;
-	MaterialInstance->GetAllTextureParameterInfo(TextureParams, TextureGuids);
-	FString TextureParamsString = "Texture Params : ";
-
-	for (FMaterialParameterInfo Textures : TextureParams)
-	{
-		VectorParamsString.Append(Textures.Name.ToString()).Append(", ");
-	}
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *TextureParamsString);
-
-	// Static switch parameters
-	TArray<FMaterialParameterInfo> StaticSwitchParams;
-	TArray<FGuid> StaticSwitchGuids;
-	MaterialInstance->GetAllStaticSwitchParameterInfo(StaticSwitchParams, StaticSwitchGuids);
-	FString SwitchesParamsString = "Switch Params : ";
-
-	for (FMaterialParameterInfo Switches : StaticSwitchParams)
-	{
-		SwitchesParamsString.Append(Switches.Name.ToString()).Append(", ");
-	}
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *SwitchesParamsString);
-
-}
 
 int UCavrnusDataSmithPropertiesHandler::ProcessTwinmotionDatasmithChildUsingSlotNames(const AActor* Actor)
 {
@@ -287,14 +232,18 @@ int UCavrnusDataSmithPropertiesHandler::ProcessComponents(const AActor* Actor, c
 			for (int32 i = 0; i < Materials.Num(); ++i)
 			{
 				UMaterialInterface* CurrentMat = Materials[i];
-				ProcessMaterialParameters(CurrentMat, Container);
+				UMaterialInstanceDynamic* DynMaterial = Cast<UMaterialInstanceDynamic>(Materials[i]);
+				if (DynMaterial)
+				{
+					ProcessMaterialParameters(DynMaterial, Container);
+				}
 			}
 		}
 	}
 	return processedCount;
 }
 
-int UCavrnusDataSmithPropertiesHandler::ProcessMaterialParameters(UMaterialInterface* MaterialInstance, const FPropertiesContainer& Container)
+int UCavrnusDataSmithPropertiesHandler::ProcessMaterialParameters(UMaterialInstanceDynamic* MaterialInstance, const FPropertiesContainer& Container)
 {
 	if (!MaterialInstance)
 		return 0;
@@ -310,12 +259,19 @@ int UCavrnusDataSmithPropertiesHandler::ProcessMaterialParameters(UMaterialInter
 
 	MaterialInstance->GetAllScalarParameterInfo(ScalarParams, ScalarGuids);
 	UE_LOG(LogTemp, Warning, TEXT("Material %s "), *MaterialInstance->GetName());
+	UCavrnusFunctionLibrary::PostStringPropertyUpdate(SpaceConnection, Container, "Class", MaterialInstance->GetClass()->GetName());
 
 	for (FMaterialParameterInfo Scalar : ScalarParams)
 	{
 		float OutValue;
 		MaterialInstance->GetScalarParameterValue(Scalar, OutValue);
 		UCavrnusFunctionLibrary::PostFloatPropertyUpdate(SpaceConnection, Container, Scalar.Name.ToString(), OutValue);
+		auto OnFloatUpdated = [MaterialInstance, Scalar](float floatVal, FString Container, FString PropertyName)
+			{
+				MaterialInstance->SetScalarParameterValue(FName(PropertyName), floatVal);
+				UE_LOG(LogTemp, Error, TEXT("Setting %s to %s"), *PropertyName, *FString::SanitizeFloat(floatVal));
+			};
+		UCavrnusFunctionLibrary::BindFloatPropertyValue(SpaceConnection, Container, Scalar.Name.ToString(), OnFloatUpdated);
 	}
 
 	// Vector parameters
@@ -328,21 +284,34 @@ int UCavrnusDataSmithPropertiesHandler::ProcessMaterialParameters(UMaterialInter
 		FLinearColor OutVector;
 		MaterialInstance->GetVectorParameterValue(Vectors, OutVector );
 		UCavrnusFunctionLibrary::PostColorPropertyUpdate(SpaceConnection, Container, Vectors.Name.ToString(), OutVector);
+		auto OnVectorUpdated = [MaterialInstance, Vectors](FLinearColor VectorVal, FString Container, FString PropertyName)
+			{
+				MaterialInstance->SetVectorParameterValue(FName(PropertyName), VectorVal);
+				UE_LOG(LogTemp, Error, TEXT("Setting %s to %s"), *PropertyName, *VectorVal.ToString());
+			};
+		UCavrnusFunctionLibrary::BindColorPropertyValue(SpaceConnection, Container, Vectors.Name.ToString(), OnVectorUpdated);
 	}
 
 	// Texture parameters
 	TArray<FMaterialParameterInfo> TextureParams;
 	TArray<FGuid> TextureGuids;
 	MaterialInstance->GetAllTextureParameterInfo(TextureParams, TextureGuids);
-	FString TextureParamsString = "Texture Params : ";
 
 	for (FMaterialParameterInfo Textures : TextureParams)
 	{
-		TextureParamsString.Append(Textures.Name.ToString()).Append(", ");
+		class UTexture* OutValue;
+		MaterialInstance->GetTextureParameterValue(Textures, OutValue);
+		UCavrnusFunctionLibrary::PostStringPropertyUpdate(SpaceConnection, Container, Textures.Name.ToString(), OutValue->GetPathName());
+		auto OnTexturePathUpdated = [MaterialInstance, Textures](FString StringVal, FString Container, FString PropertyName)
+			{
+				UE_LOG(LogTemp, Error, TEXT("Setting Textures from Properties is not supported yet %s %s"), *PropertyName, *StringVal);
+			};
+		UCavrnusFunctionLibrary::BindStringPropertyValue(SpaceConnection, Container, Textures.Name.ToString(), OnTexturePathUpdated);
 	}
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *TextureParamsString);
 
+	// These are editor only so commenting out
 	// Static switch parameters
+	/*
 	TArray<FMaterialParameterInfo> StaticSwitchParams;
 	TArray<FGuid> StaticSwitchGuids;
 	MaterialInstance->GetAllStaticSwitchParameterInfo(StaticSwitchParams, StaticSwitchGuids);
@@ -354,150 +323,16 @@ int UCavrnusDataSmithPropertiesHandler::ProcessMaterialParameters(UMaterialInter
 		FGuid someGuid;
 		MaterialInstance->GetStaticSwitchParameterValue(Switches, bOut, someGuid);
 		UCavrnusFunctionLibrary::PostBoolPropertyUpdate(SpaceConnection, Container, Switches.Name.ToString(), bOut);
+
+		auto OnBoolUpdated = [MaterialInstance, Switches](bool bValue, FString Container, FString PropertyName)
+			{
+				MaterialInstance->SetStaticSwitchParameterValueEditorOnly(FName(PropertyName), bValue);
+			};
+		UCavrnusFunctionLibrary::BindBooleanPropertyValue(SpaceConnection, Container, Switches.Name.ToString(), OnBoolUpdated);
 	}
 
 	UE_LOG(LogTemp, Warning, TEXT("%s"), *SwitchesParamsString);
-	for (TFieldIterator<FProperty> PropIt(ObjectClass); PropIt; ++PropIt)
-	{
-		FProperty* Property = *PropIt;
-
-		FString PropertyName = Property->GetName();
-		FString PropertyType = Property->GetClass()->GetName();
-
-		UE_LOG(LogTemp, Error, TEXT("Class = %s  Property = %s"), *MaterialInstance->GetClass()->GetName(), *PropertyName);
-		if (isSupportedProperty(MaterialInstance->GetClass(), PropertyName))
-		{
-			if (FirstPropertyFound)
-			{
-				UCavrnusFunctionLibrary::PostStringPropertyUpdate(SpaceConnection, Container, "Class", MaterialInstance->GetClass()->GetName());
-				UCavrnusFunctionLibrary::PostStringPropertyUpdate(SpaceConnection, Container, "Name", MaterialInstance->GetName());
-				FirstPropertyFound = false;
-			}
-			// Optional: Get the value for readable types (e.g. FString)
-			if (PropertyType == "BoolProperty")
-			{
-				bool BoolValue = false;
-				if (FBoolProperty* BoolProp = CastField<FBoolProperty>(Property))
-				{
-					BoolValue = BoolProp->GetPropertyValue_InContainer(MaterialInstance);
-				}
-				const TMap<FName, FString>* MetaData = Property->GetMetaDataMap();
-				for (TPair<FName, FString> pair : *MetaData)
-				{
-					UE_LOG(LogTemp, Error, TEXT("MetaData : %s %s %s"), *pair.Key.ToString(), *pair.Value, Property->GetBoolMetaData(pair.Key) ? *FString("True") : *FString("False"));
-				}
-
-				UCavrnusFunctionLibrary::PostBoolPropertyUpdate(SpaceConnection, Container, PropertyName, BoolValue);
-				auto OnBoolUpdated = [MaterialInstance, Property](bool bValue, FString Container, FString PropertyName)
-					{
-						FBoolProperty* BoolProp = CastField<FBoolProperty>(Property);
-						BoolProp->SetPropertyValue_InContainer(MaterialInstance, bValue);
-					};
-				UCavrnusFunctionLibrary::BindBooleanPropertyValue(SpaceConnection, Container, PropertyName, OnBoolUpdated);
-			}
-			else if (PropertyType == "StrProperty")
-			{
-				FString StringValue = "";
-				if (FStrProperty* StrProp = CastField<FStrProperty>(Property))
-				{
-					StringValue = StrProp->GetPropertyValue_InContainer(MaterialInstance);
-				}
-
-				const TMap<FName, FString>* MetaData = Property->GetMetaDataMap();
-				for (TPair<FName, FString> pair : *MetaData)
-				{
-					UE_LOG(LogTemp, Error, TEXT("MetaData : %s %s %s"), *pair.Key.ToString(), *pair.Value, *Property->GetMetaData(pair.Key));
-				}
-				UCavrnusFunctionLibrary::PostStringPropertyUpdate(SpaceConnection, Container, PropertyName, StringValue);
-				auto onStringUpdated = [MaterialInstance, Property](FString stringValue, FString Container, FString PropertyName)
-					{
-						FStrProperty* StrProp = CastField<FStrProperty>(Property);
-						StrProp->SetPropertyValue_InContainer(MaterialInstance, stringValue);
-
-					};
-				UCavrnusFunctionLibrary::BindStringPropertyValue(SpaceConnection, Container, PropertyName, onStringUpdated);
-
-			}
-			else if (PropertyType == "FloatProperty")
-			{
-				float FloatValue = 0.0f;
-				if (FFloatProperty* FloatProp = CastField<FFloatProperty>(Property))
-					FloatValue = FloatProp->GetPropertyValue_InContainer(MaterialInstance);
-				const TMap<FName, FString>* MetaData = Property->GetMetaDataMap();
-				for (TPair<FName, FString> pair : *MetaData)
-				{
-					UE_LOG(LogTemp, Error, TEXT("MetaData : %s %s %s"), *pair.Key.ToString(), *pair.Value, *FString::SanitizeFloat(Property->GetFloatMetaData(pair.Key)));
-				}
-
-				UCavrnusFunctionLibrary::PostFloatPropertyUpdate(SpaceConnection, Container, PropertyName, FloatValue);
-				auto onFloatUpdated = [MaterialInstance, Property](float FloatValue, FString Container, FString PropertyName)
-					{
-						FFloatProperty* FloatProp = CastField<FFloatProperty>(Property);
-						FloatProp->SetPropertyValue_InContainer(MaterialInstance, FloatValue);
-
-					};
-				UCavrnusFunctionLibrary::BindFloatPropertyValue(SpaceConnection, Container, PropertyName, onFloatUpdated);
-
-			}
-			else if (PropertyType == "IntProperty")
-			{
-				int32 IntValue = 0;
-				if (FIntProperty* IntProp = CastField<FIntProperty>(Property))
-					IntValue = IntProp->GetPropertyValue_InContainer(MaterialInstance);
-
-				const TMap<FName, FString>* MetaData = Property->GetMetaDataMap();
-				for (TPair<FName, FString> pair : *MetaData)
-				{
-					UE_LOG(LogTemp, Error, TEXT("MetaData : %s %s %s"), *pair.Key.ToString(), *pair.Value, *FString::SanitizeFloat(Property->GetIntMetaData(pair.Key)));
-				}
-				UCavrnusFunctionLibrary::PostFloatPropertyUpdate(SpaceConnection, Container, PropertyName, IntValue);
-
-				auto onIntUpdated = [MaterialInstance, Property](float IntValue, FString Container, FString PropertyName)
-					{
-						FIntProperty* IntProp = CastField<FIntProperty>(Property);
-						IntProp->SetPropertyValue_InContainer(MaterialInstance, IntValue);
-
-					};
-				UCavrnusFunctionLibrary::BindFloatPropertyValue(SpaceConnection, Container, PropertyName, onIntUpdated);
-			}
-			else if (PropertyType == "DoubleProperty")
-			{
-				double DoubleValue = 0.0f;
-				if (FDoubleProperty* DoubleProp = CastField<FDoubleProperty>(Property))
-					DoubleValue = DoubleProp->GetPropertyValue_InContainer(MaterialInstance);
-				const TMap<FName, FString>* MetaData = Property->GetMetaDataMap();
-				for (TPair<FName, FString> pair : *MetaData)
-				{
-					UE_LOG(LogTemp, Error, TEXT("MetaData : %s %s %s"), *pair.Key.ToString(), *pair.Value, *FString::SanitizeFloat(Property->GetDoubleMetaData(pair.Key)));
-				}
-				UCavrnusFunctionLibrary::PostFloatPropertyUpdate(SpaceConnection, Container, PropertyName, DoubleValue);
-
-				auto onDoubleUpdated = [MaterialInstance, Property](float DoubleValue, FString Container, FString PropertyName)
-					{
-						FDoubleProperty* DoubleProp = CastField<FDoubleProperty>(Property);
-						DoubleProp->SetPropertyValue_InContainer(MaterialInstance, DoubleValue);
-
-					};
-				UCavrnusFunctionLibrary::BindFloatPropertyValue(SpaceConnection, Container, PropertyName, onDoubleUpdated);
-			}
-			else if (PropertyType == "EnumProperty")
-			{
-				UE_LOG(LogTemp, Error, TEXT("Unable to support property %s of type %s"), *PropertyName, *PropertyType);
-
-			}
-			else if (PropertyType == "ByteProperty")
-			{
-
-				UE_LOG(LogTemp, Error, TEXT("Unable to support property %s of type %s"), *PropertyName, *PropertyType);
-			}
-			else
-			{
-				UE_LOG(LogTemp, Error, TEXT("Unable to support property %s of type %s"), *PropertyName, *PropertyType);
-			}
-			UE_LOG(LogTemp, Log, TEXT("Property: %s, Type: %s"), *PropertyName, *PropertyType);
-			Added++;
-		}
-	}
+	*/
 
 	return Added;
 }

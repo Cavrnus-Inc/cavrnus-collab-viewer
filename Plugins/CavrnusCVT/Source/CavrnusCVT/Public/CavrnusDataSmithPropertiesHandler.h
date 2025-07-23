@@ -55,7 +55,7 @@ private:
 	int ProcessTwinmotionDatasmithChildUsingSlotNames(const AActor* Actor);
 	int ProcessActorProperties(AActor* Actor, const FPropertiesContainer& Container);
 	int ProcessComponents(const AActor* Actor, const FPropertiesContainer& Container);
-	int ProcessMaterialParameters(UMaterialInterface* Object, const FPropertiesContainer& Container);
+	int ProcessMaterialParameters(UMaterialInstanceDynamic* MaterialInterface, const FPropertiesContainer& Container);
 
 	UFUNCTION()
 	void DoDebugFunction0();
