@@ -6,6 +6,9 @@
 #include "Engine/World.h"
 #include "TimerManager.h"
 #include "CavrnusDataSmithTransformSync.h"
+
+#include "Types\AbsolutePropertyId.h"
+
 #include "Types/CavrnusSpaceConnection.h"
 #include "UObject/Object.h"
 #include "DatasmithRuntime.h"
@@ -26,11 +29,19 @@ class CAVRNUSCVT_API UCavrnusDataSmithPropertiesHandler : public UObject
 public:
 	UFUNCTION(BlueprintCallable, Category="Cavrnus")
 	void Setup(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainerName, AActor* InDataSmithActor);
-	
+
+	static int SingletonInit;
+
 protected:
 	virtual void BeginDestroy() override;
 	
 private:
+	static TMap<UClass*, TArray<FString>> SupportedPropertyMap;
+
+	void SingletonInits();
+	void BuildPropertyMap();
+	bool isSupportedProperty(UClass*, FString);
+
 	FString ContainerName = "";
 	FCavrnusSpaceConnection SpaceConnection = FCavrnusSpaceConnection();
 	
@@ -39,7 +50,12 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
 	void FixMaterialsOnRuntimeDatasmithActor(ADatasmithRuntimeActor* DatasmithActor);
 
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+	void ProcessRuntimeDatasmithActorProperties(ADatasmithRuntimeActor* DatasmithActor);
 	int ProcessTwinmotionDatasmithChildUsingSlotNames(const AActor* Actor);
+	int ProcessActorProperties(AActor* Actor, const FPropertiesContainer& Container);
+	int ProcessComponents(const AActor* Actor, const FPropertiesContainer& Container);
+	int ProcessMaterialParameters(UMaterialInterface* Object, const FPropertiesContainer& Container);
 
 	UFUNCTION()
 	void DoDebugFunction0();
