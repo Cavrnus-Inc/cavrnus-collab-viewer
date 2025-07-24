@@ -11,7 +11,6 @@
 #include "Engine/StaticMeshActor.h"
 
 TMap<UClass*, TArray<FString>> UCavrnusPropertyAssetProcessor::SupportedPropertyMap = {};
-int UCavrnusPropertyAssetProcessor::SingletonInit = false;
 
 void UCavrnusPropertyAssetProcessor::Setup(const FCavrnusSpaceConnection& InSpaceConn)
 {

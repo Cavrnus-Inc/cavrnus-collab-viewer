@@ -20,7 +20,7 @@ public:
 
 	void Setup(const FCavrnusSpaceConnection& InSpaceConn);
 
-	static int SingletonInit;
+	int SingletonInit;
 
 	static void GetAllStaticMeshActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors);
 
