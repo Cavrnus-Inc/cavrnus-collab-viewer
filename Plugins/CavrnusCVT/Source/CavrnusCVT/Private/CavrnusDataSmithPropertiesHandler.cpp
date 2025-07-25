@@ -10,6 +10,7 @@
 #include "CavrnusFunctionLibrary.h"
 #include "CavrnusPropertyAssetProcessor.h"
 
+#include "CavrnusCVTGameSubsystem.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine/StaticMeshActor.h"
 
@@ -26,6 +27,20 @@ void UCavrnusDataSmithPropertiesHandler::Setup(const FCavrnusSpaceConnection& In
 		World->GetTimerManager().SetTimer(CheckHierarchyHandle, FTimerDelegate::CreateUObject(this,
 		&UCavrnusDataSmithPropertiesHandler::CheckHierarchyExists), 0.5f, true);
 	}
+
+	if (auto pc = UGameplayStatics::GetPlayerController(GetWorld(), 0))
+	{
+		pc->InputComponent->BindKey(EKeys::Slash, IE_Pressed, this, &UCavrnusDataSmithPropertiesHandler::DatasmithLoadComplete);
+		//pc->InputComponent->BindKey(EKeys::O, IE_Pressed, this, &ACavrnusTwinmotionSetup::DoDebugFunction1);
+
+		//BindReesourceCreationDestructionEvents();
+	}
+}
+
+// Currently triggered by keypress as we don't have an event for the finish of all datasmith assets
+void UCavrnusDataSmithPropertiesHandler::DatasmithLoadComplete()
+{
+	ProcessStaticMeshHierarchy();
 }
 
 void UCavrnusDataSmithPropertiesHandler::BeginDestroy()
@@ -55,7 +70,7 @@ void UCavrnusDataSmithPropertiesHandler::CheckHierarchyExists()
 	if (const UWorld* World = DataSmithActor->GetWorld())
 		World->GetTimerManager().ClearTimer(CheckHierarchyHandle);
 
-	ProcessStaticMeshHierarchy();
+	//ProcessStaticMeshHierarchy();
 }
 
 
@@ -65,19 +80,14 @@ void UCavrnusDataSmithPropertiesHandler::ProcessStaticMeshHierarchy()
 	TArray<AStaticMeshActor*> AllMeshActors;
 	GetAllStaticMeshActorsRecursive(DataSmithActor, AllMeshActors);
 
-	TransformSyncs.Empty();  
-	for (const auto MeshActor : AllMeshActors)
+	if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())
 	{
-		if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())
-		{
-			FString ActorName = MeshActor->GetName();
-			const uint32 Hash = GetTypeHash(ActorName);
-			FString UniqueName = FString::Printf(TEXT("%u_%s"), Hash, *ActorName);
-			
-			SyncTransform->Setup(SpaceConnection, ContainerName, UniqueName, MeshActor);
-			TransformSyncs.Add(SyncTransform);
-		}
+		FString ActorName = DataSmithActor->GetName();	
+		SyncTransform->Setup(SpaceConnection, ContainerName, "Transform", DataSmithActor);
 	}
+	UCavrnusCVTGameSubsystem* CVTSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UCavrnusCVTGameSubsystem>();
+	CVTSubsystem->GetCPAP()->ProcessRuntimeDatasmithActorProperties(DataSmithActor, ContainerName);
+
 }
 
 

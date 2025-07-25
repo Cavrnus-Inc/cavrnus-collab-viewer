@@ -6,7 +6,6 @@
 #include "UObject/UObjectGlobals.h"
 #include "CavrnusDataSmithTransformSync.h"
 #include "CavrnusFunctionLibrary.h"
-
 #include "Kismet/GameplayStatics.h"
 #include "Engine/StaticMeshActor.h"
 
@@ -18,14 +17,6 @@ void UCavrnusPropertyAssetProcessor::Setup(const FCavrnusSpaceConnection& InSpac
 	SingletonInits();
 
 	ProcessScene();
-	if (auto pc = UGameplayStatics::GetPlayerController(GetWorld(), 0))
-	{
-		pc->InputComponent->BindKey(EKeys::Slash, IE_Pressed, this, &UCavrnusPropertyAssetProcessor::DoDebugFunction0);
-		//pc->InputComponent->BindKey(EKeys::O, IE_Pressed, this, &ACavrnusTwinmotionSetup::DoDebugFunction1);
-
-		//BindReesourceCreationDestructionEvents();
-	}
-
 }
 
 void UCavrnusPropertyAssetProcessor::SingletonInits()
@@ -148,8 +139,9 @@ int UCavrnusPropertyAssetProcessor::ProcessTwinmotionDatasmithChildUsingSlotName
 	return FixCount;
 }
 
-void UCavrnusPropertyAssetProcessor::ProcessRuntimeDatasmithActorProperties(ADatasmithRuntimeActor* DatasmithActor)
+void UCavrnusPropertyAssetProcessor::ProcessRuntimeDatasmithActorProperties(AActor* Actor, const FString& Container)
 {
+	ADatasmithRuntimeActor* DatasmithActor = Cast<ADatasmithRuntimeActor>(Actor);
 	if (!DatasmithActor)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("DatasmithActor is null."));
@@ -169,7 +161,6 @@ void UCavrnusPropertyAssetProcessor::ProcessRuntimeDatasmithActorProperties(ADat
 
 	int TotalFixed = 0;
 
-	FString Container = computeHash(DatasmithActor);
 	ProcessActorProperties(DatasmithActor, Container);
 
 	int count = 0;
@@ -321,7 +312,16 @@ int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const 
 
 	UClass* ActorClass = Actor->GetClass();
 	bool FirstPropertyFound = true;
-
+	
+	if (AStaticMeshActor* MeshActor = Cast<AStaticMeshActor>(Actor))
+	{
+		if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())
+		{
+			FString ActorName = MeshActor->GetName();
+			SyncTransform->Setup(SpaceConnection, Container, "Transform", MeshActor);
+			// Need to add SyncTransform to a destroyer
+		}
+	}
 	for (TFieldIterator<FProperty> PropIt(ActorClass); PropIt; ++PropIt)
 	{
 		FProperty* Property = *PropIt;
@@ -569,7 +569,7 @@ void UCavrnusPropertyAssetProcessor::GetAllStaticMeshActorsRecursive(const AActo
 	}
 }
 
-void UCavrnusPropertyAssetProcessor::ProcessActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors, FString Container)
+void UCavrnusPropertyAssetProcessor::ProcessActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors, const FString& Container)
 {
 	if (!InRoot)
 		return;

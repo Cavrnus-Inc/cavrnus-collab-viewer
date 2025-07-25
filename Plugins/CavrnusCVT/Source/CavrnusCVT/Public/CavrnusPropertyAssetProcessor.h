@@ -23,6 +23,9 @@ public:
 	int SingletonInit;
 
 	static void GetAllStaticMeshActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors);
+	
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+	void ProcessRuntimeDatasmithActorProperties(AActor* Actor, const FString& Container);
 
 private:
 	static TMap<UClass*, TArray<FString>> SupportedPropertyMap;
@@ -45,9 +48,7 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
 	void FixMaterialsOnRuntimeDatasmithActor(ADatasmithRuntimeActor* DatasmithActor);
 
-	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	void ProcessRuntimeDatasmithActorProperties(ADatasmithRuntimeActor* DatasmithActor);
-	void ProcessActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors, FString Container);
+	void ProcessActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors, const FString& Container);
 	int ProcessTwinmotionDatasmithChildUsingSlotNames(const AActor* Actor);
 	int ProcessActorProperties(AActor* Actor, const FString& Container);
 	int ProcessComponents(const AActor* Actor, const FString& Container);

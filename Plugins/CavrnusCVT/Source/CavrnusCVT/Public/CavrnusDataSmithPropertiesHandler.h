@@ -45,6 +45,9 @@ private:
 	UPROPERTY()
 	TArray<UCavrnusDataSmithTransformSync*> TransformSyncs;
 	
+	UFUNCTION()
+	void DatasmithLoadComplete();
+
 	void CheckHierarchyExists();
 	void ProcessStaticMeshHierarchy();
 	
