@@ -88,13 +88,6 @@ int UCavrnusPropertyAssetProcessor::ProcessTwinmotionDatasmithChildUsingSlotName
 	TArray<UStaticMeshComponent*> MeshComponents;
 	Actor->GetComponents<UStaticMeshComponent>(MeshComponents, true);
 
-	UMaterialInterface* FallbackMaterial = LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Materials/M_Fallback.M_Fallback"));
-	if (!FallbackMaterial)
-	{
-		UE_LOG(LogTemp, Error, TEXT("Fallback material not found!"));
-		return 0;
-	}
-
 	for (UStaticMeshComponent* MeshComp : MeshComponents)
 	{
 		if (!MeshComp)
@@ -169,11 +162,32 @@ void UCavrnusPropertyAssetProcessor::ProcessRuntimeDatasmithActorProperties(AAct
 	}
 }
 
+bool UCavrnusPropertyAssetProcessor::isDatasmithChild(const AActor* Actor)
+{
+	const AActor* ActorPtr = Actor;
+	while (ActorPtr)
+	{
+		if (Cast<ADatasmithRuntimeActor>(ActorPtr))
+			return true;
+		ActorPtr = ActorPtr->GetRootComponent()->GetAttachParent()->GetOwner();
+	}
+	return false;
+}
+
+
+void UCavrnusPropertyAssetProcessor::SpecialActorClassProcessing(const AActor* Actor, const FString& Container)
+{
+	if (isDatasmithChild(Actor))
+		ProcessTwinmotionDatasmithChildUsingSlotNames(Actor);
+}
+
 int UCavrnusPropertyAssetProcessor::ProcessComponents(const AActor* Actor, const FString& Container)
 {
 	int processedCount = 0;
 	if (!Actor)
 		return 0;
+
+	SpecialActorClassProcessing(Actor, Container);
 	if (Actor->GetClass() == AStaticMeshActor::StaticClass())
 	{
 		TArray<UStaticMeshComponent*> StaticMeshComponents;

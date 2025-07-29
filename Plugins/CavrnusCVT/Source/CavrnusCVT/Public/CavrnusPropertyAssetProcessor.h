@@ -26,6 +26,7 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
 	void ProcessRuntimeDatasmithActorProperties(AActor* Actor, const FString& Container);
+	bool isDatasmithChild(const AActor* Actor);
 
 private:
 	static TMap<UClass*, TArray<FString>> SupportedPropertyMap;
@@ -55,5 +56,8 @@ private:
 	int ProcessMaterialParameters(UMaterialInstanceDynamic* MaterialInterface, const FString& Container);
 
 	void ProcessScene();
+
+	void SpecialActorClassProcessing(const AActor* Actor, const FString& Container);
+
 };
 
