@@ -24,9 +24,9 @@ void UCavrnusDataSmithTransformSync::BeginDestroy()
 
 bool AreTransformsApproximatelyEqual(const FTransform& A, const FTransform& B, float Tolerance = KINDA_SMALL_NUMBER)
 {
-	return A.GetLocation().Equals(B.GetLocation(), Tolerance) &&
-		A.GetRotation().Equals(B.GetRotation(), Tolerance) &&
-		A.GetScale3D().Equals(B.GetScale3D(), Tolerance);
+	return	A.GetLocation().Equals(B.GetLocation(), Tolerance) &&
+			A.GetRotation().Equals(B.GetRotation(), Tolerance) &&
+			A.GetScale3D().Equals(B.GetScale3D(), Tolerance);
 }
 
 void UCavrnusDataSmithTransformSync::SetLocalBinding()

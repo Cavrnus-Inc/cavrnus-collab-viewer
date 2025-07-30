@@ -8,7 +8,8 @@
 #include "CavrnusFunctionLibrary.h"
 #include "CavrnusCVTGameSubsystem.h"
 #include "Kismet/GameplayStatics.h"
-
+#include "DatasmithAssetUserData.h"
+#include "IDatasmithSceneElements.h"
 #include "DatasmithRuntime.h"
 #include "Engine/StaticMeshActor.h"
 
@@ -230,7 +231,7 @@ int UCavrnusPropertyAssetProcessor::ProcessMaterialParameters(UMaterialInstanceD
 	TArray<FGuid> ScalarGuids;
 
 	MaterialInstance->GetAllScalarParameterInfo(ScalarParams, ScalarGuids);
-	UCavrnusFunctionLibrary::PostStringPropertyUpdate(SpaceConnection, Container, "Class", MaterialInstance->GetClass()->GetName());
+	UCavrnusFunctionLibrary::DefineStringPropertyDefaultValue(SpaceConnection, Container, "Class", MaterialInstance->GetClass()->GetName());
 	for (FMaterialParameterInfo Scalar : ScalarParams)
 	{
 		float OutValue;
@@ -314,6 +315,9 @@ int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const 
 	UClass* ActorClass = Actor->GetClass();
 	bool FirstPropertyFound = true;
 	
+	DeclareActorBoundingBoxProperties(Actor, Container);
+	DeclareActorNameProperty(Actor, Container);
+	ProcessDatasmithMetadata(Actor, Container);
 	AActor* ActorToAddTransformSync=nullptr;
 	if (Cast<AStaticMeshActor>(Actor) || Cast<ADatasmithRuntimeActor>(Actor))
 	{
@@ -327,7 +331,7 @@ int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const 
 		if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())
 		{
 			FString ActorName = ActorToAddTransformSync->GetName();
-			SyncTransform->Setup(SpaceConnection, Container, "Transform", ActorToAddTransformSync);
+			SyncTransform->Setup(SpaceConnection, Container, "_Transform", ActorToAddTransformSync);
 			CVTSubsystem->GetCDRM()->RegisterTransformSync(ActorToAddTransformSync, SyncTransform);
 		}
 	}
@@ -342,8 +346,8 @@ int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const 
 		{
 			if (FirstPropertyFound)
 			{
-				UCavrnusFunctionLibrary::PostStringPropertyUpdate(SpaceConnection, Container, "Class", Actor->GetClass()->GetName());
-				UCavrnusFunctionLibrary::PostStringPropertyUpdate(SpaceConnection, Container, "Name", Actor->GetName());
+				UCavrnusFunctionLibrary::DefineStringPropertyDefaultValue(SpaceConnection, Container, "_Class", Actor->GetClass()->GetName());
+				UCavrnusFunctionLibrary::DefineStringPropertyDefaultValue(SpaceConnection, Container, "_Name", Actor->GetName());
 				FirstPropertyFound = false;
 			}
 			// Optional: Get the value for readable types (e.g. FString)
@@ -561,4 +565,49 @@ void UCavrnusPropertyAssetProcessor::ProcessActorsRecursive(const AActor* InRoot
 			count++;
 		}
 	}
+}
+
+void UCavrnusPropertyAssetProcessor::DeclareActorBoundingBoxProperties(const AActor* Actor, const FString& Container)
+{
+	if (Actor)
+	{
+		FString OriginPropertyName = "_AABBOrigin";
+		FString ExtentsPropertyName = "_AABBHalfExtents";
+		FString MinBBPropertyName = "_AxisAlignedBoundingBoxMin";
+		FString MaxBBPropertyName = "_AxisAlignedBoundingBoxMax";
+		FVector origin;
+		FVector extents;
+		Actor->GetActorBounds(true, origin, extents, true);
+		FVector Max = origin + extents;
+		FVector Min = origin - extents;
+		UCavrnusFunctionLibrary::DefineVectorPropertyDefaultValue(SpaceConnection, Container, OriginPropertyName, origin);
+		UCavrnusFunctionLibrary::DefineVectorPropertyDefaultValue(SpaceConnection, Container, ExtentsPropertyName, extents);
+		UCavrnusFunctionLibrary::DefineVectorPropertyDefaultValue(SpaceConnection, Container, MinBBPropertyName, Min);
+		UCavrnusFunctionLibrary::DefineVectorPropertyDefaultValue(SpaceConnection, Container, MaxBBPropertyName, Max);
+
+	}
+}
+
+void UCavrnusPropertyAssetProcessor::DeclareActorNameProperty(const AActor* Actor, const FString& Container)
+{
+#if WITH_EDITOR
+	if (Actor)
+	{
+		FString NamePropertyName = "DisplayName_";
+		UCavrnusFunctionLibrary::DefineStringPropertyDefaultValue(SpaceConnection, Container, NamePropertyName, Actor->GetActorLabel());
+	}
+#endif
+}
+
+void UCavrnusPropertyAssetProcessor::ProcessDatasmithMetadata(const AActor* Actor, const FString& Container)
+{
+	/*
+	const UObject* Object = Actor; // or the component or mesh asset
+	const AStaticMeshActor* StaticMesh = Cast<AStaticMeshActor>(Actor);
+	UDatasmithAssetUserData* AssetData = StaticMesh->GetStaticMeshComponent()->GetAssetUserData<UDatasmithAssetUserData>();
+	for (const TPair<FName, FString>& Pair : AssetData->MetaData)
+	{
+		UE_LOG(LogTemp, Log, TEXT("Key: %s Value: %s"), *Pair.Key.ToString(), *Pair.Value);
+	}
+	*/
 }

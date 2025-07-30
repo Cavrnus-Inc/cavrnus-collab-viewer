@@ -54,10 +54,12 @@ private:
 	int ProcessActorProperties(AActor* Actor, const FString& Container);
 	int ProcessComponents(const AActor* Actor, const FString& Container);
 	int ProcessMaterialParameters(UMaterialInstanceDynamic* MaterialInterface, const FString& Container);
+	void ProcessDatasmithMetadata(const AActor* Actor, const FString& Container);
 
 	void ProcessScene();
 
 	void SpecialActorClassProcessing(const AActor* Actor, const FString& Container);
-
+	void DeclareActorBoundingBoxProperties(const AActor* Actor, const FString& Container);
+	void DeclareActorNameProperty(const AActor* Actor, const FString& Container);
 };
 
