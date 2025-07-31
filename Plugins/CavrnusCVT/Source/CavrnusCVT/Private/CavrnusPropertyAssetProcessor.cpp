@@ -231,7 +231,7 @@ int UCavrnusPropertyAssetProcessor::ProcessMaterialParameters(UMaterialInstanceD
 	TArray<FGuid> ScalarGuids;
 
 	MaterialInstance->GetAllScalarParameterInfo(ScalarParams, ScalarGuids);
-	UCavrnusFunctionLibrary::DefineStringPropertyDefaultValue(SpaceConnection, Container, "Class", MaterialInstance->GetClass()->GetName());
+	UCavrnusFunctionLibrary::DefineStringPropertyDefaultValue(SpaceConnection, Container, "_Class", MaterialInstance->GetClass()->GetName());
 	for (FMaterialParameterInfo Scalar : ScalarParams)
 	{
 		float OutValue;

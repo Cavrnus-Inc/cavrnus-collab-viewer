@@ -37,8 +37,6 @@ private:
 	
 	UPROPERTY()
 	AActor* DataSmithActor;
-	UPROPERTY()
-	TArray<UCavrnusDataSmithTransformSync*> TransformSyncs;
 	
 	UFUNCTION()
 	void DatasmithLoadComplete();

@@ -25,6 +25,8 @@ void UCavrnusDataSmithPropertiesHandler::Setup(const FCavrnusSpaceConnection& In
 		&UCavrnusDataSmithPropertiesHandler::CheckHierarchyExists), 0.5f, true);
 	}
 
+
+	//Move into DatasmithRuntimeManager Event
 	if (auto pc = UGameplayStatics::GetPlayerController(GetWorld(), 0))
 	{
 		pc->InputComponent->BindKey(EKeys::Slash, IE_Pressed, this, &UCavrnusDataSmithPropertiesHandler::DatasmithLoadComplete);
@@ -43,7 +45,6 @@ void UCavrnusDataSmithPropertiesHandler::DatasmithLoadComplete()
 void UCavrnusDataSmithPropertiesHandler::BeginDestroy()
 {
 	UObject::BeginDestroy();
-	TransformSyncs.Empty();
 }
 
 void UCavrnusDataSmithPropertiesHandler::CheckHierarchyExists()
