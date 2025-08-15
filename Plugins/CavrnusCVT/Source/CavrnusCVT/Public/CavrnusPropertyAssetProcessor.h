@@ -10,7 +10,9 @@
 #include "UObject/Object.h"
 #include "DatasmithRuntime.h"
 #include "Engine/StaticMeshActor.h"
+#include "DatasmithUtilities.h"
 #include "CavrnusPropertyAssetProcessor.generated.h"
+
 UCLASS()
 class CAVRNUSCVT_API UCavrnusPropertyAssetProcessor : public UObject
 {
@@ -25,8 +27,14 @@ public:
 	static void GetAllStaticMeshActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors);
 	
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
-	void ProcessRuntimeDatasmithActorProperties(AActor* Actor, const FString& Container);
+	void ProcessDatasmithRuntimeActorProperties(const FString& FilePath, ADatasmithRuntimeActor* Actor, const FString& Container);
+
 	bool isDatasmithChild(const AActor* Actor);
+
+	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
+	int ProcessActorProperties(AActor* Actor, const FString& Container);
+
+	//void LoadWhiteListedPropertySet();
 
 private:
 	static TMap<UClass*, TArray<FString>> SupportedPropertyMap;
@@ -51,15 +59,15 @@ private:
 
 	void ProcessActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors, const FString& Container);
 	int ProcessTwinmotionDatasmithChildUsingSlotNames(const AActor* Actor);
-	int ProcessActorProperties(AActor* Actor, const FString& Container);
 	int ProcessComponents(const AActor* Actor, const FString& Container);
 	int ProcessMaterialParameters(UMaterialInstanceDynamic* MaterialInterface, const FString& Container);
-	void ProcessDatasmithMetadata(const AActor* Actor, const FString& Container);
+	void ProcessDatasmithMetadata(const FString& FilePath, const AActor* Actor, const FString& Container);
 
 	void ProcessScene();
 
 	void SpecialActorClassProcessing(const AActor* Actor, const FString& Container);
 	void DeclareActorBoundingBoxProperties(const AActor* Actor, const FString& Container);
 	void DeclareActorNameProperty(const AActor* Actor, const FString& Container);
+	
 };
 

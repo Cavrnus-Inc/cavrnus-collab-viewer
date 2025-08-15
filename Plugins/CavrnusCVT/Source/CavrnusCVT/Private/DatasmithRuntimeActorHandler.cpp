@@ -1,3 +1,5 @@
+// Copyright (c) 2025 Cavrnus. All rights reserved.
+
 #include "DatasmithRuntimeActorHandler.h"
 #include "Engine/World.h"
 #include "TimerManager.h"

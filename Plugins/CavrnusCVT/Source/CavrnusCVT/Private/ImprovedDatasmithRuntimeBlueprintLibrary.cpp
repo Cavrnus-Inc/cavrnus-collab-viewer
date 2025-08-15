@@ -1,8 +1,10 @@
+// Copyright (c) 2025 Cavrnus. All rights reserved.
+
 #include "ImprovedDatasmithRuntimeBlueprintLibrary.h"
 #include "Engine/World.h"
 #include "Engine/Engine.h"
 
-void UImprovedDatasmithRuntimeBlueprintLibrary::SpawnDatasmithRuntimeActor(UObject* WorldContextObject, const FString& FilePath, const FOnDatasmithRuntimeActorLoaded& OnLoadedCallback, bool bAutoDestroyHandler)
+void UImprovedDatasmithRuntimeBlueprintLibrary::SpawnDatasmithRuntimeActor(UObject* WorldContextObject, const FString& FilePath, const FOnDatasmithRuntimeActorLoaded& OnLoadedCallback)
 {
     UWorld* World = GEngine->GetWorldFromContextObjectChecked(WorldContextObject);
     UDatasmithRuntimeActorHandler* OutHandler;
@@ -23,6 +25,6 @@ void UImprovedDatasmithRuntimeBlueprintLibrary::SpawnDatasmithRuntimeActor(UObje
     }
 
     OutHandler = NewObject<UDatasmithRuntimeActorHandler>(WorldContextObject);
-    OutHandler->Initialize(Actor, FilePath, OnLoadedCallback, bAutoDestroyHandler);
+    OutHandler->Initialize(Actor, FilePath, OnLoadedCallback);
 
 }

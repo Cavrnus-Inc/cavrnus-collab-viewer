@@ -83,7 +83,7 @@ void UCavrnusDataSmithPropertiesHandler::ProcessStaticMeshHierarchy()
 		CVTSubsystem->GetCDRM()->RegisterTransformSync(DataSmithActor, SyncTransform);
 	}
 	*/
-	if (!CVTSubsystem->GetCDRM()->isRegistered(Cast<ADatasmithRuntimeActor>(DataSmithActor)))
+	if (!CVTSubsystem->GetCDRM()->IsRegistered(Cast<ADatasmithRuntimeActor>(DataSmithActor)))
 	{
 		/*
 		if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())

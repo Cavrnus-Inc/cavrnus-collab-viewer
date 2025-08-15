@@ -16,7 +16,9 @@ public:
     virtual void Initialize(FSubsystemCollectionBase& Collection) override;
     virtual void Deinitialize() override;
 
+    UFUNCTION(BlueprintCallable)
     UCavrnusPropertyAssetProcessor* GetCPAP() { return CPAP; }
+    UFUNCTION(BlueprintCallable)
     UCavrnusDatasmithRuntimeManager* GetCDRM() { return CDRM; }
 private:
     UPROPERTY()

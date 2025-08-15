@@ -23,6 +23,7 @@ public class CavrnusCVT : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+                "XmlParser"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

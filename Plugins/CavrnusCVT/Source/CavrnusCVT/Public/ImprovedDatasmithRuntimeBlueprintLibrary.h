@@ -1,3 +1,5 @@
+// Copyright (c) 2025 Cavrnus. All rights reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -15,5 +17,5 @@ class UImprovedDatasmithRuntimeBlueprintLibrary : public UBlueprintFunctionLibra
 
 public:
     UFUNCTION(BlueprintCallable)
-    static void SpawnDatasmithRuntimeActor(UObject* WorldContextObject, const FString& FilePath, const FOnDatasmithRuntimeActorLoaded& OnLoadedCallback, bool bAutoDestroyHandler = true);
+    static void SpawnDatasmithRuntimeActor(UObject* WorldContextObject, const FString& FilePath, const FOnDatasmithRuntimeActorLoaded& OnLoadedCallback);
 };

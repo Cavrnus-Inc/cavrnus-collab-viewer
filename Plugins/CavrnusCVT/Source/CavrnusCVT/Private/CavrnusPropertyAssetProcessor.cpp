@@ -128,25 +128,38 @@ int UCavrnusPropertyAssetProcessor::ProcessTwinmotionDatasmithChildUsingSlotName
 	return FixCount;
 }
 
-void UCavrnusPropertyAssetProcessor::ProcessRuntimeDatasmithActorProperties(AActor* Actor, const FString& Container)
-{
-	ADatasmithRuntimeActor* DatasmithActor = Cast<ADatasmithRuntimeActor>(Actor);
+
+
+void UCavrnusPropertyAssetProcessor::ProcessDatasmithRuntimeActorProperties(const FString& FilePath, ADatasmithRuntimeActor* DatasmithActor, const FString& Container)
+{	
 	if (!DatasmithActor)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("DatasmithActor is null."));
-		return;
-	}
-	if (DatasmithActor->IsReceiving())
-	{
-		UE_LOG(LogTemp, Warning, TEXT("DatasmithActor is still loading."));
 		return;
 	}
 
 	TArray<AStaticMeshActor*> ActorsToProcess;
 
 	GetAllStaticMeshActorsRecursive(DatasmithActor, ActorsToProcess);
+	UE_LOG(LogTemp, Error, TEXT("XXXXX - Found %d from GetAllStaticMeshActorsRecursive"), ActorsToProcess.Num());
 
-	UE_LOG(LogTemp, Error, TEXT("Found %d Datasmith Children on Actor %s"), ActorsToProcess.Num(), *DatasmithActor->GetName());
+	TArray<AActor*> ChildActors;
+	DatasmithActor->GetAttachedActors(ChildActors);
+	UE_LOG(LogTemp, Error, TEXT("XXXXX 2 - Found %d from GetAllStaticMeshActorsRecursive"), ChildActors.Num());
+	for (AActor* Child : ChildActors)
+	{
+		UE_LOG(LogTemp, Log, TEXT("Child actor: %s"), *Child->GetName());
+	}
+
+	if (USceneComponent* RootComp = DatasmithActor->GetRootComponent())
+	{
+		UE_LOG(LogTemp, Error, TEXT("XXXXX 3 - Root Components attached kids %d"), RootComp->GetAttachChildren().Num())
+			for (USceneComponent* ChildComp : RootComp->GetAttachChildren())
+			{
+				UE_LOG(LogTemp, Log, TEXT("Attached scene component: %s"), *ChildComp->GetName());
+			}
+	}
+
 
 	int TotalFixed = 0;
 
@@ -161,6 +174,29 @@ void UCavrnusPropertyAssetProcessor::ProcessRuntimeDatasmithActorProperties(AAct
 		TotalFixed += ProcessActorProperties(ProcessActor, NewContainer);
 		count++;
 	}
+
+	FString ErrorMessage;
+	EDatasmithRuntimeFileType FileType = UDatasmithFileLibrary::GetFileTypeFromDatasmithFile(FilePath, ErrorMessage);
+
+	switch (FileType)
+	{
+		case EDatasmithRuntimeFileType::Twinmotion :
+		{
+			// Process Twinmotion specific properties
+			TotalFixed += ProcessTwinmotionDatasmithChildUsingSlotNames(DatasmithActor);
+			for (AActor* Actor : ActorsToProcess)
+			{
+				TotalFixed += ProcessTwinmotionDatasmithChildUsingSlotNames(Actor);
+			}
+			break;
+		}
+		default:
+		{
+			// Nothing to do here yet.
+		}
+	}
+
+	ProcessDatasmithMetadata(FilePath, DatasmithActor, Container);
 }
 
 bool UCavrnusPropertyAssetProcessor::isDatasmithChild(const AActor* Actor)
@@ -278,38 +314,36 @@ int UCavrnusPropertyAssetProcessor::ProcessMaterialParameters(UMaterialInstanceD
 		UCavrnusFunctionLibrary::BindStringPropertyValue(SpaceConnection, Container, Textures.Name.ToString(), OnTexturePathUpdated);
 	}
 
-	// These are editor only so commenting out
-	// Static switch parameters
-	/*
+#if WITH_EDITOR
+	// These are editor only Static switch parameters
+	
 	TArray<FMaterialParameterInfo> StaticSwitchParams;
 	TArray<FGuid> StaticSwitchGuids;
 	MaterialInstance->GetAllStaticSwitchParameterInfo(StaticSwitchParams, StaticSwitchGuids);
-	FString SwitchesParamsString = "Switch Params : ";
 
 	for (FMaterialParameterInfo Switches : StaticSwitchParams)
 	{
 		bool bOut;
 		FGuid someGuid;
 		MaterialInstance->GetStaticSwitchParameterValue(Switches, bOut, someGuid);
-		UCavrnusFunctionLibrary::PostBoolPropertyUpdate(SpaceConnection, Container, Switches.Name.ToString(), bOut);
-
+		UCavrnusFunctionLibrary::DefineBoolPropertyDefaultValue(SpaceConnection, Container, Switches.Name.ToString(), bOut);
 		auto OnBoolUpdated = [MaterialInstance, Switches](bool bValue, FString Container, FString PropertyName)
 			{
 				MaterialInstance->SetStaticSwitchParameterValueEditorOnly(FName(PropertyName), bValue);
 			};
 		UCavrnusFunctionLibrary::BindBooleanPropertyValue(SpaceConnection, Container, Switches.Name.ToString(), OnBoolUpdated);
 	}
-
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *SwitchesParamsString);
-	*/
+#endif
 
 	return Added;
 }
+
 
 int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const FString& Container)
 {
 	if (!Actor)
 		return 0;
+
 	int Added = 0;
 
 	UClass* ActorClass = Actor->GetClass();
@@ -317,24 +351,16 @@ int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const 
 	
 	DeclareActorBoundingBoxProperties(Actor, Container);
 	DeclareActorNameProperty(Actor, Container);
-	ProcessDatasmithMetadata(Actor, Container);
-	AActor* ActorToAddTransformSync=nullptr;
-	if (Cast<AStaticMeshActor>(Actor) || Cast<ADatasmithRuntimeActor>(Actor))
+
+	UCavrnusCVTGameSubsystem* CVTSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UCavrnusCVTGameSubsystem>();
+
+	if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())
 	{
-		ActorToAddTransformSync = Actor;
+		FString ActorName = Actor->GetName();
+		SyncTransform->Setup(SpaceConnection, Container, "_Transform", Actor);
+		CVTSubsystem->GetCDRM()->RegisterTransformSync(Actor, SyncTransform);
 	}
 
-	if (ActorToAddTransformSync)
-	{
-		UCavrnusCVTGameSubsystem* CVTSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UCavrnusCVTGameSubsystem>();
-
-		if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())
-		{
-			FString ActorName = ActorToAddTransformSync->GetName();
-			SyncTransform->Setup(SpaceConnection, Container, "_Transform", ActorToAddTransformSync);
-			CVTSubsystem->GetCDRM()->RegisterTransformSync(ActorToAddTransformSync, SyncTransform);
-		}
-	}
 	for (TFieldIterator<FProperty> PropIt(ActorClass); PropIt; ++PropIt)
 	{
 		FProperty* Property = *PropIt;
@@ -599,8 +625,32 @@ void UCavrnusPropertyAssetProcessor::DeclareActorNameProperty(const AActor* Acto
 #endif
 }
 
-void UCavrnusPropertyAssetProcessor::ProcessDatasmithMetadata(const AActor* Actor, const FString& Container)
+void UCavrnusPropertyAssetProcessor::ProcessDatasmithMetadata(const FString& FilePath, const AActor* DatasmithActor, const FString& Container)
 {
+	if (!DatasmithActor)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("DatasmithActor is null."));
+		return;
+	}
+	FString ErrorMessage;
+	EDatasmithRuntimeFileType FileType = UDatasmithFileLibrary::GetFileTypeFromDatasmithFile(FilePath, ErrorMessage);
+
+	switch (FileType)
+	{
+		case EDatasmithRuntimeFileType::Twinmotion:
+		{
+
+		}
+		case EDatasmithRuntimeFileType::Revit:
+		{
+
+		}
+		default:
+		{
+			// Nothing to do here yet.
+		}
+
+	}
 	/*
 	const UObject* Object = Actor; // or the component or mesh asset
 	const AStaticMeshActor* StaticMesh = Cast<AStaticMeshActor>(Actor);
