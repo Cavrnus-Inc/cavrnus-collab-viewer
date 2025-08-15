@@ -358,7 +358,6 @@ int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const 
 	{
 		FString ActorName = Actor->GetName();
 		SyncTransform->Setup(SpaceConnection, Container, "_Transform", Actor);
-		CVTSubsystem->GetCDRM()->RegisterTransformSync(Actor, SyncTransform);
 	}
 
 	for (TFieldIterator<FProperty> PropIt(ActorClass); PropIt; ++PropIt)

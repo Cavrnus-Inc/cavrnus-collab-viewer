@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "CavrnusPropertyAssetProcessor.h"
-#include "CavrnusDatasmithRuntimeManager.h"
 #include "CavrnusCVTGameSubsystem.generated.h"
 
 UCLASS()
@@ -18,13 +17,10 @@ public:
 
     UFUNCTION(BlueprintCallable)
     UCavrnusPropertyAssetProcessor* GetCPAP() { return CPAP; }
-    UFUNCTION(BlueprintCallable)
-    UCavrnusDatasmithRuntimeManager* GetCDRM() { return CDRM; }
+
 private:
     UPROPERTY()
     UCavrnusPropertyAssetProcessor* CPAP;
 
-    UPROPERTY()
-    UCavrnusDatasmithRuntimeManager* CDRM;
     
 };

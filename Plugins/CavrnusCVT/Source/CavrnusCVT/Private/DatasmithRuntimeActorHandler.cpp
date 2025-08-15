@@ -32,6 +32,7 @@ void UDatasmithRuntimeActorHandler::PollActorStatus()
     const bool bIsBuilding = Actor->bBuilding;
     const bool bIsReceiving = Actor->IsReceiving();
 
+    UE_LOG(LogTemp, Warning, TEXT("%s %s"), bIsBuilding ? TEXT("B") : TEXT("NB"), bIsReceiving ? TEXT("R") : TEXT("NR"));
     if (bWaitingForLoadStart)
     {
         if (bIsBuilding || bIsReceiving)
@@ -46,8 +47,10 @@ void UDatasmithRuntimeActorHandler::PollActorStatus()
         return;
     }
 
-    GetWorld()->GetTimerManager().ClearTimer(PollTimerHandle);
+    UE_LOG(LogTemp, Error, TEXT("XXXX - TIMER FINISHED"));
     OnActorLoadedCallback.ExecuteIfBound(Actor);
+    GetWorld()->GetTimerManager().ClearTimer(PollTimerHandle);
+
 
     MarkAsGarbage(); // Destroy Handler
 }
