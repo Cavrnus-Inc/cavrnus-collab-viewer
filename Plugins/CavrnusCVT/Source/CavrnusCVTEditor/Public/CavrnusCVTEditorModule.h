@@ -16,8 +16,6 @@ public:
 	virtual void ShutdownModule() override;
 
 private:
-	TSharedPtr<FUICommandList> PluginCommands;
-
 	void RegisterMenus();
 	void CreateCavrnusCvtRibbon(FMenuBarBuilder& Builder);
 	void CreateRibbonSubEntry(FMenuBuilder& MenuBuilder);
@@ -30,7 +28,6 @@ private:
 	void SetupLevel();
 	void SetGameMode();
 	void TryAddManager();
-	void TryAddSpatialConnector();
 
 	UClass* GetDefaultBlueprint(const FString& Path, UClass* BaseClass);
 };

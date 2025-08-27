@@ -7,7 +7,6 @@
 #include "LevelEditor.h"
 #include "Engine/StaticMeshActor.h"
 #include "GameFramework/GameModeBase.h"
-#include "CavrnusSpatialConnector.h"
 
 #define LOCTEXT_NAMESPACE "CavrnusCVTEditor"
 IMPLEMENT_MODULE(FCavrnusCVTEditorModule, CavrnusCVTEditor)
@@ -249,45 +248,10 @@ void FCavrnusCVTEditorModule::TryAddManager()
 	}
 }
 
-void FCavrnusCVTEditorModule::TryAddSpatialConnector()
-{
-	if (GEditor)
-	{
-		if (UWorld* World = GEditor->GetEditorWorldContext().World())
-		{
-			FActorSpawnParameters SpawnParams;
-			SpawnParams.OverrideLevel = World->PersistentLevel;
-
-			bool bWorldNeedsSpatialConnector = true;
-			for (TActorIterator<AActor> It(World, ACavrnusSpatialConnector::StaticClass()); It; ++It)
-			{
-				bWorldNeedsSpatialConnector = false;
-			}
-
-			if (bWorldNeedsSpatialConnector)
-			{
-				if (ACavrnusSpatialConnector* CavrnusSpatialConnector = World->SpawnActor<ACavrnusSpatialConnector>(SpawnParams))
-				{
-					CavrnusSpatialConnector->SetIsSpatiallyLoaded(false);
-					CavrnusSpatialConnector->GuestName = "CVT Guest";
-					CavrnusSpatialConnector->AuthMethod = ECavrnusAuthMethod::JoinAsMember;
-					CavrnusSpatialConnector->MemberLoginMethod = ECavrnusMemberLoginMethod::PromptMemberToLogin;
-					CavrnusSpatialConnector->SpaceJoinMethod = ECavrnusSpaceJoinMethod::SpacesList;
-				}
-			}
-			else
-			{
-				UE_LOG(LogCavrnusCVTEditor, Warning, TEXT("World already contains a CavrnusSpatialConnector"));
-			}
-		}
-	}
-}
-
 void FCavrnusCVTEditorModule::SetupLevel()
 {
 	SetGameMode();
 	TryAddManager();
-	TryAddSpatialConnector();
 }
 
 void FCavrnusCVTEditorModule::SetGameMode()
