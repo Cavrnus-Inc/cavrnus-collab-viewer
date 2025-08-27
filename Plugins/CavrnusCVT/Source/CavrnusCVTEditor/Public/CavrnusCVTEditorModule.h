@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
+#include "UI/CavrnusCVTEditorUIManager.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogCavrnusCVTEditor, Log, All);
 
@@ -16,6 +17,8 @@ public:
 	virtual void ShutdownModule() override;
 
 private:
+	TStrongObjectPtr<UCavrnusCVTEditorUIManager> EditorUI;
+	
 	void RegisterMenus();
 	void CreateCavrnusCvtRibbon(FMenuBarBuilder& Builder);
 	void CreateRibbonSubEntry(FMenuBuilder& MenuBuilder);

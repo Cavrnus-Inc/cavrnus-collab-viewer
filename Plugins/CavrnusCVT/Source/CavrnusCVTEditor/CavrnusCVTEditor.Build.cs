@@ -27,7 +27,7 @@ public class CavrnusCVTEditor : ModuleRules
 			"LevelEditor",
 			"Projects",
 			"CavrnusCVT", // Reference to runtime module
-			"CavrnusConnector"
+			"CavrnusConnector", "CavrnusConnectorEditor", "CavrnusConnectorEditor", "Blutility"
 		});
 
 		// List of private dependency modules that this module links against
@@ -39,7 +39,7 @@ public class CavrnusCVTEditor : ModuleRules
 			"AssetRegistry",
 			"Kismet",
 			"BlueprintGraph",
-			"CavrnusConnector"
+			"CavrnusConnector", "CavrnusConnectorEditor", "CavrnusConnectorEditor", "Blutility"
 		});
 	}
 }

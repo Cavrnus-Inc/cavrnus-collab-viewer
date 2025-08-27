@@ -7,6 +7,8 @@
 #include "LevelEditor.h"
 #include "Engine/StaticMeshActor.h"
 #include "GameFramework/GameModeBase.h"
+#include "UI/Tabs/CavrnusEditorTabController.h"
+#include "UI/Widgets/CavrnusMainEditorPanelWidget.h"
 
 #define LOCTEXT_NAMESPACE "CavrnusCVTEditor"
 IMPLEMENT_MODULE(FCavrnusCVTEditorModule, CavrnusCVTEditor)
@@ -16,12 +18,16 @@ void FCavrnusCVTEditorModule::StartupModule()
 {
 	IModuleInterface::StartupModule();
 
-	RegisterMenus();
+	EditorUI = TStrongObjectPtr(NewObject<UCavrnusCVTEditorUIManager>(GetTransientPackage()));
+	EditorUI->Initialize();
 }
 
 void FCavrnusCVTEditorModule::ShutdownModule()
 {
 	IModuleInterface::ShutdownModule();
+
+	if (EditorUI.IsValid())
+		EditorUI->Teardown();
 }
 
 void FCavrnusCVTEditorModule::RegisterMenus()
@@ -73,7 +79,7 @@ void FCavrnusCVTEditorModule::CreateRibbonSubEntry(FMenuBuilder& MenuBuilder)
 	
 	MenuBuilder.AddMenuEntry(
 		LOCTEXT("SetupLevel", "Setup level for Cavrnus Collab Viewer (Required!)"),
-		LOCTEXT("SetupLevelTooltip", "Configures SpatialConnector and sets default GameMode to use CVT"),
+		LOCTEXT("SetupLevelTooltip", "Sets default GameMode to use CVT"),
 		FSlateIcon(),
 		FUIAction(FExecuteAction::CreateRaw(this, &FCavrnusCVTEditorModule::SetupLevel))
 	);
