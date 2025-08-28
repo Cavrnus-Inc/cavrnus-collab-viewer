@@ -18,19 +18,4 @@ public:
 
 private:
 	TStrongObjectPtr<UCavrnusCVTEditorUIManager> EditorUI;
-	
-	void RegisterMenus();
-	void CreateCavrnusCvtRibbon(FMenuBarBuilder& Builder);
-	void CreateRibbonSubEntry(FMenuBuilder& MenuBuilder);
-
-	void AddCollisionProfiles();
-	void RegisterCollisionChannelIfMissing(const FString& ChannelName);
-	bool DoesProfileExistInConfig(FName ProfileName);
-	void ConvertStaticMeshActors();
-
-	void SetupLevel();
-	void SetGameMode();
-	void TryAddManager();
-
-	UClass* GetDefaultBlueprint(const FString& Path, UClass* BaseClass);
 };
