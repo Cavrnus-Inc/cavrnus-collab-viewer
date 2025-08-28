@@ -21,7 +21,7 @@ void UCavrnusCVTEditorSetupWidget::NativeConstruct()
 	
 	const auto GameModeButton = CreateButton(Required)
 		->SetPrimaryText("Set GameMode")
-		->SetSecondaryText("Sets default GameMode to use CVT")
+		->SetSecondaryText("Sets the current Level's GameMode Overide to use the Collab Viewer's")
 		->SetCompletionState(false);
 	GameModeButton->SetCompletionState(FCavrnusCVTLevelSetupHelper::HasGameMode());
 	GameModeButton->OnButtonClicked.AddWeakLambda(this, [GameModeButton]
@@ -31,7 +31,7 @@ void UCavrnusCVTEditorSetupWidget::NativeConstruct()
 		});
 	
 	const auto CvtManagerButton = CreateButton(Required)
-	->SetPrimaryText("Add CVT Actor")
+	->SetPrimaryText("Add Collab Viewer Manager Actor")
 	->SetSecondaryText("Adds necessary subsystems to current level")
 	->SetCompletionState(false);
 	CvtManagerButton->SetCompletionState(FCavrnusCVTLevelSetupHelper::HasCvtManager());
