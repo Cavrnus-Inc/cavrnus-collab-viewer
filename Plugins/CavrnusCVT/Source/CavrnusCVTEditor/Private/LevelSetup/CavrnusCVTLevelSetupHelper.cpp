@@ -4,10 +4,10 @@
 
 #include "CavrnusCVTEditorModule.h"
 #include "CavrnusCVTManager.h"
-#include "CavrnusKeyValueStore.h"
 #include "EngineUtils.h"
 #include "Engine/StaticMeshActor.h"
 #include "GameFramework/GameModeBase.h"
+#include "UI/Helpers/CavrnusWidgetFactory.h"
 
 TArray<FString> FCavrnusCVTLevelSetupHelper::CollisionProfiles =
 {
@@ -87,7 +87,7 @@ void FCavrnusCVTLevelSetupHelper::AddCVTManagerToScene()
 		{
 			if (!HasCvtManager())
 			{
-				if (UClass* Found = GetDefaultBlueprint(
+				if (UClass* Found = FCavrnusWidgetFactory::GetDefaultBlueprint(
 					TEXT("/CavrnusCVT/CavrnusIntegration/Commands/A_CavrnusCVTManager.A_CavrnusCVTManager_C"),
 					AActor::StaticClass()))
 				{
@@ -129,7 +129,7 @@ void FCavrnusCVTLevelSetupHelper::SetupGameMode()
 		return;
 	}
 
-	UClass* FoundGameMode = GetDefaultBlueprint(TEXT("/CavrnusCVT/CollaborativeViewer/Blueprints/GameMode/BP_CollaborativeViewer_GameMode.BP_CollaborativeViewer_GameMode_C"), AGameModeBase::StaticClass());
+	UClass* FoundGameMode = FCavrnusWidgetFactory::GetDefaultBlueprint(TEXT("/CavrnusCVT/CollaborativeViewer/Blueprints/GameMode/BP_CollaborativeViewer_GameMode.BP_CollaborativeViewer_GameMode_C"), AGameModeBase::StaticClass());
 	if (FoundGameMode && FoundGameMode->IsChildOf(AGameModeBase::StaticClass()))
 	{
 		if (AWorldSettings* WorldSettings = World->GetWorldSettings())
@@ -153,7 +153,7 @@ bool FCavrnusCVTLevelSetupHelper::HasGameMode()
 	{
 		if (AWorldSettings* WorldSettings = World->GetWorldSettings())
 		{
-			UClass* FoundGameMode = GetDefaultBlueprint(TEXT("/CavrnusCVT/CollaborativeViewer/Blueprints/GameMode/BP_CollaborativeViewer_GameMode.BP_CollaborativeViewer_GameMode_C"),
+			UClass* FoundGameMode = FCavrnusWidgetFactory::GetDefaultBlueprint(TEXT("/CavrnusCVT/CollaborativeViewer/Blueprints/GameMode/BP_CollaborativeViewer_GameMode.BP_CollaborativeViewer_GameMode_C"),
 				AGameModeBase::StaticClass());
 
 			return (WorldSettings->DefaultGameMode == FoundGameMode);
@@ -239,17 +239,6 @@ void FCavrnusCVTLevelSetupHelper::RegisterCollisionChannelIfMissing(const FStrin
 	FString NormalizedContents = FString::Join(Lines, TEXT("\n")); // force LF
 	FFileHelper::SaveStringToFile(NormalizedContents, *ConfigPath, FFileHelper::EEncodingOptions::AutoDetect, &IFileManager::Get(), FILEWRITE_None);
 }
-
-UClass* FCavrnusCVTLevelSetupHelper::GetDefaultBlueprint(const FString& Path, UClass* BaseClass)
-{
-	// Use BP as default value
-	UClass* LoadedBlueprintClass = StaticLoadClass(BaseClass, nullptr, *Path, nullptr, LOAD_None, nullptr);
-	if (!LoadedBlueprintClass)
-		UE_LOG(LogTemp, Error, TEXT("Blueprint asset failed to load from path: %s, base class name: %s"), *Path, *BaseClass->GetName());
-
-	return LoadedBlueprintClass;
-}
-
 
 FString FCavrnusCVTLevelSetupHelper::GetLevelGUID()
 {

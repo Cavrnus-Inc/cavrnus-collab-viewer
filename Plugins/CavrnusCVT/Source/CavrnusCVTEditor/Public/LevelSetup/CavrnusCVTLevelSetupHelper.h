@@ -21,7 +21,5 @@ private:
 	static TArray<FString> CollisionProfiles;
 	static void RegisterCollisionChannelIfMissing(const FString& ChannelName);
 	
-	static UClass* GetDefaultBlueprint(const FString& Path, UClass* BaseClass);
-
 	static FString GetLevelGUID();
 };
