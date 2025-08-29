@@ -9,6 +9,7 @@ void UCavrnusCVTEditorUIManager::Initialize()
 {
 	UCavrnusMainEditorPanelWidget::OnConstructed.AddLambda([](UCavrnusMainEditorPanelWidget* Widget)
 	{
+		Widget->SetProjectSetupWidgetVis(false);
 		if (auto* SetupWidget = FCavrnusWidgetFactory::CreateUserWidgetFromPath<UCavrnusCVTEditorSetupWidget>(
 			"/CavrnusCVT/CavrnusIntegration/UI/Editor/Menus/WBP_CavrnusCVT_EditorSetupWidget.WBP_CavrnusCVT_EditorSetupWidget_C",
 			Widget->GetWorld()))
