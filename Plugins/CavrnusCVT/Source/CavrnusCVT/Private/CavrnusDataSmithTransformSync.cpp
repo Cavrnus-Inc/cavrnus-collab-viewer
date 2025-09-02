@@ -22,6 +22,13 @@ void UCavrnusDataSmithTransformSync::BeginDestroy()
 	TargetActor = nullptr;
 }
 
+bool AreTransformsApproximatelyEqual(const FTransform& A, const FTransform& B, float Tolerance = KINDA_SMALL_NUMBER)
+{
+	return	A.GetLocation().Equals(B.GetLocation(), Tolerance) &&
+			A.GetRotation().Equals(B.GetRotation(), Tolerance) &&
+			A.GetScale3D().Equals(B.GetScale3D(), Tolerance);
+}
+
 void UCavrnusDataSmithTransformSync::SetLocalBinding()
 {
 	// LOCAL UPDATE
@@ -29,15 +36,20 @@ void UCavrnusDataSmithTransformSync::SetLocalBinding()
 	{
 		if (IgnoreTransformUpdate)
 			return;
-		
-		CancelLocalFinalizeTimer();
-		
-		if (LiveUpdater)
-			LiveUpdater->UpdateWithNewData(UpdatedComponent->GetRelativeTransform());
-		else
-			LiveUpdater = UCavrnusFunctionLibrary::BeginTransientTransformPropertyUpdate(SpaceConnection, ContainerName, PropertyName, UpdatedComponent->GetRelativeTransform(), PostOptions);
-		
-		TrySetLocalFinalizeTimer();
+
+		// Need check here to see if the local transform actually changed.  Is not changing when root is moved, but all relative transforms are posting
+		FTransform JournalValue = UCavrnusFunctionLibrary::GetTransformPropertyValue(SpaceConnection, ContainerName, PropertyName);
+		FTransform NewValue = UpdatedComponent->GetRelativeTransform();
+		if (!AreTransformsApproximatelyEqual(JournalValue, NewValue))
+		{
+			CancelLocalFinalizeTimer();
+			if (LiveUpdater)
+				LiveUpdater->UpdateWithNewData(UpdatedComponent->GetRelativeTransform());
+			else
+				LiveUpdater = UCavrnusFunctionLibrary::BeginTransientTransformPropertyUpdate(SpaceConnection, ContainerName, PropertyName, UpdatedComponent->GetRelativeTransform(), PostOptions);
+
+			TrySetLocalFinalizeTimer();
+		}
 	});
 }
 
@@ -71,6 +83,9 @@ void UCavrnusDataSmithTransformSync::TrySetLocalFinalizeTimer()
 
 void UCavrnusDataSmithTransformSync::CancelLocalFinalizeTimer()
 {
-	if (const UWorld* World = TargetActor->GetWorld())
+	if (TargetActor && TransformUpdaterHandle.IsValid())
+	{
+		const UWorld* World = TargetActor->GetWorld();
 		World->GetTimerManager().ClearTimer(TransformUpdaterHandle);
+	}
 }
