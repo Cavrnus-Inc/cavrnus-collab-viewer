@@ -4,7 +4,7 @@
 #include "TimerManager.h"
 #include "UObject/WeakObjectPtrTemplates.h"
 #include "UObject/UObjectGlobals.h"
-#include "CavrnusDataSmithTransformSync.h"
+//#include "CavrnusDataSmithTransformSync.h"
 #include "CavrnusFunctionLibrary.h"
 #include "CavrnusCVTGameSubsystem.h"
 #include "Kismet/GameplayStatics.h"
@@ -137,29 +137,15 @@ void UCavrnusPropertyAssetProcessor::ProcessDatasmithRuntimeActorProperties(cons
 		UE_LOG(LogTemp, Warning, TEXT("DatasmithActor is null."));
 		return;
 	}
+	if (FilePath.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("FilePath for Datasmith Actor is Empty.  Unable to determine type and further process"));
+	}
+	TArray<AActor*> ActorsToProcess;
 
-	TArray<AStaticMeshActor*> ActorsToProcess;
+	GetAllRelevantActorsRecursive(DatasmithActor, ActorsToProcess);
 
-	GetAllStaticMeshActorsRecursive(DatasmithActor, ActorsToProcess);
 	UE_LOG(LogTemp, Error, TEXT("XXXXX - Found %d from GetAllStaticMeshActorsRecursive"), ActorsToProcess.Num());
-
-	TArray<AActor*> ChildActors;
-	DatasmithActor->GetAttachedActors(ChildActors);
-	UE_LOG(LogTemp, Error, TEXT("XXXXX 2 - Found %d from GetAllStaticMeshActorsRecursive"), ChildActors.Num());
-	for (AActor* Child : ChildActors)
-	{
-		UE_LOG(LogTemp, Log, TEXT("Child actor: %s"), *Child->GetName());
-	}
-
-	if (USceneComponent* RootComp = DatasmithActor->GetRootComponent())
-	{
-		UE_LOG(LogTemp, Error, TEXT("XXXXX 3 - Root Components attached kids %d"), RootComp->GetAttachChildren().Num())
-			for (USceneComponent* ChildComp : RootComp->GetAttachChildren())
-			{
-				UE_LOG(LogTemp, Log, TEXT("Attached scene component: %s"), *ChildComp->GetName());
-			}
-	}
-
 
 	int TotalFixed = 0;
 
@@ -175,6 +161,10 @@ void UCavrnusPropertyAssetProcessor::ProcessDatasmithRuntimeActorProperties(cons
 		count++;
 	}
 
+	if (FilePath.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("FilePath for Datasmith Actor is Empty.  Unable to determine type and further process"));
+	}
 	FString ErrorMessage;
 	EDatasmithRuntimeFileType FileType = UDatasmithFileLibrary::GetFileTypeFromDatasmithFile(FilePath, ErrorMessage);
 
@@ -202,15 +192,38 @@ void UCavrnusPropertyAssetProcessor::ProcessDatasmithRuntimeActorProperties(cons
 bool UCavrnusPropertyAssetProcessor::isDatasmithChild(const AActor* Actor)
 {
 	const AActor* ActorPtr = Actor;
+	TSet<const AActor*> Visited;
+
 	while (ActorPtr)
 	{
+		if (Visited.Contains(ActorPtr))
+		{
+			// Prevent infinite loop in case of circular attachment
+			break;
+		}
+		Visited.Add(ActorPtr);
+
 		if (Cast<ADatasmithRuntimeActor>(ActorPtr))
+		{
 			return true;
-		ActorPtr = ActorPtr->GetRootComponent()->GetAttachParent()->GetOwner();
+		}
+
+		const USceneComponent* RootComp = ActorPtr->GetRootComponent();
+		if (!RootComp)
+		{
+			break;
+		}
+
+		const USceneComponent* ParentComp = RootComp->GetAttachParent();
+		if (!ParentComp)
+		{
+			break;
+		}
+
+		ActorPtr = ParentComp->GetOwner();
 	}
 	return false;
 }
-
 
 void UCavrnusPropertyAssetProcessor::SpecialActorClassProcessing(const AActor* Actor, const FString& Container)
 {
@@ -354,11 +367,13 @@ int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const 
 
 	UCavrnusCVTGameSubsystem* CVTSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UCavrnusCVTGameSubsystem>();
 
+	/*
 	if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())
 	{
 		FString ActorName = Actor->GetName();
 		SyncTransform->Setup(SpaceConnection, Container, "_Transform", Actor);
 	}
+	*/
 
 	for (TFieldIterator<FProperty> PropIt(ActorClass); PropIt; ++PropIt)
 	{
@@ -546,6 +561,45 @@ void UCavrnusPropertyAssetProcessor::FixMaterialsOnRuntimeDatasmithActor(ADatasm
 
 }
 
+void UCavrnusPropertyAssetProcessor::GetAllRelevantActorsRecursive(AActor* RootActor, TArray<AActor*>& OutActors)
+{
+	if (!RootActor)
+	{
+		return;
+	}
+
+	// Use a set to avoid duplicates or circular references
+	TSet<AActor*> Visited;
+	TQueue<AActor*> ActorQueue;
+
+	ActorQueue.Enqueue(RootActor);
+	Visited.Add(RootActor);
+
+	while (!ActorQueue.IsEmpty())
+	{
+		AActor* CurrentActor = nullptr;
+		ActorQueue.Dequeue(CurrentActor);
+
+		if (!CurrentActor)
+		{
+			continue;
+		}
+
+		OutActors.Add(CurrentActor);
+
+		TArray<AActor*> AttachedActors;
+		CurrentActor->GetAttachedActors(AttachedActors);
+
+		for (AActor* ChildActor : AttachedActors)
+		{
+			if (ChildActor && !Visited.Contains(ChildActor))
+			{
+				Visited.Add(ChildActor);
+				ActorQueue.Enqueue(ChildActor);
+			}
+		}
+	}
+}
 
 void UCavrnusPropertyAssetProcessor::GetAllStaticMeshActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors)
 {

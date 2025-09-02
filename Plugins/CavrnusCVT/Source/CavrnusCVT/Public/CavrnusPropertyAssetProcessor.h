@@ -25,7 +25,8 @@ public:
 	int SingletonInit;
 
 	static void GetAllStaticMeshActorsRecursive(const AActor* InRoot, TArray<AStaticMeshActor*>& OutMeshActors);
-	
+	static void GetAllRelevantActorsRecursive(AActor* RootActor, TArray<AActor*>& OutActors);
+
 	UFUNCTION(BlueprintCallable, Category = "Cavrnus")
 	void ProcessDatasmithRuntimeActorProperties(const FString& FilePath, ADatasmithRuntimeActor* Actor, const FString& Container);
 

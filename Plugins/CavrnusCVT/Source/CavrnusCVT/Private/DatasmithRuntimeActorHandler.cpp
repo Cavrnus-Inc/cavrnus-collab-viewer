@@ -25,32 +25,48 @@ void UDatasmithRuntimeActorHandler::Initialize(ADatasmithRuntimeActor* InActor, 
 void UDatasmithRuntimeActorHandler::PollActorStatus()
 {
     if (!TargetActor.IsValid())
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Datasmith Loader : Target Actor is no longer valid"));
         return;
+    }
 
     ADatasmithRuntimeActor* Actor = TargetActor.Get();
 
     const bool bIsBuilding = Actor->bBuilding;
     const bool bIsReceiving = Actor->IsReceiving();
 
-    UE_LOG(LogTemp, Warning, TEXT("%s %s"), bIsBuilding ? TEXT("B") : TEXT("NB"), bIsReceiving ? TEXT("R") : TEXT("NR"));
+   
     if (bWaitingForLoadStart)
     {
         if (bIsBuilding || bIsReceiving)
         {
+            UE_LOG(LogTemp, Warning, TEXT("Datasmith Loader : Waiting for Load to start"));
             bWaitingForLoadStart = false;
         }
         return;
     }
-
     if (bIsBuilding || bIsReceiving)
     {
+        UE_LOG(LogTemp, Warning, TEXT("Datasmith Loader : Loading In Progress"))
         return;
     }
+    UE_LOG(LogTemp, Warning, TEXT("Datasmith Loader : Loading Finished"))
 
     UE_LOG(LogTemp, Error, TEXT("XXXX - TIMER FINISHED"));
     OnActorLoadedCallback.ExecuteIfBound(Actor);
     GetWorld()->GetTimerManager().ClearTimer(PollTimerHandle);
 
-
+    RemoveFromRoot(); // Oh, this is likely to screw us eventually.  Should be managed in a subsystem.  Ugh
     MarkAsGarbage(); // Destroy Handler
+
+}
+
+void UDatasmithRuntimeActorHandler::BeginDestroy()
+{
+    UWorld* World = GetWorld();
+    if (World)
+    {
+        World->GetTimerManager().ClearTimer(PollTimerHandle);
+    }
+    Super::BeginDestroy();
 }

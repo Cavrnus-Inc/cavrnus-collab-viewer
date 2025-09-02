@@ -25,6 +25,7 @@ void UImprovedDatasmithRuntimeBlueprintLibrary::SpawnDatasmithRuntimeActor(UObje
     }
 
     OutHandler = NewObject<UDatasmithRuntimeActorHandler>(WorldContextObject);
+    OutHandler->AddToRoot();
     OutHandler->Initialize(Actor, FilePath, OnLoadedCallback);
 
 }
