@@ -20,6 +20,7 @@ class CAVRNUSCVT_API UCavrnusDataSmithTransformSync : public UObject
 	GENERATED_BODY()
 public:
 	void Setup(const FCavrnusSpaceConnection& InSpaceConn, const FString& InContainer, const FString& InProperty, AActor* InActor);
+	void Cleanup();
 
 protected:
 	virtual void BeginDestroy() override;

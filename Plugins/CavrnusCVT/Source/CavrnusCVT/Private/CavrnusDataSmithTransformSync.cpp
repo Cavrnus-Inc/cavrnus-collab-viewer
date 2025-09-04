@@ -14,6 +14,20 @@ void UCavrnusDataSmithTransformSync::Setup(const FCavrnusSpaceConnection& InSpac
 	SetServerBinding();
 }
 
+void UCavrnusDataSmithTransformSync::Cleanup()
+{
+	CancelLocalFinalizeTimer();
+	if (Binding)
+	{
+		Binding->Unbind();
+		Binding = nullptr;
+	}
+	if (LiveUpdater)
+	{
+		LiveUpdater->Cancel();
+		LiveUpdater = nullptr;
+	}
+}
 void UCavrnusDataSmithTransformSync::BeginDestroy()
 {
 	UObject::BeginDestroy();
@@ -86,6 +100,7 @@ void UCavrnusDataSmithTransformSync::CancelLocalFinalizeTimer()
 	if (TargetActor && TransformUpdaterHandle.IsValid())
 	{
 		const UWorld* World = TargetActor->GetWorld();
-		World->GetTimerManager().ClearTimer(TransformUpdaterHandle);
+		if (World)
+			World->GetTimerManager().ClearTimer(TransformUpdaterHandle);
 	}
 }

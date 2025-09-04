@@ -18,9 +18,14 @@ public:
     UFUNCTION(BlueprintCallable)
     UCavrnusPropertyAssetProcessor* GetCPAP() { return CPAP; }
 
+    UFUNCTION(BlueprintCallable)
+	void AddTransformSync(UCavrnusDataSmithTransformSync* NewSync) { TransformSyncs.Add(NewSync); }
+
 private:
     UPROPERTY()
     UCavrnusPropertyAssetProcessor* CPAP;
 
-    
+    UPROPERTY()
+    TArray<UCavrnusDataSmithTransformSync*> TransformSyncs;
+
 };

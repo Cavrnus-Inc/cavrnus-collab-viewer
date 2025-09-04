@@ -367,13 +367,13 @@ int UCavrnusPropertyAssetProcessor::ProcessActorProperties(AActor* Actor, const 
 
 	UCavrnusCVTGameSubsystem* CVTSubsystem = GetWorld()->GetGameInstance()->GetSubsystem<UCavrnusCVTGameSubsystem>();
 
-	/*
-	if (auto* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>())
+	UCavrnusDataSmithTransformSync* SyncTransform = NewObject<UCavrnusDataSmithTransformSync>();
+	if (SyncTransform)
 	{
 		FString ActorName = Actor->GetName();
 		SyncTransform->Setup(SpaceConnection, Container, "_Transform", Actor);
+		CVTSubsystem->AddTransformSync(SyncTransform);
 	}
-	*/
 
 	for (TFieldIterator<FProperty> PropIt(ActorClass); PropIt; ++PropIt)
 	{

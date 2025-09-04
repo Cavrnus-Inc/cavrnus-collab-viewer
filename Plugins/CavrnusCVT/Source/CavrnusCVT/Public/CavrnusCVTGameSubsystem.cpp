@@ -15,6 +15,10 @@ void UCavrnusCVTGameSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 
 void UCavrnusCVTGameSubsystem::Deinitialize()
 {
-
+	for (UCavrnusDataSmithTransformSync* Sync : TransformSyncs)
+	{
+		if (Sync)
+			Sync->Cleanup();
+	}
 }
 
