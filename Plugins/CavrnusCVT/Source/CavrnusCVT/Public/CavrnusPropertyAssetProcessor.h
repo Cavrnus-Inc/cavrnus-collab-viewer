@@ -10,7 +10,7 @@
 #include "UObject/Object.h"
 #include "DatasmithRuntime.h"
 #include "Engine/StaticMeshActor.h"
-#include "DatasmithUtilities.h"
+#include "FileImporter/DatasmithUtilities.h"
 #include "CavrnusPropertyAssetProcessor.generated.h"
 
 UCLASS()

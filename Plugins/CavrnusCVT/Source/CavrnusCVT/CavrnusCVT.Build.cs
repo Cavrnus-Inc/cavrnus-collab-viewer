@@ -10,10 +10,6 @@ public class CavrnusCVT : ModuleRules
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CavrnusConnector", "CoreUObject", "Engine", "InputCore", "Json", "JsonUtilities", "Slate", "SlateCore", "zlib", "DeveloperSettings","DatasmithRuntime"});
-
-		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "Archive"));
-		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "Archive/ZipUtilities"));
-		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "Archive/ZipUtilities/ThirdParty"));
 		
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
