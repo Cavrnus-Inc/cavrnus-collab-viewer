@@ -7,7 +7,7 @@ public class CavrnusCollabViewerTarget  : TargetRules
 	public CavrnusCollabViewerTarget (TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V4;
+		DefaultBuildSettings = BuildSettingsVersion.Latest;
 		ExtraModuleNames.AddRange( new string[] { "CavrnusCollabViewer" } );
 	}
 }
